@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container pt-5" style="max-width:400px">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" name="HOA" type="text" placeholder="HOA">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="Amount" type="text" placeholder="Amount">
+        </div>
+
+        
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+{% endblock content %}

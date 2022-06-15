@@ -1,0 +1,85 @@
+<nav class="navbar navbar-light navbar-expand-md sticky-top bg-white py-3">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="nav-contents">
+      <picture id="logo">
+        <a href="{% url 'home'%}">
+          <img
+            src="\static\images\BosyoLogoClear.png"
+            style="width: 174px; margin: 0px; padding: 0px"
+          />
+        </a>
+      </picture>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item" id="home">
+          <a
+            class="nav-link active fs-5 fw-lighter"
+            href="#Home"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              margin: 0px;
+              text-align: center;
+            "
+            >Home</a
+          >
+        </li>
+        <li
+          class="nav-item fs-5 fw-lighter"
+          id="services"
+          style="
+            font-family: Roboto, sans-serif;
+            font-size: 19px;
+            text-align: center;
+            margin: 0px;
+          "
+        >
+          <a
+            class="nav-link active fs-5 fw-lighter"
+            href="#Our-Services"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+            >Our Services</a
+          >
+        </li>
+        <li
+          class="nav-item fs-5 fw-lighter"
+          id="contact-us"
+          style="
+            font-family: Roboto, sans-serif;
+            font-size: 19px;
+            text-align: center;
+            margin: 0px;
+          "
+        >
+          <a
+            class="nav-link active fs-5 fw-lighter"
+            href="#Contact-Us"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+      <span
+        class="text-dark navbar-text"
+        style="margin: 6px; font-style: italic"
+        >Welcome! Click here to</span
+      ><a
+        class="btn btn-dark"
+        role="button"
+        id="sign-up"
+        style="width: 90px; height: 40px"
+        href="{% url 'login'%}"
+        ><em>Log In</em></a
+      >
+    </div>
+  </div>
+</nav>

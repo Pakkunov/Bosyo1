@@ -1,0 +1,131 @@
+{% extends "main.html" %}
+
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+
+<p>User Table</p>
+
+  <div class="container" >
+    <div class="position-start">
+      <div class="table-responsive">
+        <table class="table table-stripe">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Mobile phone</th>
+                <th>Landline</th>
+                <th>Number of houses</th>
+                <th>Rate</th>
+                <th>Payrate</th>
+                <th>Outstanding Balance</th>
+
+
+
+              </tr>
+            </thead>
+            <tbody>
+            {% for user in accounts %}  
+              <tr>
+                <td>{{user.username}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.MobilePhone}}</td>
+                <td>{{user.Landline}}</td>
+                <td>{{user.houses}}</td>
+                <td>{{user.rate}}</td>
+                <td>{{user.payrate}}</td>
+                <td>{{user.outstanding_balance}}</td>
+
+              </tr>
+              {% endfor %} 
+            </tbody>
+        
+        </table>	
+    </div>
+
+    <div class="container" >
+      <div class="position-start">
+
+        <div class="table-responsive">
+          <table class="table table-stripe">
+              <thead>
+                <tr>
+                  <th>Truck no.</th>
+                  <th>Driver</th>
+                  <th>Helpers</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for truck in trucks %}  
+                <tr>
+                  <td>{{truck.Truck_number}}</td>
+                  <td>{{truck.Driver_Name}}</td>
+                  <td>{{truck.Helper}}</td>
+
+                </tr>
+                {% endfor %} 
+              </tbody>
+        
+          </table>
+        </div>
+          <div class="container" >
+            <div class="position-start">
+      
+              <div class="table-responsive">
+                <table class="table table-stripe">
+                    <thead>
+                      <tr>
+                        <th>Date paid</th>
+                        <th>User who paid</th>
+                        <th>Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for payment in payments %}  
+                      <tr>
+                        <td>{{payment.Date_paid}}</td>
+                        <td>{{payment.User_who_Paid}}</td>
+                        <td>{{payment.amount}}</td>
+      
+                      </tr>
+                      {% endfor %} 
+                    </tbody>
+                
+                </table>	          
+        </div>
+      </div>
+    
+    
+      <div class="container" >
+        <div class="position-start">
+          <div class="table-responsive">
+            <table class="table table-stripe">
+                <thead>
+                  <tr>
+                    <th>Truck Part Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Truck Used On</th>
+    
+    
+    
+                  </tr>
+                </thead>
+                <tbody>
+                {% for part in parts %}  
+                  <tr>
+                    <td>{{part.Truck_Part_Name}}</td>
+                    <td>{{part.Price}}</td>
+                    <td>{{part.Quantity}}</td>
+                    <td>{{part.Total}}</td>
+                    <td>{{part.Truck_Used_On}}</td>    
+                  </tr>
+                  {% endfor %} 
+                </tbody>
+            
+            </table>	
+        </div>
+    
+
+{% endblock content %}

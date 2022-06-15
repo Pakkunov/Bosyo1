@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1> Dashboard</h1>
+<div class="card">
+    <div class="card-body">
+        <h1>Name:{{user.username}}</h1>
+        <h1>Adress:{{user.address}}</h1>
+        <h1>Mobile Phone:{{user.MobilePhone}}</h1>
+        <h1>Landline:{{user.Landline}}</h1>
+        <h1>Number of houses:{{user.houses}}</h1>
+        <h1>Rate:{{user.rate}}</h1>
+        <h1>Payrate:{{user.payrate}}</h1>
+        <h1>Balance:{{user.outstanding_balance}}</h1>
+    </div>
+</div> 
+
+
+
+{% endblock content %}
