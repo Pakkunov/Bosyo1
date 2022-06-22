@@ -5,6 +5,63 @@
 
 {% if page == 'login' %}
 
+<style>
+    /* universal tag*/
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+  
+      body {
+        background-color: rgb(239, 239, 239);
+      }
+  
+      /* adding border for login */
+      .row {
+        background-color: white;
+        border-radius: 30px;
+        box-shadow: 12px 12px 12px rgb(197, 197, 197);
+      }
+  
+      img {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      
+      .btnlogin {
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+  
+      .btnlogin:hover {
+        background-color: white;
+        border: 2px solid;
+        color: black;
+        transition: all .3s;
+      }
+  
+      a {
+        color: green;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        color: green;
+        
+      }
+  
+  
+  </style>
+
 <body>
     <section class="register-photo" style="background-color: transparent;">
         <div class="form-container" style="margin-top: 40px;">
@@ -12,7 +69,8 @@
             <form method="post" action="" style="height: 525px;width: 500px; text-align: center; width: 50vw; margin-left : 25vw;">
 				{% csrf_token %}
                 <h2 class="text-center"><strong>Login to your account.</strong></h2>
-                <div class="form-group mb-3"><input class="form-control" type="email" name="email" placeholder="Enter your E-mail address."></div><script>
+                <div class="form-group mb-3"><input class="form-control" type="email" name="email" placeholder="Enter your E-mail address."></div>
+<script>
     // Submit button made with javascript
     function changePassword() {
         var password = document.querySelector("#password").value;

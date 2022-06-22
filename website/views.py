@@ -136,3 +136,6 @@ def TruckMaintenance(request):
 
 def ContactForm(request):
     return render(request,'contact-form.html')
+
+def debugmode(request):
+    return render(request,'debugmode.html')

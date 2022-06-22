@@ -1,0 +1,113 @@
+{% extends "main.html" %} {% load static %} {% block content %}
+
+<style>
+  /* universal tag*/
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(239, 239, 239);
+    }
+
+    /* adding border for login */
+    .row {
+      background-color: white;
+      border-radius: 30px;
+      box-shadow: 12px 12px 12px rgb(197, 197, 197);
+    }
+
+    img {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    
+    .btnlogin {
+      border: none;
+      outline: none;
+      height: 50px;
+      width: 100%;
+      background-color: black;
+      color: white;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .btnlogin:hover {
+      background-color: white;
+      border: 2px solid;
+      color: black;
+      transition: all .3s;
+    }
+
+    a {
+      color: green;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: green;
+      
+    }
+
+
+</style>
+
+<a
+  class="btn btn-primary"
+  role="button"
+  style="margin: 15px"
+  href="{% url 'contact-form'%}"
+  >Testing Button: Editing</a
+>
+
+  <section class="Form my-3 mx-5">
+    <div class="container">
+      <!-- responsive border -->
+      <div class="row no-gutters">
+          <div class="col-lg-5">
+            <img src="\static\images\gradient_green.jpg" class="img-fluid my-3" style="width: 600px; height: 460px" alt="">
+          </div>
+          <div class="col-lg-7 px-xl-5 pt-5">
+            <h1 style="font-weight: bold;">
+              Login
+            </h1>
+            <h5 class="py-2">
+              Sign in to your account
+            </h5>
+            <form>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <input type="email" placeholder="Email Address" class="form-control my-3 p-2">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <input type="password" placeholder="Password" class="form-control my-3 p-2">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <button type="button" class="btnlogin mt-3 mb-5">Login</button>
+                </div>
+              </div>
+              <a href="#">Forgot Password?</a>
+              <p>Don't have an account yet? <a href="{% url 'contact-form'%}">Contact us to register.</a></p>
+            </form>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+{% endblock content %}
