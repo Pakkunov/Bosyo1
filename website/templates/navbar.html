@@ -1,85 +1,172 @@
-<nav class="navbar navbar-light navbar-expand-md sticky-top bg-white py-3">
-  <div class="container">
-    <div class="collapse navbar-collapse" id="nav-contents">
-      <picture id="logo">
-        <a href="{% url 'home'%}">
-          <img
-            src="\static\images\BosyoLogoClear.png"
-            style="width: 174px; margin: 0px; padding: 0px"
-          />
-        </a>
-      </picture>
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item" id="home">
-          <a
-            class="nav-link active fs-5 fw-lighter"
-            href="#Home"
-            style="
-              font-family: Roboto, sans-serif;
-              font-size: 19px;
-              margin: 0px;
-              text-align: center;
-            "
-            >Home</a
-          >
-        </li>
-        <li
-          class="nav-item fs-5 fw-lighter"
-          id="services"
-          style="
-            font-family: Roboto, sans-serif;
-            font-size: 19px;
-            text-align: center;
-            margin: 0px;
-          "
-        >
-          <a
-            class="nav-link active fs-5 fw-lighter"
-            href="#Our-Services"
-            style="
-              font-family: Roboto, sans-serif;
-              font-size: 19px;
-              text-align: center;
-              margin: 0px;
-            "
-            >Our Services</a
-          >
-        </li>
-        <li
-          class="nav-item fs-5 fw-lighter"
-          id="contact-us"
-          style="
-            font-family: Roboto, sans-serif;
-            font-size: 19px;
-            text-align: center;
-            margin: 0px;
-          "
-        >
-          <a
-            class="nav-link active fs-5 fw-lighter"
-            href="#Contact-Us"
-            style="
-              font-family: Roboto, sans-serif;
-              font-size: 19px;
-              text-align: center;
-              margin: 0px;
-            "
-            >Contact Us</a
-          >
-        </li>
-      </ul>
-      <span
-        class="text-dark navbar-text"
-        style="margin: 6px; font-style: italic"
-        >Welcome! Click here to</span
-      ><a
-        class="btn btn-dark"
-        role="button"
-        id="sign-up"
-        style="width: 90px; height: 40px"
-        href="{% url 'login'%}"
-        ><em>Log In</em></a
+
+<style>
+
+:focus {outline:none;}
+
+  .btn:hover {
+    background-color: white;
+    border: 1px solid;
+    color: black;
+    transition: all 0.2s;
+  }
+
+  #home {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+  }
+
+  #home:hover {
+    background-size: 75% 0.2em;
+  }
+
+  #services {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+  }
+
+  #services:hover {
+    background-size: 75% 0.2em;
+  }
+  #contact-us {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+  }
+
+  #contact-us:hover {
+    background-size: 75% 0.2em;
+  }
+</style>
+
+<body
+  style="
+    --bs-primary: #008751;
+    --bs-primary-rgb: 0, 135, 81;
+    --bs-secondary: #1f1f1f;
+    --bs-secondary-rgb: 31, 31, 31;
+    --bs-success: #31f99d;
+    --bs-success-rgb: 49, 249, 157;
+  "
+>
+  <nav class="navbar navbar-light navbar-expand-lg sticky-top bg-white py-3">
+    <div class="container">
+      <button
+        data-bs-toggle="collapse"
+        class="navbar-toggler"
+        data-bs-target="#nav-contents"
       >
+        <!-- responsive navigation bar -->
+        <span class="visually-hidden">Toggle navigation</span
+        ><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-contents">
+        <a href="{% url 'home'%}"
+          ><picture id="logo"
+            ><img
+              src="\static\images\BosyoLogoClear.png"
+              class="py-1 d-none d-lg-block"
+              style="width: 174px; margin: 0px; padding: 0px" /></picture
+        ></a>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item" id="home">
+            <a
+              class="nav-link active fs-5 fw-lighter"
+              href="#"
+              style="
+                font-family: Roboto, sans-serif;
+                font-size: 19px;
+                margin: 0px;
+                text-align: center;
+              "
+              >Home</a
+            >
+          </li>
+          <li
+            class="nav-item fs-5 fw-lighter"
+            id="services"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+          >
+            <a
+              class="nav-link active fs-5 fw-lighter"
+              href="#Our-Services"
+              style="
+                font-family: Roboto, sans-serif;
+                font-size: 19px;
+                text-align: center;
+                margin: 0px;
+              "
+              >Our Services</a
+            >
+          </li>
+          <li
+            class="nav-item fs-5 fw-lighter"
+            id="contact-us"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+          >
+            <a
+              class="nav-link active fs-5 fw-lighter"
+              href="#Contact-Map"
+              style="
+                font-family: Roboto, sans-serif;
+                font-size: 19px;
+                text-align: center;
+                margin: 0px;
+              "
+              >Contact Us</a
+            >
+          </li>
+          <li
+            class="nav-item fs-5 fw-lighter mx-auto"
+            id="loginLG"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+          >
+          <!-- show on resize -->
+            <a
+              class="btn btn-dark mx-3 py-2 d-none d-sm-block d-xl-none"
+              role="button"
+              style="width: 80px; height: 40px"
+              href="{% url 'login'%}"
+              ><em>Log in</em></a
+            >
+          </li>
+        </ul>
+        <ul class="nav justify-content-center">
+          <span
+            class="text-dark navbar-text px-2 d-none d-xl-block"
+            style="font-style: italic"
+            >Welcome! Click here to </span
+          ><a
+            class="btn btn-dark d-none d-xl-block"
+            role="button"
+            style="width: 90px; height: 40px"
+            href="{% url 'login'%}"
+            ><em>Log In</em></a
+          >
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</body>

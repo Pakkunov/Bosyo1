@@ -1,0 +1,28 @@
+
+
+:root{
+    --primary-color:#19968d;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+a:hover {
+  text-decoration: none;
+} 
+.font-weight-600{
+  font-weight: 600;
+}
+.bg-primary-color{
+  background-color:var(--primary-color);
+}
+.text-primary-color{
+  color:var(--primary-color);
+}
+
+#service1 i{
+    font-size: 40px;
+}
+
+#service2 i{
+    font-size: 40px;
+}
