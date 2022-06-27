@@ -1,79 +1,33 @@
 
-<style>
+{% load static %}
+{% block content %}
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<link rel="stylesheet" href=" {% static '/css/sidebarstyle.css' %} ">
 
-body {
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0%;
-    height: 100%;
-    width: 240px;
-    background: #0c0c0c;
-    padding: 20px 14px;
-}
-
-.sidebar .logo_content .logo {
-    color: #fff;
-    display: flex;
-    height: 50px;
-    width: 100%;
-    align-items: center;
-}
-
-.logo_content .logo i {
-    font-size: 28px;
-    margin-right: 5px;
-}
-
-.logo_content .logo .logo_name{
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.sidebar #btn{
-    position: absolute;
-    color: #fff;
-    left: 90%;
-    top: 6px;
-    font-size: 20px;
-    height: 50px;
-}
-
-</style>
 
 <body>
     
 <div class="sidebar">
     <div class="logo_content">
-        <div class="logo">
+        <div class="logo px-4">
             <img
               src="\static\images\BosyoLogoClear.png"
-              style="width: 174px; margin: 0px; padding: 0px" />
+              style="width: 150px;" />
             <div class="logo_name">
-                Bosyo Garbage Collector
+                <!-- Bosyo Garbage Collector -->
             </div>
         </div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
-    <ul class="nav_list" style="list-style-type:none;">
+    <ul class="nav_list px-1">
         <li>
-                <i class='bx bx-search-alt' ></i>
+                <i class='bx bx-search py-3 px-3' ></i>
                 <input type="text" placeholder="Search here...">
             <!-- <span class="tooltip">Dashboard</span> -->
         </li>
-        <li>
+    </ul>
+    <ul class="px-0">
+        <li class="">
             <a href="#">
                 <i class='bx bxs-dashboard' ></i>
                 <span class="links_name">Dashboard</span>
@@ -111,14 +65,14 @@ body {
     <div class="profile_content">
         <div class="profile">
             <div class="profile_details">
-                <i class='bx bxs-user-circle' ></i>
-                <div class="name">John Doe</div>
-                <div class="job">Truck Driver</div>
+                <img src="\static\images\user.png" class="user_icon">
+                <div class="name">Welcome, <span class="username_profile">{{user.username}}!</span></div>
+                <a class="logout_link" href="{% url 'logout'%}"><i class='bx bx-log-out' id="log_out"></i></a>
             </div>
         </div>
-        <i class='bx bx-log-out' id="log_out"></i>
     </div>
 </div>
 
-
 </body>
+
+{% endblock content %}
