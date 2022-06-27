@@ -77,7 +77,6 @@
               style="width: 174px; margin: 0px; padding: 0px" /></picture
         ></a>
         <ul class="navbar-nav mx-auto">
-          {% if request.user.is.staff %}
           <li class="nav-item" id="home">
             <a
               class="nav-link active fs-5 fw-lighter"
@@ -89,8 +88,6 @@
                 text-align: center;
               "
               >Home</a>
-          {% endif %}
-
           </li>
           <li
             class="nav-item fs-5 fw-lighter"
@@ -104,7 +101,7 @@
           >
             <a
               class="nav-link active fs-5 fw-lighter"
-              href="{% url 'manualpayment' %}"
+              href="#Our-Services"
               style="
                 font-family: Roboto, sans-serif;
                 font-size: 19px;
@@ -164,7 +161,7 @@
           ><a
             class="btn btn-dark d-none d-xl-block"
             role="button"
-            style="width: 90px; height: 40px"
+            style="width: 80px; height: 40px"
             href="{% url 'login'%}"
             ><em>Log In</em></a
           >

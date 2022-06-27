@@ -55,8 +55,64 @@
   a:hover {
     color: green;
   }
+
+  .btnReturn {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+
+  }
+
+  .btnReturn:hover {
+    background-color: white;
+    border: 1px solid;
+    color: black;
+    transition: all 0.2s;
+  }
+
 </style>
 
+<nav class="navbar navbar-light navbar-expand-lg sticky-top bg-white py-3">
+  <div class="container">
+    <button
+      data-bs-toggle="collapse"
+      class="navbar-toggler"
+      data-bs-target="#nav-contents"
+    >
+      <!-- responsive navigation bar -->
+      <span class="visually-hidden">Toggle navigation</span
+      ><span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav-contents">
+      <a href="{% url 'home'%}"
+        ><picture id="logo"
+          ><img
+            src="\static\images\BosyoLogoClear.png"
+            class="py-1 d-none d-lg-block"
+            style="width: 174px; margin: 0px; padding: 0px" /></picture
+      ></a>
+      <ul class="navbar-nav mx-auto">
+      </ul>
+      <ul class="nav justify-content-center">
+        <span
+          class="text-dark navbar-text px-2 d-none d-xl-block"
+          style="font-style: italic"
+          >Want to go back? Click here to return</span
+        ><a
+          class="btnReturn btn-dark d-none d-xl-block py-2"
+          role="button"
+          style="width: 80px; height: 40px"
+          href="{% url 'home'%}"
+          ><em>Home</em></a
+        >
+      </ul>
+    </div>
+  </div>
+</nav>
 <!-- New login form-->
 <section class="Form my-3 mx-5">
   <div class="container">
@@ -66,14 +122,15 @@
         <img
           src="\static\images\gradient_green.jpg"
           class="img-fluid my-3 mx-auto d-none d-lg-block"
-          style="width: 650px; height: 460px"
+          style="width: 550px; height: 460px"
           alt=""
         />
       </div>
       <div class="col-lg-6 px-xl-5 pt-5">
         <h1 style="font-weight: bold">Login</h1>
         <h6 class="py-2">Sign in to your account.</h6>
-        <form>
+        <form method="post" action="">
+          {% csrf_token %}
           <div class="form-row">
             <div class="col-lg-7">
               <input
@@ -94,10 +151,9 @@
           </div>
           <div class="form-row">
             <div class="col-lg-7">
-              <button type="button" class="btnlogin mt-3 mb-5">Login</button>
+              <button type="submit" class="btnlogin mt-3 mb-5">Login</button>
             </div>
           </div>
-          <a href="#">Forgot Password?</a>
           <p>
             Don't have an account yet?
             <a href="{% url 'contact-form'%}">Contact us to register.</a>
@@ -108,37 +164,7 @@
   </div>
 </section>
 
-<!-- Navbar BROKEN -->
-<div class="container">
-  <nav class="navbar navbar-expand-xl navbar-light">
-    <a href="#" class="navbar-brand">Bootstrap 5</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-targe="#toggleMobileMenu"
-      aria-controls="#toggleMobileMenu"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="toggleMobileMenu">
-      <ul class="navbar-nav text-center">
-        <li>
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">Contact Us</a>
-        </li>
-      </ul>
-    </div>
 
-  </nav>
-</div>
 
 
 <!-- Our Services NEW -->
@@ -185,6 +211,7 @@
     </div>
   </section>
 </div>
+
 
 
 
