@@ -83,6 +83,10 @@
     background-size: 100% 100%;
     transition: .25s;
     }
+
+    .alert {
+      width: 58%;
+    }
   
   </style>
   <!-- New login form-->
@@ -90,7 +94,7 @@
     <div class="container">
       <!-- responsive form -->
       <div class="row no-gutters">
-        <div class="col-lg-6">
+        <div class="bg-container col-lg-6">
           <img
             src="\static\images\gradient_green.jpg"
             class="img-fluid my-3 mx-auto d-none d-lg-block"
@@ -101,6 +105,17 @@
         <div class="col-lg-6 px-xl-5 pt-5">
           <h1 style="font-weight: bold">Login</h1>
           <h6 class="py-2"><span class="servicesUnderline">Sign in to your account.</span></h6>
+
+          {% if messages %}
+          <div class="alert alert-danger" role="alert">
+              <div class="messages">
+                  {% for message in messages %}
+                  {{ message }}
+                  {% endfor %}
+              </div>
+          </div>
+          {% endif %}
+
           <form method="post" action="">
             {% csrf_token %}
             <div class="form-row">

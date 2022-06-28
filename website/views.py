@@ -41,7 +41,7 @@ def loginPage(request):
             else:
                 return redirect('userProfile')
         else:
-            messages.error(request, 'Username OR password does not exist')
+            messages.error(request, "The username or password that you entered is wrong.")
 
 
     context ={'page': page}
@@ -65,7 +65,7 @@ def registerUser(request):
             login(request, user)
             return redirect('userProfile')
         else:
-            messages.error(request,'An error occured during registration')
+            messages.error(request,'An error occured during registration.')
     return render(request, 'login_register.html', {'form':form})
 
 
@@ -86,7 +86,7 @@ def staffpage(request):
 
 
     if not request.user.is_staff:
-        messages.error(request, 'You are not allowed to view this page')
+        messages.error(request, 'You are not allowed to view this page.')
         return redirect('userProfile')
     return render(request, 'staffpage.html', {'accounts':accounts,'trucks':trucks,'payments':payments,'parts':parts})
 
@@ -96,7 +96,7 @@ def index(request):
 
 def manualpayment(request):
         if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page')
+            messages.error(request, 'You are not allowed to view this page.')
             return redirect('userProfile')
 
         if request.method == 'POST':
