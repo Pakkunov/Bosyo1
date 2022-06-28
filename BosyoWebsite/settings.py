@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mzd8m-qtnmvf^$4+8&gp#b7-r6x=at-m9h^ve08+#8^jh&#@c7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bosyogarbagecollector.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'bosyogarbagecollector.herokuapp.com']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'website',
+    'whitenoise.runserver_nostatic',
     
 
 
@@ -55,10 +56,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'BosyoWebsite.urls'
 AUTH_USER_MODEL = 'website.Account'
+
 
 TEMPLATES = [
     {
@@ -82,6 +86,9 @@ WSGI_APPLICATION = 'BosyoWebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+import dj_database_url
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -92,6 +99,9 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
