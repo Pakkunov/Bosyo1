@@ -1,28 +1,104 @@
-
-
-:root{
-    --primary-color:#19968d;
+:root {
+  --primary-color: #19968d;
 }
 body {
   font-family: "Poppins", sans-serif;
 }
 a:hover {
   text-decoration: none;
-} 
-.font-weight-600{
+}
+.font-weight-600 {
   font-weight: 600;
 }
-.bg-primary-color{
-  background-color:var(--primary-color);
+.bg-primary-color {
+  background-color: var(--primary-color);
 }
-.text-primary-color{
-  color:var(--primary-color);
-}
-
-#service1 i{
-    font-size: 40px;
+.text-primary-color {
+  color: var(--primary-color);
 }
 
-#service2 i{
-    font-size: 40px;
+#service1 i {
+  font-size: 40px;
 }
+
+#service2 i {
+  font-size: 40px;
+}
+
+/* universal tag*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+}
+
+/* removed 6/23/22
+    .row {
+      background-color: white;
+  
+      box-shadow: 12px 12px 12px rgb(197, 197, 197);
+    }
+    */
+
+/* removed 6/24/22
+    img {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }*/
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.btnlogin {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btnlogin:hover {
+  background-color: white;
+  border: 1px solid;
+  color: black;
+  transition: all 0.2s;
+}
+
+a {
+  color: green;
+  text-decoration: none;
+}
+
+a:hover {
+  color: green;
+}
+
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 100%;
+  transition: background-size 0.25s ease-in;
+  cursor: default;
+}
+
+.servicesUnderline:hover {
+  background-size: 100% 100%;
+  transition: 0.25s;
+}
+
+

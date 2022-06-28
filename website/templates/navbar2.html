@@ -1,4 +1,4 @@
-{% load static %}
+
 
 <style>
     /* universal tag*/
@@ -120,16 +120,20 @@
         </ul>
         
         <ul class="nav justify-content-center">
+          <h6 class="my-3 px-2">
           <span
-            class="text-dark navbar-text px-2"
+            class="text-dark navbar-text"
             style="font-style: italic"
             >Want to go back? Click the button to return</span
-          ><a
-            class="btnReturn btn-dark py-2"
+          >
+          </h6>
+          <a
+            class="btnReturn btn-dark py-2 my-1"
             role="button"
             style="width: 80px; height: 40px"
             href="{% url 'home'%}"
-            ><em>Home</em></a
+            ><em>Home</em>
+          </a
           >
         </ul>
       </div>

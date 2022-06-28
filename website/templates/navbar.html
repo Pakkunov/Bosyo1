@@ -133,6 +133,7 @@
               >Contact Us</a
             >
           </li>
+          <!-- show on resize LOGIN -->
           <li
             class="nav-item fs-5 fw-lighter mx-auto"
             id="loginLG"
@@ -143,21 +144,57 @@
               margin: 0px;
             "
           >
-          <!-- show on resize -->
+          {% if user.is_authenticated %}
             <a
               class="btn btn-dark mx-3 py-2 d-none d-sm-block d-xl-none"
               role="button"
               style="width: 80px; height: 40px"
               href="{% url 'login'%}"
-              ><em>Log in</em></a
+              ><em>Logout</em></a
+            >
+          </li>
+          <!-- show on resize LOGOUT -->
+          {% else %}
+          <li
+            class="nav-item fs-5 fw-lighter mx-auto"
+            id="loginLG"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+          >
+            <a
+              class="btn btn-dark mx-3 py-2 d-none d-sm-block d-xl-none"
+              role="button"
+              style="width: 80px; height: 40px"
+              href="{% url 'logout'%}"
+              ><em>Logout</em></a
             >
           </li>
         </ul>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <ul class="d-flex align-items-end">
+          <span
+            class="text-dark navbar-text px-2 d-none d-xl-block"
+            ></span
+          ><a
+            class="btn btn-dark d-none d-xl-block"
+            role="button"
+            style="width: 80px; height: 40px"
+            href="{% url 'logout'%}"
+            ><em>Logout</em></a
+          >
+        </ul>
+
+        {% else %}
         <ul class="nav justify-content-center">
           <span
             class="text-dark navbar-text px-2 d-none d-xl-block"
-            style="font-style: italic"
-            >Welcome! Click here to </span
+            ><em>Welcome! Click here to </em></span
           ><a
             class="btn btn-dark d-none d-xl-block"
             role="button"
@@ -166,6 +203,7 @@
             ><em>Log In</em></a
           >
         </ul>
+        {% endif %}
       </div>
     </div>
   </nav>

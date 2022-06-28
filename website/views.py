@@ -41,7 +41,7 @@ def loginPage(request):
             else:
                 return redirect('userProfile')
         else:
-            messages.error(request, 'Username OR password does not exist')
+            messages.error(request, 'The username or password you entered is wrong.')
 
 
     context ={'page': page}
@@ -65,13 +65,13 @@ def registerUser(request):
             login(request, user)
             return redirect('userProfile')
         else:
-            messages.error(request,'An error occured during registration')
+            messages.error(request,'An error occured during registration.')
     return render(request, 'register.html', {'form':form})
 
 
 def userProfile(request):
     if not request.user.is_authenticated:
-        messages.error(request, 'Please login')
+        messages.error(request, 'Please login to continue.')
         return redirect('/login')
     context = {}
     return render(request, 'userprofile.html', context)
@@ -86,7 +86,7 @@ def staffpage(request):
 
 
     if not request.user.is_staff:
-        messages.error(request, 'You are not allowed to view this page')
+        messages.error(request, 'You are not allowed to view this page.')
         return redirect('userProfile')
     return render(request, 'staffpage.html', {'accounts':accounts,'trucks':trucks,'payments':payments,'parts':parts})
 
@@ -96,7 +96,7 @@ def index(request):
 
 def manualpayment(request):
         if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page')
+            messages.error(request, 'You are not allowed to view this page.')
             return redirect('userProfile')
 
         if request.method == 'POST':
@@ -114,7 +114,7 @@ def manualpayment(request):
             
             except Exception as e:
                 print(e)
-                messages.success(request, 'something went wrong')
+                messages.success(request, 'Something went wrong.')
             return redirect('/staff')
         return render(request,'manualpayment.html')
 
@@ -122,7 +122,7 @@ def manualpayment(request):
 def TruckMaintenance(request):
         form = TruckMaintenanceForm()
         if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page')
+            messages.error(request, 'You are not allowed to view this page.')
             return redirect('userProfile')
 
         if request.method == 'POST':

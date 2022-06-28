@@ -7,17 +7,84 @@
 
 {% load crispy_forms_tags %}         
 
-<!--Register--> 
-<div class="container py-5">
-	<h1>Register</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Register</button>
-	</form>
-	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
-</div>  
+<style>
 
+	ul, p{
+		color: rgb(103, 103, 103);
+		font-size: smaller;
+	}
+
+	.login_p {
+		color: #000;
+		font-size: medium;
+	}
+
+	input {
+		width: 80%;
+	}
+
+	label {
+		color: #000;
+		padding-bottom: 10px;
+		font-weight: bold;
+	}
+
+	.alert {
+		width: 80%;
+	}
+
+</style>
+
+<!--Register--> 
+<section class="Form my-3 mx-5">
+    <div class="container">
+      <!-- responsive form -->
+	  <div class="row no-gutters">
+        <div class="bg-container col-lg-6">
+          <img
+            src="\static\images\gradient_green.jpg"
+            class="img-fluid my-3 mx-auto d-none d-lg-block"
+            style="width: 550px; height: 460px"
+            alt=""
+          />
+        </div>
+        <div class="col-lg-6 px-xl-5">
+          <h1 style="font-weight: bold">Register</h1>
+          <h6 class="py-2"><span class="servicesUnderline">Sign up</span> to Bosyo Garbage Collector</h6>
+		<!-- #message -->
+          {% if messages %}
+          <div class="alert alert-danger" role="alert">
+              <div class="messages">
+                  {% for message in messages %}
+                  {{ message }}
+                  {% endfor %}
+              </div>
+          </div>
+          {% endif %}
+
+          <form method="POST">
+            {% csrf_token %}
+			{{ form|crispy }}
+            <div class="form-row">
+              <div class="col-lg-7">
+                
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="col-lg-10">
+                <button type="submit" class="btnlogin mt-3 mb-3">Register</button>
+              </div>
+            </div>
+            <p class="login_p">
+				If you already have an account, 
+              <a href="/login">login</a> instead.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 {% endblock content %}
