@@ -1,0 +1,17 @@
+
+.card-profile {
+    background-color: #008751c4;
+  }
+
+hr {
+    opacity: 0;
+}
+
+h5 {
+    font-weight: bold;
+      text-transform: capitalize;
+}
+
+.alert {
+    left: 78px;
+}
