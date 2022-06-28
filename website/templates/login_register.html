@@ -2,53 +2,142 @@
 
 {% block content %}
 
+{% include 'navbar2.html' %}
 
 {% if page == 'login' %}
 
-<body>
-    <section class="register-photo" style="background-color: transparent;">
-        <div class="form-container" style="margin-top: 40px;">
 
-            <form method="post" action="" style="height: 525px;width: 500px; text-align: center; width: 50vw; margin-left : 25vw;">
-				{% csrf_token %}
-                <h2 class="text-center"><strong>Login to your account.</strong></h2>
-                <div class="form-group mb-3"><input class="form-control" type="email" name="email" placeholder="Enter your E-mail address."></div><script>
-    // Submit button made with javascript
-    function changePassword() {
-        var password = document.querySelector("#password").value;
-        var confirmPassword = document.querySelector("#confirmPassword").value;
-        
-        if(password.length >= 8) {
-            if(password === confirmPassword)
-            {
-                var btn = $('#submitButton').removeAttr("disabled");
-                document.querySelector('#passwordsError').style.display = 'none';
-                console.log("enabling")
-            }
-            else {
-                var btn = $('#submitButton').attr("disabled", "true");
-                document.querySelector('#passwordsError').style.display = 'block';
-                document.querySelector('#errorMessage').innerHTML = 'The passwords do not match';
-                console.log("disabling")
-            }
-        }
-        else {
-            var btn = $('#submitButton').attr("disabled", "true");
-            document.querySelector('#passwordsError').style.display = 'block';
-            document.querySelector('#errorMessage').innerHTML = 'The password must be at least 8 characters long';
-            console.log("disabling")
-        }
+<style>
+    /* universal tag*/
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
     }
-</script>
-                <div class="form-group mb-3"><input class="form-control" type="password" id="password" name="password" placeholder="Enter your password."></div>
-                <div id="passwordsError" style="display: none;margin-bottom: 16.5px;"><span id="errorMessage" class="text-danger" style="font-size:13px;"></span></div>
-                <div class="form-group mb-3">
-					<button class="btn btn-primary d-block w-100" id="submitButton" type="submit" style="color: rgb(255,255,255);background: #2a9d95;font-weight: bold;">Login!</button>
-				</div>
-				<a class="already" href="{% url 'contact-form'%}" style="font-size: 13px;">Don't have an account yet? Contact us to register.</a>
-            </form>
+  
+    body {
+      background-color: white;
+    }
+  
+    /* removed 6/23/22
+    .row {
+      background-color: white;
+  
+      box-shadow: 12px 12px 12px rgb(197, 197, 197);
+    }
+    */
+  
+    /* removed 6/24/22
+    img {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }*/
+
+    img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    }
+  
+    .btnlogin {
+      border: none;
+      outline: none;
+      height: 50px;
+      width: 100%;
+      background-color: black;
+      color: white;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  
+    .btnlogin:hover {
+      background-color: white;
+      border: 1px solid;
+      color: black;
+      transition: all 0.2s;
+    }
+  
+    a {
+      color: green;
+      text-decoration: none;
+    }
+  
+    a:hover {
+      color: green;
+    }
+
+    .servicesUnderline {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 100%;
+    transition: background-size .25s ease-in;
+    cursor: default;
+    }
+    
+    .servicesUnderline:hover {
+    background-size: 100% 100%;
+    transition: .25s;
+    }
+  
+  </style>
+  <!-- New login form-->
+  <section class="Form my-3 mx-5">
+    <div class="container">
+      <!-- responsive form -->
+      <div class="row no-gutters">
+        <div class="col-lg-6">
+          <img
+            src="\static\images\gradient_green.jpg"
+            class="img-fluid my-3 mx-auto d-none d-lg-block"
+            style="width: 550px; height: 460px"
+            alt=""
+          />
         </div>
-    </section>
+        <div class="col-lg-6 px-xl-5 pt-5">
+          <h1 style="font-weight: bold">Login</h1>
+          <h6 class="py-2"><span class="servicesUnderline">Sign in to your account.</span></h6>
+          <form method="post" action="">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="col-lg-7">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your Email Address"
+                  class="form-control my-3 p-2"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-lg-7">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Enter your Password"
+                  class="form-control my-3 p-2"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-lg-7">
+                <button type="submit" class="btnlogin mt-3 mb-5">Login</button>
+              </div>
+            </div>
+            <p>
+              Don't have an account yet?
+              <a href="{% url 'contact-form'%}">Contact us to register.</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://geodata.solutions/includes/countrystate.js"></script>

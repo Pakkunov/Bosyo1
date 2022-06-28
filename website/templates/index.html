@@ -24,13 +24,30 @@
     }
 
     .servicesUnderline2 {
-    background-image: linear-gradient(120deg,  #c7ffc3, #14c45d94);
+    background-image: linear-gradient(120deg,  #39adff, #14c45d94, rgb(30, 224, 98));
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 100%;
+    transition: background-size .25s ease-in;
+    }
+
+    .servicesUnderline2:hover {
+    background-size: 100% 100%;
+    transition: .25s;
+    }
+
+    .servicesUnderline3 {
+    background-image: linear-gradient(120deg,  #39adff, #14c45d94, rgb(30, 224, 98));
     background-repeat: no-repeat;
     background-size: 100% 0.1em;
     background-position: 0 100%;
     transition: background-size .25s ease-in;
     }
-    
+
+    .servicesUnderline3:hover {
+    background-size: 100% 100%;
+    transition: .25s;
+    }
 
     .serviceInfo {
     font-size: 16px;
@@ -44,16 +61,15 @@
     .btnSeeMore:hover {
     background: black;
     transition: .25s;
-
     }
-
+    
     .btnSubmit:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid;
-    transition: all 0.2s;
+        background-color: white;
+        color: black;
+        border: 2px solid;
+        transition: all 0.2s;
     }
-
+    
     textarea {
     max-width: auto; 
     min-height: 20%;
@@ -63,57 +79,50 @@
     .AboutUsContent {
         background-color: rgb(245, 245, 245);
     }
+    
+    .facebook {
+        text-decoration: none;
+        color: rgb(66 103 178);
+        font-size: x-large;
+    }
+
+    .whatsapp {
+        text-decoration: none;
+        color: #25D366;
+        font-size: x-large;
+    }
+
+    .whatsapp:hover {
+        color: #089a5f;
+    }
+
+    .header1 {
+        text-shadow: 1px 1px #00000093;
+    }
 
 
 </style>
 
 <body id="Home">
+    {% include 'navbar.html' %}
     <div id="header-bosyo-info">
         <div class="p-5 mb-4 round-3 position-relative">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="display-5 text-start fw-bold">Helping keep your environment clean!</h1>
+                        <h1 class="header1 display-5 text-start fw-bold text-primary-color">Helping keep your environment clean!</h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-11 mt-3" style="text-align: justify;">
-                        <p class="col-md-8 fs-4">Trusted Junk &amp; Garbage Hauling Services. Serving City of Bacoor, Cavite and surrounding areas since 2005. Bosyo Garbage Collector provides effective, thorough, and continuous waste collection services to our clients.<br></p>
+                        <p class="col-md-8 fs-4 py-2 my-3 mb-5">Trusted Junk &amp; Garbage Hauling Services for Subdivisions. Serving City of Bacoor, Cavite and surrounding areas since 2005.</p>
                     </div>
                 </div>
             </div>
+            <!-- css Cover1.png -->
             <div id="bgImage"></div>
         </div>
     </div>
-
-    <!-- About Us -->
-    <div class="container" id="Banner">
-        <div class="row">
-            <div class="col-md-12">
-                <hr size="10">
-            </div>
-        </div>
-    </div>
-    <section class="py-4 py-xl-5">
-        <div class="container">
-            <div class="AboutUsContent border rounded border-0 border-dark overflow-hidden">
-                <div class="row g-0">
-                    <div class="col-md-6">
-                        <div class="text-black p-4 p-md-5">
-                            <h2 class="fw-bold text-primary-color mb-3"><i class="bi bi-patch-check-fill"></i> Who we are</h2>
-                            <p>Bosyo Garbage Collector is your local <span class="servicesUnderline">Residential Waste removal service.</span></p>
-                            <p class="mb-3" style="text-align: justify;">We are a local family-owned company serving areas within Bacoor, Cavite, and has started in 2005. The business first started in the year 2005 and has ever been growing successfully. 
-                                We are here to provide an effective, dependable, and outstanding service to our clients. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 order-first order-md-first" style="min-height: 250px;">
-                        <img class="w-100 h-100 fit-cover" src="\static\images\About1.png" alt="About Us">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <!-- HR invi -->
     <div id="Our-Services" class="container">
@@ -128,16 +137,23 @@
         <section>
           <div class="text-center mb-5 col-md-10 mx-auto">
             <h2 class="font-weight-bolder display-4"><span class="text-primary-color">Services</span> we offer</h2>
-            <p class="serviceInfo mx-5">We continue to deliver waste disposal services that <span class="servicesUnderline">specialize in residential services for subdivisions.</span> Our services include:</p>
+            <p class="serviceInfo mx-5">We continue to deliver waste disposal services that <span class="servicesUnderline">specialize in residential services for <strong style="color: #045a38">subdivisions.</strong></span> Our services include:</p>
           </div>
           <div class="row">
             <div class="col-md-4 my-4">
                 <div class="px-3 py-5">
+                <!-- Avail services -->
                   <span class="text-uppercase">Services</span>
                   <h3 class="text-capitalize my-2 font-weight-600">Want to avail our services?</h3>
                   <p><span class="servicesUnderline">Please send us an inquiry</span> providing details about you and your HOA. 
                     More information would be sent to you via email, thank you!</p>
+                  </p>
                   <a href="{% url 'contact-form'%}"><button class="btnSeeMore my-2 px-4 py-2 rounded-pill text-white bg-primary-color">See More</button></a>
+                  <p>
+                    You can also contact us here.
+                    <a class="facebook" href="https://www.facebook.com/BosyoGarbageCollector" target="_blank"><i class="bi bi-facebook mx-2"></i></a>
+                    <a class="whatsapp" href="https://api.whatsapp.com/send?phone=639062208025&app=facebook&entry_point=page_cta&fbclid=IwAR2aibo0wxUiDBE-fIVjTlAB8XKEogz9IvSu5ZMSLwfXN6LEBYjQtD3QDxo" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                  </p>
                 </div>
             </div>
             <div class="col-md-4 my-4">
@@ -167,11 +183,54 @@
           </div>
         </section>
       </div>
-    <!-- Banner IMG -->
+
+      <!-- About Us -->
     <div class="container" id="Banner">
         <div class="row">
             <div class="col-md-12">
-                <hr size="10">
+            </div>
+        </div>
+    </div>
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="AboutUsContent border rounded border-0 border-dark overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="text-black p-4 p-md-5">
+                            <h2 class="fw-bold text-primary-color mb-3" style="cursor:default"><i class="bi bi-patch-question-fill"></i> Who are we?</h2>
+                            <p>Bosyo Garbage Collector is your local <span class="servicesUnderline">Residential Waste removal service for subdivisions.</span></p>
+                            <p class="mb-3" style="text-align: justify;">We are a local company serving areas within Bacoor, Cavite. The business first started in the year 2005 and has ever been growing successfully. 
+                                We are here to provide an effective, dependable, and outstanding service to our clients. </p>
+                            <p style="text-align: justify;">
+                            <p>
+                            We take almost all types of household garbage items. Here are some of the <span class="servicesUnderline">examples of the items we take:</span>
+                            <ul style="list-style-type:none;">
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Mixed Paper <small class="text-muted">(newspapers, paper bags, etc.)</small></li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Cardboard</li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Metal</li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Glass <small class="text-muted">(lightbulbs, bottles, etc.)</small></li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Plastic</li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Organic <small class="text-muted">(food waste, food soiled items, etc)</small></li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Batteries</li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Metal</li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Boxes</li>
+                                <li><i class="bi bi-check-lg text-primary-color"></i> Tools</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-first order-md-first" style="min-height: 250px;">
+                        <img class="w-100 h-100 fit-cover" src="\static\images\About1.png" alt="About Us">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+    <!-- Care for Environment Banner -->
+    <div class="container" id="Banner">
+        <div class="row">
+            <div class="col-md-12">
             </div>
         </div>
     </div>
@@ -181,10 +240,10 @@
                 <div class="row g-0">
                     <div class="col-md-6">
                         <div class="text-white p-4 p-md-5">
-                            <h2 class="fw-bold text-white mb-3"><i class="bi bi-patch-check-fill"></i> Care for the <span class="servicesUnderline2">environment.</span></h2>
+                            <h2 class="fw-bold text-white mb-3" style="cursor:default"><i class="bi bi-patch-check-fill"></i> Care for the <span class="servicesUnderline3">environment.</span></h2>
                             <p class="mb-3" style="text-align: justify;">At Bosyo Garbage Collector, we are dedicated to serving you and saving our environment. 
                                 After each collection from subdivisions, we directly dispose of them to our landfills. 
-                                We carefully segregate our recyclables and general waste properly to protect everyone's health.</p>
+                            <span class="servicesUnderline2">We carefully segregate our recyclables and general waste</span> properly to protect everyone's health.</p>
                         </div>
                     </div>
                     <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
@@ -203,10 +262,10 @@
                     <div class="col-md-6 col-xl-5 col-xxl-4 offset-md-6 offset-xl-7 offset-xxl-8">
                         <div>
                             <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg);">
-                                <h3 class="fw-bolder text-center mb-3">Want to know more? <span class="text-primary-color">contact us</span> <span class="servicesUnderline">here.</span></h3>
+                                <h3 class="fw-bolder text-center mb-3">Want to know more? <span class="text-primary-color">Contact us</span> <span class="servicesUnderline">here.</span></h3>
                                 <p class="fw-light">Our contact information<br>Phone Number: 09062208025<br>Email: bosyogarbagecollector@gmail.com<br></p>
                                 <p class="fw-bolder">Name *</p>
-                                <div class="mb-3"><input class="border-dark form-control" type="text" name="name" placeholder="Enter your name here."></div>
+                                <div class="mb-3"><input class="border-dark form-control" type="text" name="name" placeholder="Please enter your Full Name here."></div>
                                 <p class="fw-bolder">E-mail *</p>
                                 <div class="mb-3"><input class="border-1 border-dark form-control" type="email" name="email" placeholder="Enter your email."></div>
                                 <div class="mb-3"><textarea class="border-1 border-dark form-control" maxlength="2000" name="message" placeholder="Place here your thoughts, concerns, and inquiries. Maximum of 2000 characters." rows="6"></textarea></div>
@@ -225,9 +284,10 @@
             <div class="container text-white py-4 py-lg-5">
                 <ul class="list-inline">
                     <li class="list-inline-item me-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook text-light" style="width: 36px;height: 25px;" href="https://www.facebook.com/BosyoGarbageCollector">
+                        <!-- icon path -->
                             <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
                         </svg></li>
-                    <li class="list-inline-item"><a class="fw-lighter link-light" href="https://www.facebook.com/BosyoGarbageCollector">Visit Our Facebook Page here.</a></li>
+                    <li class="list-inline-item"><a class="fw-lighter link-light" href="https://www.facebook.com/BosyoGarbageCollector" target="_blank">Visit Our Facebook Page here.</a></li>
                 </ul>
                 <p class="text-muted mb-0">Copyright © 2022 Bosyo Garbage Collector</p>
             </div>
@@ -235,7 +295,7 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+
 </body>
 
-    
 {% endblock content %}
