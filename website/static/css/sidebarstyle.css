@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,900;1,100;1,200;1,300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -137,11 +139,13 @@ body {
     pointer-events: auto;
     transition: .5s ease;
     pointer-events: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 .sidebar.active .links_name{
     opacity: 1;
     pointer-events: auto;
+    font-family: 'Poppins', sans-serif;
 }
 
 .sidebar .profile_content {
