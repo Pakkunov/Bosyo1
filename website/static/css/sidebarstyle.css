@@ -22,7 +22,7 @@ body {
     width: 78px;
     background: #171717;
     padding: 20px 14px;
-    transition: all .5s ease;
+    transition: all 1s ease;
 }
 
 .sidebar.active {
@@ -137,7 +137,7 @@ body {
 .sidebar .links_name{
     opacity: 0;
     pointer-events: auto;
-    transition: .5s ease;
+    transition: .4s ease;
     pointer-events: none;
     font-family: 'Poppins', sans-serif;
 }

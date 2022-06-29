@@ -6,6 +6,7 @@
 
 {% load static %}
 <link rel="stylesheet" href=" {% static '/css/profilestyle.css' %} ">
+<link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
 
 
 <!-- <h1> Dashboard</h1>
@@ -100,8 +101,8 @@
                     Information
                 </p>
                 <hr>
-                <div class="col-sm-3">
-                  <p class="mb-0">Full Name</p>
+                <div class="col-sm-2">
+                  <p class="mb-0">Full Name:</p>
                 </div>
                 <div class="col-sm-9">
                   <p class="text-muted mb-0">{{user.name}}</p>
@@ -109,8 +110,8 @@
               </div>
               <hr>
               <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Username</p>
+                <div class="col-sm-2">
+                  <p class="mb-0">Username:</p>
                 </div>
                 <div class="col-sm-9">
                   <p class="text-muted mb-0">{{user.username}}</p>
@@ -118,8 +119,8 @@
               </div>
               <hr>
               <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Email</p>
+                <div class="col-sm-2">
+                  <p class="mb-0">Email:</p>
                 </div>
                 <div class="col-sm-9">
                   <p class="text-muted mb-0">{{user.email}}</p>
@@ -127,8 +128,8 @@
               </div>
               <hr>
               <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Phone</p>
+                <div class="col-sm-2">
+                  <p class="mb-0">Phone:</p>
                 </div>
                 <div class="col-sm-9">
                   <p class="text-muted mb-0">{{user.MobilePhone}}</p>
@@ -136,8 +137,8 @@
               </div>
               <hr>
               <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
+                <div class="col-sm-2">
+                  <p class="mb-0">Address:</p>
                 </div>
                 <div class="col-sm-9">
                   <p class="text-muted mb-0">{{user.address}}</p>
