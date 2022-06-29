@@ -2,6 +2,98 @@
 {% load static %}
 {% block content %}
 
+{% include "sidebar.html" %}
+
+
+<link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
+
+<style>
+
+.card_payment {
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+/* body {
+--bs-primary: #008751;
+--bs-primary-rgb: 0, 135, 81;
+--bs-secondary: #1f1f1f;
+--bs-secondary-rgb: 31, 31, 31;
+--bs-success: #31f99d;
+--bs-success-rgb: 49, 249, 157;
+} */
+
+#tfield_payment {
+    width: 400px;
+    padding: 40px;
+}
+
+/* .btn {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: #008751;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+} */
+
+
+.card_payment {
+    background: rgb(18, 18, 18);
+}
+
+
+</style>
+
+
+<div class="container pt-5">
+    <div class="col-xl-10 col-xxl-5 mb-5 mt-5 px-4">
+        <div class="card_payment card">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group mt-2 mb-4" id="tfield_payment">
+                        <h4 class="text-light pb-2 fw-lighter">
+                            Please type in the HOA representative:
+                        </h4>
+                        <input class="form-control" name="HOA" type="text" placeholder="Homeowners' Associations">
+                    </div>
+
+                    <div class="form-group mt-2 mb-2" id="tfield_payment">
+                        <h4 class="text-light pb-2 fw-lighter">
+                            Enter the amount to pay:
+                        </h4>
+                        <input class="form-control" name="Amount" type="text" placeholder="Total Amount">
+                    </div>
+                    
+                    <div class="d-flex justify-content-end">
+                        <div class="form-row">
+                            <div class="col-lg-5">
+                                <button type="submit" class="btn btn-transparent text-light">
+                                    <span class="fw-bold">Submit </span><i class='bx bx-chevrons-right fs-2 align-middle'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container pt-5" style="max-width:400px">
     <form method="post">
         {% csrf_token %}
