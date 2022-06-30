@@ -17,6 +17,9 @@ from website.models import Payment
 import decimal
 from django.db import transaction
 from .forms import TruckMaintenanceForm
+from .forms import ContactForm
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 
 
@@ -91,7 +94,29 @@ def staffpage(request):
     return render(request, 'staffpage.html', {'accounts':accounts,'trucks':trucks,'payments':payments,'parts':parts})
 
 def index(request):
-    return render(request,'index.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            content = form.cleaned_data["content"]
+
+            html = render_to_string('emails/contactform.html', {
+                'name': name,
+                'email': email,
+                'content': content,
+            })
+
+            send_mail('The contact form subject', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyogarbagecollector@gmail.com'], html_message=html)
+
+            return redirect('home')
+    else:
+        form = ContactForm(request)
+
+    return render(request, 'index.html', {
+        'form': form
+    })
 
 
 def manualpayment(request):
@@ -134,8 +159,7 @@ def TruckMaintenance(request):
         context = {'form': form}
         return render(request,'TruckMaintenance.html', context)
 
-def ContactForm(request):
-    return render(request,'contact-form.html')
+
 
 def debugmode(request):
     return render(request,'debugmode.html')

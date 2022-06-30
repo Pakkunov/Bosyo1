@@ -47,6 +47,13 @@ INSTALLED_APPS = [
 ]
 
 
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '337a14335d92a8'
+EMAIL_HOST_PASSWORD = 'aa1fc50272d6b1'
+EMAIL_PORT = '2525'
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -94,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'BosyoGarbageCollectorWebsite', 
         'USER': 'postgres', 
-        'PASSWORD': 'admin123!',
+        'PASSWORD': '4everalone',
         'HOST': '127.0.0.1', 
         'PORT': '5432',
     }

@@ -108,4 +108,3 @@ class Payment(models.Model):
 
 	def __str__(self):
 		return str(self.User_who_Paid)
-

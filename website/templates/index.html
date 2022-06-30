@@ -153,7 +153,6 @@
                   <p><span class="servicesUnderline">Please send us an inquiry</span> providing details about you and your HOA. 
                     More information would be sent to you via email, thank you!</p>
                   </p>
-                  <a href="{% url 'contact-form'%}"><button class="btnSeeMore my-2 px-4 py-2 rounded-pill text-white bg-primary-color">See More</button></a>
                   <p>
                     You can also contact us here.
                     <a class="facebook" href="https://www.facebook.com/BosyoGarbageCollector" target="_blank"><i class="bi bi-facebook mx-2"></i></a>
@@ -270,13 +269,14 @@
                     <div class="col-md-6 col-xl-5 col-xxl-4 offset-md-6 offset-xl-7 offset-xxl-8">
                         <div>
                             <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg);">
+                                {% csrf_token %}
                                 <h3 class="fw-bolder text-center mb-3">Want to know more? <span class="text-primary-color">Contact us</span> <span class="servicesUnderline">here.</span></h3>
                                 <p class="fw-light">Our contact information<br>Phone Number: 09062208025<br>Email: bosyogarbagecollector@gmail.com<br></p>
                                 <p class="fw-bolder">Name *</p>
                                 <div class="mb-3"><input class="border-dark form-control" type="text" name="name" placeholder="Please enter your Full Name here."></div>
                                 <p class="fw-bolder">E-mail *</p>
                                 <div class="mb-3"><input class="border-1 border-dark form-control" type="email" name="email" placeholder="Enter your email."></div>
-                                <div class="mb-3"><textarea class="border-1 border-dark form-control" maxlength="2000" name="message" placeholder="Place here your thoughts, concerns, and inquiries. Maximum of 2000 characters." rows="6"></textarea></div>
+                                <div class="mb-3"><textarea class="border-1 border-dark form-control" maxlength="2000" name="content" placeholder="Place here your thoughts, concerns, and inquiries. Maximum of 2000 characters." rows="6"></textarea></div>
                                 <div class="mb-3"><button class="btnSubmit btn-dark fw-bolder" type="submit" style="height: 55px;width: 150px;">Submit!</button></div>
                             </form>
                         </div>
