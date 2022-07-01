@@ -11,6 +11,7 @@ admin.site.index_title  =  "Administration"
 urlpatterns = [
     path('admin/', admin.site.urls, name='adminpage'),
     path('debugmode/', views.debugmode, name='debugmode'),
+    # path('contact-form/', views.ContactUsForm, name='ContactUsForm'),
     path('staff/', views.staffpage, name='staffpage'),
     path('register/', views.registerUser, name='register'),
     path('login/', views.loginPage, name='login'),

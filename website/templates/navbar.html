@@ -133,6 +133,29 @@
               >Contact Us</a
             >
           </li>
+          
+          <!-- <li
+            class="nav-item fs-5 fw-lighter"
+            id="contact-us"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+          >
+            <a
+              class="nav-link active fs-5 fw-lighter d-none d-sm-block"
+              href="/login"
+              style="
+                font-family: Roboto, sans-serif;
+                font-size: 19px;
+                text-align: center;
+                margin: 0px;
+              "
+              >Login</a
+            > -->
+          </li>
           <!-- show on resize LOGIN -->
           {% if user.is_authenticated %}
           <li
@@ -145,7 +168,7 @@
             "
           >
             <a
-              class="btn btn-dark mx-3 py-2 d-none d-sm-block d-xl-none"
+              class="btn btn-dark mx-3 py-2 d-block d-sm-block d-xl-none"
               role="button"
               style="width: 150px; height: 40px"
               href="/profile"
@@ -164,7 +187,7 @@
             "
           >
             <a
-              class="btn btn-dark mx-3 py-2 d-none d-sm-block d-xl-none"
+              class="btn btn-dark mx-3 py-2 d-block d-sm-block d-xl-none"
               role="button"
               style="width: 80px; height: 40px"
               href="/login"
