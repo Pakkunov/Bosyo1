@@ -1,0 +1,74 @@
+{% load static %}  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+<script type="text/javascript" src="instascan.min.js"></script>
+
+    <title>Scan</title>
+</head>
+<body>
+    
+    <div id="qr-reader" style="width:500px"></div>
+    <div id="qr-reader-results">
+        <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="decodedText" id="decodedText" readonly="" class="form-control">
+    </form>
+    </div>
+    
+    <div>
+        <div class="table-responsive">
+            <table class="table table-stripe">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Time-in</th>
+                    
+    
+    
+                  </tr>
+                </thead>
+                <tbody>
+                {% for user in attendance %}  
+                  <tr>
+                    <td>{{user.name}}</td>
+                    <td>{{user.attendace_time}}</td>
+
+    
+                  </tr>
+                  {% endfor %} 
+                </tbody>
+            
+            </table>	
+        </div>
+    </div>
+
+    <script>
+var resultContainer = document.getElementById('qr-reader-results');
+var lastResult, countResults = 0;
+
+function onScanSuccess(decodedText, decodedResult) {
+    if (decodedText !== lastResult) {
+        ++countResults;
+        lastResult = decodedText;
+        // Handle on success condition with the decoded message.
+        console.log(`Scan result ${decodedText}`, decodedResult);
+        document.getElementById("decodedText").value=decodedText
+        document.forms[0].submit();
+
+    }
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "qr-reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
+    </script>
+</body>
+</html>

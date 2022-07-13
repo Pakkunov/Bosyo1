@@ -14,6 +14,7 @@ from website.models import Truck
 from website.models import Helper
 from website.models import Truck_Part
 from website.models import Payment
+from website.models import Attendance
 import decimal
 from django.db import transaction
 from .forms import TruckMaintenanceForm
@@ -163,3 +164,30 @@ def TruckMaintenance(request):
 
 def debugmode(request):
     return render(request,'debugmode.html')
+
+def qrcodelogin(request):
+        
+        attendance=Attendance.objects.all()
+        
+        if not request.user.is_staff:
+            messages.error(request, 'You are not allowed to view this page')
+            return redirect('userProfile')
+
+        if request.method == 'POST':
+            try:
+                with transaction.atomic():
+                    name = request.POST.get('decodedText')
+                    
+
+            
+    
+                    attendance_log = Attendance(name=name)
+                    attendance_log.save()
+
+                    
+            
+            except Exception as e:
+                print(e)
+                messages.success(request, 'something went wrong')
+            return redirect('/qrlogin')    
+        return render(request,'qr_code.html',{'attendance':attendance})

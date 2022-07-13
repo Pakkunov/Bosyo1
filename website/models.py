@@ -108,3 +108,10 @@ class Payment(models.Model):
 
 	def __str__(self):
 		return str(self.User_who_Paid)
+
+class Attendance(models.Model):
+	name=models.CharField(max_length=50)
+	attendace_time=models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return str(self.name)

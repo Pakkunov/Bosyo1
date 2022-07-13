@@ -19,6 +19,7 @@ urlpatterns = [
     path('', views.index, name='home'),  
     path('manualpayment/', views.manualpayment, name='manualpayment'),  
     path('TruckMaintenance/', views.TruckMaintenance, name='TruckMaintenance'),  
+    path('qrlogin/', views.qrcodelogin, name='qrlogin'),
 
 
 
