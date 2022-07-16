@@ -12,8 +12,9 @@
 
 <style>
 
+/* this makes all content move right to show side bar properly */
 body {
-  overscroll-behavior: auto;
+  margin-left: 100px;
 }
 
 .card_user_list {
@@ -67,7 +68,8 @@ thead {
 
 </style>
 
-<body style="
+<body 
+style="
 --bs-primary: #008751;
 --bs-primary-rgb: 0, 135, 81;
 --bs-secondary: #1f1f1f;
@@ -296,13 +298,6 @@ thead {
           <a href="/TruckMaintenance">
             <button class="btnPayment btn-primary" type="button">
               Maintenance <i class='bx bxs-alarm-exclamation'></i>
-            </button>
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="">
-            <button class="btnPayment btn-primary" type="button">
-              Coming Soon... <i class='bx bxs-alarm-exclamation'></i>
             </button>
           </a>
         </div>

@@ -9,61 +9,56 @@
     
 <div class="sidebar">
     <div class="logo_content">
-        <div class="logo px-4">
+        <div class="logo px-4 mb-5">
             <img
             src="\static\images\BosyoLogoClear.png"
             style="width: 150px;" />
-            <div class="logo_name">
-                <!-- Bosyo Garbage Collector -->
-            </div>
         </div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
-    <ul class="nav_list px-0">
-        <li>
-            <i class='bx bx-search py-3 px-3' ></i>
-            <input type="text" placeholder="Search here...">
-            <!-- <span class="tooltip">Dashboard</span> -->
-        </li>
-    </ul>
     <ul class="px-0">
         <li class="">
             <a href="/staff">
                 <i class='bx bxs-dashboard' ></i>
                 <span class="links_name">Dashboard</span>
             </a>
-            <!-- <span class="tooltip">Dashboard</span> -->
         </li>
         <li>
             <a href="/profile">
                 <i class='bx bxs-user-account' ></i>
                 <span class="links_name">Profile</span>
             </a>
-            <!-- <span class="tooltip">Dashboard</span> -->
         </li>
         <li>
             <a href="#">
                 <i class='bx bxs-user' ></i>
                 <span class="links_name">Users</span>
             </a>
-            <!-- <span class="tooltip">Dashboard</span> -->
         </li>
         <li>
             <a href="#">
                 <i class='bx bx-line-chart' ></i>
                 <span class="links_name">Analytics</span>
             </a>
-            <!-- <span class="tooltip">Dashboard</span> -->
         </li>
         <li>
             <a href="#">
                 <i class='bx bxs-truck' ></i>
                 <span class="links_name">Trucks</span>
             </a>
-            <!-- <span class="tooltip">Dashboard</span> -->
         </li>
     </ul>
-    <div class="profile_content">
+    <ul>
+        <li style="margin-top: 120px;">
+            <a href="{% url 'logout'%}">
+                <i class='bx bx-log-out' id="log_out"></i>
+                <span class="links_name">Logout</span>
+            </a>
+        </li>
+    </ul>
+    
+    <!-- Removed -->
+    <!-- <div class="profile_content">
         <div class="profile">
             <div class="profile_details">
                 <img src="\static\images\user.png" class="user_icon">
@@ -71,7 +66,7 @@
                 <a class="logout_link" href="{% url 'logout'%}"><i class='bx bx-log-out' id="log_out"></i></a>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 
@@ -79,12 +74,8 @@
     //button for sidebar menu
     let btn = document.querySelector("#btn");
     let sidebar = document.querySelector(".sidebar");
-    let searchBtn = document.querySelector("bx-search");
 
     btn.onclick = function() {
-        sidebar.classList.toggle("active");
-    }
-    btn.searchBtn = function() {
         sidebar.classList.toggle("active");
     }
 
