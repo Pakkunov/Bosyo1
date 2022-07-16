@@ -101,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'BosyoGarbageCollectorWebsite', 
         'USER': 'postgres', 
-        'PASSWORD': 'admin123!',
+        'PASSWORD': '4everalone',
         'HOST': '127.0.0.1', 
         'PORT': '5432',
     }

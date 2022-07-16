@@ -4,6 +4,8 @@ from website.models import Truck
 from website.models import Helper
 from website.models import Truck_Part
 from website.models import Payment
+from website.models import attendanceCounter
+from website.models import Attendance
 #  Register your models here.
 
 
@@ -17,5 +19,7 @@ admin.site.register(Truck)
 admin.site.register(Helper)
 admin.site.register(Truck_Part)
 admin.site.register(Payment)
+admin.site.register(attendanceCounter)
+admin.site.register(Attendance)
 
 

@@ -15,12 +15,15 @@ from website.models import Helper
 from website.models import Truck_Part
 from website.models import Payment
 from website.models import Attendance
+from website.models import attendanceCounter
 import decimal
 from django.db import transaction
 from .forms import TruckMaintenanceForm
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.db.models import F
+
 
 
 
@@ -170,6 +173,7 @@ def debugmode(request):
 def qrcodelogin(request):
         
         attendance=Attendance.objects.all()
+        attendacecounter=attendanceCounter.objects.all()
         
         if not request.user.is_staff:
             messages.error(request, 'You are not allowed to view this page')
@@ -181,15 +185,38 @@ def qrcodelogin(request):
                     name = request.POST.get('decodedText')
                     
 
-            
-    
                     attendance_log = Attendance(name=name)
                     attendance_log.save()
-
+                    
+                    if attendanceCounter.objects.filter(name=name).exists():
+                        attendanceCounter.objects.filter(name=name).update(counter=F('counter')+1)
+                    else:
+                        counter_log=attendanceCounter(name=name)
+                        counter_log.save()
+                        attendanceCounter.objects.filter(name=name).update(counter=F('counter')+1)
                     
             
             except Exception as e:
                 print(e)
                 messages.success(request, 'something went wrong')
+
+
+            
+
+
             return redirect('/qrlogin')    
-        return render(request,'qr_code.html',{'attendance':attendance})
+        return render(request,'qr_code.html',{'attendance':attendance,'attendacecounter':attendacecounter})
+
+
+def charts(request):
+    labels = []
+    data = []
+
+    queryset=attendanceCounter.objects.order_by('-name')
+    for person in queryset:
+        labels.append(person.name)
+        data.append(person.counter)
+
+
+
+    return render(request,'chart.html', {'labels':labels,'data':data})

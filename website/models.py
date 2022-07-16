@@ -115,3 +115,10 @@ class Attendance(models.Model):
 
 	def __str__(self):
 		return str(self.name)
+
+class attendanceCounter(models.Model):
+	name=models.CharField(max_length=50)
+	counter=models.IntegerField(default=0)
+
+	def __str__(self):
+		return str(self.name)

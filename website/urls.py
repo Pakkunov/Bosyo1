@@ -21,6 +21,7 @@ urlpatterns = [
     path('manualpayment/', views.manualpayment, name='manualpayment'),  
     path('TruckMaintenance/', views.TruckMaintenance, name='TruckMaintenance'),  
     path('qrlogin/', views.qrcodelogin, name='qrlogin'),
+    path('charts/', views.charts, name='charts'),
 
 
 
