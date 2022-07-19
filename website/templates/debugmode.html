@@ -5,293 +5,139 @@
 
 {% include 'sidebar.html' %}
 
-
-{% load static %}
-
-<link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
-
 <style>
+  body {
+    margin-left: 90px;
+    font-family: 'Montserrat', sans-serif;
+  }
+/*   
+  #truckmaint {
+    background: url('/static/images/Vector-Truck-PNG.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    opacity: .25;
+  } */
 
-.card_user_list {
-  background-color: rgb(18, 18, 18);
-  width: 1300px;
-  color: aliceblue;
-  box-shadow: 10px 10px gray;
-  border-radius: 30px;
-  padding: 30px;
-}
+  #cardimg0 {
+    position: relative;
+  }
 
-td {
-  text-align: left;
-  padding: 10px;
-  vertical-align: left;
-  height: 50px;
-  line-height: 45px;
-}
+  #cardimg0::before {    
+    content: "";
+    background-image: url('/static/images/Vector-Checklist-PNG.png');
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0.25;
+  }
 
-th:hover {
-  pointer-events: none;
-}
+  #cardimg0 {
+    position: relative;
+  }
 
-tr:hover {
-  background-color: #008751;
-  transition: .4s ease-in-out;
-  cursor: default;
-}
+  #cardimg0::before {    
+    content: "";
+    background-image: url('/static/images/Vector-Truck-PNG.png');
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0.25;
+  }
 
-/* 
-tr:nth-child(even) {
-  background-color: #303030;
-} */
+  #cardimg1 {
+    position: relative;
+  }
 
-thead {
-  border-bottom-width: 2px;
-}
+  #cardimg1::before {    
+    content: "";
+    background-image: url('/static/images/Vector-Mainte-PNG.png');
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    bottom: 60px;
+    left: 60px;
+    opacity: 0.25;
+  }
+
+  #cardimg2 {
+    position: relative;
+  }
+
+  #cardimg2::before {    
+    content: "";
+    background-image: url('/static/images/Vector-Graph-PNG.png');
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    opacity: 0.25;
+  }
+
 
 </style>
 
-<body style="
---bs-primary: #008751;
---bs-primary-rgb: 0, 135, 81;
---bs-secondary: #1f1f1f;
---bs-secondary-rgb: 31, 31, 31;
---bs-success: #31f99d;
---bs-success-rgb: 49, 249, 157;
-">
-<div class="container">
-  <div class="col"></div>
-</div>
-<div class="container">
-  <div class="col"></div>
-</div>
-<section class="pt-5">
-  <div class="container mx-0">
-    <div class="col">
-  <div class="row justify-content-center">
-    <div class="col-xl-10 col-xxl-10 mb-5">
-        <div class="card_user_list card">
-            <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                <h5 class="display-6 text-nowrap text-capitalize mb-0 mt-2 fw-bold">
-                  User list
-                </h5>
-                <div class="input-group input-group-sm w-auto"><input class="form-control form-control-sm" type="text"><button class="btn btn-outline-primary btn-sm" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                        </svg></button></div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr class="text-light">
-                                <th>Name</th>
-                                <th>E-mail</th>
-                                <th>Username</th>
-                                <th>Role</th>
-                                <!-- <th>Address</th> -->
-                                <th>Mobile phone</th>
-                                <!-- <th>Landline</th> -->
-                                <th>Number of houses</th>
-                                <!-- <th>Payrate</th> -->
-                                <th>Total Rate</th>
-                                <th>Outstanding Balance</th>
-                                <th class="text-center">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for user in accounts %}  
-                            <tr>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.name}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.email}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.username}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">User's Role</td>
-                                <!-- <td class="text-truncate text-light" style="max-width: 100px;">{{user.address}}</td> -->
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.MobilePhone}}</td>
-                                <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.houses}}</td>
-                                <!-- <td class="text-truncate text-light" style="max-width: 100px;">{{user.payrate}}</td> -->
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.rate}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.outstanding_balance}}</td>
-                                <td class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-eye-fill fs-5 text-primary">
-                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
-                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
-                                    </svg></td>
-                            </tr>
-                            {% endfor %} 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-footer">
-                <nav>
-                    <ul class="pagination pagination-sm mb-0 justify-content-center">
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<section class="pt-5">
-  <div class="container mx-0">
-  <div class="row justify-content-center">
-    <div class="col-xl-10 col-xxl-10 mb-5">
-        <div class="card_user_list card">
-            <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                <h5 class="display-6 text-nowrap text-capitalize mb-0 mt-2 fw-bold">
-                  User list
-                </h5>
-                <div class="input-group input-group-sm w-auto"><input class="form-control form-control-sm" type="text"><button class="btn btn-outline-primary btn-sm" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                        </svg></button></div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr class="text-light">
-                                <th>Name</th>
-                                <th>E-mail</th>
-                                <th>Username</th>
-                                <th>Role</th>
-                                <!-- <th>Address</th> -->
-                                <th>Mobile phone</th>
-                                <!-- <th>Landline</th> -->
-                                <th>Number of houses</th>
-                                <!-- <th>Payrate</th> -->
-                                <th>Total Rate</th>
-                                <th>Outstanding Balance</th>
-                                <th class="text-center">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for user in accounts %}  
-                            <tr>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.name}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.email}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.username}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">User's Role</td>
-                                <!-- <td class="text-truncate text-light" style="max-width: 100px;">{{user.address}}</td> -->
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.MobilePhone}}</td>
-                                <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.houses}}</td>
-                                <!-- <td class="text-truncate text-light" style="max-width: 100px;">{{user.payrate}}</td> -->
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.rate}}</td>
-                                <td class="text-truncate text-light" style="max-width: 100px;">{{user.outstanding_balance}}</td>
-                                <td class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-eye-fill fs-5 text-primary">
-                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
-                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
-                                    </svg></td>
-                            </tr>
-                            {% endfor %} 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-footer">
-                <nav>
-                    <ul class="pagination pagination-sm mb-0 justify-content-center">
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-</section>
+
 <section>
-    <div class="container">
-      <div class="position-start">
-        <div class="table-responsive">
-          <table class="table table-stripe">
-              <thead>
-                <tr>
-                  <th>Truck no.</th>
-                  <th>Driver</th>
-                  <th>Helpers</th>
-                </tr>
-              </thead>
-              <tbody>
-              {% for truck in trucks %}  
-                <tr>
-                  <td>{{truck.Truck_number}}</td>
-                  <td>{{truck.Driver_Name}}</td>
-                  <td>{{truck.Helper}}</td>
-                </tr>
-                {% endfor %} 
-              </tbody>
-          </table>
-        </div>
+  <div class="row">
+    <div class="col-xl-10">
+      
+    </div>
+  </div>
+</div>
+  
 </section>
 
 <section>
-          <div class="container" >
-            <div class="position-start">
-              <div class="table-responsive">
-                <table class="table table-stripe">
-                    <thead>
-                      <tr>
-                        <th>Date paid</th>
-                        <th>User who paid</th>
-                        <th>Amount</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    {% for payment in payments %}  
-                      <tr>
-                        <td>{{payment.Date_paid}}</td>
-                        <td>{{payment.User_who_Paid}}</td>
-                        <td>{{payment.amount}}</td>
-                      </tr>
-                      {% endfor %} 
-                    </tbody>
-                </table>
-              </div>
-            </div>	          
+  <div class="container py-4 style="width: 683.2px;">
+    <div class="row mb-5">
+        <div class="col text-start">
+            <h2 class="fs-2 pb-3 ms-3 mt-3" style="max-width: 350px;">Monitor and view condition of your trucks</h2>
+            <p class="w-lg-50 text-muted ms-3">All maintenance and repairs will be recorded here.</p>
+        </div>
+    </div>
+    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+      <div class="col" style="width: 222.062px;">
+        <div class="card" id="cardimg0" style="border-radius: 20px; background-color: rgb(232, 232, 232);">
+          <div class="card-body p-4" style="height: 210px;">
+            <p class="card-title pb-5">Available Vehicles</p>
+            <h5 class="card-text fs-5 mt-4"><span class="text-secondary"><br>{{0}}</span> available this week</h5>
         </div>
       </div>
-    </section>
-    
-    <section>
-      <div class="container" >
-        <div class="position-start">
-          <div class="table-responsive">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th>Truck Part Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Truck Used On</th>
-                  </tr>
-                </thead>
-                <tbody>
-                {% for part in parts %}  
-                  <tr>
-                    <td>{{part.Truck_Part_Name}}</td>
-                    <td>{{part.Price}}</td>
-                    <td>{{part.Quantity}}</td>
-                    <td>{{part.Total}}</td>
-                    <td>{{part.Truck_Used_On}}</td>    
-                  </tr>
-                  {% endfor %} 
-                </tbody>
-            </table>	
+      </div>
+      <div class="col" style="width: 223.062px;">
+          <div class="card" id="cardimg1" style="border-radius: 20px; background-color: rgb(255, 231, 188);">
+              <div class="card-body p-4" style="height: 210px;">
+                <p class="card-title pb-5">Ongoing Maintenance</p>
+                <h5 class="card-text fs-5 mt-4"><span class="text-warning"><br>{{0}}</span> this week</h5>
+              </div>
+          </div>
+      </div><div class="col" style="width: 223.062px;">
+        <div class="card" id="cardimg2" style="border-radius: 20px; background-color: rgb(255, 198, 198)">
+            <div class="card-body p-4" style="height: 210px;">
+              <p class="card-title pb-5">Total Expenses</p>
+              <h5 class="card-text fs-5 mt-4"><span class="text-danger"><br><br>₱{{0}}</span> this week</h5>
+            </div>
         </div>
-      </section>
-
-      </body>
+    </div>
+  </div>
+</section>
 
 {% endblock content %}
