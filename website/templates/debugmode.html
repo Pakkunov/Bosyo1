@@ -16,13 +16,90 @@
 
 <body>
   <div class="container">
-    <h1 class="fs-1 mt-3 fw-bold">Dashboard</h1>
-      <div class="row">
+    <h1 class="fs-1 pt-5">Dashboard</h1>
+    <div class="row">
           <div class="col-md-6">
-            <h2 class="fs-4 mt-5">Here, you can see the user list.</h2>
+            <h5 class="fs-5 mt-5">Here, you can see the user list.</h5>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                          <tr class="text-dark" style="vertical-align: top;">
+                            <th>View</th>
+                            <th>Name</th>
+                            <th>E-mail</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <!-- <th>Address</th> -->
+                            <!-- <th>Mobile phone</th> -->
+                            <!-- <th>Landline</th> -->
+                            <!-- <th>No. of Houses</th> -->
+                            <!-- <th>Payrate</th> -->
+                            <!-- <th>Total Rate</th> -->
+                            <th>Outstanding Bal.</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for user in accounts %}  
+                          <tr>
+                              <td class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-eye-fill fs-5 text-primary">
+                                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
+                                  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+                                </svg>
+                              </td>
+                              <td class="text-truncate text-dark" style="max-width: 100px;">{{user.name}}</td>
+                              <td class="text-truncate text-dark" style="max-width: 100px;">{{user.email}}</td>
+                              <td class="text-truncate text-dark" style="max-width: 100px;">{{user.username}}</td>
+                              <td class="text-truncate text-dark" style="max-width: 100px;">User's Role</td>
+                              <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.address}}</td> -->
+                              <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.MobilePhone}}</td> -->
+                              <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
+                              <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.houses}}</td> -->
+                              <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.payrate}}</td> -->
+                              <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.rate}}</td> -->
+                              <td class="text-truncate text-dark" style="max-width: 100px;">{{user.outstanding_balance}}</td>
+                              
+                          </tr>
+                          {% endfor %} 
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
           </div>
-          <div class="col-md-6">
-
+          <div class="col-md-5">
+            <div class="card" style="border-radius: 20px; background-color: rgb(228, 228, 228); border: none;">
+              <div class="card-body">
+                <h6 class="fs-6 fw-bold mb-3">Recent transactions</h6>
+                  <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                          <tr class="text-dark">
+                            <th>View</th>
+                            <th>Date</th>
+                            <th>User</th>
+                            <th>Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for payment in payments %}  
+                            <tr>
+                              <td class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-eye-fill fs-5 text-primary">
+                                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
+                                  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+                                </svg>
+                              </td>
+                              <td>{{payment.Date_paid}}</td>
+                              <td>{{payment.User_who_Paid}}</td>
+                              <td>{{payment.amount}}</td>
+                            </tr>
+                            {% endfor %} 
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
           </div>
       </div>
   </div>

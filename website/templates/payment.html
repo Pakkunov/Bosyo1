@@ -41,7 +41,7 @@
       <div class="col-md-6 col-xs-6 ms-3">
         <div id="smart-button-container">
           {% csrf_token %}
-          <p class="mt-5 fw-bold d-none d-md-block">Amount to pay: PHP {{user.outstanding_balance}}</p>
+          <p class="mt-2 fw-bold d-none d-md-block">Amount to pay: PHP {{user.outstanding_balance}}</p>
           <p class="mb-3 mt-3">Please enter your Username:</p>
           <div class="mb-2" style="text-align: start"><input style="width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username" maxlength="127" value=""></div>
             <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>

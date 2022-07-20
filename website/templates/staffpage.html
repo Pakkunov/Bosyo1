@@ -30,27 +30,15 @@ td {
   text-align: left;
   padding: 10px;
   vertical-align: left;
+  text-align: center;
   height: 50px;
   line-height: 45px;
 }
 
-th:hover {
-  pointer-events: none;
-}
-
-tr:hover {
-  background-color: #5aca9d7f;
-  transition: .4s ease-in-out;
-  cursor: default;
-}
-
-/* 
-tr:nth-child(even) {
-  background-color: #303030;
-} */
 
 thead {
   border-bottom-width: 2px;
+  text-align: center;
 }
 
 .btnPayment {
@@ -78,149 +66,85 @@ style="
 --bs-success-rgb: 49, 249, 157;
 ">
 
-<!-- User List -->
-<section>
-  <div class="container">
-      <div class="col">
-          <div class="row">
-              <div class="col-xl-10 col-xxl-9 mb-5 mt-5">
-                  <div class="card_user_list card">
-                      <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                        <h5 class="display-6 text-nowrap text-capitalize mb-0 mt-2 fw-bold">
-                          User list <i class="bi bi-person-badge"></i>
-                        </h5>
-                          <div class="input-group input-group-sm w-auto"><input class="form-control form-control-sm" type="text"><button class="btn btn-outline-primary btn-sm" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
-                                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                                  </svg></button></div>
-                      </div>
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table">
-                                  <thead>
-                                    <tr class="text-light">
-                                      <th>Name</th>
-                                      <th>E-mail</th>
-                                      <th>Username</th>
-                                      <th>Role</th>
-                                      <!-- <th>Address</th> -->
-                                      <th>Mobile phone</th>
-                                      <!-- <th>Landline</th> -->
-                                      <th>No. of Houses</th>
-                                      <!-- <th>Payrate</th> -->
-                                      <th>Total Rate</th>
-                                      <th>Outstanding Bal.</th>
-                                      <th class="text-center">Actions</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    {% for user in accounts %}  
-                                    <tr>
-                                        <td class="text-truncate text-light" style="max-width: 100px;">{{user.name}}</td>
-                                        <td class="text-truncate text-light" style="max-width: 100px;">{{user.email}}</td>
-                                        <td class="text-truncate text-light" style="max-width: 100px;">{{user.username}}</td>
-                                        <td class="text-truncate text-light" style="max-width: 100px;">User's Role</td>
-                                        <!-- <td class="text-truncate text-light" style="max-width: 100px;">{{user.address}}</td> -->
-                                        <td class="text-truncate text-light" style="max-width: 100px;">{{user.MobilePhone}}</td>
-                                        <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
-                                        <td class="text-truncate text-light" style="max-width: 100px;">{{user.houses}}</td>
-                                        <!-- <td class="text-truncate text-light" style="max-width: 100px;">{{user.payrate}}</td> -->
-                                        <td class="text-truncate text-light" style="max-width: 100px;">{{user.rate}}</td>
-                                        <td class="text-truncate text-light" style="max-width: 100px;">{{user.outstanding_balance}}</td>
-                                        <td class="text-center">
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-eye-fill fs-5 text-primary">
-                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
-                                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
-                                          </svg>
-                                        </td>
-                                    </tr>
-                                    {% endfor %} 
-                                </tbody>
-                              </table>
-                          </div>
-                      </div>
-                      <div class="card-footer">
-                          <nav class="navb">
-                            <ul class="pagination pagination-sm mb-0 justify-content-center">
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                          </nav>
-                      </div>
-                  </div>
+<div class="container">
+  <h1 class="fs-1 pt-5">Dashboard</h1>
+  <div class="row">
+        <div class="col-md-6" style="max-height: 400px;">
+          <h5 class="fs-5 mt-5">Here, you can see the user list.</h5>
+          <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-striped">
+                      <thead>
+                        <tr class="text-dark" style="vertical-align: top;">
+                          <th></th>
+                          <th>Username</th>
+                          <th>Name</th>
+                          <!-- <th>E-mail</th> -->
+                          <th>Role</th>
+                          <!-- <th>Address</th> -->
+                          <!-- <th>Mobile phone</th> -->
+                          <!-- <th>Landline</th> -->
+                          <!-- <th>No. of Houses</th> -->
+                          <!-- <th>Payrate</th> -->
+                          <!-- <th>Total Rate</th> -->
+                          <th>Outstanding Bal.</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for user in accounts %}  
+                        <tr>
+                            <td class="text-truncate text-dark" style="max-width: 100px;"><i class="bi bi-file-earmark-person-fill"></i></td>
+                            <td class="text-truncate text-dark fw-b" style="max-width: 100px;">{{user.username}}</td>
+                            <td class="text-truncate text-dark" style="max-width: 100px;">{{user.name}}</td>
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.email}}</td> -->
+                            <td class="text-truncate text-dark" style="max-width: 100px;">User's Role</td>
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.address}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.MobilePhone}}</td> -->
+                            <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.houses}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.payrate}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.rate}}</td> -->
+                            <td class="text-truncate text-dark" style="max-width: 100px;">{{user.outstanding_balance}}</td>
+                            
+                        </tr>
+                        {% endfor %} 
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card text-light" style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
+            <div class="card-body">
+              <h6 class="fs-6 fw-bold mb-3">Recent transactions</h6>
+                <div class="table-responsive">
+                  <table class="table">
+                      <thead>
+                        <tr class="text-light" style="border: none;">
+                          <th></th>
+                          <th>Date</th>
+                          <th>User</th>
+                          <th>Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for payment in payments %}  
+                          <tr class="text-light">
+                            <td><i class="bi bi-currency-exchange"></i></td>
+                            <td>{{payment.Date_paid}}</td>
+                            <td>{{payment.User_who_Paid}}</td>
+                            <td>{{payment.amount}}</td>
+                          </tr>
+                          {% endfor %} 
+                      </tbody>
+                  </table>
               </div>
+            </div>
           </div>
-      </div>
-  </div>
-</section>
+        </div>
+    </div>
+</div>
 
-<!-- Trucks and Drivers -->
-<section>
-  <div class="container">
-      <div class="col">
-          <div class="row">
-              <div class="col-xl-10 col-xxl-9 mb-5 mt-5">
-                  <div class="card_user_list card">
-                      <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                        <h5 class="display-6 text-nowrap text-capitalize mb-0 mt-2 fw-bold">
-                          User Payments <i class='bx bxs-wallet-alt' ></i>
-                        </h5>
-                          <div class="input-group input-group-sm w-auto"><input class="form-control form-control-sm" type="text"><button class="btn btn-outline-primary btn-sm" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
-                                </path>
-                            </svg></button></div>
-                      </div>
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table">
-                                  <thead>
-                                    <tr class="text-light">
-                                      <th>Date paid</th>
-                                      <th>User who paid</th>
-                                      <th>Amount</th>
-                                      <th class="text-center">Actions</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    {% for payment in payments %}  
-                                      <tr>
-                                        <td>{{payment.Date_paid}}</td>
-                                        <td>{{payment.User_who_Paid}}</td>
-                                        <td>{{payment.amount}}</td>
-                                        <td class="text-center">
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-eye-fill fs-5 text-primary">
-                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
-                                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
-                                          </svg>
-                                        </td>
-                                      </tr>
-                                      {% endfor %} 
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                      <div class="card-footer">
-                          <nav class="navb">
-                            <ul class="pagination pagination-sm mb-0 justify-content-center">
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3 fw-bold" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link bg-primary text-light px-3" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                          </nav>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
-
-<!-- Payments and Analytics -->
 <section>
   <div class="container">
       <div class="col">
