@@ -10,134 +10,23 @@
     margin-left: 90px;
     font-family: 'Montserrat', sans-serif;
   }
-/*   
-  #truckmaint {
-    background: url('/static/images/Vector-Truck-PNG.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-    opacity: .25;
-  } */
-
-  #cardimg0 {
-    position: relative;
-  }
-
-  #cardimg0::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Checklist-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    opacity: 0.25;
-  }
-
-  #cardimg0 {
-    position: relative;
-  }
-
-  #cardimg0::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Truck-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    opacity: 0.25;
-  }
-
-  #cardimg1 {
-    position: relative;
-  }
-
-  #cardimg1::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Mainte-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 60px;
-    right: 60px;
-    bottom: 60px;
-    left: 60px;
-    opacity: 0.25;
-  }
-
-  #cardimg2 {
-    position: relative;
-  }
-
-  #cardimg2::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Graph-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    bottom: 30px;
-    left: 30px;
-    opacity: 0.25;
-  }
 
 
 </style>
 
-
-<section>
-  <div class="row">
-    <div class="col-xl-10">
-      
-    </div>
-  </div>
-</div>
-  
-</section>
-
-<section>
-  <div class="container py-4 style="width: 683.2px;">
-    <div class="row mb-5">
-        <div class="col text-start">
-            <h2 class="fs-2 pb-3 ms-3 mt-3" style="max-width: 350px;">Monitor and view condition of your trucks</h2>
-            <p class="w-lg-50 text-muted ms-3">All maintenance and repairs will be recorded here.</p>
-        </div>
-    </div>
-    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-      <div class="col" style="width: 222.062px;">
-        <div class="card" id="cardimg0" style="border-radius: 20px; background-color: rgb(232, 232, 232);">
-          <div class="card-body p-4" style="height: 210px;">
-            <p class="card-title pb-5">Available Vehicles</p>
-            <h5 class="card-text fs-5 mt-4"><span class="text-secondary"><br>{{0}}</span> available this week</h5>
-        </div>
-      </div>
-      </div>
-      <div class="col" style="width: 223.062px;">
-          <div class="card" id="cardimg1" style="border-radius: 20px; background-color: rgb(255, 231, 188);">
-              <div class="card-body p-4" style="height: 210px;">
-                <p class="card-title pb-5">Ongoing Maintenance</p>
-                <h5 class="card-text fs-5 mt-4"><span class="text-warning"><br>{{0}}</span> this week</h5>
-              </div>
+<body>
+  <div class="container">
+    <h1 class="fs-1 mt-3 fw-bold">Dashboard</h1>
+      <div class="row">
+          <div class="col-md-6">
+            <h2 class="fs-4 mt-5">Here, you can see the user list.</h2>
           </div>
-      </div><div class="col" style="width: 223.062px;">
-        <div class="card" id="cardimg2" style="border-radius: 20px; background-color: rgb(255, 198, 198)">
-            <div class="card-body p-4" style="height: 210px;">
-              <p class="card-title pb-5">Total Expenses</p>
-              <h5 class="card-text fs-5 mt-4"><span class="text-danger"><br><br>₱{{0}}</span> this week</h5>
-            </div>
-        </div>
-    </div>
+          <div class="col-md-6">
+
+          </div>
+      </div>
   </div>
-</section>
+
+</body>
 
 {% endblock content %}

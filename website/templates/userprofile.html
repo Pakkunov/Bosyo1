@@ -8,6 +8,18 @@
 <link rel="stylesheet" href=" {% static '/css/profilestyle.css' %} ">
 <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
 
+<style>
+  body {
+      margin-left: 90px;
+    }
+
+  #wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+</style>
+
 
 <!-- <h1> Dashboard</h1>
 <div class="card">
@@ -34,7 +46,7 @@
     
 
 {% if messages %}
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger mt-4" role="alert" style="width: 80%;" id="wrapper">
     <div class="messages">
         {% for message in messages %}
         {{ message }}

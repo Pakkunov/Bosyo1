@@ -1,3 +1,6 @@
+from distutils.command.upload import upload
+from pyexpat import model
+from unicodedata import name
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.validators import MinValueValidator
@@ -122,3 +125,9 @@ class attendanceCounter(models.Model):
 
 	def __str__(self):
 		return str(self.name)
+
+class ProfileQR(models.Model):
+	name = models.CharField(max_length=200)
+	qr_code = models.ImageField(upload_to='qr_codes', blank=True)
+
+

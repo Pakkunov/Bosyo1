@@ -23,7 +23,7 @@ from .forms import ContactForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.db.models import F
-
+from django.shortcuts import render
 
 
 
@@ -220,3 +220,7 @@ def charts(request):
 
 
     return render(request,'chart.html', {'labels':labels,'data':data})
+
+
+def simpleCheckout(request):
+	return render(request, 'payment.html')

@@ -22,6 +22,7 @@ urlpatterns = [
     path('TruckMaintenance/', views.TruckMaintenance, name='TruckMaintenance'),  
     path('qrlogin/', views.qrcodelogin, name='qrlogin'),
     path('charts/', views.charts, name='charts'),
+    path('payment/', views.simpleCheckout, name="payment"),
 
 
 
