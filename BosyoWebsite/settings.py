@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'website',
     'whitenoise.runserver_nostatic',
+    'django.contrib.humanize',
     
 
 
@@ -162,5 +163,9 @@ STATICFILES_DIRS = [
     BASE_DIR / 'website/static'
 ]
 
+MEDIA_URL = '/images/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/officialreceipts')
 
 TIME_ZONE = 'Asia/Singapore'
+

@@ -36,14 +36,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                {% for user in attendance|slice:"10::-1"%}  
+                {% for user in attendance|slice:"10::-1" %}  
+                 {% if forloop.counter < 11  %}
                   <tr>
                     <td>{{user.name}}</td>
                     <td>{{user.attendace_time}}</td>
 
-    
+                 {% endif %} 
                   </tr>
-                  {% endfor %} 
+                {% endfor %} 
                 </tbody>
             
             </table>	
