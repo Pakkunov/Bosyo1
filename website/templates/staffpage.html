@@ -12,6 +12,7 @@
 
 <style>
 
+
 /* this makes all content move right to show side bar properly */
 body {
   margin-left: 100px;
@@ -70,6 +71,13 @@ thead {
   transition: .25s;
   }
 
+  .btnPayment:hover {
+    background-color: white;
+    border: 2px solid;
+    color: black;
+    transition: all 0.2s;
+  }
+
 
 </style>
 
@@ -90,8 +98,7 @@ style="
       <h6 class="fs-6 mt-3">Here, you can see the <span class="servicesUnderline">user list and activity.</span></h6>
     </div>
     <div class="col">
-      <h5 class="fs-5 pt-5 mt-1" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5>
-
+      <h5 class="fs-5 pt-5 mt-1 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5>
     </div>
   </div>
   <div class="row">
@@ -136,6 +143,9 @@ style="
                 </div>
             </div>
         </div>
+
+
+        {% comment %} Recent Transactions {% endcomment %}
         <div class="col-md-5">
           <div class="card text-light" style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
             <div class="card-body">
@@ -169,13 +179,26 @@ style="
     </div>
 </div>
 
+<div class="row">
+  <div class="col">
+    <div class="col-md-3 my-4">
+      <a href="/manualpayment">
+        <button class="btnPayment btn-primary" type="button">
+          Manual Payment <i class='bx bxs-bank'></i>
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+
+
 
 
 <section>
-  <div class="container my-5">
-      <div class="col">
+  <div class="container my-1">
+      <div class="col-md-5">
           <div class="row">
-              <div class="col-xl-10 col-xxl-9 mb-5">
+              <div class="col-md-5 mb-5">
                   <div class="card_user_list card">
                       <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
                         <h5 class="display-4 text-nowrap mb-0 mt-2 fw-bold">
@@ -216,33 +239,7 @@ style="
   </div>
 </section>
 
-<section>
-  <div class="container px-5">
-    <div class="row">
-        <div class="col-md-3">
-          <a href="/manualpayment">
-            <button class="btnPayment btn-primary" type="button">
-              Manual Payment <i class='bx bxs-bank'></i>
-            </button>
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="/TruckMaintenance">
-            <button class="btnPayment btn-primary" type="button">
-              Maintenance <i class='bx bxs-alarm-exclamation'></i>
-            </button>
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="">
-            <button class="btnPayment btn-primary" type="button">
-              Coming Soon... <i class='bx bxs-alarm-exclamation'></i>
-            </button>
-          </a>
-        </div>
-    </div>
-  </div>
-</section>
+
 
 
 
