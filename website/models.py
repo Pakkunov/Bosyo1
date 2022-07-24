@@ -82,6 +82,7 @@ class Account(AbstractBaseUser):
 class Truck(models.Model):
 	Truck_number = models.IntegerField(verbose_name='Truck number',)
 	Driver_Name = models.CharField(max_length=30)
+	Plate_Num = models.CharField(max_length=8, null=True)
 	
 	def __str__(self):
 		return str(self.Truck_number)
@@ -105,12 +106,23 @@ class Truck_Part(models.Model):
 	def __str__(self):
 		return self.Truck_Part_Name
 
+	# to avoid error:
+	# if image doesnt exist, return an empty string
+	@property
+	def ReceiptURL(self):
+		try:
+			url = self.Receipt.url
+		except:
+			url = ''
+		return url
+	
+
 class Payment(models.Model):
 	Date_paid= models.DateTimeField(verbose_name='Date Paid', auto_now=False, auto_now_add=True, null=True)
 	User_who_Paid= models.ForeignKey(Account, on_delete=models.SET_NULL, blank=True, null=True, related_name="Payments")
 	amount= models.DecimalField(max_digits=17, decimal_places=2, default=0.0,)
 	completePay = models.BooleanField(default=False, null=True, blank=False)
-	transactionID = models.CharField(max_length=200, null=True)
+
 
 	def __str__(self):
 		return str(self.User_who_Paid)

@@ -89,6 +89,7 @@ def staffpage(request):
     accounts = Account.objects.all()
     trucks= Truck.objects.all()
 
+
     payments=Payment.objects.all()
 
 
@@ -149,6 +150,7 @@ def manualpayment(request):
 
 
 def TruckMaintenance(request):
+        parts=Truck_Part.objects.all()
         form = TruckMaintenanceForm()
         if not request.user.is_staff:
             messages.error(request, 'You are not allowed to view this page.')
@@ -162,9 +164,9 @@ def TruckMaintenance(request):
 
         context = {'form': form}
         return render(request,'TruckMaintenance.html', context)
+        
 
-
-# def ContactUsForm(request):
+#def ContactUsForm(request):
 #     return render(request,'contact-form.html')
 
 def debugmode(request):

@@ -25,6 +25,10 @@ body {
   padding: 30px;
 }
 
+thead {
+  border-bottom: hidden;
+}
+
 td {
   text-align: left;
   padding: 10px;
@@ -32,11 +36,11 @@ td {
   text-align: center;
   height: 50px;
   line-height: 45px;
+  border-bottom: 1px dashed #cccccc;
 }
 
 
 thead {
-  border-bottom-width: 2px;
   text-align: center;
 }
 
@@ -52,6 +56,20 @@ thead {
   text-align: center;
 }
 
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 100%;
+  transition: background-size .25s ease-in;
+  cursor: pointer;
+  }
+  
+  .servicesUnderline:hover {
+  background-size: 100% 100%;
+  transition: .25s;
+  }
+
 
 </style>
 
@@ -66,10 +84,18 @@ style="
 ">
 
 <div class="container">
-  <h1 class="fs-1 pt-5">Dashboard</h1>
   <div class="row">
-        <div class="col-md-6" style="max-height: 400px;">
-          <h5 class="fs-5 mt-5">Here, you can see the user list.</h5>
+    <div class="col w-50">
+      <h1 class="fs-1 pt-5" style="font-family: 'Montserrat', sans-serif;">Dashboard</h1>
+      <h6 class="fs-6 mt-3">Here, you can see the <span class="servicesUnderline">user list and activity.</span></h6>
+    </div>
+    <div class="col">
+      <h5 class="fs-5 pt-5 mt-1" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5>
+
+    </div>
+  </div>
+  <div class="row">
+        <div class="col-md-6" style="">
           <div class="card-body">
               <div class="table-responsive">
                   <table class="table table-striped">
@@ -79,7 +105,6 @@ style="
                           <th>Username</th>
                           <th>Name</th>
                           <!-- <th>E-mail</th> -->
-                          <th>Role</th>
                           <!-- <th>Address</th> -->
                           <!-- <th>Mobile phone</th> -->
                           <!-- <th>Landline</th> -->
@@ -91,12 +116,11 @@ style="
                       </thead>
                       <tbody>
                         {% for user in accounts %}  
-                        <tr>
+                        <tr class="useracc">
                             <td class="text-truncate text-dark" style="max-width: 100px;"><i class="bi bi-file-earmark-person-fill"></i></td>
                             <td class="text-truncate text-dark fw-b" style="max-width: 100px;">{{user.username}}</td>
                             <td class="text-truncate text-dark" style="max-width: 100px;">{{user.name}}</td>
                             <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.email}}</td> -->
-                            <td class="text-truncate text-dark" style="max-width: 100px;">User's Role</td>
                             <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.address}}</td> -->
                             <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.MobilePhone}}</td> -->
                             <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
@@ -105,7 +129,6 @@ style="
                             <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.rate}}</td> -->
                             {% load humanize %}
                             <td class="text-truncate text-dark" style="max-width: 100px;">₱ {{user.outstanding_balance|intcomma}}</td>
-                            
                         </tr>
                         {% endfor %} 
                     </tbody>
@@ -136,7 +159,7 @@ style="
                             {% load humanize %}
                             <td>₱ {{payment.amount|intcomma}}</td>
                           </tr>
-                          {% endfor %} 
+                          {% endfor %}
                       </tbody>
                   </table>
               </div>
@@ -146,32 +169,28 @@ style="
     </div>
 </div>
 
-{% include 'chart.html' %}
+
 
 <section>
-  <div class="container">
+  <div class="container my-5">
       <div class="col">
           <div class="row">
-              <div class="col-xl-10 col-xxl-9 mb-5 mt-5">
+              <div class="col-xl-10 col-xxl-9 mb-5">
                   <div class="card_user_list card">
                       <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                        <h5 class="display-6 text-nowrap text-capitalize mb-0 mt-2 fw-bold">
-                          Trucks and Drivers <i class="bi bi-person-lines-fill"></i>
+                        <h5 class="display-4 text-nowrap mb-0 mt-2 fw-bold">
+                          Trucks and Drivers
                         </h5>
-                          <div class="input-group input-group-sm w-auto"><input class="form-control form-control-sm" type="text"><button class="btn btn-outline-primary btn-sm" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
-                                </path>
-                            </svg></button></div>
                       </div>
                       <div class="card-body">
                           <div class="table-responsive">
                               <table class="table text-light">
-                                  <thead>
+                                  <thead class="fs-4">
                                     <tr>
                                       <th>Truck no.</th>
                                       <th>Driver</th>
-                                      <th>Helpers</th>
+                                      {% comment %} <th>Helpers</th> {% endcomment %}
+                                      <th>Plate Number</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -179,7 +198,8 @@ style="
                                       <tr>
                                         <td>{{truck.Truck_number}}</td>
                                         <td>{{truck.Driver_Name}}</td>
-                                        <td>{{truck.Helper}}</td>
+                                        {% comment %} <td>{{truck.Helper}}</td> {% endcomment %}
+                                        <td>{{truck.Plate_Num}}</td>
                                         <td>
                                           {% comment %} <img src="{{Truck_Part.Receipt.url}}" alt="Receipt"> {% endcomment %}
                                         </td>
@@ -223,6 +243,12 @@ style="
     </div>
   </div>
 </section>
+
+
+
 </body>
+
+
+
 
 {% endblock content %}
