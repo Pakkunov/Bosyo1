@@ -121,7 +121,6 @@ class Payment(models.Model):
 	Date_paid= models.DateTimeField(verbose_name='Date Paid', auto_now=False, auto_now_add=True, null=True)
 	User_who_Paid= models.ForeignKey(Account, on_delete=models.SET_NULL, blank=True, null=True, related_name="Payments")
 	amount= models.DecimalField(max_digits=17, decimal_places=2, default=0.0,)
-	completePay = models.BooleanField(default=False, null=True, blank=False)
 
 
 	def __str__(self):
