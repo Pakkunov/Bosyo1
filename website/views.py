@@ -24,6 +24,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.db.models import F
 from django.shortcuts import render
+from django.db.models import Sum
 
 
 
@@ -150,6 +151,8 @@ def manualpayment(request):
 
 
 def TruckMaintenance(request):
+        totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
+        truckCount = Truck.objects.all().count()
         parts=Truck_Part.objects.all()
         form = TruckMaintenanceForm()
         if not request.user.is_staff:
@@ -157,12 +160,12 @@ def TruckMaintenance(request):
             return redirect('userProfile')
 
         if request.method == 'POST':
-            form = TruckMaintenanceForm(request.POST)     
+            form = TruckMaintenanceForm(request.POST, request.FILES)     
             if form.is_valid():
                 form.save()     
                 return redirect('/staff')
 
-        context = {'form': form}
+        context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses}
         return render(request,'TruckMaintenance.html', context)
         
 
