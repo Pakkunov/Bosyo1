@@ -151,6 +151,17 @@ def manualpayment(request):
 
 
 def TruckMaintenance(request):
+        
+        labels = []
+        data = []
+
+        queryset=Truck_Part.objects.all()
+        for truck in queryset:
+            labels.append(truck.Truck_Used_On)
+            data.append(truck.Total)
+        
+        
+        
         totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
         truckCount = Truck.objects.all().count()
         parts=Truck_Part.objects.all()
@@ -165,7 +176,15 @@ def TruckMaintenance(request):
                 form.save()     
                 return redirect('/staff')
 
-        context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses}
+
+
+
+
+
+
+        
+
+        context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'labels':labels,'data':data}
         return render(request,'TruckMaintenance.html', context)
         
 
@@ -228,4 +247,33 @@ def charts(request):
 
 
 def simpleCheckout(request):
-	return render(request, 'payment.html')
+	
+        if not request.user.is_staff:
+            messages.error(request, 'You are not allowed to view this page.')
+            return redirect('userProfile')
+        if request.method == 'POST':
+            try:
+                with transaction.atomic():
+                    HOA = request.POST.get('HOA')
+                    Amount = request.POST.get('Amount')
+
+                    HOA_obj = Account.objects.get(username=HOA)
+                    HOA_obj.outstanding_balance -= int(Amount)
+                    payment_log = Payment(User_who_Paid=HOA_obj, amount=Amount)
+                    payment_log.save()
+                    HOA_obj.save()
+                    
+            
+            except Exception as e:
+                print(e)
+                messages.success(request, 'Something went wrong.')
+            
+
+
+    
+    
+    
+    
+    
+        return render(request, 'payment.html')
+

@@ -43,15 +43,18 @@
           {% csrf_token %}
           {% load humanize %}
           <p class="mt-2 fw-bold d-none d-md-block">Amount to pay: PHP {{ user.outstanding_balance|intcomma }}</p>
+          <form method="post">
+            {% csrf_token %}
           <p class="mb-3 mt-3">Please enter your Username:</p>
-          <div class="mb-2" style="text-align: start"><input style="width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username" maxlength="127" value=""></div>
+          <div class="mb-2" style="text-align: start"><input style="width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="HOA" placeholder="Username" maxlength="127" value=""></div>
             <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>
           <p class="mb-3 mt-2">Enter amount to pay in PHP:</p>
           <div class="mb-2" style="text-align: start"><input style="width: 600px; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
             <p class="mb-3" id="priceLabelError" style="visibility: hidden; color:red; text-align: start;">Please enter proper amount to pay</p>
           <div id="invoiceidDiv" style="text-align: start; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
             <p id="invoiceidError" style="visibility: hidden; color:red; text-align: start;">Please enter an Invoice ID</p>
-          <div style="text-align: center; width: 600px;" id="paypal-button-container"></div>
+            <div style="text-align: center; width: 600px;" id="paypal-button-container"></div>
+          </form>
         </div>
         <script src="https://www.paypal.com/sdk/js?client-id=AYUBK_5IUlIHcyY2I-3enRogGyAS1TjCEM-LXzv_14uu3DR8MQjszlryfC6Wv4Y5k9V1s9zGW6bxWVBi&enable-funding=venmo&currency=PHP" data-sdk-integration-source="button-factory"></script>
         <script>
@@ -183,6 +186,7 @@
                     const element = document.getElementById('paypal-button-container');
                     element.innerHTML = '';
                     element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    document.forms[0].submit();
     
                     // Or go to another URL:  actions.redirect('thank_you.html');
                     
