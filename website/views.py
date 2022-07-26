@@ -81,7 +81,16 @@ def userProfile(request):
     if not request.user.is_authenticated:
         messages.error(request, 'Please login to continue.')
         return redirect('/login')
-    context = {}
+    parts=Truck_Part.objects.all()
+    accounts = Account.objects.all()
+    trucks= Truck.objects.all()
+    payments=Payment.objects.filter(User_who_Paid=request.user.id)
+
+
+    
+    
+    
+    context = {'accounts':accounts,'trucks':trucks,'payments':payments,'parts':parts}
     return render(request, 'userprofile.html', context)
 
 def staffpage(request):
@@ -248,9 +257,7 @@ def charts(request):
 
 def simpleCheckout(request):
 	
-        if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page.')
-            return redirect('userProfile')
+
         if request.method == 'POST':
             try:
                 with transaction.atomic():
