@@ -4,13 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    z-index: 999999;
 }
 
 body {
     position: relative;
     min-height: 100vh;
     width: 100%;
+    z-index: 999;
 }
 
 .sidebar {
@@ -22,6 +22,7 @@ body {
     background: #171717;
     padding: 20px 14px;
     transition: all 1s ease;
+    
 }
 
 .sidebar.active {

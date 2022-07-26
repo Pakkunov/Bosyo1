@@ -11,6 +11,7 @@
 <style>
   body {
       margin-left: 90px;
+      background-image: url('/static/images/Background_PF.png');
     }
 
   #wrapper {
@@ -54,6 +55,28 @@
     </div>
 </div>
 {% endif %}
+
+<section>
+  <div class="container">
+    <div class="row">
+      <h1 class="fs-1 pt-5 pb-4" style="font-family: 'Montserrat', sans-serif;">My Profile</h1>
+        <div class="col-md-4 col-lg-1 col-xxl-1" style="flex-basis: auto !important; width: 148.65px !important;">
+          {% comment %} Backend here: userimg {% endcomment %}
+          <img src="\static\images\user.png" alt="avatar"
+          class="rounded-circle img-fluid" style="width: 150px;">
+        </div>
+        <div class="col-md-9 col-lg-9 col-xl-10 col-xxl-9" style="flex-basis: auto !important; width: 768px !important;">
+          <h4 class="text-primary my-1 fw-bold fs-5" style="text-transform: capitalize;">
+            {{user.username}}
+          </h4>
+          {% comment %} Backend here: user FullName {% endcomment %}
+          <p class="text-muted" style="text-transform: capitalize;">
+            Full Name here
+          </p>
+        </div>
+    </div>
+</div>
+</section>
 
 <section>
     <div class="container py-5">

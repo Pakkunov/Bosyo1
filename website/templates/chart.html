@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +12,18 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <title>Analytics</title>
 </head>
+
+
+{% comment %} 
+{% include 'sidebar.html' %}
+
+
+{% load static %}
+
+<link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
+<link rel="stylesheet" href=" {% static '/css/sidebarstyle.css' %} "> 
+
+{% endcomment %}
 
 <style>
   /* this makes all content move right to show side bar properly */
@@ -76,6 +90,7 @@
 
 
 </body>
+
 
 </html>
 

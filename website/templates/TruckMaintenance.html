@@ -109,7 +109,7 @@
 <div class="container mx-1">
     {% comment %} headings col {% endcomment %}
     <div class="col-xxl-6">
-      <h2 class="fs-2 pb-3 ms-3 mt-3" style="max-width: 500px;">Monitor and view condition of your trucks</h2>
+      <h2 class="fs-2 pb-3 ms-3 pt-5" style="max-width: 500px;">Monitor and view condition of your trucks</h2>
       <p class="w-lg-50 text-muted ms-3">All maintenance repairs and info will be recorded here.</p>
     </div>
   <div class="row">
@@ -142,10 +142,98 @@
         </div>
       </div>
     </div>
-    
   </div>
 </div>
 
+<section>
+  {% comment %} Backend Here: Add a chart that monitors Truck Expenses {% endcomment %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col w-50">
+      {% comment %} <h1 class="fs-1 pt-5" style="font-family: 'Montserrat', sans-serif;">Dashboard</h1> {% endcomment %}
+      {% comment %} <h6 class="fs-6 mt-3">Here, you can see the <span class="servicesUnderline">user list and activity.</span></h6> {% endcomment %}
+    </div>
+    <div class="col">
+      {% comment %} <h5 class="fs-5 pt-5 mt-1 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5> {% endcomment %}
+    </div>
+  </div>
+  <div class="row">
+        <div class="col-md-6" style="">
+          <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-striped">
+                      <thead>
+                        <tr class="text-dark" style="vertical-align: top;">
+                          <th></th>
+                          <th>Name of Helper</th>
+                          <th>Truck Assigned</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for user in accounts %}  
+                        <tr class="useracc">
+                            <td class="text-truncate text-dark" style="max-width: 100px;"><i class="bi bi-file-earmark-person-fill"></i></td>
+                            <td class="text-truncate text-dark fw-b" style="max-width: 100px;">{{user.username}}</td>
+                            <td class="text-truncate text-dark" style="max-width: 100px;">{{user.name}}</td>
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.email}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.address}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.MobilePhone}}</td> -->
+                            <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.houses}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.payrate}}</td> -->
+                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.rate}}</td> -->
+                            {% load humanize %}
+                            <td class="text-truncate text-dark" style="max-width: 100px;">₱ {{user.outstanding_balance|intcomma}}</td>
+                        </tr>
+                        {% endfor %} 
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+
+
+        {% comment %} Helper Log {% endcomment %}
+        <div class="col-md-5">
+          <div class="card text-light" style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
+            <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                      <thead>
+                        <tr class="text-light" style="border: none;">
+                          <th></th>
+                          <th>Name of Helper</th>
+                          <th>Time-In</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for payment in payments %}  
+                          <tr class="text-light">
+                            <td><i class="bi bi-currency-exchange"></i></td>
+                            <td>{{payment.Date_paid}}</td>
+                            <td>{{payment.User_who_Paid}}</td>
+                            {% load humanize %}
+                            <td>₱ {{payment.amount|intcomma}}</td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="container pt-5">
@@ -194,19 +282,6 @@
         </div>
     </div>
 </div>
-
-
-<div>
-  <div class="col">
-    <div class="row">
-      {% for parts in parts %}
-      <img src="{{parts.ReceiptURL}}" alt="Receipt">
-      <p>{{parts.Truck_Part_Name}}</p>
-      {% endfor %}
-    </div>
-  </div>
-</div>
-
 
 
 {% endblock content %}

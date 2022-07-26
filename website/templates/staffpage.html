@@ -13,9 +13,11 @@
 <style>
 
 
+
 /* this makes all content move right to show side bar properly */
 body {
   margin-left: 100px;
+  
 }
 
 .card_user_list {
@@ -98,7 +100,7 @@ style="
       <h6 class="fs-6 mt-3">Here, you can see the <span class="servicesUnderline">user list and activity.</span></h6>
     </div>
     <div class="col">
-      <h5 class="fs-5 pt-5 mt-1 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5>
+      <h5 class="fs-5 pt-5 mt-4 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5>
     </div>
   </div>
   <div class="row">
@@ -146,10 +148,10 @@ style="
 
 
         {% comment %} Recent Transactions {% endcomment %}
-        <div class="col-md-5">
-          <div class="card text-light" style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
-            <div class="card-body">
-              <h6 class="fs-6 fw-bold mb-3">Recent transactions</h6>
+        <div class="col-md-5" style="">
+          <div class="text-light" style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
+            <div class="mx-3 py-3 mb-5">
+              <h6 class="fs-6 fw-bold">Recent transactions</h6>
                 <div class="table-responsive">
                   <table class="table">
                       <thead>
@@ -158,6 +160,7 @@ style="
                           <th>Date</th>
                           <th>User</th>
                           <th>Amount</th>
+                          <th>Transaction ID</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -168,6 +171,7 @@ style="
                             <td>{{payment.User_who_Paid}}</td>
                             {% load humanize %}
                             <td>₱ {{payment.amount|intcomma}}</td>
+                            <td>1234</td>
                           </tr>
                           {% endfor %}
                       </tbody>
@@ -179,18 +183,23 @@ style="
     </div>
 </div>
 
-<div class="row">
-  <div class="col">
-    <div class="col-md-3 my-4">
-      <a href="/manualpayment">
-        <button class="btnPayment btn-primary" type="button">
-          Manual Payment <i class='bx bxs-bank'></i>
-        </button>
-      </a>
+<div class="container">
+  <div class="row">
+    <div class="col w-50">
+      <div class="col my-4 w-75" style="">
+        <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Manual Payment</h1>
+        <h6 class="fs-6 mb-4">
+          Want to make a manual payment? <span class="servicesUnderline">Click the button below</span> to register a payment.
+        </h6>
+        <a href="/manualpayment">
+          <button class="btnPayment btn-primary" type="button">
+            Manual Payment <i class='bx bxs-bank'></i>
+          </button>
+        </a>
+      </div>
     </div>
   </div>
 </div>
-
 
 
 
@@ -199,13 +208,13 @@ style="
       <div class="col-md-5">
           <div class="row">
               <div class="col-md-5 mb-5">
-                  <div class="card_user_list card">
+                  <div class="card_user_list">
                       <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
                         <h5 class="display-4 text-nowrap mb-0 mt-2 fw-bold">
                           Trucks and Drivers
                         </h5>
                       </div>
-                      <div class="card-body">
+                      <div class="">
                           <div class="table-responsive">
                               <table class="table text-light">
                                   <thead class="fs-4">
