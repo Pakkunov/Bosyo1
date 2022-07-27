@@ -9,7 +9,6 @@
 
 <style>
   body {
-    margin-left: 90px;
     font-family: 'Montserrat', sans-serif;
   }
 /*   
@@ -97,6 +96,14 @@
     background: rgb(18, 18, 18);
 }
 
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 30%;
+  background-position: 70% 100%;
+  transition: background-size .25s ease-in;
+  }
+
 {% comment %} 
 .imgbg {
   object-fit: cover;
@@ -106,6 +113,7 @@
 
 </style>
 
+<section style="margin-left: 140px;">
 <div class="container mx-1">
     {% comment %} headings col {% endcomment %}
     <div class="col-xxl-6" style="">
@@ -144,7 +152,7 @@
     </div>
   </div>
 </div>
-
+</section>
 <section>
   {% comment %} Backend Here: Add a chart that monitors Truck Expenses {% endcomment %}
   <div class="container">
@@ -283,54 +291,49 @@
     </div>
 </div>
 
-<div id="containerchart" style="width: 75%;">
-  <canvas id="bar-chart"></canvas>
-</div>
+<section style="margin-left: 140px;">
+  <div class="container pt-4">
+    <div>
+      <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Add Truck Maintenance to Logs</h1>
+      <h6 class="fs-6">
+          Here, you can <span class="servicesUnderline">record truck maintenance info</span>.
+      </h6>
+    </div>
+    <div class="row">
+        <div class="col-xl-11 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 440px;">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group mt-2 mb-4" id="">
+                    <h4 class="pb-2">
+                        Please type in the HOA representative:
+                    </h4>
+                    <input class="form-control" name="HOA" type="text" placeholder="Homeowners' Associations"
+                    style="border-radius: 10px; border: 2px solid;">
+                </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-<script>
+                <div class="form-group mt-2 mb-2" id="">
+                    <h4 class="pb-2">
+                        Enter the amount to pay:
+                    </h4>
+                    <input class="form-control" name="Amount" type="text" placeholder="Total Amount"
+                    style="border-radius: 10px; border: 2px solid;">
+                </div>
+                <div style="margin-top: 120px;">
+                    <div class="form-row">
+                        <div class="col-lg-5">
+                            <button type="submit" class="btn">
+                                <span class="fw-bold">Submit </span><i class='bx bx-chevrons-right fs-2 align-middle'></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</section>
 
-  var config = {
-    type: 'bar',
-    data: {
-      datasets: [{
-        data: {{ data|safe }},
-        backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 205, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(201, 203, 207, 0.2)'
-        ],
-        borderColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
-        'rgb(255, 205, 86)',
-        'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)'
-        ],
-        label: 'Attendance'
-      }],
-      labels: {{ labels|safe }}
-    },
-    options: {
-      scales: {
-          y: {
-              beginAtZero: true
-          }
-      }
-    }
-  };
+        
 
-  window.onload = function() {
-    var ctx = document.getElementById('bar-chart').getContext('2d');
-    window.myPie = new Chart(ctx, config);
-  };
-
-</script>
 
 {% endblock content %}

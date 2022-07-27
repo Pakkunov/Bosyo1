@@ -16,7 +16,7 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-  
+{% comment %}   
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -24,7 +24,7 @@
     100% {
         opacity: 1;
      }
-}
+} {% endcomment %}
 
 /* body {
 --bs-primary: #008751;
@@ -56,11 +56,24 @@
     background: rgb(18, 18, 18);
 }
 
+.servicesUnderline {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 0.4em;
+    background-position: 0 100%;
+    transition: background-size .25s ease-in;
+    cursor: pointer;
+    }
+
+.servicesUnderline:hover {
+    background-size: 100% 100%;
+    transition: .25s;
+    }
 
 </style>
 
 
-<div class="container pt-5">
+{% comment %} <div class="container pt-5">
     <div class="col-xl-10 col-xxl-5 mb-5 mt-5 px-4">
         <div class="card_payment card">
             <div class="card-body">
@@ -93,7 +106,61 @@
             </div>
         </div>
     </div>
+</div> {% endcomment %}
+
+{% if messages %}
+<div class="alert alert-danger mt-4" role="alert" style="width: 80%;" id="wrapper">
+    <div class="messages">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
 </div>
+{% endif %}
+
+<section style="margin-left: 140px;">
+  <div class="container pt-4">
+    <div>
+      <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Manual Payment</h1>
+      <h6 class="fs-6">
+          Here, you can <span class="servicesUnderline">update payments</span> manually.
+      </h6>
+    </div>
+    <div class="row">
+        <div class="col-xl-11 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 440px;">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group mt-2 mb-4" id="">
+                    <h4 class="pb-2">
+                        Please type in the HOA representative:
+                    </h4>
+                    <input class="form-control" name="HOA" type="text" placeholder="Homeowners' Associations"
+                    style="border-radius: 10px; border: 2px solid;">
+                </div>
+
+                <div class="form-group mt-2 mb-2" id="">
+                    <h4 class="pb-2">
+                        Enter the amount to pay:
+                    </h4>
+                    <input class="form-control" name="Amount" type="text" placeholder="Total Amount"
+                    style="border-radius: 10px; border: 2px solid;">
+                </div>
+                <div style="margin-top: 120px;">
+                    <div class="form-row">
+                        <div class="col-lg-5">
+                            <button type="submit" class="btn">
+                                <span class="fw-bold">Submit </span><i class='bx bx-chevrons-right fs-2 align-middle'></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</section>
+
+        
 
 
 
