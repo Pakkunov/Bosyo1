@@ -17,22 +17,11 @@
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="px-0">
+    {% if request.user.is_staff %}
         <li class="">
             <a href="/staff">
                 <i class='bx bxs-dashboard' ></i>
                 <span class="links_name">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a href="/profile">
-                <i class='bx bxs-user-account' ></i>
-                <span class="links_name">Profile</span>
-            </a>
-        </li>
-        <li>
-            <a href="/payment">
-                <i class="bi bi-cash-stack"></i>
-                <span class="links_name">Payment</span>
             </a>
         </li>
         <li>
@@ -47,16 +36,49 @@
                 <span class="links_name">Trucks</span>
             </a>
         </li>
-    </ul>
-    <ul>
-        <li style="margin-top: 120px;">
+        <li>
+            <a href="/profile">
+                <i class='bx bxs-user-account' ></i>
+                <span class="links_name">Profile</span>
+            </a>
+        </li>
+        <li>
+            <a href="/payment">
+                <i class="bi bi-cash-stack"></i>
+                <span class="links_name">Payment</span>
+            </a>
+        </li>
+        <li style="margin-top: 150px;">
+            <a href="{% url 'logout'%}">
+                <i class='bx bx-log-out' id="log_out"></i>
+                <span class="links_name">Logout</span>
+            </a>
+        </li>
+        {% else %}
+        <li>
+            <a href="/profile">
+                <i class='bx bxs-user-account' ></i>
+                <span class="links_name">Profile</span>
+            </a>
+        </li>
+        <li>
+            <a href="/payment">
+                <i class="bi bi-cash-stack"></i>
+                <span class="links_name">Payment</span>
+            </a>
+        </li>
+        
+        <li style="margin-top: 150px;">
             <a href="{% url 'logout'%}">
                 <i class='bx bx-log-out' id="log_out"></i>
                 <span class="links_name">Logout</span>
             </a>
         </li>
     </ul>
-    
+    {% endif %}
+
+
+
     <!-- Removed -->
     <!-- <div class="profile_content">
         <div class="profile">

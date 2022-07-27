@@ -7,7 +7,6 @@
 
 <style>
   body {
-    margin-left: 90px;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -16,12 +15,27 @@
     text-align: center;
   }
 
+  .servicesUnderline {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% .4em;
+    background-position: 70% 100%;
+    transition: background-size .25s ease-in;
+    }
+
+.servicesUnderline2 {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 70% 100%;
+    transition: background-size .25s ease-in;
+    }
 
 </style>
 
 <body>
   
-
+<section style="margin-left: 140px;">
 <div class="container">
   <div class="row">
     <h1 class="fs-1 mb-1 pt-5">Payment</h1>
@@ -42,20 +56,36 @@
         <div id="smart-button-container">
           {% csrf_token %}
           {% load humanize %}
-          <p class="mt-2 fw-bold d-none d-md-block">Amount to pay: PHP {{ user.outstanding_balance|intcomma }}</p>
+            {% if user.outstanding_balance is none %}
+          <p class="fw-bold">
+            <span class="servicesUnderline">You have no outstanding balance.</span><br>
+          </p>
+          <p class="py-2">
+            Logged in as: <span class="fw-bold">{{user.username}}</span>
+          </p> 
+          
+          {% else %}
+          <p class="mt-2 fw-bold d-none d-md-block">Amount to pay:
+            <span class="servicesUnderline2">PHP {{ user.outstanding_balance|intcomma }}</span><br>
+          </p>
+          <p class="py-2">
+            Logged in as: <span class="fw-bold">{{user.username}}</span>
+          </p> 
+          {% endif%}
           <form method="post">
             {% csrf_token %}
-          <p class="mb-3 mt-3">Please enter your Username:</p>
-          <div class="mb-2" style="text-align: start"><input style="width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username" maxlength="127" value=""></div>
+          <p class="mb-3 mt-3">Please confirm and enter your Username: <span class="text-danger">*</span></p>
+          <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username" maxlength="127" value=""></div>
             <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>
           <p class="mb-3 mt-2">Enter amount to pay in PHP:</p>
-          <div class="mb-2" style="text-align: start"><input style="width: 600px; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
+          <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
             <p class="mb-3" id="priceLabelError" style="visibility: hidden; color:red; text-align: start;">Please enter proper amount to pay</p>
           <div id="invoiceidDiv" style="text-align: start; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
             <p id="invoiceidError" style="visibility: hidden; color:red; text-align: start;">Please enter an Invoice ID</p>
             <div style="text-align: center; width: 600px;" id="paypal-button-container"></div>
           </form>
         </div>
+    </section>
         <script src="https://www.paypal.com/sdk/js?client-id=AYUBK_5IUlIHcyY2I-3enRogGyAS1TjCEM-LXzv_14uu3DR8MQjszlryfC6Wv4Y5k9V1s9zGW6bxWVBi&enable-funding=venmo&currency=PHP" data-sdk-integration-source="button-factory"></script>
         <script>
 
