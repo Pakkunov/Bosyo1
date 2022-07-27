@@ -173,6 +173,7 @@ def TruckMaintenance(request):
         
         totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
         truckCount = Truck.objects.all().count()
+        helperCount= Helper.objects.all().count()
         parts=Truck_Part.objects.all()
         form = TruckMaintenanceForm()
         if not request.user.is_staff:
@@ -193,7 +194,7 @@ def TruckMaintenance(request):
 
         
 
-        context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'labels':labels,'data':data}
+        context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'labels':labels,'data':data,'helperCount':helperCount}
         return render(request,'TruckMaintenance.html', context)
         
 
