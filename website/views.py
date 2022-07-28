@@ -25,6 +25,7 @@ from django.template.loader import render_to_string
 from django.db.models import F
 from django.shortcuts import render
 from django.db.models import Sum
+from django.views.generic import ListView,DetailView
 
 
 
@@ -285,3 +286,11 @@ def simpleCheckout(request):
     
         return render(request, 'payment.html')
 
+    
+class TruckList(ListView):
+    template_name='truck_list.html'
+    model=Truck
+
+class TruckDetailView(DetailView):
+        template_name='truck-details.html'
+        model = Truck

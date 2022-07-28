@@ -4,6 +4,7 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
+from website.views import TruckList,TruckDetailView
 
 
 admin.site.site_header  =  "Administration"  
@@ -25,7 +26,8 @@ urlpatterns = [
     path('qrlogin/', views.qrcodelogin, name='qrlogin'),
     path('charts/', views.charts, name='charts'),
     path('payment/', views.simpleCheckout, name="payment"),
-
+    path('trucklist',TruckList.as_view()),
+    path('<int:pk>',TruckDetailView.as_view()),
 
 ]   
 
