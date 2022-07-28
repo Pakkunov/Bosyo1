@@ -110,6 +110,12 @@
   z-index: -99999;
 } {% endcomment %}
 
+input {
+  border-radius: 10px; 
+  border: 2px solid; 
+  width: 1150px;
+}
+
 
 </style>
 
@@ -176,9 +182,9 @@
     </div>
   </div>
   <div class="row">
-        <div class="col-md-6" style="">
+        <div class="col" style="">
           <div class="card-body">
-              <div class="table-responsive">
+              <div class="table-responsive text-center">
                   <table class="table table-striped">
                       <thead>
                         <tr class="text-dark" style="vertical-align: top;">
@@ -209,114 +215,58 @@
                 </div>
             </div>
         </div>
-
-
-        {% comment %} Helper Log {% endcomment %}
-        <div class="col-md-5">
-          <div class="card text-light" style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
-            <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                        <tr class="text-light" style="border: none;">
-                          <th></th>
-                          <th>Name of Helper</th>
-                          <th>Time-In</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {% for payment in payments %}  
-                          <tr class="text-light">
-                            <td><i class="bi bi-currency-exchange"></i></td>
-                            <td>{{payment.Date_paid}}</td>
-                            <td>{{payment.User_who_Paid}}</td>
-                            {% load humanize %}
-                            <td>₱ {{payment.amount|intcomma}}</td>
-                          </tr>
-                          {% endfor %}
-                      </tbody>
-                  </table>
-              </div>
-            </div>
-          </div>
-        </div>
     </div>
 </div>
 
 
-<div class="container pt-5">
-    <form method="post" enctype="multipart/form-data" class="align-items: start;">
-        {% csrf_token %}
-
-        {{form.as_p}}
-        
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
-
-<div class="container pt-5">
-    <div class="col mb-5 mt-5 px-4" style="width: 35%;">
-        <div class="card_payment card">
-            <div class="card-body">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="form-group mt-2 mb-4" id="tfield_payment">
-                        <h4 class="text-light pb-2 fw-lighter">
-                            Enter Truck Part Name:
-                        </h4>
-                        {{form.Truck_Part_Name}}
-                        {{form.Receipt}}
-                    </div>
-
-                    <div class="form-group mt-2 mb-2" id="tfield_payment">
-                        <h4 class="text-light pb-2 fw-lighter">
-                            Enter the amount to pay:
-                        </h4>
-                        <input class="form-control" name="Amount" type="text" placeholder="Total Amount">
-                    </div>
-                    
-                    <div class="d-flex justify-content-end">
-                        <div class="form-row">
-                            <div class="col-lg-5">
-                                <button type="submit" class="btn btn-transparent text-light">
-                                    <span class="fw-bold">Submit </span><i class='bx bx-chevrons-right fs-2 align-middle'></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <section style="margin-left: 140px;">
   <div class="container pt-4">
     <div>
-      <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Add Truck Maintenance to Logs</h1>
+      <h2 class="fs-2 my-4" style="font-family: 'Montserrat', sans-serif;">Add Truck Maintenance to Logs</h2>
       <h6 class="fs-6">
           Here, you can <span class="servicesUnderline">record truck maintenance info</span>.
       </h6>
     </div>
     <div class="row">
-        <div class="col-xl-11 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 440px;">
+        <div class="col-xl-11 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 750px;">
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group mt-2 mb-4" id="">
                     <h4 class="pb-2">
-                        Please type in the HOA representative:
+                        Truck Part Name:
                     </h4>
-                    <input class="form-control" name="HOA" type="text" placeholder="Homeowners' Associations"
-                    style="border-radius: 10px; border: 2px solid;">
+                    {{form.Truck_Part_Name}}
                 </div>
-
                 <div class="form-group mt-2 mb-2" id="">
                     <h4 class="pb-2">
-                        Enter the amount to pay:
+                        Price:
                     </h4>
-                    <input class="form-control" name="Amount" type="text" placeholder="Total Amount"
-                    style="border-radius: 10px; border: 2px solid;">
+                    {{form.Price}}
+                </div>
+                <div class="form-group mt-2 mb-2" id="">
+                  <h4 class="pb-2">
+                      Enter Quantity:
+                  </h4>
+                  {{form.Quantity}}
+                </div>
+                <div class="form-group mt-2 mb-2" id="">
+                  <h4 class="pb-2">
+                      Total:
+                  </h4>
+                  {{form.Total}}
+                </div>
+                <div class="form-group mt-2 mb-2" id="">
+                  <h4 class="pb-2">
+                      Truck Used on:
+                  </h4>
+                  {{form.Truck_Used_On}}
+                </div>
+                <div class="form-group mt-2 mb-2" id="">
+                  <h4 class="pb-2">
+                      Choose image file of Receipt
+                  </h4>
+                  {{form.Receipt}}
                 </div>
                 <div style="margin-top: 120px;">
                     <div class="form-row">
