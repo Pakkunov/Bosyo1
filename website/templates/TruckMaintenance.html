@@ -168,7 +168,7 @@ td {
         <div class="col-7 col-sm-5 col-md-11 col-lg-8 col-xxl-8">
           <div class="row">
           <div class="col text-center mx-3 my-1" style="border-radius: 20px; border: 2px solid black; padding: 20px;">
-            <h2 class="fw-bold display-5">
+            <h2 class="fw-bold">
               <i class='bx bxs-truck'></i> {{truckCount}}
             </h2>
             <p>
@@ -176,19 +176,20 @@ td {
             </p>
           </div>
           <div class="col text-center mx-3 my-1 text-light" style="border-radius: 20px; background: black; padding: 20px;">
-            <h2 class="fw-bold display-5">
-              <i class='bx bx-male'></i> {{helperCount}}
+            <h2 class="fw-bold">
+              <i class='bx bx-male'></i>{{helperCount}}
             </h2>
             <p>
               <br>Overall Helper Count
             </p>
           </div>
           <div class="col text-center mx-3 my-1" style="border-radius: 20px; border: 2px solid black; padding: 20px;">
-            <h2 class="fw-bold display-5">
-              ₱ {{totalExpenses.Total__sum}}
+            <h2 class="fw-bold">
+              {% load humanize %}
+              ₱ {{totalExpenses.Total__sum|intcomma}}
             </h2>
             <p>
-              <br>Overall Expenses for Trucks
+              <br>Expenses for Maintenance
             </p>
           </div>
         </div>
@@ -227,7 +228,7 @@ td {
 <section style="margin-left: 140px;">
   <div class="container">
     <div>
-      <h2 class="fs-2 my-4" style="font-family: 'Montserrat', sans-serif;">Add and View Truck Maintenance to Logs</h2>
+      <h2 class="fs-2 my-4" style="font-family: 'Montserrat', sans-serif; max-width: 550px;">Add and View Truck Maintenance to Logs</h2>
       <h6 class="fs-6">
           Here, you can <span class="fw-bold">record truck maintenance info</span>.
       </h6>

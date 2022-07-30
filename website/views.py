@@ -239,7 +239,7 @@ def qrcodelogin(request):
 
 
             return redirect('/qrlogin')    
-        return render(request,'qr_code.html',{'attendance':attendance,'attendacecounter':attendacecounter})
+        return render(request,'qr_code_template.html',{'attendance':attendance,'attendacecounter':attendacecounter})
 
 
 def charts(request):
@@ -253,7 +253,7 @@ def charts(request):
 
 
 
-    return render(request,'chart.html', {'labels':labels,'data':data})
+    return render(request,'chart_template.html', {'labels':labels,'data':data})
 
 
 def simpleCheckout(request):

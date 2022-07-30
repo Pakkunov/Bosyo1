@@ -1,24 +1,62 @@
+{% extends "main.html" %}
 
-
-{% load static %}  
-<link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
-    <script type="text/javascript" src="instascan.min.js"></script>
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
 
-    <title>Scan</title>
+{% include 'sidebar.html' %}
+
+  <title>Truck List</title>
+  <meta name="description" content="List of Trucks">
+  <meta name="keywords" content="Truck List">
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+  <script type="text/javascript" src="instascan.min.js"></script>
+
 </head>
-<body>
+<style>
+    .servicesUnderline {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position: 70% 100%;
+    transition: background-size .25s ease-in;
+    }
+
+    .servicesUnderline2 {
+        background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+        background-repeat: no-repeat;
+        background-size: 100% 20%;
+        background-position: 20% 90%;
+        transition: background-size .25s ease-in;
+    }
+  
+
+</style>
+
+<body class="
+--bs-primary: #008751;
+--bs-primary-rgb: 0, 135, 81;
+--bs-secondary: #1f1f1f;
+--bs-secondary-rgb: 31, 31, 31;
+--bs-success: #31f99d;
+--bs-success-rgb: 49, 249, 157;">
+
+
+{% if messages %}
+<div class="alert alert-danger mt-4" role="alert" style="width: 80%;" id="wrapper">
+    <div class="messages">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<section>
     
     
-    <div id="qr-reader" style="width:500px; margin-left: 500px;"></div>
+    <div id="qr-reader" style="width:500px"></div>
     <div id="qr-reader-results">
         <form method="post">
         {% csrf_token %}
@@ -70,6 +108,8 @@ var html5QrcodeScanner = new Html5QrcodeScanner(
     "qr-reader", { fps: 10, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess);
     </script>
-</body>
-</html>
+</section>
 
+</body>
+
+{% endblock content %}
