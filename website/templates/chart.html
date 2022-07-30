@@ -14,15 +14,6 @@
 </head>
 
 
-{% comment %} {% include 'sidebar.html' %}
-
-
-{% load static %}
-
-<link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
-<link rel="stylesheet" href=" {% static '/css/sidebarstyle.css' %} "> {% endcomment %}
-
-
 <style>
   /* this makes all content move right to show side bar properly */
   body {
@@ -33,6 +24,7 @@
 
 <body>
 
+  <section>
     <div id="container" style="width: 75%;">
         <canvas id="bar-chart"></canvas>
     </div>
@@ -86,6 +78,9 @@
 
 
 
+  </section>
+
+    
 
 </body>
 

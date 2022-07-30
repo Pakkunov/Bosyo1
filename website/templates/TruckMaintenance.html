@@ -104,132 +104,136 @@
   transition: background-size .25s ease-in;
   }
 
-{% comment %} 
-.imgbg {
-  object-fit: cover;
-  z-index: -99999;
-} {% endcomment %}
 
 input {
+  contain: content;
   border-radius: 10px; 
   border: 2px solid; 
-  width: 1150px;
+}
+
+#truckInput {
+  padding: 40px;
+}
+
+.displayTruck {
+  border-radius: 30px;
+  width: 600px;
+  height: 760px;
+  margin-top: 40px;
+}
+
+td {
+  text-align: left;
+  padding: 10px;
+  vertical-align: left;
+  text-align: center;
+  height: 50px;
+  line-height: 45px;
+  border-bottom: 1px dashed #cccccc;
+}
+
+.btnPayment {
+  background-color: #161616;
+  border-style: hidden;
+  border-radius: 7px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+}
+
+.btnPayment:hover {
+  background-color: white;
+  border: 2px solid;
+  color: black;
+  transition: all 0.2s;
 }
 
 
 </style>
 
 <section style="margin-left: 140px;">
-<div class="container mx-1">
+  <div class="container mx-1">
     {% comment %} headings col {% endcomment %}
     <div class="col-xxl-6" style="">
-      <h2 class="fs-2 pb-3 ms-3 pt-5" style="max-width: 500px;">Monitor and view condition of your trucks</h2>
+      <h2 class="fs-2 pb-3 ms-3 pt-5" style="max-width: 500px;">View Maintenance expenses made within the company</h2>
       <p class="w-lg-50 text-muted ms-3">All maintenance repairs and info will be recorded here.</p>
     </div>
-  <div class="row">
-    <div class="card-group">
-      {% comment %} first card {% endcomment %}
-      <div class="col-xxl-1 mx-2 py-3" style="width: 225px;">
-        <div class="card" id="cardimg0" style="width: 223.062px; border-radius: 20px; background-color: rgb(232, 232, 232);">
-          <div class="card-body p-4" style="height: 210px;">
-            <p class="card-title pb-5">Total Vehicles</p>
-            <h5 class="card-text fs-5 mt-4"><span class="text-secondary"><br>{{truckCount}}</span> available this week</h5>
-          </div>
-        </div>
-      </div>
-      {% comment %} second card {% endcomment %}
-      <div class="col-xxl-1 mx-2 py-3" style="width: 225px;">
-        <div class="card" id="cardimg1" style="width: 223.062px; border-radius: 20px; background-color: rgb(255, 231, 188);">
-          <div class="card-body p-4" style="height: 210px;">
-            <p class="card-title pb-5">Helpers</p>
-            <h5 class="card-text fs-5 mt-4"><span class="text-warning"><br><br>{{helperCount}}</span> total Helpers</h5>
-          </div>
-        </div>
-      </div>
-      {% comment %} third card {% endcomment %}
-      <div class="col-xxl-1 mx-2 py-3" style="width: 225px;">
-        <div class="card" id="cardimg2" style="width: 223.062px; border-radius: 20px; background-color: rgb(255, 198, 198)">
-          <div class="card-body p-4" style="height: 210px;">
-            <p class="card-title pb-5">Total Expenses</p>
-            <h5 class="card-text fs-5 mt-4"><span class="text-danger"><br><br>₱{{totalExpenses.Total__sum}}</span> this week</h5>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
 </section>
-<section>
-  {% comment %} Backend Here: Add a chart that monitors Truck Expenses {% endcomment %}
+
+<section style="margin-left: 120px;">
   <div class="container">
     <div class="row">
-      <div class="col">
-        
+      {% comment %} Contents {% endcomment %}
+        <div class="col-7 col-sm-5 col-md-11 col-lg-8 col-xxl-8">
+          <div class="row">
+          <div class="col text-center mx-3 my-1" style="border-radius: 20px; border: 2px solid black; padding: 20px;">
+            <h2 class="fw-bold display-5">
+              <i class='bx bxs-truck'></i> {{truckCount}}
+            </h2>
+            <p>
+              <br>Overall Vehicle Count
+            </p>
+          </div>
+          <div class="col text-center mx-3 my-1 text-light" style="border-radius: 20px; background: black; padding: 20px;">
+            <h2 class="fw-bold display-5">
+              <i class='bx bx-male'></i> {{helperCount}}
+            </h2>
+            <p>
+              <br>Overall Helper Count
+            </p>
+          </div>
+          <div class="col text-center mx-3 my-1" style="border-radius: 20px; border: 2px solid black; padding: 20px;">
+            <h2 class="fw-bold display-5">
+              ₱ {{totalExpenses.Total__sum}}
+            </h2>
+            <p>
+              <br>Overall Expenses for Trucks
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
 </section>
 
-
-<div class="container">
+<div class="container my-5" style="margin-left: 170px;">
   <div class="row">
-    <div class="col w-50">
-      {% comment %} <h1 class="fs-1 pt-5" style="font-family: 'Montserrat', sans-serif;">Dashboard</h1> {% endcomment %}
-      {% comment %} <h6 class="fs-6 mt-3">Here, you can see the <span class="servicesUnderline">user list and activity.</span></h6> {% endcomment %}
+    <div class="col-md-7">
+      <div class="col my-4 w-75">
+        <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">
+          <span class="servicesUnderline">Truck Overview</span>
+        </h1>
+        <h6 class="fs-6 mb-4">
+          All <span class="fw-bold">truck information</span> will be recorded here.
+        </h6>
+        <a href="/trucklist">
+          <button class="btnPayment btn-primary" type="button">
+            Truck Overview <i class="bi bi-person-bounding-box ps-3"></i>
+          </button>
+        </a>
+      </div>
     </div>
-    <div class="col">
-      {% comment %} <h5 class="fs-5 pt-5 mt-1 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5> {% endcomment %}
+    <div class="col-md-4 my-3">
+      <div class="col-md-6 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
+        {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
+        <h1 class="display-1">
+          <i class='bx bxs-truck'></i>
+        </h1>
+      </div>
     </div>
   </div>
-  <div class="row">
-        <div class="col" style="">
-          <div class="card-body">
-              <div class="table-responsive text-center">
-                  <table class="table table-striped">
-                      <thead>
-                        <tr class="text-dark" style="vertical-align: top;">
-                          <th></th>
-                          <th>Name of Helper</th>
-                          <th>Truck Assigned</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {% for user in accounts %}  
-                        <tr class="useracc">
-                            <td class="text-truncate text-dark" style="max-width: 100px;"><i class="bi bi-file-earmark-person-fill"></i></td>
-                            <td class="text-truncate text-dark fw-b" style="max-width: 100px;">{{user.username}}</td>
-                            <td class="text-truncate text-dark" style="max-width: 100px;">{{user.name}}</td>
-                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.email}}</td> -->
-                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.address}}</td> -->
-                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.MobilePhone}}</td> -->
-                            <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
-                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.houses}}</td> -->
-                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.payrate}}</td> -->
-                            <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.rate}}</td> -->
-                            {% load humanize %}
-                            <td class="text-truncate text-dark" style="max-width: 100px;">₱ {{user.outstanding_balance|intcomma}}</td>
-                        </tr>
-                        {% endfor %} 
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
-
-
 <section style="margin-left: 140px;">
-  <div class="container pt-4">
+  <div class="container">
     <div>
-      <h2 class="fs-2 my-4" style="font-family: 'Montserrat', sans-serif;">Add Truck Maintenance to Logs</h2>
+      <h2 class="fs-2 my-4" style="font-family: 'Montserrat', sans-serif;">Add and View Truck Maintenance to Logs</h2>
       <h6 class="fs-6">
-          Here, you can <span class="servicesUnderline">record truck maintenance info</span>.
+          Here, you can <span class="fw-bold">record truck maintenance info</span>.
       </h6>
     </div>
     <div class="row">
-        <div class="col-xl-11 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 750px;">
+        <div class="col-sm-11 col-md-11 col-lg-5 py-5 my-5 me-5" style="border-radius: 20px; border: 2px solid; height: 750px;" id="truckInput">
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group mt-2 mb-4" id="">
@@ -268,7 +272,7 @@ input {
                   </h4>
                   {{form.Receipt}}
                 </div>
-                <div style="margin-top: 120px;">
+                <div style="margin-top: 100px;">
                     <div class="form-row">
                         <div class="col-lg-5">
                             <button type="submit" class="btn">
@@ -278,6 +282,28 @@ input {
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="col-md-6" style="border-radius: 20px; background: #171717; color: white;">
+          <h6 class="my-3 fw-bold">
+            <table class="table">
+              <thead>
+                <tr class="text-light text-center">
+                  <th>Truck no.</th>
+                  <th>Total</th>
+                  <th>Receipt</th>
+                </tr>
+              </thead>
+              <tbody class="fw-bold text-light">
+                  <tr>
+                    {% for Truck_Part in Truck_Part %}
+                    <td>{{Truck_Part.Truck_Used_On}}</td>
+                    <td>{{truck.Driver_Name}}</td>
+                    <td>{{truck.Helper}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+          </table>
+          </h6>
         </div>
     </div>
   </div>

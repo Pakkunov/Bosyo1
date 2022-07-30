@@ -83,8 +83,8 @@ class Truck(models.Model):
 	Truck_number = models.IntegerField(verbose_name='Truck number',)
 	Driver_Name = models.CharField(max_length=30)
 	Plate_Num = models.CharField(max_length=8, null=True)
-	distance_travelled=models.IntegerField()
-	fuel_used=models.IntegerField()
+	distance_travelled=models.FloatField()
+	fuel_used=models.FloatField()
 	
 	def __str__(self):
 		return str(self.Truck_number)

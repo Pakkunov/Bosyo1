@@ -1,14 +1,20 @@
+
 {% extends "main.html" %}
 
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
 
+<head>
 {% include 'sidebar.html' %}
 
 
 {% load static %}
 
 <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
+
+<meta name="description" content="List of Trucks">
+<meta name="keywords" content="Truck List">
+</head>
 
 <style>
 
@@ -70,11 +76,37 @@ thead {
   transition: .25s;
   }
 
+  .servicesUnderline2 {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 20%;
+    background-position: 20% 90%;
+    transition: background-size .25s ease-in;
+    }
+
   .btnPayment:hover {
     background-color: white;
     border: 2px solid;
     color: black;
     transition: all 0.2s;
+  }
+  
+  .imgTruck {
+    border-radius: 30px;
+    width: 350px;
+    height: 250px;
+    margin-left: 20px;
+  }
+
+  .imgAttendance {
+    border-radius: 30px;
+    width: 350px;
+    margin-left: 20px;
+  }
+
+  #table1 {
+    border-collapse: separate;
+    border-spacing: 15px;
   }
 
 
@@ -95,12 +127,12 @@ style="
     <div class="row">
       <div class="col w-50">
         <h1 class="fs-1 pt-5" style="font-family: 'Montserrat', sans-serif;">Dashboard</h1>
-        <h6 class="fs-6 mt-3">Here, you can see the <span class="servicesUnderline">user list and activity.</span></h6>
+        <h6 class="fs-6 mt-3">Here, you can see the <span class="fw-bold">user list and activity.</span></h6>
       </div>
       <div class="col mt-5">
         {% comment %} <h5 class="fs-5 pt-5 mt-4 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5> {% endcomment %}
-        <p style="font-style: italic;">
-          Want to make a manual payment?
+        <p>
+          Want to make a manual payment? Click here
         <a href="/manualpayment">
           <button class="btnPayment btn-primary mx-2" type="button">
             Manual Payment <i class='bx bxs-bank'></i>
@@ -118,7 +150,6 @@ style="
                           <tr class="text-dark" style="vertical-align: top;">
                             <th></th>
                             <th>Username</th>
-                            <th>Name</th>
                             <!-- <th>E-mail</th> -->
                             <!-- <th>Address</th> -->
                             <!-- <th>Mobile phone</th> -->
@@ -134,7 +165,6 @@ style="
                           <tr class="useracc">
                               <td class="text-truncate text-dark" style="max-width: 100px;"><i class="bi bi-file-earmark-person-fill"></i></td>
                               <td class="text-truncate text-dark fw-b" style="max-width: 100px;">{{user.username}}</td>
-                              <td class="text-truncate text-dark" style="max-width: 100px;">{{user.name}}</td>
                               <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.email}}</td> -->
                               <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.address}}</td> -->
                               <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.MobilePhone}}</td> -->
@@ -143,8 +173,12 @@ style="
                               <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.payrate}}</td> -->
                               <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.rate}}</td> -->
                               {% load humanize %}
+                          {% if user.outstanding_balance is none %}
+                              <td class="text-truncate text-dark" style="max-width: 100px;">₱ 0</td>
+                          {% else %}
                               <td class="text-truncate text-dark" style="max-width: 100px;">₱ {{user.outstanding_balance|intcomma}}</td>
-                          </tr>
+                          {% endif %}
+                        </tr>
                           {% endfor %} 
                       </tbody>
                     </table>
@@ -192,71 +226,59 @@ style="
   </div>
 </section>
 
+<section>
+  <div class="container" style="margin-left: 170px;">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="col my-4 w-75" style="">
+          <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Employee Attendance</h1>
+          <h6 class="fs-6 mb-4">
+            Ready to check attendance of employees? Click the button below to<span class="fw-bold"> take attendance.</span>
+          </h6>
+          <a href="/qrlogin">
+            <button class="btnPayment btn-primary" type="button">
+              QR Login <i class="bi bi-person-bounding-box ps-3"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="col-md-4 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
+        {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
+        <h1 class="display-1">
+          <i class="bi bi-person-bounding-box ps-3"></i>
+        </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="container" style="margin-left: 170px;">
   <div class="row">
-    <div class="col w-50">
-      <div class="col my-4 w-75" style="">
-        <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Employee Attendance</h1>
+    <div class="col-md-7">
+      <div class="col my-4 w-75">
+        <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Truck Overview</h1>
         <h6 class="fs-6 mb-4">
-          Ready to check attendance of employees? <span class="servicesUnderline">Click the button below</span> to register a payment.
+          All <span class="fw-bold">truck information</span> will be recorded here.
         </h6>
-        <a href="/qrlogin">
+        <a href="/trucklist">
           <button class="btnPayment btn-primary" type="button">
-            QR Login <i class="bi bi-person-bounding-box ps-3"></i>
+            Truck Overview <i class="bi bi-person-bounding-box ps-3"></i>
           </button>
         </a>
       </div>
     </div>
+    <div class="col-md-4 my-3">
+      <div class="col-md-4 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
+        {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
+        <h1 class="display-1">
+          <i class='bx bxs-truck'></i>
+        </h1>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-<section>
-  <div class="container my-1">
-      <div class="col-md-5">
-          <div class="row">
-              <div class="col-md-5 mb-5">
-                  <div class="card_user_list">
-                      <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
-                        <h5 class="display-4 text-nowrap mb-0 mt-2 fw-bold">
-                          Trucks and Drivers
-                        </h5>
-                      </div>
-                      <div class="">
-                          <div class="table-responsive">
-                              <table class="table text-light">
-                                  <thead class="fs-4">
-                                    <tr>
-                                      <th>Truck no.</th>
-                                      <th>Driver</th>
-                                      {% comment %} <th>Helpers</th> {% endcomment %}
-                                      <th>Plate Number</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    {% for truck in trucks %}  
-                                      <tr>
-                                        <td>{{truck.Truck_number}}</td>
-                                        <td>{{truck.Driver_Name}}</td>
-                                        {% comment %} <td>{{truck.Helper}}</td> {% endcomment %}
-                                        <td>{{truck.Plate_Num}}</td>
-                                        <td>
-                                          {% comment %} <img src="{{Truck_Part.Receipt.url}}" alt="Receipt"> {% endcomment %}
-                                        </td>
-                                      </tr>
-                                      {% endfor %} 
-                                    </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
-
 
 
 

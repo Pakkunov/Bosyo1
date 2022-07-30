@@ -161,7 +161,6 @@ def manualpayment(request):
 
 
 def TruckMaintenance(request):
-        
         labels = []
         data = []
 
@@ -288,7 +287,7 @@ def simpleCheckout(request):
 
     
 class TruckList(ListView):
-    template_name='truck_list.html'
+    template_name='debugmode.html'
     model=Truck
 
 class TruckDetailView(DetailView):

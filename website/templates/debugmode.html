@@ -1,138 +1,184 @@
 {% extends "main.html" %}
 
+<head>
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
 
 {% include 'sidebar.html' %}
 
+  <title>Truck List</title>
+  <meta name="description" content="List of Trucks">
+  <meta name="keywords" content="Truck List">
+</head>
 <style>
-  body {
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .colIMG {
-    position: relative;
-    text-align: center;
-  }
-
   .servicesUnderline {
     background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
     background-repeat: no-repeat;
-    background-size: 100% .4em;
+    background-size: 100% 50%;
     background-position: 70% 100%;
     transition: background-size .25s ease-in;
     }
 
-.servicesUnderline2 {
-    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: 70% 100%;
-    transition: background-size .25s ease-in;
-    }
+    .servicesUnderline2 {
+      background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+      background-repeat: no-repeat;
+      background-size: 100% 20%;
+      background-position: 20% 90%;
+      transition: background-size .25s ease-in;
+      }
+
+  li {
+    list-style-type: none;
+  }
+
+
+  .plateNum {
+    font-family: 'FE-Font', sans-serif;
+    background: white; 
+    border: 2px solid black; 
+    width: 150px;
+                                                
+  }
+
+  .imgTruck {
+    border-radius: 30px;
+    width: 400px;
+    position: absolute;
+  }
+
+  section {
+    margin-left: 140px;
+  }
+
+  .truckTable {
+    margin-left: 160px;
+  }
+
+  #table1 {
+    border-collapse: separate;
+    border-spacing: 15px;
+  }
+  
 
 </style>
 
-<body>
-  
-<section style="margin-left: 140px;">
-<div class="container">
-  <div class="row">
-    <h1 class="fs-1 mb-1 pt-5">Payment</h1>
-    <p class="mb-3">Fill in the required information to continue.</p>
-      <!-- 1st Column -->
-      <div class="col-md-4 colIMG mx-3 ms-4">
-        <img
-            src="\static\images\gradient_green.jpg"
-            class="img-fluid my-3 mx-auto d-none d-md-block"
-            style="width: 550px; height: 460px"
-            alt="">
-        <div class="d-block d-md-none xl-none mt-3">
-          <h1 class="display-6" style="text-shadow: 1px #fff;">PHP {{user.outstanding_balance}}</h1>
-      </div>
-      </div>
-      <!-- 2nd Column -->
-      <div class="col-md-6 col-xs-6 ms-3">
-        <div id="smart-button-container">
-          {% csrf_token %}
-          {% load humanize %}
-            {% if user.outstanding_balance is none %}
-          <p class="fw-bold">
-            <span class="servicesUnderline">You have no outstanding balance.</span><br>
-          </p>
-          <p class="py-2">
-            Logged in as: <span class="fw-bold">{{user.username}}</span>
-          </p> 
-          
-          {% else %}
-          <p class="mt-2 fw-bold d-none d-md-block">Amount to pay:
-            <span class="servicesUnderline2">PHP {{ user.outstanding_balance|intcomma }}</span><br>
-          </p>
-          <p class="py-2">
-            Logged in as: <span class="fw-bold">{{user.username}}</span>
-          </p> 
-          {% endif%}
-          <form method="post">
-            {% csrf_token %}
-          <p class="mb-3 mt-3">Please confirm and enter your Username: <span class="text-danger">*</span></p>
-          <div class="mb-2" style="text-align: start">
-            <input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username" maxlength="127" value=""></div>
-            <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>
-          <p class="mb-3 mt-2">Enter amount to pay in PHP:</p>
-          <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
-            <p class="mb-3" id="priceLabelError" style="visibility: hidden; color:red; text-align: start;">Please enter proper amount to pay</p>
-          <div id="invoiceidDiv" style="text-align: start; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
-            <p id="invoiceidError" style="visibility: hidden; color:red; text-align: start;">Please enter an Invoice ID</p>
-            <div style="text-align: center; width: 600px;" id="paypal-button-container"></div>
-          </form>
+<body class="
+--bs-primary: #008751;
+--bs-primary-rgb: 0, 135, 81;
+--bs-secondary: #1f1f1f;
+--bs-secondary-rgb: 31, 31, 31;
+--bs-success: #31f99d;
+--bs-success-rgb: 49, 249, 157;">
+
+
+{% if messages %}
+<div class="alert alert-danger mt-4" role="alert" style="width: 80%;" id="wrapper">
+    <div class="messages">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<section>
+  <div class="container pt-4">
+    <div>
+      <h1 class="my-4" style="font-family: 'Montserrat', sans-serif;">
+        <span class="servicesUnderline2">Truck Overview
+        </span>
+      </h1>
+      <h6>
+        Monitor and view condition of your trucks.
+      </h6>
+    </div>
+  </div>
+</section>
+
+<section class="mt-4">
+  <div class="container">
+    <div class="row">
+      {% comment %} Contents {% endcomment %}
+        <div class="col-md-6 col-xxl-8">
+          <div class="row">
+          <div class="col text-center mx-3" style="border-radius: 20px; border: 2px solid black; padding: 20px;">
+            <h2 class="fw-bold">
+              7,323 L
+            </h2>
+            <p>
+              Overall Fuel Consumed of Each Truck
+            </p>
+          </div>
+          <div class="col text-center mx-3 text-light" style="border-radius: 20px; background: black; padding: 20px;">
+            <h2 class="fw-bold">
+              7,323 km
+            </h2>
+            <p>
+              Overall Distance Traveled for Each Truck
+            </p>
+          </div>
         </div>
-    </section>
-    <!-- Include the PayPal JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AYUBK_5IUlIHcyY2I-3enRogGyAS1TjCEM-LXzv_14uu3DR8MQjszlryfC6Wv4Y5k9V1s9zGW6bxWVBi&currency=PHP"></script>
-
-    <script>
-        // Render the PayPal button into #paypal-button-container
-        paypal.Buttons({
-          style: {
-            color: 'silver',
-            shape: 'pill',
-            label: 'paypal',
-            layout: 'vertical',
-            
-            },
-
-            // Set up the transaction
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '88.44'
-                        }
-                    }]
-                });
-            },
-
-            // Finalize the transaction
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(orderData) {
-                    // Successful capture! For demo purposes:
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    var transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-
-                    // Replace the above to show a success message within this page, e.g.
-                    // const element = document.getElementById('paypal-button-container');
-                    // element.innerHTML = '';
-                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                    // Or go to another URL:  actions.redirect('thank_you.html');
-                });
-            }
+      </div>
+        
+        <div class="col-md-4 col-xxl-3 d-none d-xl-block d-lg-block">
+          {% comment %} Info {% endcomment %}
+          <div class="row">
+              <img src="\static\images\Environment2.png" alt="" class="imgTruck">
+          </div> 
+        </div>
+      </div>
+  </div>
+</section>
 
 
-        }).render('#paypal-button-container');
-    </script>
-</body>
 
+<section class="truckTable" style="padding-top: 30px;">
+  <div class="container">
+    <div class="row">
+      <h4 class="py-2 fw-bold" style="font-family: 'Maven Pro', sans-serif;">
+        Truck Details
+      </h4>
+      <h6 class="pb-3">
+        Click on a plate number bellow to view the vehicle and redirect to another page.
+      </h6>
+        <div class="col-md-6 col-xxl-8">
+          <table id="table1">
+            <tbody>
+              {% comment %} table row first {% endcomment %}
+              {% for truck in object_list %}
+              <div class="trucklistcontainer">
+                <tr>
+                  <td class="text-center fw-bold" style="width: 80px;">
+                    #{{truck.Truck_number}}
+                  </td>
+                  <td class="plateNum text-center" style="">
+                    <a href="{{truck.id}}" style="text-decoration: none; color: black;">{{truck.Plate_Num}}</a>
+                  </td>
+                  <td class="text-center fw-bold" style="width: 180px;">
+                    <i class="bi bi-person-badge-fill text-muted"></i> {{truck.Driver_Name}}
+                  </td>
+                  <td class="text-center fw-bold text-muted" style="width: 150px; padding: 15px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fuel-pump-fill" viewBox="0 0 16 16">
+                      <path d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1c.564 0 1.034.11 1.412.336.383.228.634.551.794.907.295.655.294 1.465.294 2.081V7.5a.5.5 0 0 1-.5.5H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V2Zm2.5 0a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5h-5Z"/>
+                    </svg><span class="text-black"> {{truck.fuel_used}} L</span>
+                  </td>
+                  <td class="text-center fw-bold" style="width: 150px;">
+                    <i class="bi bi-speedometer text-muted"></i> {{truck.distance_travelled}} km
+                  </td>
+                  <td class="text-center fw-bold" style="width: 150px;">
+                    <i class="bi bi-wrench-adjustable text-danger"></i></i> 
+                    5 total vehicle fixes
+                  </td>
+                </tr>
+              </div>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6 col-xxl-4"></div>
+      </div>
+  </div>
+</section>
 
 </body>
 

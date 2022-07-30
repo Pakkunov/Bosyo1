@@ -56,7 +56,7 @@
         <div id="smart-button-container">
           {% csrf_token %}
           {% load humanize %}
-            {% if user.outstanding_balance is none %}
+            {% if user.outstanding_balance is None %}
           <p class="fw-bold">
             <span class="servicesUnderline">You have no outstanding balance.</span><br>
           </p>
