@@ -291,9 +291,13 @@ td {
                 <tr class="text-light text-center">
                   <th>Truck no.</th>
                   <th>Total</th>
-                  <th>Receipt</th>
                 </tr>
-              </thead>
+                <td class="text-light text-center">
+                {% for part in queryset1 %}
+                  <td class="text-light text-center">{{ part.Truck_Used_On }}</td>
+                  <td class="text-light text-center">{{ part.sumTotal }}</td>
+                {% endfor %}
+                </thead>
               <tbody class="fw-bold text-light">
                   <tr>
                     {% for Truck_Part in Truck_Part %}

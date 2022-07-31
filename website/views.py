@@ -161,30 +161,24 @@ def manualpayment(request):
 
 
 def TruckMaintenance(request):
-        labels = []
-        data = []
+    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total')).order_by('Truck_Used_On')
+        
+        
+        
+    totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
+    truckCount = Truck.objects.all().count()
+    helperCount= Helper.objects.all().count()
+    parts=Truck_Part.objects.all()
+    form = TruckMaintenanceForm()
+    if not request.user.is_staff:
+        messages.error(request, 'You are not allowed to view this page.')
+        return redirect('userProfile')
 
-        queryset=Truck_Part.objects.all()
-        for truck in queryset:
-            labels.append(truck.Truck_Used_On)
-            data.append(truck.Total)
-        
-        
-        
-        totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
-        truckCount = Truck.objects.all().count()
-        helperCount= Helper.objects.all().count()
-        parts=Truck_Part.objects.all()
-        form = TruckMaintenanceForm()
-        if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page.')
-            return redirect('userProfile')
-
-        if request.method == 'POST':
-            form = TruckMaintenanceForm(request.POST, request.FILES)     
-            if form.is_valid():
-                form.save()     
-                return redirect('/staff')
+    if request.method == 'POST':
+        form = TruckMaintenanceForm(request.POST, request.FILES)     
+        if form.is_valid():
+            form.save()     
+            return redirect('/staff')
 
 
 
@@ -194,8 +188,8 @@ def TruckMaintenance(request):
 
         
 
-        context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'labels':labels,'data':data,'helperCount':helperCount}
-        return render(request,'TruckMaintenance.html', context)
+    context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1}
+    return render(request,'TruckMaintenance.html', context)
         
 
 #def ContactUsForm(request):
@@ -251,9 +245,21 @@ def charts(request):
         labels.append(person.name)
         data.append(person.counter)
 
+    labels1 = []
+    data1 = []
+    queryset0=Truck_Part.objects.values('Truck_Used_On')
+    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total'))
+    
+    for truck in queryset1:
+        labels1.append(truck['Truck_Used_On'])
+        data1.append(truck['sumTotal'])
 
 
-    return render(request,'chart_template.html', {'labels':labels,'data':data})
+
+
+
+
+    return render(request,'chart.html', {'labels':labels,'data':data,'labels1':labels1,'data1':data1})
 
 
 def simpleCheckout(request):
@@ -293,3 +299,18 @@ class TruckList(ListView):
 class TruckDetailView(DetailView):
         template_name='truck-details.html'
         model = Truck
+
+def TruckChart(request):
+    labels = []
+    data = []
+    queryset0=Truck_Part.objects.values('Truck_Used_On')
+    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total'))
+    
+    for truck in queryset1:
+        labels.append(truck['Truck_Used_On'])
+        data.append(truck['sumTotal'])
+
+
+
+    return render(request,'truck_chart_template.html', {'labels':labels,'data':data})
+

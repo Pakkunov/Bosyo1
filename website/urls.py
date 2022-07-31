@@ -28,6 +28,9 @@ urlpatterns = [
     path('payment/', views.simpleCheckout, name="payment"),
     path('trucklist',TruckList.as_view()),
     path('<int:pk>',TruckDetailView.as_view()),
+    path('truckchart/', views.TruckChart, name='truckchart'),
+
+
 
 ]   
 
