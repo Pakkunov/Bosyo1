@@ -124,6 +124,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% comment %} backend {% endcomment %}
                             {% for user in attendance|slice:"10::-1" %}  
                             {% if forloop.counter < 11  %}
                             <tr>
