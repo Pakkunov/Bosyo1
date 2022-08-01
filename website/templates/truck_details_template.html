@@ -122,13 +122,9 @@
             <h6 class="text-center">
                 <br>Truck Driver: {{truck.Driver_Name}}
             </h6>
-            {% comment %} 
-            <div class="col py-3" style="padding-left: 70px;">
-            </div> 
-            {% endcomment %}
           </div>
           <div class="col-md-7 text-center mx-1 my-5" style="">
-          {% comment %} Recent Transactions {% endcomment %}
+          {% comment %} Helper List {% endcomment %}
           <div 
             class="text-light" 
             style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
@@ -137,6 +133,7 @@
                   <div class="table-responsive">
                     <table class="table">
                         <tbody>
+                          {% comment %} backend Helper Names {% endcomment %}
                           {% for helper in helpers %}
                             <tr class="text-light">
                                 <td>{{helper.name}}</td>    
