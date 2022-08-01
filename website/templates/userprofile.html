@@ -95,7 +95,8 @@
           </div>
           <h1 class="fs-1 fw-bold text-center"><span class="servicesUnderline">{{user.username}}</span></h1>
           <div class="col py-3" style="padding-left: 70px;">
-            <p>Username: {{user.username}}</p>
+            {% load humanize %}
+            <p>Monthly Bill: {{user.payrate|intcomma}}</p>
             <p>E-mail Address: {{user.email}}</p>
             <p>Mobile Phone: {{user.MobilePhone}}</p>
             <p>Landline: {{user.Landline}}</p>

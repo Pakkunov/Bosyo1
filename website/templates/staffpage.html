@@ -130,7 +130,8 @@ style="
       <div class="col mt-5">
         {% comment %} <h5 class="fs-5 pt-5 mt-4 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5> {% endcomment %}
         <p>
-          Want to make a manual payment? Click here
+          <span class="d-none d-md-none d-lg-block my-3">
+            Want to make a manual payment? Click here</span>
         <a href="/manualpayment">
           <button class="btnPayment btn-primary mx-1" type="button">
             Manual Payment <i class='bx bxs-bank'></i>
@@ -186,7 +187,7 @@ style="
 
 
           {% comment %} Recent Transactions {% endcomment %}
-          <div class="col-md-5">
+          <div class="col-sm-12 col-md-11 col-lg-10 col-xl-5">
             <div class="text-light" style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
               <div class="mx-3 py-3 mb-5">
                 <h6 class="fs-6 fw-bold">Recent transactions</h6>
