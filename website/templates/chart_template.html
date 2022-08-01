@@ -18,7 +18,7 @@
     .servicesUnderline {
     background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
     background-repeat: no-repeat;
-    background-size: 100% 50%;
+    background-size: 100% 30%;
     background-position: 70% 100%;
     transition: background-size .25s ease-in;
     }
@@ -29,6 +29,14 @@
         background-size: 100% 20%;
         background-position: 20% 90%;
         transition: background-size .25s ease-in;
+    }
+
+    canvas {
+        margin: 150px;
+    }
+
+    section {
+        margin-left: 140px;
     }
   
 
@@ -53,63 +61,112 @@
 </div>
 {% endif %}
 
-<section>
-    
-    
-    <div id="qr-reader" style="width:500px"></div>
-    <div id="qr-reader-results">
-        <form method="post">
-        {% csrf_token %}
-
-        <input type="text" name="decodedText" id="decodedText" readonly="" class="form-control">
-    </form>
+<section style="">
+    <div class="container mx-1">
+      {% comment %} headings col {% endcomment %}
+      <div class="col-xxl-6" style="">
+        <h2 class="fs-2 pb-3 pt-5" style="max-width: 500px;"><span class="servicesUnderline">Employee Attendance</span></h2>
+        <p class="w-lg-50 text-muted">All attendance of employees will be recorded here.</p>
+      </div>
     </div>
-    
-    <div>
-        <div class="table-responsive">
-            <table class="table table-stripe">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Time-in</th>
-                  </tr>
-                </thead>
-                <tbody>
-                {% for user in attendance|slice:"10::-1" %}  
-                 {% if forloop.counter < 11  %}
-                  <tr>
-                    <td>{{user.name}}</td>
-                    <td>{{user.attendace_time}}</td>
-                 {% endif %} 
-                  </tr>
-                {% endfor %} 
-                </tbody>
-            </table>	
-        </div>
-    </div>
-
-    <script>
-var resultContainer = document.getElementById('qr-reader-results');
-var lastResult, countResults = 0;
-
-function onScanSuccess(decodedText, decodedResult) {
-    if (decodedText !== lastResult) {
-        ++countResults;
-        lastResult = decodedText;
-        // Handle on success condition with the decoded message.
-        console.log(`Scan result ${decodedText}`, decodedResult);
-        document.getElementById("decodedText").value=decodedText
-        document.forms[0].submit();
-
-    }
-}
-
-var html5QrcodeScanner = new Html5QrcodeScanner(
-    "qr-reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);
-    </script>
 </section>
 
+{% comment %} charts {% endcomment %}
+<section style="">
+    <div style="width:1000px;">
+        <canvas id="bar-chart" class="my-5"></canvas>
+    </div>
+</section>
+
+
+<section>
+    <div class="container mx-1">
+        {% comment %} headings col {% endcomment %}
+        <div class="col-xxl-6" style="">
+          <h2 class="fs-2 pb-3" style="max-width: 500px;"><span class="servicesUnderline">Total Expenses of Each Truck</span></h2>
+          <p class="w-lg-50 text-muted">Truck Maintenance Expenses will be recorded here.</p>
+        </div>
+      </div>
+</section>
+    
+<section>
+    <div style="width:1000px;">
+        <canvas id="bar1-chart" class="my-5"></canvas>
+    </div>
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+
+    var config = {
+        type: 'bar',
+        data: {
+        datasets: [{
+            data: {{ data1|safe }},
+            backgroundColor: [
+                'rgba(0, 0, 0, 1)',
+                'rgba(0, 135, 81, .5)'
+            ],
+            borderColor: [
+                'rgb(0, 0, 0)',
+                'rgb(0, 135, 81)'
+            ],
+            label: 'Truck Expense'
+            }],
+            labels: {{ labels1|safe }}
+        },
+        options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                        }
+                    }],
+        }
+        }
+    };
+
+    {
+        var ctx = document.getElementById('bar1-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
+
+
+    var config = {
+        type: 'bar',
+        data: {
+        datasets: [{
+            data: {{ data|safe }},
+            backgroundColor: [
+                'rgba(0, 0, 0, 1)',
+                'rgba(0, 135, 81, .5)'
+            ],
+            borderColor: [
+                'rgb(0, 0, 0)',
+                'rgb(0, 135, 81)'
+            ],
+            label: 'Attendance Count'
+        }],
+        labels: {{ labels|safe }}
+        },
+        options: {
+        scales: {
+            yAxes: [{
+            ticks: {
+                beginAtZero: true
+                    }
+                }],
+        }
+        }
+    };
+    window.onload = function() {
+        var ctx = document.getElementById('bar-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
+    </script>
+
+
+    
 </body>
 
 {% endblock content %}

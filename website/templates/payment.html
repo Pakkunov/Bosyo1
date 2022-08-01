@@ -39,7 +39,7 @@
 <div class="container">
   <div class="row">
     <h1 class="fs-1 mb-1 pt-5">Payment</h1>
-    <p class="mb-3">Fill in the required information to continue.</p>
+    <p class="mb-3">Fill in the required information to continue.<br><br>Please note that the Username is <span class="fw-bold servicesUnderline">Case Sensitive.</span></p>
       <!-- 1st Column -->
       <div class="col-md-4 colIMG mx-3 ms-4">
         <img
@@ -71,7 +71,7 @@
           <p class="py-2">
             Logged in as: <span class="fw-bold">{{user.username}}</span>
           </p> 
-          {% endif%}
+          {% endif %}
           <form method="post">
             {% csrf_token %}
           <p class="mb-3 mt-3">Please confirm and enter your Username: <span class="text-danger">*</span></p>

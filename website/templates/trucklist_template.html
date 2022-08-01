@@ -23,11 +23,12 @@
     .servicesUnderline2 {
       background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
       background-repeat: no-repeat;
-      background-size: 100% 20%;
+      background-size: 100% 30%;
       background-position: 20% 90%;
       transition: background-size .25s ease-in;
       }
 
+    
   li {
     list-style-type: none;
   }
@@ -59,6 +60,23 @@
     border-collapse: separate;
     border-spacing: 15px;
   }
+
+  
+.btnPayment {
+  background-color: #161616;
+  border-style: hidden;
+  border-radius: 7px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+}
+
+.btnPayment:hover {
+  background-color: white;
+  border: 2px solid;
+  color: black;
+  transition: all 0.2s;
+}
   
 
 </style>
@@ -131,8 +149,6 @@
   </div>
 </section>
 
-
-
 <section class="truckTable" style="padding-top: 30px;">
   <div class="container">
     <div class="row">
@@ -140,7 +156,7 @@
         Truck Details
       </h4>
       <h6 class="pb-3">
-        Click on a plate number bellow to view the vehicle and redirect to another page.
+        Click on a plate number bellow to view <span class="servicesUnderline2">Driver and Helper list</span> and redirect to another page.
       </h6>
         <div class="col-md-6 col-xxl-8">
           <table id="table1">
@@ -166,14 +182,14 @@
                   <td class="text-center fw-bold" style="width: 150px;">
                     <i class="bi bi-speedometer text-muted"></i> {{truck.distance_travelled}} km
                   </td>
-                  {% if truck.TruckMaintenanceCount is none %}
+                  {% if truck.TruckMaintenanceCount %}
                   <td class="text-center fw-bold" style="width: 150px;">
-                    <i class="bi bi-wrench-adjustable text-success"></i></i>
+                    <i class="bi bi-wrench-adjustable text-warning"></i></i>
                     {{truck.TruckMaintenanceCount}} total vehicle fixes
                   </td>
                   {% else %}
                   <td class="text-center fw-bold" style="width: 150px;">
-                    <i class="bi bi-wrench-adjustable text-danger"></i></i>
+                    <i class="bi bi-wrench-adjustable text-success"></i></i>
                     {{truck.TruckMaintenanceCount}} total vehicle fixes
                   </td>
                   {% endif %} 
@@ -187,6 +203,35 @@
       </div>
   </div>
 </section>
+
+
+<div class="container my-5" style="margin-left: 170px;">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="col my-4">
+        <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">
+          <span class="servicesUnderline2">Truck Maintenance Expenses</span>
+        </h1>
+        <h6 class="fs-6 mb-4">
+          All <span class="fw-bold">truck maintenance expenses</span> will be recorded here.
+        </h6>
+        <a href="/TruckMaintenance">
+          <button class="btnPayment btn-primary" type="button">
+            Truck Expenses <i class="bi bi-person-bounding-box ps-3"></i>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4 my-3">
+      <div class="col-md-6 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
+        {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
+        <h1 class="display-1">
+          <i class='bx bxs-truck'></i>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 

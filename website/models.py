@@ -85,6 +85,8 @@ class Truck(models.Model):
 	Plate_Num = models.CharField(max_length=8, null=True)
 	distance_travelled=models.FloatField()
 	fuel_used=models.FloatField()
+	TruckMaintenanceCount = models.IntegerField(verbose_name='Truck Maintenance Count', null=True)
+
 	
 	def __str__(self):
 		return str(self.Truck_number)
@@ -132,6 +134,8 @@ class Payment(models.Model):
 class Attendance(models.Model):
 	name=models.CharField(max_length=50)
 	attendace_time=models.DateTimeField(auto_now_add=True)
+	
+
 
 	def __str__(self):
 		return str(self.name)
@@ -139,6 +143,7 @@ class Attendance(models.Model):
 class attendanceCounter(models.Model):
 	name=models.CharField(max_length=50)
 	counter=models.IntegerField(default=0)
+
 
 	def __str__(self):
 		return str(self.name)

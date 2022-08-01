@@ -57,6 +57,11 @@
       .qrlogs {
         margin-left: 40px;
       }
+    
+      
+    thead {
+        border-bottom: hidden;
+    }
 
   
 
@@ -104,33 +109,33 @@
                     <div id="qr-reader-results" style="padding: 10px; display: flex; align-items: center; justify-content: center;">
                         <form method="post">
                         {% csrf_token %}
-                            <input type="text" name="decodedText" id="decodedText" readonly="" class="form-control">
+                            <input type="text" name="decodedText" id="decodedText" readonly="" class="form-control my-5">
                         </form>
                     </div>
                 <div>
             </div>
-        <div class="row">
-            <div class="table-responsive">
-                <table class="table table-stripe">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Time-in</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for user in attendance|slice:"10::-1" %}  
-                    {% if forloop.counter < 11  %}
-                    <tr>
-                        <td>{{user.name}}</td>
-                        <td>{{user.attendace_time}}</td>
-                    {% endif %} 
-                    </tr>
-                    {% endfor %} 
-                    </tbody>
-                </table>	
+            <div class="row" style="padding: 10px; display: flex; align-items: center; justify-content: center;">
+                <div class="col-md-6 col-lg-6" style="border-radius: 20px; background: #171717; color: white;">
+                    <table class="table">
+                        <thead class="text-light text-center">
+                            <tr>
+                            <th>Name</th>
+                            <th>Time-In</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in attendance|slice:"10::-1" %}  
+                            {% if forloop.counter < 11  %}
+                            <tr>
+                                <td>{{user.name}}</td>
+                                <td>{{user.attendace_time}}</td>
+                            {% endif %} 
+                            </tr>
+                            {% endfor %} 
+                            </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
             <script>
                 var resultContainer = document.getElementById('qr-reader-results');
                 var lastResult, countResults = 0;
@@ -158,6 +163,11 @@
     
 
         
+</section>
+
+
+<section>
+    
 </section>
 
 </body>

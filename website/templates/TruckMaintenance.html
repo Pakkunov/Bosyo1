@@ -148,6 +148,10 @@ td {
   transition: all 0.2s;
 }
 
+input {
+  width: 100%;
+}
+
 
 </style>
 
@@ -162,7 +166,7 @@ td {
 </section>
 
 <section style="margin-left: 120px;">
-  <div class="container">
+  <div class="container ms-4">
     <div class="row">
       {% comment %} Contents {% endcomment %}
         <div class="col-7 col-sm-5 col-md-11 col-lg-8 col-xxl-8">
@@ -197,44 +201,17 @@ td {
     </div>
 </section>
 
-<div class="container my-5" style="margin-left: 170px;">
-  <div class="row">
-    <div class="col-md-7">
-      <div class="col my-4 w-75">
-        <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">
-          <span class="servicesUnderline">Truck Overview</span>
-        </h1>
-        <h6 class="fs-6 mb-4">
-          All <span class="fw-bold">truck information</span> will be recorded here.
-        </h6>
-        <a href="/trucklist">
-          <button class="btnPayment btn-primary" type="button">
-            Truck Overview <i class="bi bi-person-bounding-box ps-3"></i>
-          </button>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-4 my-3">
-      <div class="col-md-6 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
-        {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
-        <h1 class="display-1">
-          <i class='bx bxs-truck'></i>
-        </h1>
-      </div>
-    </div>
-  </div>
-</div>
 
 <section style="margin-left: 140px;">
-  <div class="container">
+  <div class="container ms-3">
     <div>
-      <h2 class="fs-2 my-4" style="font-family: 'Montserrat', sans-serif; max-width: 550px;">Add and View Truck Maintenance to Logs</h2>
-      <h6 class="fs-6">
-          Here, you can <span class="fw-bold">record truck maintenance info</span>.
+      <h2 class="pb-3 pt-5" style="font-family: 'Montserrat', sans-serif; max-width: 550px;">Record Truck Maintenance</h2>
+      <h6>
+          Here, you can <span class="servicesUnderline">record truck maintenance info.</span>.
       </h6>
     </div>
     <div class="row">
-        <div class="col-sm-11 col-md-11 col-lg-5 py-5 my-5 me-5" style="border-radius: 20px; border: 2px solid; height: 750px;" id="truckInput">
+        <div class="col py-5 my-5 me-5" style="border-radius: 20px; border: 2px solid; height: 750px;" id="truckInput">
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group mt-2 mb-4" id="">
@@ -284,32 +261,27 @@ td {
                 </div>
             </form>
         </div>
+        {% comment %}
         <div class="col-md-6" style="border-radius: 20px; background: #171717; color: white;">
-          <h6 class="my-3 fw-bold">
             <table class="table">
-              <thead>
-                <tr class="text-light text-center">
+              <thead class="text-light text-center">
+                <tr>
                   <th>Truck no.</th>
                   <th>Total</th>
                 </tr>
-                <td class="text-light text-center">
-                {% for part in queryset1 %}
-                  <td class="text-light text-center">{{ part.Truck_Used_On }}</td>
-                  <td class="text-light text-center">{{ part.sumTotal }}</td>
-                {% endfor %}
                 </thead>
-              <tbody class="fw-bold text-light">
+                <tbody>
+                  {% for part in queryset1 %}
                   <tr>
-                    {% for Truck_Part in Truck_Part %}
-                    <td>{{Truck_Part.Truck_Used_On}}</td>
-                    <td>{{truck.Driver_Name}}</td>
-                    <td>{{truck.Helper}}</td>
+                    <td class="text-light text-center">{{ part.Truck_Used_On }}</td>
+                    <td class="text-light text-center">{{ part.sumTotal }}</td>
+                    <td class="text-light text-center"><a href="{{ part.Receipt }}" alt="text"></a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
-          </table>
-          </h6>
+            </table>
         </div>
+        {% endcomment %}
     </div>
   </div>
 </section>

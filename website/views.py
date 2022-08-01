@@ -190,6 +190,7 @@ def TruckMaintenance(request):
 
     context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1}
     return render(request,'TruckMaintenance.html', context)
+    # return render(request,'TruckMaintenance.html', context)
         
 
 #def ContactUsForm(request):
@@ -226,7 +227,7 @@ def qrcodelogin(request):
             
             except Exception as e:
                 print(e)
-                messages.success(request, 'something went wrong')
+                messages.success(request, 'Something went wrong.')
 
 
             
@@ -259,12 +260,10 @@ def charts(request):
 
 
 
-    return render(request,'chart.html', {'labels':labels,'data':data,'labels1':labels1,'data1':data1})
+    return render(request,'chart_template.html', {'labels':labels,'data':data,'labels1':labels1,'data1':data1})
 
 
 def simpleCheckout(request):
-	
-
         if request.method == 'POST':
             try:
                 with transaction.atomic():
@@ -293,11 +292,11 @@ def simpleCheckout(request):
 
     
 class TruckList(ListView):
-    template_name='debugmode.html'
+    template_name='trucklist_template.html'
     model=Truck
 
 class TruckDetailView(DetailView):
-        template_name='truck-details.html'
+        template_name='truck_details_template.html'
         model = Truck
 
 def TruckChart(request):
