@@ -295,6 +295,15 @@ class TruckList(ListView):
     template_name='trucklist_template.html'
     model=Truck
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(TruckList, self).get_context_data(*args, **kwargs)
+        context['totalkm'] = Truck.objects.aggregate(Sum('distance_travelled'))
+        context['totalfuel'] = Truck.objects.aggregate(Sum('fuel_used'))
+        context['helper'] = self.get_object().helpers.all()
+
+        return context
+
+
 class TruckDetailView(DetailView):
         template_name='truck_details_template.html'
         model = Truck

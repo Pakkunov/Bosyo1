@@ -134,11 +134,13 @@
                     <table class="table">
                         <tbody>
                           {% comment %} backend Helper Names {% endcomment %}
-                          {% for helper in helpers %}
+                          {% for person in object.helper.all  %}
                             <tr class="text-light">
-                                <td>{{helper.name}}</td>    
+
+                                <td>{{person.name}}</td>    
+
                             </tr>
-                          {% endfor %}
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

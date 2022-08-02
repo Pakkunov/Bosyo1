@@ -93,7 +93,7 @@ class Truck(models.Model):
 
 class Helper(models.Model):
 	name = models.CharField(verbose_name='Name', max_length=30)
-	Truck_Assigned= models.ForeignKey(Truck, on_delete=models.CASCADE)
+	Truck_Assigned= models.ForeignKey(Truck, on_delete=models.CASCADE,related_name='helper')
 	
 	def __str__(self):
 		return self.name

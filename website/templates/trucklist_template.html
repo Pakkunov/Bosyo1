@@ -123,7 +123,7 @@
           <div class="col text-center mx-3" style="border-radius: 20px; border: 2px solid black; padding: 20px;">
             <h2 class="fw-bold">
               {% comment %} backend count total L {% endcomment %}
-              7,323 L
+              {{totalfuel.fuel_used__sum}}L
             </h2>
             <p>
               Overall Fuel Consumed of Each Truck
@@ -132,7 +132,7 @@
           <div class="col text-center mx-3 text-light" style="border-radius: 20px; background: black; padding: 20px;">
             <h2 class="fw-bold">
               {% comment %} backend count total KM {% endcomment %}
-              7,323 km
+              {{totalkm.distance_travelled__sum}}km
             </h2>
             <p>
               Overall Distance Traveled for Each Truck
