@@ -63,6 +63,16 @@
         border-bottom: hidden;
     }
 
+    td {
+        text-align: left;
+        padding: 10px;
+        vertical-align: left;
+        text-align: center;
+        height: 50px;
+        line-height: 45px;
+        border-bottom: 1px dashed #cccccc;
+      }
+
   
 
 </style>
@@ -123,7 +133,7 @@
                             <th>Time-In</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-light text-center">
                             {% comment %} backend {% endcomment %}
                             {% for user in attendance|slice:"::-1" %}  
                             {% if forloop.counter < 11  %}
