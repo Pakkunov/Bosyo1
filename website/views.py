@@ -299,7 +299,6 @@ class TruckList(ListView):
         context = super(TruckList, self).get_context_data(*args, **kwargs)
         context['totalkm'] = Truck.objects.aggregate(Sum('distance_travelled'))
         context['totalfuel'] = Truck.objects.aggregate(Sum('fuel_used'))
-        context['helper'] = self.get_object().helpers.all()
 
         return context
 
