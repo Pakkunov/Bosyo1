@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'website',
     'whitenoise.runserver_nostatic',
     'django.contrib.humanize',
+    'BosyoWebsite',
     
 
 
