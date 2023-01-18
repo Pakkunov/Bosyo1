@@ -1,1 +1,1 @@
-gunicorn BosyoWebsite.wsgi
+gunicorn BosyoWebsite.wsgi.application
