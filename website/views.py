@@ -25,6 +25,7 @@ from django.template.loader import render_to_string
 from django.db.models import F
 from django.shortcuts import render
 from django.db.models import Sum
+from django.views.generic import ListView,DetailView
 
 
 
@@ -160,31 +161,24 @@ def manualpayment(request):
 
 
 def TruckMaintenance(request):
+    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total')).order_by('Truck_Used_On')
         
-        labels = []
-        data = []
+        
+        
+    totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
+    truckCount = Truck.objects.all().count()
+    helperCount= Helper.objects.all().count()
+    parts=Truck_Part.objects.all()
+    form = TruckMaintenanceForm()
+    if not request.user.is_staff:
+        messages.error(request, 'You are not allowed to view this page.')
+        return redirect('userProfile')
 
-        queryset=Truck_Part.objects.all()
-        for truck in queryset:
-            labels.append(truck.Truck_Used_On)
-            data.append(truck.Total)
-        
-        
-        
-        totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
-        truckCount = Truck.objects.all().count()
-        helperCount= Helper.objects.all().count()
-        parts=Truck_Part.objects.all()
-        form = TruckMaintenanceForm()
-        if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page.')
-            return redirect('userProfile')
-
-        if request.method == 'POST':
-            form = TruckMaintenanceForm(request.POST, request.FILES)     
-            if form.is_valid():
-                form.save()     
-                return redirect('/staff')
+    if request.method == 'POST':
+        form = TruckMaintenanceForm(request.POST, request.FILES)     
+        if form.is_valid():
+            form.save()     
+            return redirect('/staff')
 
 
 
@@ -194,8 +188,9 @@ def TruckMaintenance(request):
 
         
 
-        context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'labels':labels,'data':data,'helperCount':helperCount}
-        return render(request,'TruckMaintenance.html', context)
+    context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1}
+    return render(request,'TruckMaintenance.html', context)
+    # return render(request,'TruckMaintenance.html', context)
         
 
 #def ContactUsForm(request):
@@ -232,14 +227,14 @@ def qrcodelogin(request):
             
             except Exception as e:
                 print(e)
-                messages.success(request, 'something went wrong')
+                messages.success(request, 'Something went wrong.')
 
 
             
 
 
             return redirect('/qrlogin')    
-        return render(request,'qr_code.html',{'attendance':attendance,'attendacecounter':attendacecounter})
+        return render(request,'qr_code_template.html',{'attendance':attendance,'attendacecounter':attendacecounter})
 
 
 def charts(request):
@@ -251,14 +246,24 @@ def charts(request):
         labels.append(person.name)
         data.append(person.counter)
 
+    labels1 = []
+    data1 = []
+    queryset0=Truck_Part.objects.values('Truck_Used_On')
+    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total'))
+    
+    for truck in queryset1:
+        labels1.append(truck['Truck_Used_On'])
+        data1.append(truck['sumTotal'])
 
 
-    return render(request,'chart.html', {'labels':labels,'data':data})
+
+
+
+
+    return render(request,'chart_template.html', {'labels':labels,'data':data,'labels1':labels1,'data1':data1})
 
 
 def simpleCheckout(request):
-	
-
         if request.method == 'POST':
             try:
                 with transaction.atomic():
@@ -284,4 +289,35 @@ def simpleCheckout(request):
     
     
         return render(request, 'payment.html')
+
+    
+class TruckList(ListView):
+    template_name='trucklist_template.html'
+    model=Truck
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(TruckList, self).get_context_data(*args, **kwargs)
+        context['totalkm'] = Truck.objects.aggregate(Sum('distance_travelled'))
+        context['totalfuel'] = Truck.objects.aggregate(Sum('fuel_used'))
+
+        return context
+
+
+class TruckDetailView(DetailView):
+        template_name='truck_details_template.html'
+        model = Truck
+
+def TruckChart(request):
+    labels = []
+    data = []
+    queryset0=Truck_Part.objects.values('Truck_Used_On')
+    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total'))
+    
+    for truck in queryset1:
+        labels.append(truck['Truck_Used_On'])
+        data.append(truck['sumTotal'])
+
+
+
+    return render(request,'truck_chart_template.html', {'labels':labels,'data':data})
 

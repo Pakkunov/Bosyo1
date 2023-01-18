@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+<title>Truck List</title>
+<meta name="description" content="List of Trucks">
+<meta name="keywords" content="Truck List">
+</head>
+<body>
+    {% for truck in object_list %}
+<div class="trucklistcontainer">
+<a href='{{truck.id}}'><h1>{{truck.Plate_Num}}</h1>
+    <h1>{{truck.Truck_number}}</h1><a/>
+</div>
+{% endfor %}
+
+</body>
+</html>

@@ -11,7 +11,7 @@
   }
 
   .colIMG {
-    position: relative;
+    position: static;
     text-align: center;
   }
 
@@ -31,6 +31,7 @@
     transition: background-size .25s ease-in;
     }
 
+
 </style>
 
 <body>
@@ -39,13 +40,13 @@
 <div class="container">
   <div class="row">
     <h1 class="fs-1 mb-1 pt-5">Payment</h1>
-    <p class="mb-3">Fill in the required information to continue.</p>
+    <p class="mb-3">Fill in the required information to continue.<br><br>Please note that the Username is <span class="fw-bold">Case Sensitive.</span></p>
       <!-- 1st Column -->
       <div class="col-md-4 colIMG mx-3 ms-4">
         <img
             src="\static\images\gradient_green.jpg"
             class="img-fluid my-3 mx-auto d-none d-md-block"
-            style="width: 550px; height: 460px"
+            style="width: 550px; height: 460px; border-radius: 20px;"
             alt="">
         <div class="d-block d-md-none xl-none mt-3">
           <h1 class="display-6" style="text-shadow: 1px #fff;">PHP {{user.outstanding_balance}}</h1>
@@ -56,7 +57,7 @@
         <div id="smart-button-container">
           {% csrf_token %}
           {% load humanize %}
-            {% if user.outstanding_balance is none %}
+            {% if user.outstanding_balance is None %}
           <p class="fw-bold">
             <span class="servicesUnderline">You have no outstanding balance.</span><br>
           </p>
@@ -71,11 +72,12 @@
           <p class="py-2">
             Logged in as: <span class="fw-bold">{{user.username}}</span>
           </p> 
-          {% endif%}
+          {% endif %}
           <form method="post">
             {% csrf_token %}
           <p class="mb-3 mt-3">Please confirm and enter your Username: <span class="text-danger">*</span></p>
-          <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username" maxlength="127" value=""></div>
+          <div class="mb-2" style="text-align: start">
+            <input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username is case sensitive" maxlength="127" value=""></div>
             <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>
           <p class="mb-3 mt-2">Enter amount to pay in PHP:</p>
           <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
@@ -86,6 +88,7 @@
           </form>
         </div>
     </section>
+
         <script src="https://www.paypal.com/sdk/js?client-id=AYUBK_5IUlIHcyY2I-3enRogGyAS1TjCEM-LXzv_14uu3DR8MQjszlryfC6Wv4Y5k9V1s9zGW6bxWVBi&enable-funding=venmo&currency=PHP" data-sdk-integration-source="button-factory"></script>
         <script>
 

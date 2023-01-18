@@ -1,9 +1,6 @@
 
 
-
 {% load static %}  
-{% load crispy_forms_tags %}  
-
 <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
 
 <!DOCTYPE html>
@@ -14,18 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
-<script type="text/javascript" src="instascan.min.js"></script>
+    <script type="text/javascript" src="instascan.min.js"></script>
 
     <title>Scan</title>
 </head>
 <body>
     
-    <div id="qr-reader" style="width:500px"></div>
+    
+    <div id="qr-reader" style="width:500px; margin-left: 500px;"></div>
     <div id="qr-reader-results">
         <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button
+
+        <input type="text" name="decodedText" id="decodedText" readonly="" class="form-control">
     </form>
     </div>
     
@@ -36,46 +34,41 @@
                   <tr>
                     <th>Name</th>
                     <th>Time-in</th>
-                    
-    
-    
                   </tr>
                 </thead>
                 <tbody>
-                {% for user in attendance|slice:"::-1" %}  
+                {% for user in attendance|slice:"10::-1" %}  
                  {% if forloop.counter < 11  %}
                   <tr>
-                    <td>{{user.helper_name}}</td>
+                    <td>{{user.name}}</td>
                     <td>{{user.attendace_time}}</td>
-
-                 {% endif %} 
                   </tr>
+                 {% endif %} 
                 {% endfor %} 
                 </tbody>
-            
             </table>	
         </div>
     </div>
 
     <script>
-var resultContainer = document.getElementById('qr-reader-results');
-var lastResult, countResults = 0;
+        var resultContainer = document.getElementById('qr-reader-results');
+        var lastResult, countResults = 0;
 
-function onScanSuccess(decodedText, decodedResult) {
-    if (decodedText !== lastResult) {
-        ++countResults;
-        lastResult = decodedText;
-        // Handle on success condition with the decoded message.
-        console.log(`Scan result ${decodedText}`, decodedResult);
-        document.getElementById("id_helper_name").value=decodedText
-        document.forms[0].submit();
+        function onScanSuccess(decodedText, decodedResult) {
+            if (decodedText !== lastResult) {
+                ++countResults;
+                lastResult = decodedText;
+                // Handle on success condition with the decoded message.
+                console.log(`Scan result ${decodedText}`, decodedResult);
+                document.getElementById("decodedText").value=decodedText
+                document.forms[0].submit();
 
-    }
-}
+            }
+        }
 
-var html5QrcodeScanner = new Html5QrcodeScanner(
-    "qr-reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess);
     </script>
 </body>
 </html>

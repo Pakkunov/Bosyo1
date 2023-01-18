@@ -9,9 +9,6 @@
 <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
 
 <style>
-  body {
-      font-family: 'Maven Pro', sans-serif;
-    }
 
   .servicesUnderline {
     background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
@@ -21,6 +18,10 @@
     transition: background-size .25s ease-in;
     }
 
+  thead {
+    border-bottom: hidden;
+  }
+
   td {
     text-align: left;
     padding: 10px;
@@ -28,6 +29,8 @@
     text-align: center;
     height: 50px;
     line-height: 45px;
+    border-bottom: 1px dashed #cccccc;
+
   }
 
 </style>
@@ -91,8 +94,9 @@
             </p>
           </div>
           <h1 class="fs-1 fw-bold text-center"><span class="servicesUnderline">{{user.username}}</span></h1>
-          <div class="col py-3" style="padding-left: 170px;">
-            <p>Username: {{user.username}}</p>
+          <div class="col py-3" style="padding-left: 70px;">
+            {% load humanize %}
+            <p>Monthly Bill: {{user.payrate|intcomma}}</p>
             <p>E-mail Address: {{user.email}}</p>
             <p>Mobile Phone: {{user.MobilePhone}}</p>
             <p>Landline: {{user.Landline}}</p>
@@ -112,7 +116,7 @@
                         <tr class="text-light" style="border: none;">
                           <th></th>
                           <th>Date</th>
-                          <th>User</th>
+                          {% comment %} <th>User</th> {% endcomment %}
                           <th>Amount</th>
                           <th>Transaction ID</th>
                         </tr>
@@ -120,12 +124,12 @@
                       <tbody>
                         {% for payment in payments %}
 
-                          {% if forloop.counter < 11  %}  
+                          {% if forloop.counter < 6  %}  
 
                           <tr class="text-light">
                               <td><i class="bi bi-currency-exchange"></i></td>
                               <td>{{payment.Date_paid}}</td>
-                              <td>{{payment.User_who_Paid}}</td>
+                              {% comment %} <td>{{payment.User_who_Paid}}</td> {% endcomment %}
                               {% load humanize %}
                               <td>₱ {{payment.amount|intcomma}}</td>
                               <td>{{payment.id}}</td>
