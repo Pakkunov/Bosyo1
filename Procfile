@@ -1,1 +1,1 @@
-web: gunicorn 'BosyoWebsite.wsgi'
+gunicorn BosyoWebsite.wsgi
