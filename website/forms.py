@@ -1,9 +1,12 @@
+from dataclasses import fields
+from django.forms import ModelForm, Textarea
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.forms import ModelForm
 from website.models import Account
 from website.models import Truck_Part
+from website.models import Attendance
 
 
 
@@ -40,3 +43,11 @@ class ContactForm(forms.Form):
 	name = forms.CharField(max_length=255)
 	email = forms.EmailField()
 	content = forms.CharField(widget=forms.Textarea)
+
+class QrLoginForm(forms.Form):
+	helper_name=forms.CharField(max_length=50)	
+	
+	class Meta:
+		model = Attendance
+		fields= ['helper_name',]
+

@@ -88,9 +88,9 @@ class Truck(models.Model):
 		return str(self.Truck_number)
 
 class Helper(models.Model):
-	name = models.CharField(verbose_name='Name', max_length=30)
+	name = models.CharField(verbose_name='name', max_length=30,)
 	Truck_Assigned= models.ForeignKey(Truck, on_delete=models.CASCADE)
-	
+
 	def __str__(self):
 		return self.name
 
@@ -128,14 +128,14 @@ class Payment(models.Model):
 		# return str(self.id)
 
 class Attendance(models.Model):
-	name=models.CharField(max_length=50)
+	helper_name=models.ForeignKey(Helper, on_delete=models.CASCADE)
 	attendace_time=models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
 		return str(self.name)
 
 class attendanceCounter(models.Model):
-	name=models.CharField(max_length=50)
+	helper_name=models.ForeignKey(Helper,on_delete=models.CASCADE)
 	counter=models.IntegerField(default=0)
 
 	def __str__(self):
