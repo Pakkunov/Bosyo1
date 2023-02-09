@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn BosyoWebsite.wsgi
+web: python manage.py migrate && gunicorn BosyoWebsite.wsgi --log-file -
