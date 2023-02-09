@@ -101,9 +101,9 @@ import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'BosyoGarbageCollectorWebsite', 
+        'NAME': 'BosyoDB', 
         'USER': 'postgres', 
-        'PASSWORD': '4everalone',
+        'PASSWORD': 'postadmin123',
         'HOST': '127.0.0.1', 
         'PORT': '5432',
     }
