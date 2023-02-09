@@ -1,1 +1,1 @@
-web: gunicorn BosyoWebsite.wsgi --log-file -
+web: gunicorn BosyoWebsite.wsgi:application
