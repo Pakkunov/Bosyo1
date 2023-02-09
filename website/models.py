@@ -132,7 +132,7 @@ class Payment(models.Model):
 		# return str(self.id)
 
 class Attendance(models.Model):
-	name=models.CharField(max_length=50)
+	name=models.CharField(max_length=50, null=True)
 	attendace_time=models.DateTimeField(auto_now_add=True)
 	
 
@@ -141,7 +141,7 @@ class Attendance(models.Model):
 		return str(self.name)
 
 class attendanceCounter(models.Model):
-	name=models.CharField(max_length=50)
+	name=models.CharField(max_length=50, null=True)
 	counter=models.IntegerField(default=0)
 
 
