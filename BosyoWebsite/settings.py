@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','bosyoappliku.applikuapp.com', 'bosyogarbagecollector.herokuapp.com','bosyogarbagecollector.fly.dev','lionfish-app-nurjp.ondigitalocean.app','*']
 
+CSRF_TRUSTED_ORIGINS = ['bosyoappliku.applikuapp.com','127.0.0.1']
+
 
 # Application definition
 
