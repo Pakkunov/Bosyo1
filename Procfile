@@ -1,1 +1,2 @@
-web: gunicorn BosyoWebsite.wsgi:application
+web: gunicorn BosyoWebsite.wsgi:application --log-file -
+release: python manage.py migrate
