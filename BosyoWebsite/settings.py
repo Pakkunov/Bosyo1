@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mzd8m-qtnmvf^$4+8&gp#b7-r6x=at-m9h^ve08+#8^jh&#@c7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'bosyogarbagecollector.herokuapp.com','bosyogarbagecollector.fly.dev','lionfish-app-nurjp.ondigitalocean.app','*']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','https://bosyoappliku.applikuapp.com', 'bosyogarbagecollector.herokuapp.com','bosyogarbagecollector.fly.dev','lionfish-app-nurjp.ondigitalocean.app','*']
 
 
 # Application definition
@@ -101,7 +101,7 @@ import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'BosyoDB_1', 
+        'NAME': 'BosyoDB', 
         'USER': 'postgres', 
         'PASSWORD': 'postadmin123',
         'HOST': '127.0.0.1', 
