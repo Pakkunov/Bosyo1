@@ -27,7 +27,6 @@ from django.shortcuts import render
 from django.db.models import Sum
 from django.views.generic import ListView,DetailView
 from django.contrib.auth.models import User
-from django.core.management.base import BaseCommand
 
 
 
@@ -323,21 +322,11 @@ def TruckChart(request):
     return render(request,'truck_chart_template.html', {'labels':labels,'data':data})
 
 
-class Command(BaseCommand):
-    help = 'Creates a new superuser with a password'
 
-    def handle(self, *args, **options):
-        username = input('Enter username: ')
-        email = input('Enter email address (optional): ')
-        password = input('Enter password: ')
-        confirm_password = input('Confirm password: ')
+# Create a new superuser
+user = User.objects.create_superuser(username='admin', email='admin@email.com')
 
-        if password != confirm_password:
-            self.stdout.write(self.style.ERROR('Passwords do not match'))
-            return
+user.set_password('my_password')
 
-        user = User.objects.create_superuser(username=username, email=email)
-        user.set_password(password)
-        user.save()
+user.save()
 
-        self.stdout.write(self.style.SUCCESS('Superuser created successfully'))
