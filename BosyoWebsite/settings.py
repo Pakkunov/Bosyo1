@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-from pathlib import Path
 import environ
+from pathlib import Path
 
 # Initialise environment variables
 env = environ.Env()
