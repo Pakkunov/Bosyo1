@@ -1,2 +1,8 @@
+env
 venv
 BosyoWebsite/settings.py
+BosyoWebsite/.env
+
+**/__pycache__/
+
+.DS_Store
