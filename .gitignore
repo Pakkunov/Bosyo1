@@ -1,2 +1,3 @@
 venv
 BosyoWebsite/settings.py
+BosyoWebsite/.env
