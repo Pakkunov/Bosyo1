@@ -26,7 +26,6 @@ from django.db.models import F
 from django.shortcuts import render
 from django.db.models import Sum
 from django.views.generic import ListView,DetailView
-from django.contrib.auth.models import User
 
 
 
@@ -322,11 +321,4 @@ def TruckChart(request):
     return render(request,'truck_chart_template.html', {'labels':labels,'data':data})
 
 
-
-# Create a new superuser
-user = User.objects.create_superuser(username='admin', email='admin@email.com')
-
-user.set_password('my_password')
-
-user.save()
 
