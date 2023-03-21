@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','bosyoappliku.applikuapp.com', 'bosyogarbagecollector.herokuapp.com','bosyogarbagecollector.fly.dev','lionfish-app-nurjp.ondigitalocean.app','*']
 
-CSRF_TRUSTED_ORIGINS = ['https://bosyoappliku.applikuapp.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://bosyoappliku.applikuapp.com','https://*.127.0.0.1', 'https://bosyogarbagecollector.com']
 
 
 # Application definition
@@ -104,7 +104,7 @@ import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'BosyoDB_1', 
+        'NAME': 'bosyoappliku', 
         'USER': 'postgres', 
         'PASSWORD': 'postadmin123',
         'HOST': '127.0.0.1', 
