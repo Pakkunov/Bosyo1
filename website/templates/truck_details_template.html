@@ -9,6 +9,9 @@
   <title>Truck List</title>
   <meta name="description" content="List of Trucks">
   <meta name="keywords" content="Truck List">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
 </head>
 <style>
@@ -116,10 +119,10 @@
           <div class="col-md-6 col-xl-4 py-5 mx-1 my-5 h-25" style="border-radius: 20px; border: 2px solid; height: 440px;">
             <div class="box fw-bold" style="padding-left: 130px; padding: 0px; display: flex; align-items: center; justify-content: center;">
             </div>
-            <h1 class="fw-bold text-center">
+            <h1 class="fw-bold text-center" style="font-family: 'Oswald', sans-serif;">
                 {{truck.Plate_Num}}
             </h1>
-            <h6 class="text-center">
+            <h6 class="text-center fw-bold" style="color: darkgreen;">
                 <br>Truck Driver: {{truck.Driver_Name}}
             </h6>
           </div>
@@ -129,7 +132,7 @@
             class="text-light" 
             style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
               <div class="mx-3 py-3 mb-5">
-                <h6 class="fs-6 fw-bold text-start">Helper List:</h6>
+                <h6 class="fs-4 fw-bold text-start">Helper List:</span></h6>
                   <div class="table-responsive">
                     <table class="table">
                         <tbody>

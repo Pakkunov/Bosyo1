@@ -9,6 +9,9 @@
   <title>Truck List</title>
   <meta name="description" content="List of Trucks">
   <meta name="keywords" content="Truck List">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
 </head>
 <style>
@@ -35,7 +38,7 @@
 
 
   .plateNum {
-    font-family: 'FE-Font', sans-serif;
+    font-family: 'Oswald', sans-serif;
     background: white; 
     border: 2px solid black; 
     width: 150px;
@@ -121,7 +124,7 @@
           <div class="col text-center mx-3" style="border-radius: 20px; border: 2px solid black; padding: 20px;">
             <h2 class="fw-bold">
               {% comment %} backend count total L {% endcomment %}
-              {{totalfuel.fuel_used__sum}}L
+              {{totalfuel.fuel_used__sum|floatformat:2}} L
             </h2>
             <p>
               Overall Fuel Consumed of Each Truck
@@ -130,7 +133,7 @@
           <div class="col text-center mx-3 text-light" style="border-radius: 20px; background: black; padding: 20px;">
             <h2 class="fw-bold">
               {% comment %} backend count total KM {% endcomment %}
-              {{totalkm.distance_travelled__sum}}km
+              {{totalkm.distance_travelled__sum|floatformat:0}} km
             </h2>
             <p>
               Overall Distance Traveled for Each Truck
@@ -156,7 +159,7 @@
         Truck Details
       </h4>
       <h6 class="pb-3">
-        Click on a plate number bellow to view <span class="servicesUnderline2">Driver and Helper<br>list</span> and redirect to another page.
+        <span style="font-weight: bold; color: green;">Click on a plate number bellow</span> to view Driver and Helper<br>list and redirect to another page.
       </h6>
         <div class="col-sm-10 col-md-11 col-lg-6 col-xxl-8">
           <table id="table1">
@@ -165,11 +168,11 @@
               {% for truck in object_list %}
               <div class="trucklistcontainer">
                 <tr>
-                  <td class="text-center fw-bold" style="width: 80px;">
+                  <td class="text-center fw-bold" style="width: 20px;">
                     #{{truck.Truck_number}}
                   </td>
                   <td class="plateNum text-center" style="">
-                    <a href="{{truck.id}}" style="text-decoration: none; color: black;">{{truck.Plate_Num}}</a>
+                    <a href="{{truck.id}}" style="text-decoration: none; color: black; font-size: 18.5px;">{{truck.Plate_Num}}</a>
                   </td>
                   <td class="text-center fw-bold" style="width: 180px;">
                     <i class="bi bi-person-badge-fill text-muted"></i> {{truck.Driver_Name}}
@@ -185,12 +188,12 @@
                   {% if truck.TruckMaintenanceCount %}
                   <td class="text-center fw-bold" style="width: 150px;">
                     <i class="bi bi-wrench-adjustable text-warning"></i></i>
-                    {{truck.TruckMaintenanceCount}} total vehicle fixes
+                    {{truck.TruckMaintenanceCount}} vehicle fixes
                   </td>
                   {% else %}
                   <td class="text-center fw-bold" style="width: 150px;">
                     <i class="bi bi-wrench-adjustable text-success"></i></i>
-                    {{truck.TruckMaintenanceCount}} total vehicle fixes
+                    {{truck.TruckMaintenanceCount}} vehicle fixes
                   </td>
                   {% endif %} 
                 </tr>
