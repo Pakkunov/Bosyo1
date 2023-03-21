@@ -5,7 +5,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
 from website.views import TruckList,TruckDetailView
-
+from django.urls import path
+from .views import generate_qr_code
 
 admin.site.site_header  =  "Administration"  
 admin.site.site_title  =  "Administration"
@@ -29,7 +30,7 @@ urlpatterns = [
     path('trucklist',TruckList.as_view()),
     path('<int:pk>',TruckDetailView.as_view()),
     path('truckchart/', views.TruckChart, name='truckchart'),
-
+    path('qr-code/', generate_qr_code, name='generate_qr_code'),
 
 
 ]   

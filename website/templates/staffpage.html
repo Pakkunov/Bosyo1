@@ -125,13 +125,13 @@ style="
     <div class="row">
       <div class="col w-50">
         <h1 class="fs-1 pt-5" style="font-family: 'Montserrat', sans-serif;">Dashboard</h1>
-        <h6 class="fs-6 mt-3">Here, you can see the <span class="fw-bold">user list and activity.</span></h6>
+        <h6 class="fs-6 mt-3">Here, you can see the user list and activity.</h6>
       </div>
       <div class="col mt-5">
         {% comment %} <h5 class="fs-5 pt-5 mt-4 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5> {% endcomment %}
         <p>
           <span class="d-none d-md-none d-lg-block my-3">
-            Want to make a manual payment? Click here</span>
+            Want to make a manual payment? Click here</span> 
         <a href="/manualpayment">
           <button class="btnPayment btn-primary mx-1" type="button">
             Manual Payment <i class='bx bxs-bank'></i>
@@ -236,16 +236,16 @@ style="
           </h6>
           <a href="/qrlogin">
             <button class="btnPayment btn-primary" type="button">
-              QR Login <i class="bi bi-person-bounding-box ps-3"></i>
+              Attendance <i class='bx bxs-report'></i>
             </button>
           </a>
         </div>
       </div>
-      <div class="col-md-4 my-3">
+      <div class="col-md-5 my-3">
         <div class="col-md-4 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
         {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
         <h1 class="display-1">
-          <i class="bi bi-person-bounding-box ps-3"></i>
+          <i class='bx bxs-report'></i>
         </h1>
         </div>
       </div>
@@ -271,7 +271,7 @@ style="
           </a>
         </div>
       </div>
-      <div class="col-md-4 my-3">
+      <div class="col-md-5 my-3">
         <div class="col-md-6 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
           {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
           <h1 class="display-1">
@@ -283,6 +283,35 @@ style="
   </div>
 </section>
 
+<section style="margin-left: 140px;">
+  <div class="container">
+    <div class="row">
+      <div class="col w-50">
+        <div class="col my-4">
+          <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">
+            <span class="servicesUnderline2">Generate QR Code</span>
+          </h1>
+          <h6 class="fs-6 mb-4">
+            This will make you create <span class="fw-bold">QR Codes for your employees</span> so that you can record their attendance.
+          </h6>
+          <a href="/qr-code">
+            <button class="btnPayment btn-primary" type="button">
+              QR Code <i class="bi bi-person-bounding-box ps-3"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-5 my-3">
+        <div class="col-md-6 text-center" style="background-image: linear-gradient(120deg, #84fab0, #4bb2e694); border-radius: 20px; border: 2px solid black; width: 400px; height: 230px; padding: 60px;">
+          {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
+          <h1 class="display-1">
+            <i class="bi bi-person-bounding-box ps-3"></i>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 

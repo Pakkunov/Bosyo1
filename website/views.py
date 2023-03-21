@@ -26,8 +26,10 @@ from django.db.models import F
 from django.shortcuts import render
 from django.db.models import Sum
 from django.views.generic import ListView,DetailView
-
-
+#
+import io
+import qrcode
+from qrcode.image.svg import SvgPathImage
 
 User = get_user_model()
 # Create your views here.
@@ -321,4 +323,22 @@ def TruckChart(request):
     return render(request,'truck_chart_template.html', {'labels':labels,'data':data})
 
 
+#generated qr code
+def generate_qr_code(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4)
+        qr.add_data(name)
+        img = qr.make_image(image_factory=SvgPathImage)
 
+        # Save the image to a buffer
+        buffer = io.BytesIO()
+        img.save(buffer)
+
+        # Set the content type and headers for the response
+        response = HttpResponse(buffer.getvalue(), content_type='image/svg+xml')
+        response['Content-Disposition'] = f'attachment; filename="{name}.svg"'
+
+        return response
+    else:
+        return render(request, 'generate_qr_code.html')
