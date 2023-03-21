@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-mzd8m-qtnmvf^$4+8&gp#b7-r6x=at-m9h^ve08+#8^jh&#@c7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','bosyoappliku.applikuapp.com', 'bosyogarbagecollector.herokuapp.com','bosyogarbagecollector.fly.dev','lionfish-app-nurjp.ondigitalocean.app','bosyogarbagecollector.com','*']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','bosyoappliku.applikuapp.com', 'bosyogarbagecollector.fly.dev', 'lionfish-app-nurjp.ondigitalocean.app', 'bosyogarbagecollector.com', '*']
 
-CSRF_TRUSTED_ORIGINS = ['https://bosyoappliku.applikuapp.com','https://*.127.0.0.1', 'https://bosyogarbagecollector.com']
+CSRF_TRUSTED_ORIGINS = ['https://bosyoappliku.applikuapp.com','https://bosyogarbagecollector.com','https://*.127.0.0.1']
 
 
 # Application definition
