@@ -3,6 +3,11 @@
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
 
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+{% comment %} This page is the Payment Page for PayPal {% endcomment %}
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+
+
 {% include 'sidebar.html' %}
 
 {% load static %}
@@ -22,6 +27,7 @@
   </a>
 </section>
 
+
 <section style="margin-left: 140px;">
 <div class="container">
   <div class="row">
@@ -35,9 +41,11 @@
             class="img-fluid my-3 mx-auto d-none d-md-block"
             style="width: 550px; height: 460px; border-radius: 20px;"
             alt="">
+        {% comment %} 
         <div class="d-block d-md-none xl-none mt-3">
           <h1 class="display-6" style="text-shadow: 1px #fff;">PHP {{user.outstanding_balance}}</h1>
-        </div>
+        </div> 
+        {% endcomment %}
       </div>
       <!-- 2nd Column -->
       <div class="col-md-6 col-xs-6 ms-3">

@@ -4,10 +4,14 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
-from website.views import TruckList,TruckDetailView
+from website.views import TruckList,TruckDetailView,CustomPasswordResetView
 from django.urls import path
 from .views import generate_qr_code
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import PasswordResetConfirmView,PasswordResetConfirmView
+from django.urls import include, path
+from django.contrib.auth import views as auth_views
+
 
 admin.site.site_header  =  "Administration"  
 admin.site.site_title  =  "Administration"
@@ -33,6 +37,12 @@ urlpatterns = [
     path('truckchart/', views.TruckChart, name='truckchart'),
     path('qr-code/', generate_qr_code, name='generate_qr_code'),
     path('change_password/', views.change_password, name='change_password'),
+    # path('login/', include('django.contrib.auth.urls')),
+    path('password_reset/', CustomPasswordResetView.as_view(template_name='resetpass/password_reset_form.html'), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='resetpass/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='resetpass/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='resetpass/password_reset_complete.html'), name='password_reset_complete'),
+
 
 
 ]   

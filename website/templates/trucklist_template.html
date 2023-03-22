@@ -1,5 +1,13 @@
 {% extends "main.html" %}
 
+
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+{% comment %} This page is the Truck Overview {% endcomment %}
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+{% comment %} it shows Truck Details and Truck Driver list with Plate Numbers {% endcomment %}
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+
+
 <head>
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
@@ -15,7 +23,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <link rel="stylesheet" href=" {% static '/css/truckdriverstyle.css' %} ">
 
-
 </head>
 
 <body class="
@@ -25,6 +32,7 @@
 --bs-secondary-rgb: 31, 31, 31;
 --bs-success: #31f99d;
 --bs-success-rgb: 49, 249, 157;">
+
 
 
 {% if messages %}

@@ -32,6 +32,11 @@ import qrcode
 from qrcode.image.svg import SvgPathImage
 from .forms import ChangePasswordForm
 from .models import Truck_Part
+from django.contrib.auth.views import PasswordResetView
+from .forms import CustomPasswordResetForm
+from django.contrib.auth.views import PasswordResetConfirmView
+from django.urls import reverse_lazy
+
 
 User = get_user_model()
 # Create your views here.
@@ -84,7 +89,7 @@ def registerUser(request):
 def userProfile(request):
     if not request.user.is_authenticated:
         messages.error(request, 'Please login to continue.')
-        return redirect('/login')
+        return redirect('login_register.html')
     parts=Truck_Part.objects.all()
     accounts = Account.objects.all()
     trucks= Truck.objects.all()
@@ -360,3 +365,12 @@ def change_password(request):
 def view_receipt(request, expense_id):
     expense = Truck_Part.objects.get(id=expense_id)
     return render(request, 'TruckMaintenance.html', {'expense': expense})
+
+
+class CustomPasswordResetView(PasswordResetView):
+    form_class = CustomPasswordResetForm
+    email_template_name = 'registration/password_reset_email.html'
+    success_url = reverse_lazy('password_reset_done')
+    template_name = 'registration/password_reset_form.html'
+
+

@@ -1,5 +1,9 @@
 {% extends "main.html" %}
 
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+{% comment %} This page is the Truck Staff Info {% endcomment %}
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+
 <head>
 {% block title %}Truck Details{% endblock title %}
 {% block content %}
@@ -39,6 +43,7 @@
 </div>
 {% endif %}
 
+
 {% comment %} Bosyo Home Logo {% endcomment %}
 <section style="margin-left: 100px; margin-top: 20px;">
   <a href="{% url 'home'%}">
@@ -50,6 +55,7 @@
       </picture>
   </a>
 </section>
+
 
 <section>
     <div class="container">
@@ -123,7 +129,9 @@
           <h6 class="fs-6 mb-4">
             This will make you create <span class="fw-bold">QR Codes for your employees</span> so that you can record their attendance.
           </h6>
-
+          <p class="pb-4">
+            By generating a personalized QR code with a person's name, you can quickly and conveniently record attendance at work.
+          </p>
           <a href="/qr-code">
             <button class="btnPayment btn-primary" type="button">
               QR Code <i class="bi bi-person-bounding-box ps-3"></i>

@@ -8,7 +8,7 @@ from website.models import Account
 from website.models import Truck_Part
 from website.models import Attendance
 from django.contrib.auth import get_user_model
-
+from django.contrib.auth.forms import PasswordResetForm
 
 
 class RegistrationForm(UserCreationForm):
@@ -81,3 +81,10 @@ class ChangePasswordForm(forms.Form):
         if commit:
             self.user.save()
         return self.user
+    
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomPasswordResetForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({'class': 'form-control'})

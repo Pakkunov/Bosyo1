@@ -1,13 +1,63 @@
 {% extends "main.html" %}
 
+
 {% block content %}
+
+
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+{% comment %} This page is the Profile Page {% endcomment %}
+{% comment %} ----------------------------------------------------------- {% endcomment %}
+
 
 {% include 'sidebar.html' %}
 
-{% load static %}
-<link rel="stylesheet" href=" {% static '/css/profilestyle.css' %} ">
-<link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
+<style>
+  
+.card-profile {
+  background-color: rgb(18, 18, 18);
+}
 
+hr {
+  opacity: 0;
+}
+
+.alert {
+  left: 78px;
+}
+
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: 70% 100%;
+  transition: background-size .25s ease-in;
+  }
+
+thead {
+  border-bottom: hidden;
+}
+
+td {
+  text-align: left;
+  padding: 10px;
+  vertical-align: left;
+  text-align: center;
+  height: 50px;
+  line-height: 45px;
+  border-bottom: 1px dashed #cccccc;
+
+}
+</style>
+
+<body style="
+--bs-primary: #008751;
+--bs-primary-rgb: 0, 135, 81;
+--bs-secondary: #1f1f1f;
+--bs-secondary-rgb: 31, 31, 31;
+--bs-success: #31f99d;
+--bs-success-rgb: 49, 249, 157;
+">
+    
 
 <!-- <h1> Dashboard</h1>
 <div class="card">
@@ -22,17 +72,6 @@
         <h1>Balance:{{user.outstanding_balance}}</h1>
     </div>
 </div>  -->
-
-<body style="
---bs-primary: #008751;
---bs-primary-rgb: 0, 135, 81;
---bs-secondary: #1f1f1f;
---bs-secondary-rgb: 31, 31, 31;
---bs-success: #31f99d;
---bs-success-rgb: 49, 249, 157;
-">
-    
-{% comment %} This page is the Profile Page {% endcomment %}
 
 {% if messages %}
 <div class="alert alert-danger mt-4" role="alert" style="width: 80%;" id="wrapper">
