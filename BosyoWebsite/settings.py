@@ -52,10 +52,10 @@ INSTALLED_APPS = [
 ]
 
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '337a14335d92a8'
-EMAIL_HOST_PASSWORD = 'aa1fc50272d6b1'
-EMAIL_PORT = '2525'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
+EMAIL_HOST_USER = 'angelesdaniel28@gmail.com'
+EMAIL_HOST_PASSWORD = 'mSZdLpzMXj9q7UT0'
+EMAIL_PORT = '587'
 
 
 

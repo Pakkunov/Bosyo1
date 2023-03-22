@@ -127,7 +127,7 @@ def index(request):
                 'content': content,
             })
 
-            send_mail('The contact form subject', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyogarbagecollector@gmail.com'], html_message=html)
+            send_mail('The contact form subject', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyogarbagecollector@protonmail.com'], html_message=html)
 
             return redirect('home')
     else:
