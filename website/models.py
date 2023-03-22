@@ -105,7 +105,7 @@ class Truck_Part(models.Model):
 	Quantity = models.IntegerField()
 	Total = models.IntegerField()
 	Truck_Used_On = models.ForeignKey(Truck, on_delete=models.CASCADE, null=True)
-	Receipt = models.ImageField(null=True, blank=True, upload_to='images')
+	Receipt = models.ImageField(upload_to='receipts/')
 
 	def __str__(self):
 		return self.Truck_Part_Name

@@ -7,6 +7,7 @@ from django.conf import settings
 from website.views import TruckList,TruckDetailView
 from django.urls import path
 from .views import generate_qr_code
+from django.contrib.auth import views as auth_views
 
 admin.site.site_header  =  "Administration"  
 admin.site.site_title  =  "Administration"

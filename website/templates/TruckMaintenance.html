@@ -265,27 +265,27 @@ input {
                     </div>
                 </form>
             </div>
-            {% comment %}
             <div class="col-md-6" style="border-radius: 20px; background: #171717; color: white;">
-                <table class="table">
-                  <thead class="text-light text-center">
+              <table class="table">
+                <thead class="text-light text-center">
+                  <tr>
+                    <th>Truck no.</th>
+                    <th>Total</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% for part in queryset1 %}
                     <tr>
-                      <th>Truck no.</th>
-                      <th>Total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                      {% for part in queryset1 %}
-                      <tr>
-                        <td class="text-light text-center">{{ part.Truck_Used_On }}</td>
-                        <td class="text-light text-center">{{ part.sumTotal }}</td>
-                        <td class="text-light text-center"><a href="{{ part.Receipt }}" alt="text"></a></td>
-                      </tr>
+                      <td class="text-light text-center">{{ part.Truck_Used_On }}</td>
+                      <td class="text-light text-center">{{ part.sumTotal }}</td>
+                      {% for part in parts %}
+                      <td class="text-light text-center"><a href="{{ part.Receipt.url }}" target="_blank"><img src="{{ part.Receipt.url }}" alt="Truck Part Image" style="width: 200px; height: auto;"></a></td>
                       {% endfor %}
-                    </tbody>
-                </table>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
             </div>
-            {% endcomment %}
         </div>
       </div>
     </div>

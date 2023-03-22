@@ -31,7 +31,7 @@ import io
 import qrcode
 from qrcode.image.svg import SvgPathImage
 from .forms import ChangePasswordForm
-
+from .models import Truck_Part
 
 User = get_user_model()
 # Create your views here.
@@ -164,7 +164,7 @@ def manualpayment(request):
 
 
 def TruckMaintenance(request):
-    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total')).order_by('Truck_Used_On')
+    queryset1=Truck_Part.objects.values('Truck_Used_On','Receipt').annotate(sumTotal=Sum('Total')).order_by('Truck_Used_On')
         
         
         
@@ -191,7 +191,7 @@ def TruckMaintenance(request):
 
         
 
-    context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1}
+    context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1, 'parts':parts}
     return render(request,'TruckMaintenance.html', context)
     # return render(request,'TruckMaintenance.html', context)
         
@@ -353,3 +353,10 @@ def change_password(request):
         form.save()
         return redirect('userProfile')
     return render(request, 'change_password.html', {'form': form})
+
+
+
+#import receipt
+def view_receipt(request, expense_id):
+    expense = Truck_Part.objects.get(id=expense_id)
+    return render(request, 'TruckMaintenance.html', {'expense': expense})
