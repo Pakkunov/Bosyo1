@@ -5,43 +5,29 @@
 
 {% include 'sidebar.html' %}
 
-<style>
-  body {
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .colIMG {
-    position: static;
-    text-align: center;
-  }
-
-  .servicesUnderline {
-    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-    background-repeat: no-repeat;
-    background-size: 100% .4em;
-    background-position: 70% 100%;
-    transition: background-size .25s ease-in;
-    }
-
-.servicesUnderline2 {
-    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: 70% 100%;
-    transition: background-size .25s ease-in;
-    }
-
-
-</style>
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/paymentstyle.css' %}">
 
 <body>
   
+{% comment %} Bosyo Home Logo {% endcomment %}
+<section style="margin-left: 100px; margin-top: 20px;">
+  <a href="{% url 'home'%}">
+    <picture id="logo">
+      <img
+        src="\static\images\BosyoLogoClear.png"
+        class="py-1 d-none d-lg-block mx-5"
+        style="width: 174px; margin: 0px; padding: 0px">
+      </picture>
+  </a>
+</section>
+
 <section style="margin-left: 140px;">
 <div class="container">
   <div class="row">
-    <h1 class="fs-1 mb-1 pt-5">Payment</h1>
+    <h1 class="mb-1 pt-3">Payment</h1>
     <p class="mb-2">Fill in the required information to continue.<br><br>Please note that the Username is <span class="fw-bold">Case Sensitive.</span></p>
-    <p>If there is an issue with your payment, click here to <a style="text-decoration: none; color: green;" href="https://www.facebook.com/BosyoGarbageCollector" target="_blank">contact us.</a></p>
+    <p>If there is an issue with your payment, click here to <a style="text-decoration: none; color: green;" href="/#Contact-Map" target="_blank">contact us.</a></p>
       <!-- 1st Column -->
       <div class="col-md-4 colIMG mx-3 ms-4">
         <img
@@ -51,7 +37,7 @@
             alt="">
         <div class="d-block d-md-none xl-none mt-3">
           <h1 class="display-6" style="text-shadow: 1px #fff;">PHP {{user.outstanding_balance}}</h1>
-      </div>
+        </div>
       </div>
       <!-- 2nd Column -->
       <div class="col-md-6 col-xs-6 ms-3">

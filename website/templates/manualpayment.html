@@ -8,70 +8,19 @@
 {% load static %}
 
 <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
+<link rel="stylesheet" href=" {% static '/css/manualpaymentstyle.css' %} ">
 
-<style>
-
-.card_payment {
-    animation: fadeInAnimation ease 1.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-{% comment %}   
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-} {% endcomment %}
-
-/* body {
---bs-primary: #008751;
---bs-primary-rgb: 0, 135, 81;
---bs-secondary: #1f1f1f;
---bs-secondary-rgb: 31, 31, 31;
---bs-success: #31f99d;
---bs-success-rgb: 49, 249, 157;
-} */
-
-#tfield_payment {
-    width: 400px;
-    padding: 40px;
-}
-
-/* .btn {
-    border: none;
-    outline: none;
-    height: 50px;
-    width: 100%;
-    background-color: #008751;
-    color: white;
-    border-radius: 4px;
-    font-weight: bold;
-} */
-
-
-.card_payment {
-    background: rgb(18, 18, 18);
-}
-
-.servicesUnderline {
-    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-    background-repeat: no-repeat;
-    background-size: 100% 0.4em;
-    background-position: 0 100%;
-    transition: background-size .25s ease-in;
-    cursor: pointer;
-    }
-
-.servicesUnderline:hover {
-    background-size: 100% 100%;
-    transition: .25s;
-    }
-
-</style>
-
+{% comment %} Bosyo Home Logo {% endcomment %}
+<section style="margin-left: 100px; margin-top: 20px;">
+    <a href="{% url 'home'%}">
+      <picture id="logo">
+        <img
+          src="\static\images\BosyoLogoClear.png"
+          class="py-1 d-none d-lg-block mx-5"
+          style="width: 174px; margin: 0px; padding: 0px">
+        </picture>
+    </a>
+  </section>
 
 {% comment %} <div class="container pt-5">
     <div class="col-xl-10 col-xxl-5 mb-5 mt-5 px-4">

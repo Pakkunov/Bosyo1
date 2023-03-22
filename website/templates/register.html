@@ -2,44 +2,33 @@
 
 {% block content %}
 
-{% include 'navbar2.html' %}
+{% include 'sidebar.html' %}
 
 
 {% load crispy_forms_tags %}         
 
-<style>
+{% load static %}
+<link rel="stylesheet" href=" {% static '/css/loginstyle.css' %} ">
+<link rel="stylesheet" href=" {% static '/css/registerstyle.css' %} ">
 
-	ul, p{
-		color: rgb(103, 103, 103);
-		font-size: smaller;
-	}
 
-	.login_p {
-		color: #000;
-		font-size: medium;
-	}
-
-	input {
-		width: 80%;
-	}
-
-	label {
-		color: #000;
-		padding-bottom: 10px;
-		font-weight: bold;
-	}
-
-	.alert {
-		width: 80%;
-	}
-
-</style>
+{% comment %} Bosyo Home Logo {% endcomment %}
+<section style="margin-left: 100px; margin-top: 20px;">
+  <a href="{% url 'home'%}">
+    <picture id="logo">
+      <img
+        src="\static\images\BosyoLogoClear.png"
+        class="py-1 d-none d-lg-block mx-5"
+        style="width: 174px; margin: 0px; padding: 0px">
+      </picture>
+  </a>
+</section>
 
 <!--Register--> 
-<section class="Form my-3 mx-5">
+<section class="Form mx-5">
     <div class="container">
       <!-- responsive form -->
-	  <div class="row no-gutters">
+	  <div class="row no-gutters" style="margin-top: 50px;">
       <div class="col-md-5 colIMG my-4 mx-3 ms-4">
         <img
             src="\static\images\gradient_green.jpg"
@@ -48,8 +37,8 @@
             alt="">
         </div>
         <div class="col-lg-6 px-xl-5">
-          <h1 class="fs-1" style="font-weight: bold">Register</h1>
-          <h6 class="fs-6 py-2"><span class="servicesUnderline">Sign up</span> to Bosyo Garbage Collector</h6>
+          <h1 style="font-weight: bold">Register</h1>
+          <h6 class="py-2">Fill out the Registration Form to create a new account. You can check for account creation requests that is sent to your inbox.</h6>
 		<!-- #message -->
           {% if messages %}
           <div class="alert alert-danger" role="alert">
@@ -63,22 +52,22 @@
 
           <form method="POST">
             {% csrf_token %}
-			{{ form|crispy }}
+			      {{ form|crispy }}
             <div class="form-row">
               <div class="col-lg-7">
-                
               </div>
             </div>
-            
             <div class="form-row">
               <div class="col-lg-10">
                 <button type="submit" class="btnlogin mt-3 mb-3">Register</button>
               </div>
             </div>
+            {% comment %} 
             <p class="login_p">
-				If you already have an account, 
+				      If you already have an account, 
               <a href="/login">login</a> instead.
-            </p>
+            </p> 
+            {% endcomment %}
           </form>
         </div>
       </div>

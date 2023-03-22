@@ -8,33 +8,6 @@
 <link rel="stylesheet" href=" {% static '/css/profilestyle.css' %} ">
 <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
 
-<style>
-
-  .servicesUnderline {
-    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-    background-repeat: no-repeat;
-    background-size: 100% 50%;
-    background-position: 70% 100%;
-    transition: background-size .25s ease-in;
-    }
-
-  thead {
-    border-bottom: hidden;
-  }
-
-  td {
-    text-align: left;
-    padding: 10px;
-    vertical-align: left;
-    text-align: center;
-    height: 50px;
-    line-height: 45px;
-    border-bottom: 1px dashed #cccccc;
-
-  }
-
-</style>
-
 
 <!-- <h1> Dashboard</h1>
 <div class="card">
@@ -59,6 +32,7 @@
 --bs-success-rgb: 49, 249, 157;
 ">
     
+{% comment %} This page is the Profile Page {% endcomment %}
 
 {% if messages %}
 <div class="alert alert-danger mt-4" role="alert" style="width: 80%;" id="wrapper">
@@ -70,21 +44,39 @@
 </div>
 {% endif %}
 
+{% comment %} Bosyo Home Logo {% endcomment %}
+<section style="margin-left: 100px; margin-top: 20px;">
+  <a href="{% url 'home'%}">
+    <picture id="logo">
+      <img
+        src="\static\images\BosyoLogoClear.png"
+        class="py-1 d-none d-lg-block mx-5"
+        style="width: 174px; margin: 0px; padding: 0px">
+      </picture>
+  </a>
+</section>
+
 <section style="margin-left: 140px;">
   <div class="container pt-4">
     <div>
-      <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Profile Page</h1>
-      <h6 class="fs-6">
-          Welcome to your Profile! You can pay bills by clicking on the payments button.
-          <br><br><span class="fw-bold">Your outstanding balance is: 
-            {% if user.outstanding_balance is none %}
-            <span class="servicesUnderline">
-        {{user.outstanding_balance}}.</span>
-        {% else %}
-            <span class="servicesUnderline">
-        ₱ {{user.outstanding_balance}}.</span>
-        {% endif%}
+      <h1 class="my-4" style="font-family: 'Montserrat', sans-serif;">Profile Page</h1>
+      <h6 class="col-lg-9">
+          Welcome to your Profile! On this page, users can view their personal information, including their name, address, and contact details.
+          You can pay bills by clicking on the payments button. 
+          <br><br>This page also displays the user's transactions, providing them with details about their past payments. 
+          If you want to change something on your account details, please <a style="text-decoration: none; color: green;" href="/#Contact-Map" target="_blank">contact us.</a>
+          </span>
       </h6>
+      <p class="pt-4">
+        <span class="fw-bold">Your outstanding balance is: 
+          {% if user.outstanding_balance is none %}
+          <span class="servicesUnderline">
+      {{user.outstanding_balance}}.</span>
+      {% else %}
+          <span class="servicesUnderline">
+      ₱ {{user.outstanding_balance}}.</span>
+      {% endif%}
+      </p>
     </div>
     <div class="row">
         <div class="col-md-6 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 440px;">

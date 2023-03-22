@@ -1,0 +1,60 @@
+.servicesUnderline {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position: 70% 100%;
+    transition: background-size .25s ease-in;
+    }
+
+    .servicesUnderline2 {
+        background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+        background-repeat: no-repeat;
+        background-size: 100% 20%;
+        background-position: 20% 90%;
+        transition: background-size .25s ease-in;
+    }
+
+    section {
+        margin-left: 100px;
+        overflow-x: hidden; /*  delete if causing problems */
+
+    }
+
+    button {
+        background-color: #161616;
+        border-style: hidden;
+        border-radius: 7px;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        color: white;
+        margin: 20px;
+        }
+
+        button:hover {
+        background-color: white;
+        border: 2px solid;
+        color: black;
+        transition: all 0.2s;
+        }
+
+        .qrlogs {
+        margin-left: 40px;
+        }
+    
+        
+    thead {
+        border-bottom: hidden;
+    }
+
+    td {
+        text-align: left;
+        padding: 10px;
+        vertical-align: left;
+        text-align: center;
+        height: 50px;
+        line-height: 45px;
+        border-bottom: 1px dashed #cccccc;
+        }
+
+    

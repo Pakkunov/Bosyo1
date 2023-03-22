@@ -9,104 +9,14 @@
   <title>Truck List</title>
   <meta name="description" content="List of Trucks">
   <meta name="keywords" content="Truck List">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/truck_details_templatestyle.css' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
 </head>
 <style>
-  .servicesUnderline {
-    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-    background-repeat: no-repeat;
-    background-size: 100% 50%;
-    background-position: 70% 100%;
-    transition: background-size .25s ease-in;
-    }
-
-    .servicesUnderline2 {
-      background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-      background-repeat: no-repeat;
-      background-size: 100% 20%;
-      background-position: 20% 90%;
-      transition: background-size .25s ease-in;
-      }
-
-  li {
-    list-style-type: none;
-  }
-
-
-  .plateNum {
-    font-family: 'FE-Font', sans-serif;
-    background: white; 
-    border: 2px solid black; 
-    width: 150px;
-                                                
-  }
-
-  .imgTruck {
-    border-radius: 30px;
-    width: 400px;
-    position: absolute;
-  }
-
-  section {
-    margin-left: 140px;
-  }
-
-  .truckTable {
-    margin-left: 160px;
-  }
-
-  #table1 {
-    border-collapse: separate;
-    border-spacing: 15px;
-  }
-  
-  td {
-    text-align: left;
-    padding: 10px;
-    vertical-align: left;
-    text-align: center;
-    height: 50px;
-    line-height: 45px;
-    border-bottom: 1px dashed #cccccc;
-
-  }
-
-  button {
-    background-color: #161616;
-    border-style: hidden;
-    border-radius: 7px;
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    color: white;
-    margin: 20px;
-    }
-
-    button:hover {
-    background-color: white;
-    border: 2px solid;
-    color: black;
-    transition: all 0.2s;
-    }
-
-  .btnPayment {
-    background-color: #161616;
-    border-style: hidden;
-    border-radius: 7px;
-    width: 200px;
-    height: 50px;
-    text-align: center;
-  }
-
-  .btnPayment:hover {
-    background-color: white;
-    border: 2px solid;
-    color: black;
-    transition: all 0.2s;
-  }
 
 </style>
 
@@ -129,8 +39,20 @@
 </div>
 {% endif %}
 
+{% comment %} Bosyo Home Logo {% endcomment %}
+<section style="margin-left: 100px; margin-top: 20px;">
+  <a href="{% url 'home'%}">
+    <picture id="logo">
+      <img
+        src="\static\images\BosyoLogoClear.png"
+        class="py-1 d-none d-lg-block mx-5"
+        style="width: 174px; margin: 0px; padding: 0px">
+      </picture>
+  </a>
+</section>
+
 <section>
-    <div class="container pt-4">
+    <div class="container">
       <div>
         <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Truck Staff Info</h1>
         <h6>
@@ -190,7 +112,7 @@
 </section>
   
 
-<section style="margin-left: 140px; margin-top: 40px;">
+<section style="margin-left: 140px;">
   <div class="container">
     <div class="row">
       <div class="col w-50">
@@ -201,6 +123,7 @@
           <h6 class="fs-6 mb-4">
             This will make you create <span class="fw-bold">QR Codes for your employees</span> so that you can record their attendance.
           </h6>
+
           <a href="/qr-code">
             <button class="btnPayment btn-primary" type="button">
               QR Code <i class="bi bi-person-bounding-box ps-3"></i>

@@ -1,0 +1,25 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .colIMG {
+    position: static;
+    text-align: center;
+  }
+
+  .servicesUnderline {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% .4em;
+    background-position: 70% 100%;
+    transition: background-size .25s ease-in;
+    }
+
+.servicesUnderline2 {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 70% 100%;
+    transition: background-size .25s ease-in;
+    }
+
