@@ -7,6 +7,7 @@ from django.forms import ModelForm
 from website.models import Account
 from website.models import Truck_Part
 from website.models import Attendance
+from django.contrib.auth import get_user_model
 
 
 
@@ -51,3 +52,32 @@ class QrLoginForm(forms.Form):
 		model = Attendance
 		fields= ['helper_name',]
 
+User = get_user_model()
+
+class ChangePasswordForm(forms.Form):
+    current_password = forms.CharField(widget=forms.PasswordInput())
+    new_password = forms.CharField(widget=forms.PasswordInput())
+    confirm_new_password = forms.CharField(widget=forms.PasswordInput())
+
+    def __init__(self, user, *args, **kwargs):
+        self.user = user
+        super().__init__(*args, **kwargs)
+
+    def clean_current_password(self):
+        current_password = self.cleaned_data.get('current_password')
+        if not self.user.check_password(current_password):
+            raise forms.ValidationError('Incorrect current password')
+        return current_password
+
+    def clean_confirm_new_password(self):
+        new_password = self.cleaned_data.get('new_password')
+        confirm_new_password = self.cleaned_data.get('confirm_new_password')
+        if new_password and confirm_new_password and new_password != confirm_new_password:
+            raise forms.ValidationError('New passwords must match')
+        return confirm_new_password
+
+    def save(self, commit=True):
+        self.user.set_password(self.cleaned_data['new_password'])
+        if commit:
+            self.user.save()
+        return self.user

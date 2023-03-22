@@ -18,6 +18,13 @@
     </div>
     <ul class="px-0">
     {% if request.user.is_staff %}
+
+        <li class="">
+        <a href="/register">
+            <i class='bx bx-male' ></i>
+            <span class="links_name">Register</span>
+        </a>
+        </li>
         <li class="">
             <a href="/staff">
                 <i class='bx bxs-dashboard' ></i>
@@ -49,6 +56,12 @@
             </a>
         </li>
         <li style="margin-top: 150px;">
+            <a href="{% url 'change_password'%}">
+                <i class='bx bxs-lock-alt' id="log_out"></i>
+                <span class="links_name">Change password</span>
+            </a>
+        </li>
+        <li style="margin-top: 150px;">
             <a href="{% url 'logout'%}">
                 <i class='bx bx-log-out' id="log_out"></i>
                 <span class="links_name">Logout</span>
@@ -72,6 +85,13 @@
             <a href="{% url 'logout'%}">
                 <i class='bx bx-log-out' id="log_out"></i>
                 <span class="links_name">Logout</span>
+            </a>
+        </li>
+
+        <li style="margin-top: 150px;">
+            <a href="{% url 'change_password'%}">
+                <i class='bx bxs-lock-alt' id="log_out"></i>
+                <span class="links_name">Change password</span>
             </a>
         </li>
     </ul>

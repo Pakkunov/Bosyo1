@@ -31,6 +31,7 @@ urlpatterns = [
     path('<int:pk>',TruckDetailView.as_view()),
     path('truckchart/', views.TruckChart, name='truckchart'),
     path('qr-code/', generate_qr_code, name='generate_qr_code'),
+    path('change_password/', views.change_password, name='change_password'),
 
 
 ]   

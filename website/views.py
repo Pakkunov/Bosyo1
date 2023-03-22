@@ -30,6 +30,8 @@ from django.views.generic import ListView,DetailView
 import io
 import qrcode
 from qrcode.image.svg import SvgPathImage
+from .forms import ChangePasswordForm
+
 
 User = get_user_model()
 # Create your views here.
@@ -342,3 +344,12 @@ def generate_qr_code(request):
         return response
     else:
         return render(request, 'generate_qr_code.html')
+    
+
+@login_required
+def change_password(request):
+    form = ChangePasswordForm(request.user, request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('userProfile')
+    return render(request, 'change_password.html', {'form': form})
