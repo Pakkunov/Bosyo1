@@ -102,6 +102,18 @@ def userProfile(request):
     context = {'accounts':accounts,'trucks':trucks,'payments':payments,'parts':parts}
     return render(request, 'userprofile.html', context)
 
+def increase_balance(request):
+    accounts = Account.objects.all()
+
+    if not request.user.is_staff:
+        messages.error(request, 'You are not allowed to view this page.')
+        return redirect('userProfile')
+
+    if request.method == 'POST':
+        Account.objects.update(outstanding_balance=F('outstanding_balance') + F('payrate'))
+
+        return redirect('staffpage')
+
 def staffpage(request):
     page= 'staffpage'
     parts=Truck_Part.objects.all()

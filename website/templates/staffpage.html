@@ -63,6 +63,12 @@ style="
           <button class="btnPayment btn-primary mx-1" type="button">
             Manual Payment <i class='bx bxs-bank'></i>
           </button>
+          <span class="d-none d-md-none d-lg-block my-3"></span> 
+            <form method="POST" action="{% url 'increase_balance' %}">
+              {% csrf_token %}
+              <button type="submit" class="btnPayment btn-primary mx-1">Increase Balance</button>
+          </form>
+          </button>
         </a>
       </p>
       </div>
