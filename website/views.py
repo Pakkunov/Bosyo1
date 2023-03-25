@@ -36,6 +36,11 @@ from django.contrib.auth.views import PasswordResetView
 from .forms import CustomPasswordResetForm
 from django.contrib.auth.views import PasswordResetConfirmView
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.files import File
+import base64
+
 
 
 User = get_user_model()
@@ -231,18 +236,24 @@ def qrcodelogin(request):
         if request.method == 'POST':
             try:
                 with transaction.atomic():
-                    name = request.POST.get('decodedText')
-                    
+                    qrcode = request.POST.get('decodedText')
 
-                    attendance_log = Attendance(name=name)
-                    attendance_log.save()
+                try:
+                    name = Helper.objects.get(name=qrcode)
+                except ObjectDoesNotExist:
+                    messages.error(request, 'Helper with name {} does not exist. Please add this helper'.format(qrcode))
+                    return redirect('/qrlogin')
+
+
+                attendance_log = Attendance(helper=name)
+                attendance_log.save()
                     
-                    if attendanceCounter.objects.filter(name=name).exists():
-                        attendanceCounter.objects.filter(name=name).update(counter=F('counter')+1)
-                    else:
-                        counter_log=attendanceCounter(name=name)
-                        counter_log.save()
-                        attendanceCounter.objects.filter(name=name).update(counter=F('counter')+1)
+                if attendanceCounter.objects.filter(helper_name=name).exists():
+                        attendanceCounter.objects.filter(helper_name=name).update(counter=F('counter')+1)
+                else:
+                    counter_log=attendanceCounter(helper_name=name)
+                    counter_log.save()
+                    attendanceCounter.objects.filter(helper_name=name).update(counter=F('counter')+1)
                     
             
             except Exception as e:
@@ -261,9 +272,9 @@ def charts(request):
     labels = []
     data = []
 
-    queryset=attendanceCounter.objects.order_by('-name')
+    queryset=attendanceCounter.objects.order_by('-helper_name')
     for person in queryset:
-        labels.append(person.name)
+        labels.append(person.helper_name)
         data.append(person.counter)
 
     labels1 = []

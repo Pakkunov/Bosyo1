@@ -149,9 +149,7 @@
                     <tr>
                       <td class="text-light text-center">{{ part.Truck_Used_On }}</td>
                       <td class="text-light text-center">{{ part.sumTotal }}</td>
-                      {% for part in parts %}
                       <td class="text-light text-center"><a href="{{ part.Receipt.url }}" target="_blank"><img src="{{ part.Receipt.url }}" alt="Truck Part Image" style="width: 60px; height: 40px;"></a></td>
-                      {% endfor %}
                     </tr>
                     {% endfor %}
                   </tbody>

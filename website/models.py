@@ -132,16 +132,14 @@ class Payment(models.Model):
 		# return str(self.id)
 
 class Attendance(models.Model):
-	name=models.CharField(max_length=50, null=True)
-	attendace_time=models.DateTimeField(auto_now_add=True)
-	
+    helper = models.ForeignKey(Helper, on_delete=models.CASCADE, default=1)
+    attendance_time = models.DateTimeField(auto_now_add=True)
 
-
-	def __str__(self):
-		return str(self.name)
+    def __str__(self):
+        return f"{self.helper.name} - {self.attendance_time}"
 
 class attendanceCounter(models.Model):
-	name=models.CharField(max_length=50, null=True)
+	helper_name=models.CharField(max_length=50, null=True)
 	counter=models.IntegerField(default=0)
 
 

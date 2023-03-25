@@ -104,8 +104,8 @@
                             {% for user in attendance|slice:"::-1" %}  
                             {% if forloop.counter < 11  %}
                             <tr>
-                                <td>{{user.name}}</td>
-                                <td>{{user.attendace_time}}</td>
+                                <td>{{user.helper}}</td>
+                                <td>{{user.attendance_time}}</td>
                             {% endif %} 
                             </tr>
                             {% endfor %} 
