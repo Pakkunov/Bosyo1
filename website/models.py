@@ -106,6 +106,7 @@ class Truck_Part(models.Model):
 	Total = models.IntegerField()
 	Truck_Used_On = models.ForeignKey(Truck, on_delete=models.CASCADE, null=True)
 	Receipt = models.ImageField(upload_to='receipts/')
+	created_at = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
 		return self.Truck_Part_Name
@@ -141,10 +142,12 @@ class Attendance(models.Model):
 class attendanceCounter(models.Model):
 	helper_name=models.CharField(max_length=50, null=True)
 	counter=models.IntegerField(default=0)
+	created_at = models.DateTimeField(auto_now_add=True)
+
 
 
 	def __str__(self):
-		return str(self.name)
+		return str(self.helper_name)
 
 
 

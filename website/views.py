@@ -40,6 +40,8 @@ from django.shortcuts import get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 import base64
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 
 
@@ -272,20 +274,26 @@ def charts(request):
     labels = []
     data = []
 
-    queryset=attendanceCounter.objects.order_by('-helper_name')
+    # filter queryset for the last 7 days
+    last_week = datetime.now() - timedelta(days=7)
+    queryset = attendanceCounter.objects.filter(created_at__gte=last_week).order_by('-helper_name')
     for person in queryset:
         labels.append(person.helper_name)
         data.append(person.counter)
 
     labels1 = []
     data1 = []
-    queryset0=Truck_Part.objects.values('Truck_Used_On')
-    queryset1=Truck_Part.objects.values('Truck_Used_On').annotate(sumTotal=Sum('Total'))
-    
+
+    # calculate the date for one month ago from today
+    one_month_ago = timezone.now() - timedelta(days=30)
+
+    # filter the data to only include records from the most recent month
+    queryset1 = Truck_Part.objects.filter(created_at__gte=one_month_ago).values('Truck_Used_On').annotate(sumTotal=Sum('Total'))
+
+    # loop through the queryset to extract the relevant information
     for truck in queryset1:
         labels1.append(truck['Truck_Used_On'])
         data1.append(truck['sumTotal'])
-
 
 
 
