@@ -226,48 +226,50 @@ def TruckMaintenance(request):
 def debugmode(request):
     return render(request,'debugmode.html')
 
+from datetime import datetime, date
+
 def qrcodelogin(request):
         
-        attendance=Attendance.objects.all()
-        attendacecounter=attendanceCounter.objects.all()
+    attendance = Attendance.objects.all()
+    attendacecounter = attendanceCounter.objects.all()
         
-        if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page')
-            return redirect('userProfile')
+    if not request.user.is_staff:
+        messages.error(request, 'You are not allowed to view this page')
+        return redirect('userProfile')
 
-        if request.method == 'POST':
+    if request.method == 'POST':
+        try:
+            with transaction.atomic():
+                qrcode = request.POST.get('decodedText')
+
             try:
-                with transaction.atomic():
-                    qrcode = request.POST.get('decodedText')
+                name = Helper.objects.get(name=qrcode)
+            except ObjectDoesNotExist:
+                messages.error(request, 'Helper with name {} does not exist. Please add this helper'.format(qrcode))
+                return redirect('/qrlogin')             
 
-                try:
-                    name = Helper.objects.get(name=qrcode)
-                except ObjectDoesNotExist:
-                    messages.error(request, 'Helper with name {} does not exist. Please add this helper'.format(qrcode))
-                    return redirect('/qrlogin')
+            today = date.today()
+            attendance_log = Attendance.objects.filter(helper=name, attendance_time__date=today)
 
-
+            if attendance_log.exists():
+                messages.error(request, 'Attendance already marked for helper {} today.'.format(qrcode))
+            else:
                 attendance_log = Attendance(helper=name)
                 attendance_log.save()
-                    
+
                 if attendanceCounter.objects.filter(helper_name=name).exists():
-                        attendanceCounter.objects.filter(helper_name=name).update(counter=F('counter')+1)
+                    attendanceCounter.objects.filter(helper_name=name).update(counter=F('counter')+1)
                 else:
-                    counter_log=attendanceCounter(helper_name=name)
+                    counter_log = attendanceCounter(helper_name=name)
                     counter_log.save()
                     attendanceCounter.objects.filter(helper_name=name).update(counter=F('counter')+1)
                     
-            
-            except Exception as e:
-                print(e)
-                messages.success(request, 'Something went wrong.')
+        except Exception as e:
+            print(e)
+            messages.success(request, 'Something went wrong.')
 
-
-            
-
-
-            return redirect('/qrlogin')    
-        return render(request,'qr_code_template.html',{'attendance':attendance,'attendacecounter':attendacecounter})
+        return redirect('/qrlogin')    
+    return render(request, 'qr_code_template.html', {'attendance':attendance, 'attendacecounter':attendacecounter})
 
 
 def charts(request):
