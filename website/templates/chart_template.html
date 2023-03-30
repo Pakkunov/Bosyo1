@@ -53,7 +53,20 @@
         </picture>
     </a>
   </section>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Attendance Chart</h3>
+        {{ attendance_plot_div|safe }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Truck Parts Chart</h3>
+        {{ truck_parts_plot_div|safe }}
+      </div>
+    </div>
+  </div>
 <section>
     <div class="container">
         <div class="row">
@@ -103,7 +116,7 @@
         </div>
     </div>
 </section>
-
+<section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script>
 

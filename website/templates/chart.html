@@ -28,7 +28,18 @@
 {% comment %} ----------------------------------------------------------- {% endcomment %}
 
 <body>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Attendance Chart</h3>
+      {{ attendance_plot_div|safe }}
+    </div>
+    <div class="col-md-6">
+      <h3>Truck Parts Chart</h3>
+      {{ truck_parts_plot_div|safe }}
+    </div>
+  </div>
+</div>
   <div style="width:1000px;height:1000px">
     <canvas id="bar-chart"></canvas>
     </div>
@@ -145,7 +156,6 @@
           window.myPie = new Chart(ctx, config);
         };
     
-
 
 
 

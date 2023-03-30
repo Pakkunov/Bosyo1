@@ -26,7 +26,6 @@ from django.db.models import F
 from django.shortcuts import render
 from django.db.models import Sum
 from django.views.generic import ListView,DetailView
-#
 import io
 import qrcode
 from qrcode.image.svg import SvgPathImage
@@ -42,6 +41,10 @@ from django.core.files import File
 import base64
 from datetime import datetime, timedelta
 from django.utils import timezone
+import plotly.express as px
+import plotly.graph_objs as go
+import plotly.offline as opy
+
 
 
 
@@ -283,6 +286,10 @@ def charts(request):
         labels.append(person.helper_name)
         data.append(person.counter)
 
+    # create a bar chart for the attendance data
+    attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, orientation='h')])
+    attendance_chart.update_layout(barmode='group', xaxis=dict(title='Counter', tickvals=list(range(max(data)+1))), yaxis=dict(title='Helpers', tickformat=".0f"), title='Attendance Chart', title_font=dict(family='Arial', size=24))
+
     labels1 = []
     data1 = []
 
@@ -297,11 +304,16 @@ def charts(request):
         labels1.append(truck['Truck_Used_On'])
         data1.append(truck['sumTotal'])
 
+    # create a bar chart for the truck parts data
+    truck_parts_chart = go.Figure(data=[go.Bar(x=data1, y=labels1, orientation='h')])
+    truck_parts_chart.update_layout(title='Truck Parts Chart', xaxis_title='Total', yaxis_title='Trucks', yaxis=dict(dtick=1))
+
+    attendance_plot_div = opy.plot(attendance_chart, auto_open=False, output_type='div')
+    truck_parts_plot_div = opy.plot(truck_parts_chart, auto_open=False, output_type='div')
 
 
 
-
-    return render(request,'chart_template.html', {'labels':labels,'data':data,'labels1':labels1,'data1':data1})
+    return render(request,'chart_template.html', {'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div,'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart,'labels':labels,'data':data,'labels1':labels1,'data1':data1})
 
 
 def simpleCheckout(request):
