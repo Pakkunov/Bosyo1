@@ -49,7 +49,10 @@
 {% include 'navbar.html' %}
 
 <div>
-    <div class="home-container">
+    <div class="home-container" 
+    style="
+
+    ">
       <div class="home-header">
         <div class="home-heading">
         </div>
@@ -65,63 +68,45 @@
             {% comment %} About Us and Help buttons {% endcomment %}
             <div class="home-hero-buttons">
               <div class="home-io-btn">
-                <i class='bx bxs-badge-check'></i>
+                <i class='bx bxs-badge-check' style='font-size: 20px;'></i>
                 <span class="home-caption1">About Us</span>
               </div>
               <div class="home-android-btn">
-                <i class='bx bxs-help-circle' ></i>
+                <i class='bx bxs-help-circle' style='font-size: 20px;'></i>
                 <span class="home-caption2">How to inquire?</span>
               </div>
             </div>
           </div>
           {% comment %} Images for the banner on home page {% endcomment %}
-          {% comment %} <div class="home-images">
+          <div class="home-images">
             <div class="home-column">
-                <img src="\static\images\Environment2.png" alt="" class="imgTruck">
+                <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
             </div>
             <div class="home-column1">
-              <img
-                alt="pastedImage"
-                src="public/playground_assets/pastedimage-v31-1500h.png"
-                class="home-pasted-image1"
-              />
-              <img
-                alt="pastedImage"
-                src="public/playground_assets/pastedimage-c39.svg"
-                class="home-pasted-image2"
-              />
+              <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
+              <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
             </div>
             <div class="home-column2">
-              <img
-                alt="pastedImage"
-                src="public/playground_assets/pastedimage-iqnj.svg"
-                class="home-pasted-image3"
-              />
-              <img
-                alt="pastedImage"
-                src="public/playground_assets/pastedimage-06e.svg"
-                class="home-pasted-image4"
-              />
+              <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: 200px;">
+              <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
             </div>
-          </div> {% endcomment %}
+          </div> 
         </div>
       </div>
       <div class="home-video">
         <div class="home-content01">
           <div class="home-header1">
             <h2 class="home-text">
-              Built specifically for people who want faster transactions.
+              We value your time and prioritize convenience in managing your waste disposal needs.
             </h2>
           </div>
           <div class="home-video-container">
-            <video
-              src="https://www.youtube.com/watch?v=MRQ69XeDxVk"
-              loop=""
-              muted=""
-              poster="public/playground_assets/pastedimage-v2-900w.png"
-              autoplay=""
-              class="home-video1"
-            ></video>
+            <div class="d-none d-sm-block" style="margin-left: 200px;">
+              <img src="\static\images\artist-2.png" alt="" class="imgTruck" style="width: 80%;">
+            </div>
+            <div class="d-block d-sm-none">
+              <img src="\static\images\artist-2.png" alt="" class="imgTruck" style="width: 90%;">
+            </div>             
             <div class="home-heading-container">
               <div class="home-heading01">
                 <span class="home-text01">
@@ -140,6 +125,80 @@
           </div>
         </div>
       </div>
+
+      {% comment %} Features {% endcomment %}
+      <div class="home-features">
+        <div class="home-header2">
+          <div class="home-tag">
+            <span class="home-text16">What we offer</span>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="home-heading03">
+                <h2 class="home-text17">Benefits that you get using by availing our service:</h2>
+                <span class="home-text18">
+                    All of these features combine to make the garbage collection process more efficient and user-friendly for our clients, 
+                    ultimately improving your experience and satisfaction with our services.
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img src="\static\images\artist-1.png" alt="" class="imgTruck" style="width: 105%;">
+
+            </div>
+          </div>
+        </div>
+        <div class="home-feature-list">
+          <div class="feature-feature">
+            <i class='bx bxs-user-account' style='font-size: 50px;'></i>
+            <div class="feature-content">
+              <span class="feature-title"><span>Personal Account</span></span>
+              <span class="feature-description">
+                <span>
+                  We offer an account system that allows you to 
+                  check and pay your balances, providing a hassle free experience.
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="feature-feature">
+            <i class='bx bxl-paypal' style='font-size: 50px;'></i>
+            <div class="feature-content">
+              <span class="feature-title"><span>Verified Payments</span></span>
+              <span class="feature-description">
+                <span>
+                  We accept payments via credit card and PayPal, 
+                  making it convenient for you to pay for our services. 
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="feature-feature">
+            <i class='bx bxs-lock' style='font-size: 50px;'></i>
+            <div class="feature-content">
+              <span class="feature-title"><span>Safe Transactions </span></span>
+              <span class="feature-description">
+                <span>
+                  We use advanced encryption technology to protect your transactions and making them safe and secure.
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="feature-feature">
+            <i class='bx bxs-face' style='font-size: 50px;'></i>
+            <div class="feature-content">
+              <span class="feature-title"><span>Customer Service</span></span>
+              <span class="feature-description">
+                <span>
+                  We strive to provide excellent service and ensure your satisfaction with our payment processing system.
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <div class="home-sections">
         <div class="home-section">
           <div class="home-image">
@@ -341,148 +400,7 @@
         </div>
       </div>
       {% comment %} Services {% endcomment %}
-      <div class="home-features">
-        <div class="home-header2">
-          <div class="home-tag">
-            <span class="home-text16">Web Application Features</span>
-          </div>
-          <div class="home-heading03">
-            <h2 class="home-text17">All of the benefits that come with using our web app</h2>
-            <span class="home-text18">
-                All of these features combine to make the garbage collection process more efficient and user-friendly for our clients, 
-                ultimately improving their experience and satisfaction with our services.
-            </span>
-          </div>
-        </div>
-        <div class="home-feature-list">
-            {% comment %} Account {% endcomment %}
-          <div class="feature-feature">
-            <i class='bx bxs-user-account' style='font-size: 50px;'></i>
-            <div class="feature-content">
-              <span class="feature-title"><span>Account</span></span>
-              <span class="feature-description">
-                <span>
-                    We offer a user-friendly account system that allows you to manage your payments and keep track of your transaction history. 
-                </span>
-              </span>
-            </div>
-          </div>
-          {% comment %}  {% endcomment %}
-          <div class="feature-feature">
-            <img
-              alt="image"
-              src="public/playground_assets/vector6113-r6dl.svg"
-              class="feature-image"
-            />
-            <div class="feature-content">
-              <span class="feature-title"><span>Multiple Devices</span></span>
-              <span class="feature-description">
-                <span>
-                    Access our web application anywhere with any device as long as you have an internet connection.
-                </span>
-              </span>
-            </div>
-          </div>
-          <div class="feature-feature">
-            <img
-              alt="image"
-              src="public/playground_assets/vector6113-6zj.svg"
-              class="feature-image"
-            />
-            <div class="feature-content">
-              <span class="feature-title"><span>Analytics</span></span>
-              <span class="feature-description">
-                <span>
-                  Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusa
-                </span>
-              </span>
-            </div>
-          </div>
-          <div class="feature-feature">
-            <img
-              alt="image"
-              src="public/playground_assets/vector6113-lvvs.svg"
-              class="feature-image"
-            />
-            <div class="feature-content">
-              <span class="feature-title"><span>Virtual Card</span></span>
-              <span class="feature-description">
-                <span>
-                  Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusa
-                </span>
-              </span>
-            </div>
-          </div>
-          <div class="feature-feature">
-            <img
-              alt="image"
-              src="public/playground_assets/vector6114-cupp.svg"
-              class="feature-image"
-            />
-            <div class="feature-content">
-              <span class="feature-title">
-                <span>Safe Transactions</span>
-              </span>
-              <span class="feature-description">
-                <span>
-                  Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusa
-                </span>
-              </span>
-            </div>
-          </div>
-          <div class="feature-feature">
-            <img
-              alt="image"
-              src="public/playground_assets/vector6114-6m1e.svg"
-              class="feature-image"
-            />
-            <div class="feature-content">
-              <span class="feature-title"><span>Milestones</span></span>
-              <span class="feature-description">
-                <span>
-                  Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusa
-                </span>
-              </span>
-            </div>
-          </div>
-          <div class="feature-feature">
-            <img
-              alt="image"
-              src="public/playground_assets/vector6114-yjl.svg"
-              class="feature-image"
-            />
-            <div class="feature-content">
-              <span class="feature-title"><span>Trade</span></span>
-              <span class="feature-description">
-                <span>
-                  Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusa
-                </span>
-              </span>
-            </div>
-          </div>
-          <div class="feature-feature">
-            <img
-              alt="image"
-              src="public/playground_assets/vector6113-lvvs.svg"
-              class="feature-image"
-            />
-            <div class="feature-content">
-              <span class="feature-title"><span>Wallet</span></span>
-              <span class="feature-description">
-                <span>
-                  Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusa
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {% comment %} home FAQ {% endcomment %}
       <div class="home-faq">

@@ -516,6 +516,14 @@
     font-family: Poppins;
     font-weight: 600;
   }
+  img {
+    -moz-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+  }
   .feature-description {
     font-family: Poppins;
   }
@@ -934,6 +942,9 @@
     flex-direction: column;
   }
   .home-header {
+    background-image: url(/static/images/bg-41.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -1111,6 +1122,7 @@
   }
   .home-video {
     color: white;
+    background-image: url('/static/images/bg-42.png');
     width: 100%;
     display: flex;
     z-index: 10;
