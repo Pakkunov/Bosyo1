@@ -524,6 +524,9 @@
     -webkit-user-select: none; 
     -ms-user-select: none;
   }
+  .imgTruck {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
   .feature-description {
     font-family: Poppins;
   }
@@ -944,7 +947,7 @@
   .home-header {
     background-image: url(/static/images/bg-41.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
     width: 100%;
     height: 100vh;
     display: flex;
@@ -1123,6 +1126,9 @@
   .home-video {
     color: white;
     background-image: url('/static/images/bg-42.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     width: 100%;
     display: flex;
     z-index: 10;
@@ -1163,6 +1169,16 @@
     align-items: flex-start;
     flex-direction: column;
   }
+  .carousel-control-prev, .carousel-control-next {
+    color: #fff;
+  }
+  
+  .carousel-control-prev:hover, .carousel-control-next:hover {
+    color: #fff;
+    background-color: #1d1d1d78;
+    border-color: #2c2c2c75;
+  }
+  
   .home-video1 {
     width: 100%;
     cursor: pointer;
@@ -1616,6 +1632,10 @@
     display: none;
   }
   .home-features {
+    background-image: url(/static/images/bg-39.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     gap: var(--dl-space-space-fiveunits);
     width: 100%;
     display: flex;

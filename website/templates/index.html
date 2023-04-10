@@ -49,10 +49,7 @@
 {% include 'navbar.html' %}
 
 <div>
-    <div class="home-container" 
-    style="
-
-    ">
+    <div class="home-container">
       <div class="home-header">
         <div class="home-heading">
         </div>
@@ -78,19 +75,21 @@
             </div>
           </div>
           {% comment %} Images for the banner on home page {% endcomment %}
+          {% comment %}
           <div class="home-images">
             <div class="home-column">
                 <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
             </div>
             <div class="home-column1">
               <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
-              <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
+              <img src="\static\images\TruckYellow.png" alt="" class="imgTruck" style="width: 300px; height: auto;">
             </div>
             <div class="home-column2">
-              <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: 200px;">
-              <img src="\static\images\AboutUs.jpg" alt="" class="imgTruck" style="width: 300px; height: auto;">
+              <img src="\static\images\job-1.jpg" alt="" class="imgTruck" style="width: 300px; height: 200px;">
+              <img src="\static\images\TruckYellow.png" alt="" class="imgTruck" style="width: 300px; height: auto;">
             </div>
           </div> 
+            {% endcomment %}
         </div>
       </div>
       <div class="home-video">
@@ -101,12 +100,33 @@
             </h2>
           </div>
           <div class="home-video-container">
-            <div class="d-none d-sm-block" style="margin-left: 200px;">
-              <img src="\static\images\artist-2.png" alt="" class="imgTruck" style="width: 80%;">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="\static\images\job-1.jpg" class="d-block" alt="..." style="height: 540px; width: 950px;">
+                </div>
+                <div class="carousel-item">
+                  <img src="\static\images\About1.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
+                </div>
+                <div class="carousel-item">
+                  <img src="\static\images\preview-1.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </a>
             </div>
-            <div class="d-block d-sm-none">
-              <img src="\static\images\artist-2.png" alt="" class="imgTruck" style="width: 90%;">
-            </div>             
+             
             <div class="home-heading-container">
               <div class="home-heading01">
                 <span class="home-text01">
@@ -143,8 +163,6 @@
               </div>
             </div>
             <div class="col-md-4">
-              <img src="\static\images\artist-1.png" alt="" class="imgTruck" style="width: 105%;">
-
             </div>
           </div>
         </div>
