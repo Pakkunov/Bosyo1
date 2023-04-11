@@ -2949,6 +2949,7 @@
     background-image: url(/static/images/bg-49.png);
     background-repeat: no-repeat;
     background-size: cover; 
+    background-attachment: fixed;
     background-position: center;
   }
   .home-content09 {
