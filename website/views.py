@@ -291,7 +291,10 @@ def charts(request):
 
     # create a bar chart for the attendance data
     attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, orientation='h')])
-    attendance_chart.update_layout(barmode='group', xaxis=dict(title='Number of Attendances', tickvals=list(range(max(data)+1))), yaxis=dict(title='Name Of Helpers', tickformat=".0f"), title='Attendance Since the Past week', title_font=dict(family='Arial', size=24))
+    attendance_chart.update_layout(barmode='group', yaxis=dict(title='Name Of Helpers', tickformat=".0f"), title='Attendance Since the Past week', title_font=dict(family='Arial', size=24))
+
+    if data:  # Check if data is not empty
+        attendance_chart.update_xaxes(tickvals=list(range(max(data)+1)), title='Number of Attendances')  # Update x-axis with tick values and title
 
     labels1 = []
     data1 = []
@@ -314,9 +317,7 @@ def charts(request):
     attendance_plot_div = opy.plot(attendance_chart, auto_open=False, output_type='div')
     truck_parts_plot_div = opy.plot(truck_parts_chart, auto_open=False, output_type='div')
 
-
-
-    return render(request,'chart_template.html', {'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div,'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart,'labels':labels,'data':data,'labels1':labels1,'data1':data1})
+    return render(request, 'chart_template.html', {'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div, 'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart, 'labels': labels, 'data': data, 'labels1': labels1, 'data1': data1})
 
 
 def simpleCheckout(request):
