@@ -5,6 +5,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.validators import MinValueValidator
 from django.db.models import Sum
+import random
+import string
 
 class MyAccountManager(BaseUserManager):
 	def create_user(self, email, username, password=None):
@@ -122,15 +124,25 @@ class Truck_Part(models.Model):
 		return url
 	
 
+def generate_transaction_id():
+    """Generate a randomized transaction ID"""
+    # Define the length of the transaction ID
+    transaction_id_length = 10
+
+    # Generate a random string of characters
+    chars = string.ascii_letters + string.digits
+    transaction_id = ''.join(random.choice(chars) for _ in range(transaction_id_length))
+
+    return transaction_id
+
 class Payment(models.Model):
-	Date_paid= models.DateTimeField(verbose_name='Date Paid', auto_now=False, auto_now_add=True, null=True)
-	User_who_Paid= models.ForeignKey(Account, on_delete=models.SET_NULL, blank=True, null=True, related_name="Payments")
-	amount= models.DecimalField(max_digits=17, decimal_places=2, default=0.0,)
+    Date_paid = models.DateTimeField(verbose_name='Date Paid', auto_now=False, auto_now_add=True, null=True)
+    User_who_Paid = models.ForeignKey(Account, on_delete=models.SET_NULL, blank=True, null=True, related_name="Payments")
+    amount = models.DecimalField(max_digits=17, decimal_places=2, default=0.0)
+    transaction_id = models.CharField(max_length=100, default=generate_transaction_id)  # Add transaction ID field with default value as the generate_transaction_id function
 
-
-	def __str__(self):
-		return str(self.User_who_Paid)
-		# return str(self.id)
+    def __str__(self):
+        return str(self.User_who_Paid)
 
 class Attendance(models.Model):
     helper = models.ForeignKey(Helper, on_delete=models.CASCADE, default=1)

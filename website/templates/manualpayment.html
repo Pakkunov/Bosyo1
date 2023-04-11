@@ -71,49 +71,47 @@
 {% endif %}
 
 <section style="margin-left: 140px;">
-  <div class="container pt-4">
-    <div>
-      <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Manual Payment</h1>
-      <h6 class="fs-6">
+    <div class="container pt-4">
+      <div>
+        <h1 class="fs-1 my-4" style="font-family: 'Montserrat', sans-serif;">Manual Payment</h1>
+        <h6 class="fs-6">
           Here, you can <span class="servicesUnderline">update payments</span> manually if someone wishes to pay via check.
-      </h6>
-    </div>
-    <div class="row">
+        </h6>
+      </div>
+      <div class="row">
         <div class="col-xl-11 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 440px;">
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-group mt-2 mb-4" id="">
-                    <h4 class="pb-2">
-                        Please type in the HOA representative:
-                    </h4>
-                    <input class="form-control" name="HOA" type="text" placeholder="Homeowners' Associations"
-                    style="border-radius: 10px; border: 2px solid;">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group mt-2 mb-4" id="">
+              <h4 class="pb-2">
+                Please select the HOA representative:
+              </h4>
+              {{ form.HOA }}
+            </div>
+  
+            <div class="form-group mt-2 mb-2" id="">
+              <h4 class="pb-2">
+                Enter the amount to pay:
+              </h4>
+              {{ form.Amount }}
+            </div>
+            <div style="margin-top: 120px;">
+              <div class="form-row">
+                <div class="col-lg-5">
+                  <button type="submit" class="btn">
+                    <span class="fw-bold">Submit </span><i class='bx bx-chevrons-right fs-2 align-middle'></i>
+                  </button>
                 </div>
-
-                <div class="form-group mt-2 mb-2" id="">
-                    <h4 class="pb-2">
-                        Enter the amount to pay:
-                    </h4>
-                    <input class="form-control" name="Amount" type="text" placeholder="Total Amount"
-                    style="border-radius: 10px; border: 2px solid;">
-                </div>
-                <div style="margin-top: 120px;">
-                    <div class="form-row">
-                        <div class="col-lg-5">
-                            <button type="submit" class="btn">
-                                <span class="fw-bold">Submit </span><i class='bx bx-chevrons-right fs-2 align-middle'></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-  </div>
-</section>
-
-        
-
+  </section>
+  
+  
+  
 
 
 

@@ -44,6 +44,8 @@ from django.utils import timezone
 import plotly.express as px
 import plotly.graph_objs as go
 import plotly.offline as opy
+from .forms import ManualPaymentForm
+
 
 
 
@@ -166,28 +168,29 @@ def index(request):
 
 
 def manualpayment(request):
-        if not request.user.is_staff:
-            messages.error(request, 'You are not allowed to view this page.')
-            return redirect('userProfile')
+    if not request.user.is_staff:
+        messages.error(request, 'You are not allowed to view this page.')
+        return redirect('userProfile')
 
-        if request.method == 'POST':
-            try:
-                with transaction.atomic():
-                    HOA = request.POST.get('HOA')
-                    Amount = request.POST.get('Amount')
-
-                    HOA_obj = Account.objects.get(username=HOA)
+    if request.method == 'POST':
+        try:
+            with transaction.atomic():
+                form = ManualPaymentForm(request.POST)
+                if form.is_valid():
+                    HOA_obj = form.cleaned_data['HOA']
+                    Amount = form.cleaned_data['Amount']
                     HOA_obj.outstanding_balance -= int(Amount)
                     payment_log = Payment(User_who_Paid=HOA_obj, amount=Amount)
                     payment_log.save()
                     HOA_obj.save()
-                    
-            
-            except Exception as e:
-                print(e)
-                messages.success(request, 'Something went wrong.')
-            return redirect('/staff')
-        return render(request,'manualpayment.html')
+                    messages.success(request, 'Payment successful.')
+                    return redirect('/staff')
+        except Exception as e:
+            print(e)
+            messages.success(request, 'Something went wrong.')
+    else:
+        form = ManualPaymentForm()
+    return render(request, 'manualpayment.html', {'form': form})
 
 
 def TruckMaintenance(request):

@@ -148,7 +148,7 @@ style="
                                 <td>{{payment.User_who_Paid}}</td>
                                 {% load humanize %}
                                 <td>₱ {{payment.amount|intcomma}}</td>
-                                <td>{{payment.id}}</td>
+                                <td>{{payment.transaction_id}}</td>
                               </tr>
                               {% endif %}
                           {% endfor %}

@@ -88,3 +88,8 @@ class CustomPasswordResetForm(PasswordResetForm):
     def __init__(self, *args, **kwargs):
         super(CustomPasswordResetForm, self).__init__(*args, **kwargs)
         self.fields['email'].widget.attrs.update({'class': 'form-control'})
+	
+
+class ManualPaymentForm(forms.Form):
+    HOA = forms.ModelChoiceField(queryset=Account.objects.all(), label='HOA', to_field_name='username')
+    Amount = forms.IntegerField(label='Amount')
