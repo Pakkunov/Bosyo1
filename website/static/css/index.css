@@ -1377,7 +1377,7 @@
     flex-direction: row;
     padding-bottom: var(--dl-space-space-oneandhalfunits);
     justify-content: center;
-    background-color: #375EE0;
+    background-color: #04731b;
   }
   .home-text04 {
     color: rgb(193, 255, 252);
@@ -1632,10 +1632,10 @@
     display: none;
   }
   .home-features {
-    background-image: url(/static/images/bg-39.png);
+    /* background-image: url(/static/images/bg-39.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
     gap: var(--dl-space-space-fiveunits);
     width: 100%;
     display: flex;
@@ -2919,7 +2919,11 @@
     padding-right: var(--dl-space-space-oneandhalfunits);
     flex-direction: column;
     padding-bottom: var(--dl-space-space-sixunits);
-    background-color: #375EE0;
+    background-color: #008751;
+    background-image: url(/static/images/bg-49.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
   }
   .home-content09 {
     gap: var(--dl-space-space-threeunits);
