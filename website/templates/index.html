@@ -100,36 +100,72 @@
             </h2>
           </div>
           <div class="home-video-container">
-            {% comment %} Bootstrap Carousel {% endcomment %}
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="\static\images\job-1.jpg" class="d-block" alt="..." style="height: 540px; width: 950px;">
+            {% comment %} Bootstrap Carousel Shown on (LG) {% endcomment %}
+            <div class="d-none d-lg-block">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="\static\images\job-1.jpg" class="d-block" alt="..." style="height: 540px; width: 950px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="\static\images\job-7.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="\static\images\job-6.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="\static\images\job-5.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
+                  </div>
                 </div>
-                <div class="carousel-item">
-                  <img src="\static\images\job-7.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
-                </div>
-                <div class="carousel-item">
-                  <img src="\static\images\job-6.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
-                </div>
-                <div class="carousel-item">
-                  <img src="\static\images\job-5.png" class="d-block" alt="..." style="height: 540px; width: 950px;">
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
               </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </a>
+            </div>
+            
+            {% comment %} Bootstrap Carousel Shown on (M) {% endcomment %}
+            <div class="d-none d-md-block d-lg-none">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="\static\images\job-1.jpg" class="d-block" alt="..." style="height: 540px; width: 760px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="\static\images\job-7.png" class="d-block" alt="..." style="height: 540px; width: 760px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="\static\images\job-6.png" class="d-block" alt="..." style="height: 540px; width: 770px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="\static\images\job-5.png" class="d-block" alt="..." style="height: 540px; width: 770px;">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
             </div>
              
             <div class="home-heading-container">
@@ -151,8 +187,8 @@
         </div>
       </div>
 
-      {% comment %} Features {% endcomment %}
-      <div class="home-features">
+      {% comment %} Features XL SCREENS {% endcomment %}
+      <div class="home-features d-none d-md-none d-lg-block">
         <div class="home-header2">
           <div class="home-tag">
             <span class="home-text16">What we offer</span>
@@ -161,7 +197,7 @@
             <div class="col-md-8 my-3">
               <div class="home-heading03">
                 <h2 class="home-text17">Benefits that you get using by availing our service:</h2>
-                <span class="home-text18">
+                <span class="home-text18 mb-5">
                     All of these features combine to make the garbage collection process more efficient and user-friendly for our clients, 
                     ultimately improving your experience and satisfaction with our services.
                 </span>
@@ -172,7 +208,7 @@
           </div>
         </div>
         <div class="home-feature-list">
-          <div class="feature-feature">
+          <div class="feature-feature hide-on-mobile">
             <i class='bx bxs-user-account' style='font-size: 50px;'></i>
             <div class="feature-content">
               <span class="feature-title"><span>Personal Account</span></span>
@@ -184,7 +220,7 @@
               </span>
             </div>
           </div>
-          <div class="feature-feature">
+          <div class="feature-feature hide-on-mobile">
             <i class='bx bxl-paypal' style='font-size: 50px;'></i>
             <div class="feature-content">
               <span class="feature-title"><span>Verified Payments</span></span>
@@ -196,7 +232,7 @@
               </span>
             </div>
           </div>
-          <div class="feature-feature">
+          <div class="feature-feature hide-on-mobile">
             <i class='bx bxs-lock' style='font-size: 50px;'></i>
             <div class="feature-content">
               <span class="feature-title"><span>Safe Transactions </span></span>
@@ -207,7 +243,7 @@
               </span>
             </div>
           </div>
-          <div class="feature-feature">
+          <div class="feature-feature hide-on-mobile">
             <i class='bx bxs-face' style='font-size: 50px;'></i>
             <div class="feature-content">
               <span class="feature-title"><span>Customer Service</span></span>
@@ -221,6 +257,79 @@
         </div>
       </div>
 
+      {% comment %} iPad Screens (M) {% endcomment %}
+      <div class="d-none d-md-block d-lg-none" style="background-color: #e9e9e9; width: 100%;">
+        <div class="home-section1">
+          <div class="home-content03">
+            <div class="home-heading02">
+              <div class="home-tag my-4">
+                <span class="home-text16">What we offer</span>
+              </div>
+              <h2 class="home-text09">Benefits that you get using by availing our service:</h2>
+              <span class="home-text10 pb-4">
+                All of these features combine to make the garbage collection 
+                process more efficient and user-friendly for our clients, ultimately improving your experience and satisfaction with our services. 
+              </span>
+            </div>
+            <div class="home-content04 mb-5">
+              <div class="home-points">
+                <div class="point-point">
+                  <div class="point-check">
+                    <svg viewBox="0 0 1024 1024" class="point-icon">
+                      <path
+                        d="M384 690l452-452 60 60-512 512-238-238 60-60z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="point-text">
+                    <span>We offer an account system that allows you to 
+                      check and pay your balances, providing a hassle free experience.</span>
+                  </span>
+                </div>
+                <div class="point-point">
+                  <div class="point-check">
+                    <svg viewBox="0 0 1024 1024" class="point-icon">
+                      <path
+                        d="M384 690l452-452 60 60-512 512-238-238 60-60z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="point-text">
+                    <span>We accept payments via credit card and PayPal, 
+                      making it convenient for you to pay for our services. </span>
+                  </span>
+                </div>
+                <div class="point-point">
+                  <div class="point-check">
+                    <svg viewBox="0 0 1024 1024" class="point-icon">
+                      <path
+                        d="M384 690l452-452 60 60-512 512-238-238 60-60z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="point-text">
+                    <span>We use advanced encryption technology to protect your 
+                      transactions and making them safe and secure.</span>
+                  </span>
+                </div>
+                <div class="point-point">
+                  <div class="point-check">
+                    <svg viewBox="0 0 1024 1024" class="point-icon">
+                      <path
+                        d="M384 690l452-452 60 60-512 512-238-238 60-60z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="point-text">
+                    <span>We strive to provide excellent service and ensure your satisfaction with our payment processing system.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 
       <div class="home-sections">
         <div class="home-section">
@@ -313,7 +422,7 @@
               </a>
             </div>
           </div>
-          <div class="home-image1 d-none d-sm-block">
+          <div class="home-image1 d-none d-md-none d-sm-block d-lg-block">
             <div class="floating-div">
               <img src="\static\images\phone-2.png" alt="" class="imgTruck" style="box-shadow: none;">
             </div>
@@ -360,11 +469,11 @@
               </div>
               <div class="home-question2 Question">
                 <span class="home-title3">
-                  Are there any more payment options for your service?
+                  Do you accept cash payments for your service?
                 </span>
                 <span class="home-description5">
-                  We accept various payment methods including credit cards, online payment platforms such as PayPal, and payment via check. We provide clear and transparent 
-                  pricing so that you know exactly what you're paying for, and our team is always available to answer any billing questions.
+                  We accept payments via credit card and PayPal, but if you prefer an alternative, we also accept payment via check. We believe in clear and transparent pricing, 
+                  so you always know exactly what you're paying for. If you have any billing questions, our team is always available to help.
                 </span>
               </div>
             </div>
