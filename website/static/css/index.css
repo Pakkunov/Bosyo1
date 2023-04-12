@@ -496,9 +496,6 @@
     transition: all 0.3s ease; 
   }
   
-  .feature-feature {
-    animation-iteration-count: infinite;
-  }
   
   .feature-feature:nth-of-type(1) {
     animation: enlarge-shrink 4s ease-in-out;
