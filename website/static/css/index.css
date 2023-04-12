@@ -3884,21 +3884,46 @@
     background-color: #00dc84;
     padding: 60px;
     max-width: 900px;
+    height: 380px;
     margin: 0 auto;
     text-align: justify;
     margin-top: 100px;
     margin-bottom: 100px;
+    background-image: url(/static/images/ourservices-1.png);
+    background-repeat: no-repeat;
+    background-position: 10% 87%;
+    background-size: cover; 
   }
-  
   @media (max-width: 767px) {
     .checklist {
       padding: 30px;
       max-width: 70%;
+      background-color: #00dc84;
+      background-position: 0% 0%;
     }
     .ourservices {
       height: 1100px;
     }
   }
+  .checklist {
+    column-count: 2;
+    column-gap: 40px;
+  }
+  .checklist-column {
+    list-style-type:none;
+    margin: 0;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .checklist-column li {
+    padding-top: 18px;
+  }
+  .small-li {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  
   
 
   
