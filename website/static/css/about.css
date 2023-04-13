@@ -90,3 +90,16 @@
         padding-bottom: 20px;
         color: #000;
       }
+
+      .home-section1 {
+        width: 100%;
+        display: flex;
+        z-index: 10;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        background-color: black;
+        min-height: 70vh;
+        margin-top: 120px;
+      }
+      
