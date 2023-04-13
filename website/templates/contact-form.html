@@ -7,7 +7,8 @@
 
 {% include 'navbar.html' %}
 
-<style>
+<style data-tag="reset-style-sheet">
+    html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
 
     .btnSubmit:hover {
         background-color: white;
@@ -21,6 +22,24 @@
     min-height: 20%;
     max-height: 400px;
     }
+
+    html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+  
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+  
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+      }  
 
 </style>
 
@@ -105,11 +124,12 @@
                     <div>
                         <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg);">
                             {% csrf_token %}
-                            <h3 class="fw-bolder text-center mb-3 fs-3">Want to know more? <span class="text-primary-color">Contact us</span> here.</h3>
-                            <p class="fw-light">Our contact information<br>Phone Number: 09062208025<br>Email: bosyogarbagecollector@gmail.com<br></p>
-                            <p class="fw-bolder mt-3">Name *</p>
+                            <h3 class="fw-bolder text-center mb-3 fs-3">Let's talk.</h3>
+                            <p style="text-align: center; margin-bottom: 30px;">If you're interested in our services, please don't hesitate to contact us using the information provided below.</p>
+                            <p class="fw-light" style="text-align: center; margin-bottom: 40px;">Phone Number: 09062208025<br>Email: bosyogarbagecollector@gmail.com<br></p>
+                            <p class="fw-bolder my-3">Name *</p>
                             <div class="mb-3"><input class="border-dark form-control" type="text" name="name" placeholder="Please enter your Full Name here."></div>
-                            <p class="fw-bolder">E-mail *</p>
+                            <p class="fw-bolder my-3">E-mail *</p>
                             <div class="mb-3"><input class="border-1 border-dark form-control" type="email" name="email" placeholder="Enter your email."></div>
                             <div class="mb-3"><textarea class="border-1 border-dark form-control" maxlength="2000" name="content" placeholder="Place here your thoughts, concerns, and inquiries. Maximum of 2000 characters." rows="6"></textarea></div>
                             <div class="mb-3"><button class="btnSubmit btn-dark fw-bolder" type="submit" style="height: 55px;width: 150px;">Submit!</button></div>
@@ -120,6 +140,114 @@
         </div>
     </div>
 </section>
+
+{% comment %} home FAQ {% endcomment %}
+<div class="home-faq mt-5">
+    <div class="home-content08">
+      <div class="home-header6">
+        <div class="home-tag2">
+          <span class="home-text67">
+            <span>FAQ</span>
+            <br />
+          </span>
+        </div>
+        <div class="home-heading13">
+          <h2 class="home-text70">Frequently Asked Questions</h2>
+        </div>
+      </div>
+      <div class="home-rows">
+        <div class="home-column3">
+          <div class="Question">
+            <span class="home-title1">
+              How can I create an account?
+            </span>
+            <span class="home-description3">
+              To create an account, please contact us directly. We only work with neighborhoods and HOA's to provide excellent pricing for organized residential
+              areas. We'll need to get in touch with you to gather some important information, 
+              such as your contact details and the location. This will help us to set up your account and provide 
+              you with accurate pricing information based on your specific needs. 
+            </span>
+          </div>
+          <div class="Question">
+            <span class="home-title2">
+              What areas do you service?
+            </span>
+            <span class="home-description4">
+              <span>
+                As a trusted provider of waste management solutions, 
+                we offer efficient and reliable garbage collection and disposal services to a wide range of 
+                cities and communities around Bacoor, Cavite. 
+            </span>
+          </div>
+          <div class="home-question2 Question">
+            <span class="home-title3">
+              Do you accept cash payments for your service?
+            </span>
+            <span class="home-description5">
+              We accept payments via credit card and PayPal, but if you prefer an alternative, we also accept payment via check. <br><br>
+              Billing will be sent to the central organization (HOA). Our clients will be able to login online via our website.
+              We believe in clear and transparent pricing, 
+              so you always know exactly what you're paying for. If you have any billing questions, our team is always available to help.
+            </span>
+          </div>
+          <div class="home-question2 Question">
+            <span class="home-title3">
+              Where should I place my garbage?
+            </span>
+            <span class="home-description5">
+              In order to ensure that our waste management crew can efficiently and safely collect your trash, 
+              we kindly request that you make sure your trash can is visible and unobstructed at all times. 
+              This means that your trash can should be positioned in a location that is easily seen and easily accessible 
+              without any obstacles or barriers in the way. <br><br>
+              By doing so, you'll help us maintain a timely and reliable waste management service for you and your community.
+            </span>
+          </div>
+        </div>
+        <div class="home-column4">
+          <div class="home-question3 Question">
+            <span class="home-title4">
+              Can I still use your services if I'm not a member of an HOA?
+            </span>
+            <span class="home-description6">
+              Our services are exclusively available for Homeowners Association (HOA) members. This is because we work closely with HOAs to provide comprehensive waste management solutions tailored to their specific needs. 
+              <br><br>If you're not currently a member of an HOA, we recommend contacting your local community association to inquire about joining.
+            </span>
+          </div>
+          <div class="home-question4 Question">
+            <span class="home-title5">
+              What if I need to reschedule a collection?
+            </span>
+            <span class="home-description7">
+              If you need to reschedule your garbage collection, please contact us as soon as possible so that we can make the necessary arrangements. 
+              We understand that unexpected events can occur, and we strive to be as flexible as possible to accommodate our customers' needs.
+            </span>
+          </div>
+          <div class="home-question5 Question">
+            <span class="home-title6">
+              What measures do you take to ensure environmentally responsible waste management?
+            </span>
+            <span class="home-description8">
+              <span>
+                We care about the environment and follow responsible waste management practices. 
+                <br><br>We properly sort and dispose of waste according to local regulations, 
+                and promote recycling to reduce waste. In addition, we have our own landfill to ensure proper disposal of garbage.
+            </span>
+          </div>
+          <div class="home-question5 Question">
+            <span class="home-title6">
+              Do you accept construction debris?
+            </span>
+            <span class="home-description8">
+              <span>
+                We only accept household waste. 
+                Please be advised that we are unable to accept any kind of construction debris, such as sheetrock, 
+                shingles, tile, marble, concrete, and other similar materials.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
     {% comment %} <section class="position-relative py-4 py-xl-5 mb-5 google-maps">

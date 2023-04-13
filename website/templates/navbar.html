@@ -5,6 +5,10 @@
 {% load static %}
 <link rel="stylesheet" href=" {% static '/css/navbar.css' %} ">
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+</style>
+
 <body
   style="
     --bs-primary: #008751;
@@ -40,8 +44,6 @@
               class="nav-link active fs-5 fw-lighter"
               href="{% url 'home' %}"
               style="
-                font-family: Roboto, sans-serif;
-                font-size: 19px;
                 margin: 0px;
                 text-align: center;
               "
@@ -51,8 +53,7 @@
             class="nav-item fs-5 fw-lighter"
             id="services"
             style="
-              font-family: Roboto, sans-serif;
-              font-size: 19px;
+               
               text-align: center;
               margin: 0px;
             "
@@ -61,8 +62,6 @@
               class="nav-link active fs-5 fw-lighter"
               href="{% url 'about' %}"
               style="
-                font-family: Roboto, sans-serif;
-                font-size: 19px;
                 text-align: center;
                 margin: 0px;
               "
@@ -73,8 +72,6 @@
             class="nav-item fs-5 fw-lighter"
             id="contact-us"
             style="
-              font-family: Roboto, sans-serif;
-              font-size: 19px;
               text-align: center;
               margin: 0px;
             "
@@ -83,8 +80,6 @@
               class="nav-link active fs-5 fw-lighter"
               href="{% url 'contact_form' %}"
               style="
-                font-family: Roboto, sans-serif;
-                font-size: 19px;
                 text-align: center;
                 margin: 0px;
               "
@@ -95,8 +90,6 @@
             class="nav-item fs-5 fw-lighter"
             id="contact-us"
             style="
-              font-family: Roboto, sans-serif;
-              font-size: 19px;
               text-align: center;
               margin: 0px;
             "
@@ -105,8 +98,7 @@
               class="nav-link active fs-5 fw-lighter"
               href="{% url 'contact_form' %}#Contact-Map"
               style="
-                font-family: Roboto, sans-serif;
-                font-size: 19px;
+                 
                 text-align: center;
                 margin: 0px;
               "
@@ -119,7 +111,7 @@
             id="contact-us"
             style="
               font-family: Roboto, sans-serif;
-              font-size: 19px;
+               
               text-align: center;
               margin: 0px;
             "
@@ -129,7 +121,7 @@
               href="/login"
               style="
                 font-family: Roboto, sans-serif;
-                font-size: 19px;
+                 
                 text-align: center;
                 margin: 0px;
               "
@@ -142,7 +134,7 @@
             class="nav-item fs-5 fw-lighter mx-auto"
             id="loginLG"
             style="
-              font-size: 19px;
+               
               text-align: center;
               margin: 0px;
             "
@@ -161,7 +153,7 @@
             class="nav-item fs-5 fw-lighter mx-auto"
             id="loginLG"
             style="
-              font-size: 19px;
+               
               text-align: center;
               margin: 0px;
             "
@@ -195,13 +187,13 @@
         <ul class="nav justify-content-center">
           <span
             class="text-dark navbar-text px-2 d-none d-xl-block me-2"
-            ><em>Welcome!</em></span
+            ><em></em></span
           ><a
-            class="btn btn-dark d-none d-xl-block me-5"
+            class="btn btn-dark d-none d-xl-block me-5 login-login fw-bold"
             role="button"
             style="width: 120px; height: 40px"
             href="{% url 'login'%}"
-            ><em>Log In</em></a
+            >Log In</a
           >
         </ul>
         {% endif %}
