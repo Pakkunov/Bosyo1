@@ -226,8 +226,12 @@ def TruckMaintenance(request):
     # return render(request,'TruckMaintenance.html', context)
         
 
-#def ContactUsForm(request):
-#     return render(request,'contact-form.html')
+def contact_form(request):
+    return render(request, 'contact-form.html')
+
+def about(request):
+    return render(request, 'about.html')
+
 
 def debugmode(request):
     return render(request,'debugmode.html')

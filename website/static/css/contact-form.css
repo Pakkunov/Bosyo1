@@ -1,0 +1,105 @@
+.contact-process {
+    background-color: #00321e;
+    width: 100%;
+    height: 2000px;
+    color: white;
+  }  
+
+.about-text07 {
+    font-size: 40px;
+    width: 905px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 56px;
+}
+
+.contact1 {
+    border-radius: 35px;
+    background-color: #00dc84;
+    padding: 60px;
+    padding-left: 120px;
+    max-width: 1300px;
+    height: 670px;
+    margin: 0 auto;
+    text-align: justify;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-image: url(/static/images/ourservices-1.png);
+    background-repeat: no-repeat;
+    background-position: 10% 87%;
+    background-size: cover; 
+    text-shadow: #179563 1px 1px;
+    font-size: large;
+  }
+  @media (max-width: 767px) {
+    .contact1 {
+      padding: 30px;
+      max-width: 500px;
+      height: 580px;
+      background-color: #00dc84;
+      background-position: 0% 0%;
+    }
+  }
+  .contact-get-started {
+    display: flex;
+    height: 50px;
+    width: 160px;
+    transition: 0.3s;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #000;
+    text-shadow: none;
+    border-radius: 90px;
+    font-size: medium;
+    margin-top: 40px;
+    color: white;
+  }
+  .contact-get-started:hover {
+    background-color: #fff;
+    color: black;
+  }
+
+  .contact2 {
+    border-radius: 35px;
+    background-color: #fff;
+    padding: 60px;
+    max-width: 900px;
+    height: 450px;
+    text-align: justify;
+    margin-bottom: 100px;
+    /* background-image: url(/static/images/ourservices-1.png); */
+    background-repeat: no-repeat;
+    background-position: 10% 87%;
+    background-size: cover; 
+    color: black;
+    margin-right: 30px;
+  }
+
+  .contact-link {
+    text-decoration: none; 
+    color: #008751;
+  }
+  .contact-link:hover {
+    color: #004429;
+  }
+
+  .contact3 {
+    border-radius: 35px;
+    background-color: #000;
+    padding: 60px;
+    max-width: 900px;
+    height: 450px;
+    text-align: justify;
+    margin-bottom: 100px;
+    /* background-image: url(/static/images/ourservices-1.png); */
+    background-repeat: no-repeat;
+    background-position: 10% 87%;
+    background-size: cover; 
+    color: #fff;
+  }
+
+  ul {
+    list-style-type: none;
+  }

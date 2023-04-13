@@ -1,0 +1,95 @@
+{% extends "main.html" %}
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href=" {% static '/css/index.css' %} ">
+<link rel="stylesheet" href=" {% static '/css/about.css' %} ">
+
+{% include 'navbar.html' %}
+
+<link
+rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+data-tag="font"
+/>
+<link
+rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+data-tag="font"
+/>
+<!--This is the head section-->
+<!-- <style> ... </style> -->
+<link rel="stylesheet" href="./style.css" />
+
+<body>
+    
+
+<div class="container">
+<div class="about-sections">
+    <div class="home-section">
+        <div class="home-image">
+            <img src="\static\images\Environment2.png" class="d-block about-img1" alt="..." style="margin-right: 50px; margin-top: 10px;">
+        <div class="home-image-highlight" style="border-radius: 10px;">
+            <span class="home-text04">
+            <span>Our team of experts are here to serve you</span>
+            <br />
+            </span>
+        </div>
+        </div>
+        <div class="home-content02">
+        <h2 class="home-text07"><span class="about-heading">Meet Our Team:</span> Our commitment to service.</h2>
+        <div class="highlight-highlight">
+            {% comment %} 
+            <span class="highlight-text">
+            <span>Over 30 subdivisions in Bacoor, Cavite have put their trust in our services.</span>
+            </span> 
+            {% endcomment %}
+            <span class="highlight-text1">
+            <span>
+                Bosyo Garbage Collector is a company engaged in General Services located at BLK 2 LOT 16, Villa Maria Subd. Molino III, Bacoor, Cavite.
+            </span>
+            </span>
+        </div>
+        <div class="highlight-highlight">
+            <span class="highlight-text">
+            <span>Trust in Our Commitment to Excellence for All Your Garbage Collection Needs</span>
+            </span>
+            <span class="highlight-text1">
+            <span style="text-align: justify;">
+                At Bosyo Garbage Collector, we are proud to have a team of dedicated professionals who are passionate about providing the best possible service to our clients. 
+                From our customer service representatives to our team members who are highly trained, experienced, and committed to upholding our company's values.
+            </span>
+            </span>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="home-section1 mb-5">
+    <div class="home-content03 col-5">
+      <div class="home-heading02">
+        <h2 class="home-text09">Why Choose Us?</h2>
+        <span class="home-text10" style="text-align: justify;">
+            We understand that you have a choice when it comes to waste management services. 
+            That's why we go above and beyond providing our clients with the best possible service at an affordable price.
+            <br><br>
+            Our team is committed to providing top-notch customer service. We believe in treating our clients with respect and honesty, 
+            and we are always here to answer any questions or concerns you may have. 
+            We take pride in building strong relationships with our clients and becoming a trusted partner in their waste management efforts.
+        </span>
+      </div>
+    </div>
+    <div class="home-image1 d-none d-md-none d-sm-block d-lg-block">
+      <div class="floating-div">
+        <img src="\static\images\phone-1.png" alt="" class="imgTruck" style="box-shadow: none;">
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+{% include 'footer.html' %}
+
+</body>
+
+
+{% endblock content %}

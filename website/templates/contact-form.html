@@ -1,8 +1,11 @@
 {% extends "main.html" %}
-{% load static %}
 {% block content %}
 
-{% include 'navbar2.html' %}
+
+{% load static %}
+<link rel="stylesheet" href=" {% static '/css/contact-form.css' %} ">
+
+{% include 'navbar.html' %}
 
 <style>
 
@@ -22,7 +25,77 @@
 </style>
 
 <body>
-    <section class="position-relative py-4 py-xl-5">
+
+{% comment %} How it works {% endcomment %}
+<div class="contact-process" style="padding-top: 130px;">
+    <div class="ourservices-content">
+      How it works
+    </div>
+    <div class="container ourservices-heading">
+      Want to start connecting to us? We've made signing up with us as easy as possible. Follow these steps to join with us:
+    </div>
+      <div class="contact1">
+        <div class="row">
+            <h2 class="about-text07 text-white"><i class='bx bx-message-square-dots'></i> — Request for Proposal</h2>
+        </div>
+        <div class="row">
+            <span class="highlight-text1">To get started, we will need your contact information so we can get in touch with you to discuss your waste management needs. 
+                <ul class="my-4">
+                    <li>&#10004; Organization Name</li>
+                    <li>&#10004; Number of Homes in the Community</li>
+                    <li>&#10004; Community Location</li>
+                    <li>&#10004; Name of the Inquirer</li>
+                    <li>&#10004; Contact Number</li>
+                </ul>
+                Once we have your information, we will work with you to develop a plan that fits your needs and budget. Rest assured that we value your time and privacy, 
+                and we'll make the sign-up process as seamless and hassle-free as possible. So go ahead and fill out our contact form, and we'll be in touch soon!
+            </span>
+        </div>
+        <div class="row">
+            <a href="{% url 'contact_form' %}" class="home-navlink1">
+                <div class="contact-get-started mb-5">
+                    <span class="home-sign-up fw-bold">Get started</span>
+                </div>
+            </a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="contact2">
+                    <div class="row">
+                        <h2 class="home-text07"><i class='bx bxs-user-check'></i> — Log in</h2>
+                    </div>
+                    <div class="row">
+                        <span class="highlight-text1">
+                            After you've signed up with us and we've developed a waste management 
+                            plan that fits your needs and budget, we will provide you with a login link and credentials.
+                            <br><br>
+                            Note that if you forget your password, you can click on the <a href="/password_reset" target="_blank" class="contact-link">"Forgot Password"</a> link and follow the prompts to reset your password. 
+                            If you have any issues logging in, don't hesitate to contact our customer support team for assistance.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="contact3">
+                    <div class="row">
+                        <h2 class="home-text07 text-white"><i class='bx bxs-badge-check'></i> — You're all set!</h2>
+                    </div>
+                    <div class="row">
+                        <span class="highlight-text1">
+                            Congratulations! You're all set to start your waste management journey with us. 
+                            We're excited to work with you and help you manage your waste in a sustainable and cost-effective way. <br><br>Our team of experts 
+                            will be with you every step of the way to ensure a seamless experience. Whether you need regular waste pickups, 
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+    
+    <section class="position-relative py-4 py-xl-5 mb-5">
         <div class="container position-relative">
             <div class="row">
                 <div class="col"><iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCSequZoWaf8XWec9aURVtZWTk1IWJRkEw&amp;q=Bosyo+Garbage+Collector&amp;zoom=12" loading="lazy" width="100%" height="100%"></iframe></div>
@@ -35,7 +108,7 @@
                             <div class="mb-3"><input class="border-dark form-control" type="text" name="name" placeholder="Enter your name here."></div>
                             <p class="fw-bolder">E-mail *</p>
                             <div class="mb-3"><input class="border-1 border-dark form-control" type="email" name="email" placeholder="Enter your email."></div>
-                            <div class="mb-3"><textarea class="border-1 border-dark form-control" maxlength="2000" name="message" placeholder="Place here your thoughts, concerns, and inquiries. Maximum of 2000 characters." rows="6"></textarea></div>
+                            <div class="mb-3"><textarea class="border-1 border-dark form-control" maxlength="4000" name="message" placeholder="Place here your thoughts, concerns, and inquiries. Please follow the directions on the Request for Proposal page if you want to inquire." rows="6"></textarea></div>
                             <div class="mb-3"><button class="btnSubmit btn-dark fw-bolder" type="submit" style="height: 55px;width: 150px;">Submit!</button></div>
                         </form>
                     </div>
@@ -43,6 +116,8 @@
             </div>
         </div>
     </section>
+
+    {% include 'footer.html' %}
 </body>
 
 

@@ -1,0 +1,44 @@
+    html {
+        font-family: Inter;
+        font-size: 16px;
+    }
+
+    body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+    }
+    
+    .about-img1 {
+        width: 500px;
+        height: 380px;
+        border-radius: 20px;
+    }
+    .about-heading {
+        /* color: #366567; */
+        color: #008751;
+    }
+    .home-text07 {
+        color: #000;
+    }
+    .about-sections {
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: 30% 50%;
+        width: 100%;
+        display: flex;
+        max-width: 1200px;
+        align-items: center;
+        padding-left: var(--dl-space-space-oneandhalfunits);
+        padding-right: var(--dl-space-space-oneandhalfunits);
+        flex-direction: column;
+      }
+      
+
+
+  

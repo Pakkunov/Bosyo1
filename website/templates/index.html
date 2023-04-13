@@ -446,9 +446,9 @@
                   </span>
                 </div>
               </div>
-              <a href="index.html" class="home-navlink1">
-                <div class="home-get-started mb-5">
-                  <span class="home-sign-up">Get started now</span>
+              <a href="{% url 'contact_form' %}" class="home-navlink1">
+                <div class="home-get-started mb-5 text-black">
+                  <span class="home-sign-up fw-bold">Get started now</span>
                 </div>
               </a>
             </div>
@@ -482,8 +482,9 @@
                   How can I create an account?
                 </span>
                 <span class="home-description3">
-                  To create an account, please contact us directly. We'll need to get in touch with you to gather some important information, 
-                  such as your contact details and the location of your property. This will help us to set up your account and provide 
+                  To create an account, please contact us directly. We only work with neighborhoods and HOA's to provide excellent pricing for organized residential
+                  areas. We'll need to get in touch with you to gather some important information, 
+                  such as your contact details and the location. This will help us to set up your account and provide 
                   you with accurate pricing information based on your specific needs. 
                 </span>
               </div>
@@ -503,7 +504,9 @@
                   Do you accept cash payments for your service?
                 </span>
                 <span class="home-description5">
-                  We accept payments via credit card and PayPal, but if you prefer an alternative, we also accept payment via check. We believe in clear and transparent pricing, 
+                  We accept payments via credit card and PayPal, but if you prefer an alternative, we also accept payment via check. <br><br>
+                  Billing will be sent to the central organization (HOA). Our clients will be able to login online via our website.
+                  We believe in clear and transparent pricing, 
                   so you always know exactly what you're paying for. If you have any billing questions, our team is always available to help.
                 </span>
               </div>
@@ -515,7 +518,7 @@
                 </span>
                 <span class="home-description6">
                   Our services are exclusively available for Homeowners Association (HOA) members. This is because we work closely with HOAs to provide comprehensive waste management solutions tailored to their specific needs. 
-                  If you're not currently a member of an HOA, we recommend contacting your local community association to inquire about joining.
+                  <br><br>If you're not currently a member of an HOA, we recommend contacting your local community association to inquire about joining.
                 </span>
               </div>
               <div class="home-question4 Question">
@@ -534,7 +537,7 @@
                 <span class="home-description8">
                   <span>
                     We care about the environment and follow responsible waste management practices. 
-                    We properly sort and dispose of waste according to local regulations, 
+                    <br><br>We properly sort and dispose of waste according to local regulations, 
                     and promote recycling to reduce waste. In addition, we have our own landfill to ensure proper disposal of garbage.
                 </span>
               </div>
@@ -574,14 +577,17 @@
     </div>
   </section>
 
+  {% include 'footer.html' %}
 
+
+  {% comment %} 
   <!-- Footer -->
   <section>
   <div class="footer-footer">
     <div class="footer-content">
       <div class="footer-information">
         <div class="footer-heading">
-          <a href="https://www.facebook.com/BosyoGarbageCollector" target="_blank"><img src="\static\images\BosyoLogoClear.png" alt="..." style="width: 200px;"></a>
+          <a href="{% url 'home'%}" target="_blank"><img src="\static\images\BosyoLogoClear.png" alt="..." style="width: 200px;"></a>
           <span class="footer-text">
             <span>
               Garbage collection made simple and hassle-free.
@@ -620,7 +626,7 @@
         <div class="footer-column1">
           <span class="footer-header1"><span>About the Company</span></span>
           <span class="footer-link05"><a href=""></a><span>About</span></span>
-          <span class="footer-link06"><span>Team</span></span>
+          <span class="footer-link06"><span><a href="{% url 'contact_form' %}">Contact Us</span></a></span>
           <span class="footer-link07"><span>News</span></span>
           <span class="footer-link08"><span>Partners</span></span>
           <span class="footer-link09"><span>Careers</span></span>
@@ -634,7 +640,8 @@
       <span>Copyright © 2022 Bosyo Garbage Collector.</span>
     </span>
   </div>
-</section>
+</section> 
+{% endcomment %}
 
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/bs-init.js"></script>
