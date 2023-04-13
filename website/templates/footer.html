@@ -75,13 +75,15 @@ data-tag="font"
           </div> 
           <div class="footer-column1">
             <span class="footer-header1"><span>About the Company</span></span>
-            <span class="footer-link05"><span><a href="{% url 'about' %}">About</a></span></span>
+            <span class="footer-link05"><span><a href="{% url 'about' %}">About and Services</a></span></span>
             <span class="footer-link06"><span><a href="{% url 'contact_form' %}">Contact Us</span></a></span>
-            <span class="footer-link07"><span><a href="{% url 'contact_form' %}">How it Works</a></span></span>
+            <span class="footer-link07"><span><a href="{% url 'login' %}">Log in</a></span></span>
+            {% comment %} 
             <span class="footer-link08"><span>Partners</span></span>
             <span class="footer-link09"><span>Careers</span></span>
-            <span class="footer-link10">
-              <span>Press &amp; Media</span>
+            <span class="footer-link10"> 
+            <span>Press &amp; Media</span>
+            {% endcomment %}
             </span>
           </div>
         </div>
