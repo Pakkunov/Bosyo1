@@ -38,7 +38,7 @@
           <li class="nav-item" id="home">
             <a
               class="nav-link active fs-5 fw-lighter"
-              href="#"
+              href="{% url 'home' %}"
               style="
                 font-family: Roboto, sans-serif;
                 font-size: 19px;
@@ -59,14 +59,14 @@
           >
             <a
               class="nav-link active fs-5 fw-lighter"
-              href="#Our-Services"
+              href="{% url 'about' %}"
               style="
                 font-family: Roboto, sans-serif;
                 font-size: 19px;
                 text-align: center;
                 margin: 0px;
               "
-              >Our Services</a
+              >About Us</a
             >
           </li>
           <li
@@ -81,7 +81,29 @@
           >
             <a
               class="nav-link active fs-5 fw-lighter"
-              href="#Contact-Map"
+              href="{% url 'contact_form' %}"
+              style="
+                font-family: Roboto, sans-serif;
+                font-size: 19px;
+                text-align: center;
+                margin: 0px;
+              "
+              >How to Join</a
+            >
+          </li>
+          <li
+            class="nav-item fs-5 fw-lighter"
+            id="contact-us"
+            style="
+              font-family: Roboto, sans-serif;
+              font-size: 19px;
+              text-align: center;
+              margin: 0px;
+            "
+          >
+            <a
+              class="nav-link active fs-5 fw-lighter"
+              href="{% url 'contact_form' %}#Contact-Map"
               style="
                 font-family: Roboto, sans-serif;
                 font-size: 19px;
@@ -172,12 +194,12 @@
         {% else %}
         <ul class="nav justify-content-center">
           <span
-            class="text-dark navbar-text px-2 d-none d-xl-block"
-            ><em>Welcome! Click here to </em></span
+            class="text-dark navbar-text px-2 d-none d-xl-block me-2"
+            ><em>Welcome!</em></span
           ><a
             class="btn btn-dark d-none d-xl-block me-5"
             role="button"
-            style="width: 80px; height: 40px"
+            style="width: 120px; height: 40px"
             href="{% url 'login'%}"
             ><em>Log In</em></a
           >
