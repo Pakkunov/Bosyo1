@@ -170,16 +170,28 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-        <ul class="d-flex align-items-end">
+        <ul class="d-flex align-items-end" style="margin-left: 120px;">
           <span
             class="text-dark navbar-text px-2 d-none d-xl-block"
             ></span
           ><a
             class="btn btn-dark d-none d-xl-block"
             role="button"
-            style="width: 150px; height: 40px"
+            style="width: 150px; height: 40px; border-radius: 40px;"
             href="/profile"
             ><em>Go to WebApp</em></a
+          >
+        </ul>
+        <ul class="d-flex align-items-end mx-3">
+          <span
+            class="text-white navbar-text d-none d-xl-block"
+            ></span
+          ><a
+            class="btn btn-light d-none d-xl-block"
+            role="button"
+            style="width: 100px; height: 40px; border: 1px solid black; border-radius: 40px;"
+            href="/logout"
+            ><em>Logout</em></a
           >
         </ul>
 
@@ -189,11 +201,11 @@
             class="text-dark navbar-text px-2 d-none d-xl-block me-2"
             ><em></em></span
           ><a
-            class="btn btn-dark d-none d-xl-block me-5 login-login fw-bold"
+            class="btn btn-dark d-none d-xl-block me-5 login-login"
             role="button"
             style="width: 120px; height: 40px; border-radius: 90px;"
             href="{% url 'login'%}"
-            >Log In</a
+            ><em>Log In</em></a
           >
         </ul>
         {% endif %}

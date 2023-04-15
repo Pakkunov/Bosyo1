@@ -1,6 +1,6 @@
 :focus {outline:none;}
 
-  .btn:hover {
+  .btn-dark:hover {
     background-color: white;
     border: 1px solid;
     color: black;

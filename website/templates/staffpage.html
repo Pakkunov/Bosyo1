@@ -7,23 +7,17 @@
 {% comment %} This page is the Dashboard {% endcomment %}
 {% comment %} ----------------------------------------------------------- {% endcomment %}
 
-
-<head>
 {% include 'sidebar.html' %}
 
 {% load static %}
 
-<link rel="stylesheet" href="{% static '/css/dashboardstyle.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static '/css/dashboardstyle.css' %}"> {% endcomment %}
 <link rel="stylesheet" href="{% static '/css/staffpagestyle.css' %}">
 
 <meta name="description" content="List of Trucks">
 <meta name="keywords" content="Truck List">
 </head>
 
-<style>
-
-
-</style>
 
 <body 
 style="
@@ -37,11 +31,7 @@ style="
 
 {% comment %} Bosyo Home Logo {% endcomment %}
 <section style="margin-left: 100px; margin-top: 20px;">
-  {% if user.is_authenticated %}
-    <a href="{% url 'userProfile' %}">
-  {% else %}
     <a href="{% url 'home' %}">
-  {% endif %}
     <picture id="logo">
       <img
         src="\static\images\BosyoLogoClear.png"
@@ -55,26 +45,26 @@ style="
   <div class="container">
     <div class="row">
       <div class="col w-50">
-        <h1 class="fs-1 pt-5" style="font-family: 'Montserrat', sans-serif;">Dashboard</h1>
+        <h1 class="fs-1 pt-5 fw-bold" style="font-family: 'Montserrat', sans-serif;">Dashboard</h1>
         <h6 class="fs-6 mt-3">Here, you can see the user list and activity.</h6>
+        <!-- Manual and Increase Payment -->
+        <div class="d-flex justify-content-between col-4 mt-3">
+          <a href="/manualpayment">
+            <button class="btnPayment btn-primary me-2" type="button">
+              <i class='bx bxs-bank'></i> Manual Payment
+            </button>
+          </a>
+          <form method="POST" action="{% url 'increase_balance' %}">
+            {% csrf_token %}
+            <button type="submit" class="btnPayment btn-primary ms-2">
+              <i class='bx bx-plus-medical' ></i> Increase Balance
+            </button>
+          </form>
+        </div>      
       </div>
+      
       <div class="col mt-5">
         {% comment %} <h5 class="fs-5 pt-5 mt-4 d-none d-md-block" style="font-family: 'Montserrat', sans-serif;">Welcome back, <span class="servicesUnderline fw-bold">{{user.username}}.</span> Take a look around!</h5> {% endcomment %}
-        <p>
-          <span class="d-none d-md-none d-lg-block my-3">
-            Want to make a manual payment? Click here</span> 
-        <a href="/manualpayment">
-          <button class="btnPayment btn-primary mx-1" type="button">
-            Manual Payment <i class='bx bxs-bank'></i>
-          </button>
-          <span class="d-none d-md-none d-lg-block my-3"></span> 
-            <form method="POST" action="{% url 'increase_balance' %}">
-              {% csrf_token %}
-              <button type="submit" class="btnPayment btn-primary mx-1">Increase Balance</button>
-          </form>
-          </button>
-        </a>
-      </p>
       </div>
     </div>
     <div class="row">
@@ -161,6 +151,19 @@ style="
       </div>
   </div>
 </section>
+
+<!-- Category -->
+
+<section>
+  <div class="category-content">
+    <div class="category-heading">
+      <p class="category">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore repellendus ad voluptatibus et ab, saepe consectetur necessitatibus, rem labore sapiente molestiae deserunt incidunt minima est recusandae dicta sunt ullam ducimus?
+
+      </p>
+    </div>
+  </div>
+</div>
 
 <section style="margin-left: 140px; margin-top: 40px;">
   <div class="container">

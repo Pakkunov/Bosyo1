@@ -1,12 +1,12 @@
 
 
+/* body { */
+  /* background-color: #d68484; */
+  /* background-image: url('/static/images/dashboard_bg.jpg'); */
+  /* /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+/* } */
 
-/* this makes all content move right to show side bar properly */
-body {
-    margin-left: 0px;
-    
-  }
-  
   @media (max-width: 576px) {
     .col-md-5.my-3 {
       display: none;
@@ -96,3 +96,8 @@ body {
       border-spacing: 15px;
     }
   
+    .category {
+    background-image: url(/static/images/ourservices-1.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }

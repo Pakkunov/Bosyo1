@@ -295,7 +295,14 @@ def charts(request):
 
     # create a bar chart for the attendance data
     attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, orientation='h')])
-    attendance_chart.update_layout(barmode='group', yaxis=dict(title='Name Of Helpers', tickformat=".0f"), title='Attendance Since the Past week', title_font=dict(family='Arial', size=24))
+    attendance_chart.update_layout(
+        barmode='group', 
+        yaxis=dict(title='Name Of Helpers', tickformat=".0f"), 
+        title='Attendance Since the Past week', 
+        title_font=dict(family='Arial', size=20),
+        plot_bgcolor='white',  
+        paper_bgcolor='white' # backgroud color of the div
+        )
 
     if data:  # Check if data is not empty
         attendance_chart.update_xaxes(tickvals=list(range(max(data)+1)), title='Number of Attendances')  # Update x-axis with tick values and title
@@ -316,7 +323,17 @@ def charts(request):
 
     # create a bar chart for the truck parts data
     truck_parts_chart = go.Figure(data=[go.Bar(x=data1, y=labels1, orientation='h')])
-    truck_parts_chart.update_layout(title='Truck Parts and Maintenance Expenses', xaxis_title='Total Expenditure', yaxis_title='Truck Number', yaxis=dict(dtick=1))
+    truck_parts_chart.update_layout(
+        title='Truck Parts and Maintenance Expenses', 
+        xaxis_title='Total Expenditure', 
+        yaxis_title='Truck Number', 
+        yaxis=dict(dtick=1),
+        plot_bgcolor='white',
+        barmode='group',
+        bargap=0.1,
+        bargroupgap=0.1,
+        colorway=['#FF5733']
+        )
 
     attendance_plot_div = opy.plot(attendance_chart, auto_open=False, output_type='div')
     truck_parts_plot_div = opy.plot(truck_parts_chart, auto_open=False, output_type='div')
@@ -341,13 +358,6 @@ def simpleCheckout(request):
             except Exception as e:
                 print(e)
                 messages.success(request, 'Something went wrong.')
-            
-
-
-    
-    
-    
-    
     
         return render(request, 'payment.html')
 

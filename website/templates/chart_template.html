@@ -56,13 +56,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Attendance Chart</h3>
+        {% comment %} <h3>Attendance Chart</h3> {% endcomment %}
         {{ attendance_plot_div|safe }}
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h3>Truck Parts Chart</h3>
+        {% comment %} <h3>Truck Parts Chart</h3> {% endcomment %}
         {{ truck_parts_plot_div|safe }}
       </div>
     </div>
@@ -73,7 +73,7 @@
           <div class="col w-50">
             {% comment %} headings col {% endcomment %}
             <div class="col-xxl-6" style="">
-                <h2 class="fs-2 pb-3 pt-5" style="max-width: 500px;"><span class="servicesUnderline">Employee Attendance</span></h2>
+                <h2 class="fs-2 pb-3 pt-5" style="max-width: 500px;">Employee Attendance</h2>
                 <p class="w-lg-50 text-muted">All attendance of employees will be recorded here.</p>
             </div>
         </div>
@@ -99,7 +99,7 @@
           <div class="col w-50">
             {% comment %} headings col {% endcomment %}
             <div class="col-xxl-6" style="">
-                <h2 class="fs-2 pb-3" style="max-width: 500px;"><span class="servicesUnderline">Total Expenses of Each Truck</span></h2>
+                <h2 class="fs-2 pb-3" style="max-width: 500px;">Total Expenses of Each Truck</h2>
                 <p class="w-lg-50 text-muted">Truck Maintenance Expenses will be recorded here.</p>
             </div>
         </div>
