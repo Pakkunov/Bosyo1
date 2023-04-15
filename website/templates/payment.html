@@ -35,7 +35,7 @@
     <p class="mb-2">Fill in the required information to continue.<br><br>Please note that the Username is <span class="fw-bold">Case Sensitive.</span></p>
     <p>If there is an issue with your payment, click here to <a style="text-decoration: none; color: green;" href="/#Contact-Map" target="_blank">contact us.</a></p>
       <!-- 1st Column -->
-      <div class="col-md-4 colIMG mx-3 ms-4">
+      <div class="col-md-5 colIMG mx-3 ms-4">
         <img
             src="\static\images\gradient_green.jpg"
             class="img-fluid my-3 mx-auto d-none d-md-block"
@@ -54,7 +54,7 @@
           {% load humanize %}
             {% if user.outstanding_balance is None %}
           <p class="fw-bold">
-            <span class="servicesUnderline">You have no outstanding balance.</span><br>
+            <span>You have no outstanding balance.</span><br>
           </p>
           <p class="py-2">
             Logged in as: <span class="fw-bold">{{user.username}}</span>

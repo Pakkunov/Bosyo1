@@ -2,12 +2,37 @@
 
 {% block content %}
 
-{% include 'navbar2.html' %}
+{% include 'navbar.html' %}
 
 {% if page == 'login' %}
 
+<head>
 {% load static %}
 <link rel="stylesheet" href=" {% static '/css/loginstyle.css' %} ">
+
+<style data-tag="default-style-sheet">
+  html {
+    font-family: Inter;
+  }
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+</style>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+  data-tag="font"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+  data-tag="font"
+/>
+<!--This is the head section-->
+<!-- <style> ... </style> -->
+</head>
 
 <style>
   .alert {
@@ -22,23 +47,34 @@
 {% comment %} ----------------------------------------------------------- {% endcomment %}
 
   <!-- New login form-->
-  <section class="Form my-3 mx-5">
-    <div class="container">
+  <section class="Form mt-5">
+    <div class="container login-container">
       <!-- responsive form -->
       <div class="row no-gutters">
-        <div class="col-md-6 colIMG mx-3 ms-4">
-          <img
-              src="\static\images\gradient_green.jpg"
-              class="img-fluid my-3 mx-auto d-none d-md-block"
-              style="width: 550px; height: 460px; border-radius: 20px;"
-              alt="">
+        <div class="col-md-5 colIMG text-white">
+          {% comment %}<div class="d-flex justify-content-center align-items-center" style="height: 500px;">
+             <div class="img-bosyo">
+              <img src="\static\images\BosyoLogoClear.png" class="img-fluid my-3 mx-auto d-none d-md-block" style="width: 300px; height: 85px; border-radius: 20px;" alt="">
+            </div> 
+          </div>
+          {% endcomment %}
+          {% comment %} 
+          <h2 class="fw-bold colIMG-content mb-4">
+            Welcome back! Please log in to continue.
+          </h2>
+          <p style="text-align: justify;">
+            Bosyo Garbage Collector is a waste management company dedicated to providing efficient and reliable waste removal 
+            services to households and businesses in the local community. With our easy-to-use online platform, you can manage 
+            your waste collection schedule, pay bills, and communicate with our team from the comfort of your own home or office. 
+          </p> 
+          {% endcomment %}
         </div>
-        <div class="col-lg-5 px-xl-2 pt-5">
-          <h1 class="fw-bold fs-1">Login</h1>
+        <div class="col-lg-6 pt-5 ms-5 colIMG-content1">
+          <h1 class="fw-bold">Login</h1>
           <h6 class="py-2">Sign in to your account.</h6>
           <!-- #message -->
           {% if messages %}
-          <div class="alert alert-danger my-4" role="alert">
+          <div class="alert alert-danger" role="alert">
               <div class="messages">
                   {% for message in messages %}
                   {{ message }}
@@ -50,44 +86,51 @@
           <form method="post" action="">
             {% csrf_token %}
             <div class="form-row">
-              <div class="col-lg-7">
+              <div class="col-lg-8">
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter your Email Address"
                   class="form-control my-3 p-2"
+                  style="border-radius: 90px; padding-left: 20px;"
                 />
               </div>
             </div>
             <div class="form-row">
-              <div class="col-lg-7">
+              <div class="col-lg-8">
                 <input
                   type="password"
                   name="password"
                   id="password"
                   placeholder="Enter your Password"
                   class="form-control my-3 p-2"
+                  style="border-radius: 90px; padding-left: 20px;"
                 />
               </div>
             </div>
             <div class="form-row">
-              <div class="col-lg-7">
+              <div class="col-lg-8">
                 <button type="submit" class="btnlogin mt-3 mb-5">Login</button>
               </div>
             </div>
             <p>
               Don't have an account yet?
-              <a href="{% url 'contact_form' %}#Contact-Map">Contact us to register.</a>
+              <a href="{% url 'contact_form' %}#Contact-Map" class="link-bosyo">Contact us to register.</a>
             </p>
             <p class="">
               Want to reset your password?
-              <a href="/password_reset">Click here to reset.</a>
+              <a href="/password_reset" class="link-bosyo">Click here to reset.</a>
             </p>
           </form>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="footer">
+    {% include 'footer.html' %}
+  </section>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://geodata.solutions/includes/countrystate.js"></script>

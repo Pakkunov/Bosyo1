@@ -3,6 +3,7 @@
 }
 body {
   font-family: "Poppins", sans-serif;
+  background-color: rgb(200, 200, 200);
 }
 a:hover {
   text-decoration: none;
@@ -11,7 +12,7 @@ a:hover {
   font-weight: 600;
 }
 .bg-primary-color {
-  background-color: var(--primary-color);
+  background-color: rgb(200, 200, 200);
 }
 .text-primary-color {
   color: var(--primary-color);
@@ -32,9 +33,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-body {
-  background-color: white;
-}
 
 /* removed 6/23/22
     .row {
@@ -78,13 +76,13 @@ img {
   transition: all 0.2s;
 }
 
-a {
+.link-bosyo {
   color: green;
   text-decoration: none;
 }
 
-a:hover {
-  color: green;
+.link-bosyo:hover {
+  color: rgb(5, 70, 5);
 }
 
 .servicesUnderline {
@@ -101,4 +99,46 @@ a:hover {
   transition: 0.25s;
 }
 
+.colIMG {
+  backdrop-filter: blur(5px);
+  background-image: url(/static/images/1.png);
+  background-size: cover;
+  /* background-position: center; */
+  background-position: 70% 40%;
+  background-repeat: no-repeat;
+  text-shadow: 2px 2px 5px rgba(18, 18, 18, 0.697);
+  padding: 60px;
+  height: 650px;
+}
 
+.img-bosyo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colIMG-content {
+  margin-top: 240px;
+}
+
+.colIMG-content1 {
+  margin-top: 70px;
+}
+
+.login-container {
+  background-color: white;
+  margin-top: 90px;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.23);
+}
+
+.footer {
+  margin-top: 120px;
+}
+
+body {
+  background-image: url(/static/images/bg-login1.png);
+  background-position: 0% 40%;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
