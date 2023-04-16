@@ -21,3 +21,11 @@ label {
 .alert {
     width: 80%;
 }
+
+
+.staff-footer {
+    background-color: #000;
+    height: 100px;
+    margin-top: 100px;
+  }
+  

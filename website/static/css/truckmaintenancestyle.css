@@ -1,6 +1,7 @@
 body {
-    font-family: 'Montserrat', sans-serif;
-  }
+  font-family: 'Montserrat', sans-serif;
+}
+
 /*   
   #truckmaint {
     background: url('/static/images/Vector-Truck-PNG.png');
@@ -10,80 +11,80 @@ body {
     opacity: .25;
   } */
 
-  #cardimg0 {
-    position: relative;
-  }
+#cardimg0 {
+  position: relative;
+}
 
-  #cardimg0::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Checklist-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    opacity: 0.25;
-  }
+#cardimg0::before {
+  content: "";
+  background-image: url('/static/images/Vector-Checklist-PNG.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.25;
+}
 
-  #cardimg0 {
-    position: relative;
-  }
+#cardimg0 {
+  position: relative;
+}
 
-  #cardimg0::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Truck-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    opacity: 0.25;
-  }
+#cardimg0::before {
+  content: "";
+  background-image: url('/static/images/Vector-Truck-PNG.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.25;
+}
 
-  #cardimg1 {
-    position: relative;
-  }
+#cardimg1 {
+  position: relative;
+}
 
-  #cardimg1::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Mainte-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 60px;
-    right: 60px;
-    bottom: 60px;
-    left: 60px;
-    opacity: 0.25;
-  }
+#cardimg1::before {
+  content: "";
+  background-image: url('/static/images/Vector-Mainte-PNG.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  bottom: 60px;
+  left: 60px;
+  opacity: 0.25;
+}
 
-  #cardimg2 {
-    position: relative;
-  }
+#cardimg2 {
+  position: relative;
+}
 
-  #cardimg2::before {    
-    content: "";
-    background-image: url('/static/images/Vector-Graph-PNG.png');
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    bottom: 30px;
-    left: 30px;
-    opacity: 0.25;
-  }
+#cardimg2::before {
+  content: "";
+  background-image: url('/static/images/Vector-Graph-PNG.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  opacity: 0.25;
+}
 
 .card_payment {
-    background: rgb(18, 18, 18);
+  background: rgb(18, 18, 18);
 }
 
 .servicesUnderline {
@@ -92,13 +93,13 @@ body {
   background-size: 100% 30%;
   background-position: 70% 100%;
   transition: background-size .25s ease-in;
-  }
+}
 
 
 input {
   contain: content;
-  border-radius: 10px; 
-  border: 2px solid; 
+  border-radius: 10px;
+  border: 2px solid;
 }
 
 #truckInput {
