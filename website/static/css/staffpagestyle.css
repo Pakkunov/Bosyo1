@@ -67,43 +67,16 @@
     cursor: pointer;
     }
     
-    .servicesUnderline:hover {
-    background-size: 100% 100%;
-    transition: .25s;
-    }
-  
-    .servicesUnderline2 {
-      background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
-      background-repeat: no-repeat;
-      background-size: 100% 20%;
-      background-position: 20% 90%;
-      transition: background-size .25s ease-in;
-      }
-  
-    
-    .imgTruck {
-      border-radius: 30px;
-      width: 350px;
-      height: 250px;
-      margin-left: 20px;
-    }
-  
-    .imgAttendance {
-      border-radius: 30px;
-      width: 350px;
-      margin-left: 20px;
-    }
-  
     #table1 {
       border-collapse: separate;
       border-spacing: 15px;
     }
-  
+/*   
     .category {
     background-image: url(/static/images/ourservices-1.png);
     background-repeat: no-repeat;
     background-size: cover; 
-  }
+  } */
 
   .staff-container {
     background-color: #ffffff;
@@ -123,14 +96,8 @@
 
   .category-section {
     /* background-color: #000;  */
-    height: 400px; 
-    width: 100%;
+    height: 300px; 
     /* margin-top: 600px; */
-  }
-
-  .category-content {
-    color: white;
-    padding: 100px;
   }
 
   .category-button {
@@ -138,18 +105,18 @@
   }
   
   .btnCategory {
-    width: 200px;
+    width: 400px;
     height: 150px;
-    background-color: #cecece;
-    border: 2px solid #000000;
-    border-radius: 20px;
+    background-color: #008751a3;
+    border: none;
+    text-shadow: 2px 2px 5px #909090;
   }
 
   .btnCategory:hover {
     transition: .2s ease-in-out;
-    background-color: white;
-    border: 2px solid #000;
-    color: #000;
+    background-color: #046840d4;
+    border: none;
+    color: #fff;
   }
 
   .button-col {
@@ -164,11 +131,11 @@
   background-size: cover; 
   background-position: 0% 60%;
   width: 100%;
-  height: 230px;
 }
 
 .dashboard-content {
-  margin-top: 40px;
+  margin-top: 80px;
+  padding-bottom: 4rem;
   color: white;
   text-shadow: 2px 2px 3px #656565;
 }
@@ -187,3 +154,42 @@ body {
   height: 140px;
   padding: 20px;
 } */
+
+.col-cat1 {
+  background-image: url(/static/images/3.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: 0% 80%;
+  text-align: left;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  box-shadow: 2px 2px 5px #999999;
+}
+
+.col-cat2 {
+  background-image: url(/static/images/4.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: 0% 70%;
+  text-align: left;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  box-shadow: 2px 2px 5px #999999;
+}
+
+.col-cat3 {
+  background-image: url(/static/images/5.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: 0% 80%;
+  text-align: left;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  box-shadow: 2px 2px 5px #999999;
+}
+
+.staff-footer {
+  background-color: #000;
+  height: 100px;
+  margin-top: 100px;
+}

@@ -328,11 +328,11 @@ def charts(request):
         xaxis_title='Total Expenditure', 
         yaxis_title='Truck Number', 
         yaxis=dict(dtick=1),
-        plot_bgcolor='white',
+        plot_bgcolor='rgba(0,0,0,0)',
         barmode='group',
         bargap=0.1,
         bargroupgap=0.1,
-        colorway=['#FF5733']
+        colorway=['#008751']
         )
 
     attendance_plot_div = opy.plot(attendance_chart, auto_open=False, output_type='div')

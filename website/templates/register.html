@@ -16,35 +16,30 @@
 {% comment %} This page is the Register User {% endcomment %}
 {% comment %} ----------------------------------------------------------- {% endcomment %}
 
-{% comment %} Bosyo Home Logo {% endcomment %}
-<section style="margin-left: 100px; margin-top: 20px;">
-  <a href="{% url 'home'%}">
-    <picture id="logo">
-      <img
-        src="\static\images\BosyoLogoClear.png"
-        class="py-1 d-none d-lg-block mx-5"
-        style="width: 174px; margin: 0px; padding: 0px">
-      </picture>
-  </a>
-</section>
 
-
-<!--Register--> 
-<section class="Form mx-5">
-    <div class="container">
+  <!-- New login form-->
+  <section class="Form mt-5">
+    <div class="container login-container">
       <!-- responsive form -->
-	  <div class="row no-gutters" style="margin-top: 50px;">
-      <div class="col-md-5 colIMG my-4 mx-3 ms-4">
-        <img
-            src="\static\images\gradient_green.jpg"
-            class="img-fluid my-3 mx-auto d-none d-md-block"
-            style="width: 550px; height: 460px; border-radius: 20px;"
-            alt="">
+      <div class="row no-gutters">
+        <div class="col-md-5 colIMG text-white">
+          {% comment %} <div style="">
+             <div class="img-bosyo">
+              <img src="\static\images\bosyo-logo-light.png" style="width: 100px; height: 150px;" alt="">
+            </div> 
+          </div> {% endcomment %}
+           <h2 class="fw-bold" style="text-align: center; margin-top: 400px; margin-bottom: 20px;">
+            Welcome back!
+           </h2>
+          <p style="text-align: center;">
+            With our easy-to-use online platform, you can manage 
+            your waste collection schedule, pay bills, and communicate with our team from the comfort of your own home or office. 
+          </p> 
         </div>
-        <div class="col-lg-6 px-xl-5">
-          <h1 style="font-weight: bold">Register</h1>
-          <h6 class="py-2">Fill out the Registration Form to create a new account. You can check for account creation requests that is sent to your inbox.</h6>
-		<!-- #message -->
+        <div class="col-lg-6 pt-5 ms-5 colIMG-content1 text-center">
+          <h1 class="fw-bold">Register</h1>
+          <h6 class="py-2">Fill out the Registration Form to create a new account. You can check for account creation requests that is sent to your mail.</h6>
+          <!-- #message -->
           {% if messages %}
           <div class="alert alert-danger" role="alert">
               <div class="messages">
@@ -62,7 +57,7 @@
               <div class="col-lg-7">
               </div>
             </div>
-            <div class="form-row">
+            <div class="form-row d-flex justify-content-center">
               <div class="col-lg-10">
                 <button type="submit" class="btnlogin mt-3 mb-3">Register</button>
               </div>
