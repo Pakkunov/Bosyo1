@@ -103,7 +103,8 @@
           Overall Fuel Consumed of Each Truck
         </p>
       </div>
-      <div class="col text-center mx-3 my-4 text-white" style="background-color: #06432b; border-radius: 20px; border: 2px solid white; padding: 13px;">
+      <div class="col text-center mx-4 my-4 text-white" 
+      style="width: 400px; background-color: #06432b; border-radius: 20px; border: 2px solid white; padding: 13px;">
         <h2 class="fw-bold">
           {% comment %} backend count total KM {% endcomment %}
           <i class="bi bi-speedometer"></i> {{totalkm.distance_travelled__sum|floatformat:0}} km
@@ -112,6 +113,12 @@
           Overall Distance Traveled for Each Truck
         </p>
       </div>
+    </div>
+    <div class="img-trucklist position-relative">
+      <img
+      src="\static\images\6.png"
+      class="py-1 d-none d-lg-block mx-5 position-absolute"
+      style="width: 300px; right: 0; top: -50px">
     </div>
   </div>
 </section>
