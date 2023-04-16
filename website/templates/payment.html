@@ -12,75 +12,110 @@
 
 {% load static %}
 <link rel="stylesheet" href="{% static '/css/paymentstyle.css' %}">
+<link rel="stylesheet" href="{% static '/css/staffpagestyle.css' %}">
+<link rel="stylesheet" href="{% static '/css/profile.css' %}">
+
+<style data-tag="default-style-sheet">
+  html {
+    font-family: Inter;
+  }
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+</style>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+  data-tag="font"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+  data-tag="font"
+/>
+<!--This is the head section-->
+<!-- <style> ... </style> -->
+</head>
+
+<style>
+  .alert {
+  width: 58%;
+}
+
+
+</style>
 
 <body>
   
-{% comment %} Bosyo Home Logo {% endcomment %}
-<section style="margin-left: 100px; margin-top: 20px;">
-  <a href="{% url 'home'%}">
-    <picture id="logo">
-      <img
-        src="\static\images\BosyoLogoClear.png"
-        class="py-1 d-none d-lg-block mx-5"
-        style="width: 174px; margin: 0px; padding: 0px">
-      </picture>
-  </a>
+<section class="dashboard-section">
+  <div class="container dashboard-container">
+    {% comment %} Row Dashboard {% endcomment %}
+      <div class="row">
+        <div class="col-10 dashboard-content">
+          <h1 class="fw-bold">
+            Payment
+          </h1>               
+          <h6 style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
+            <p>Please note that the Username is <span class="fw-bold">Case Sensitive.</span></p>
+            <p>If there is an issue with your payment, click here to <a style="text-decoration: none;" class="text-warning" href="/#Contact-Map" target="_blank">contact us.</a></p>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
-<section style="margin-left: 140px;">
-<div class="container">
+<section>
+<div class="container mt-5">
   <div class="row">
-    <h1 class="mb-1 pt-3">Payment</h1>
-    <p class="mb-2">Fill in the required information to continue.<br><br>Please note that the Username is <span class="fw-bold">Case Sensitive.</span></p>
-    <p>If there is an issue with your payment, click here to <a style="text-decoration: none; color: green;" href="/#Contact-Map" target="_blank">contact us.</a></p>
-      <!-- 1st Column -->
-      <div class="col-md-5 colIMG mx-3 ms-4">
-        <img
-            src="\static\images\gradient_green.jpg"
-            class="img-fluid my-3 mx-auto d-none d-md-block"
-            style="width: 550px; height: 460px; border-radius: 20px;"
-            alt="">
-        {% comment %} 
-        <div class="d-block d-md-none xl-none mt-3">
-          <h1 class="display-6" style="text-shadow: 1px #fff;">PHP {{user.outstanding_balance}}</h1>
-        </div> 
-        {% endcomment %}
-      </div>
+    <div class="credit-card1 text-white mx-5">
+      <h6 style="margin-left: 20px;">
+        Outstanding Balance:
+      </h6>
+      {% if user.outstanding_balance is none %}
+      <div class="credit-card__number">{{user.outstanding_balance}}</div>
+      {% else %}
+      {% load humanize %}
+      <div class="credit-card__number">₱ {{user.outstanding_balance|intcomma}}</div>
+      {% endif%}
+      <div class="credit-card__holder">Bosyo Garbage Collector</div>
+    </div>
       <!-- 2nd Column -->
-      <div class="col-md-6 col-xs-6 ms-3">
+      <div class="col-md-6 col-xs-6 col-2nd-pp">
         <div id="smart-button-container">
           {% csrf_token %}
           {% load humanize %}
             {% if user.outstanding_balance is None %}
-          <p class="fw-bold">
-            <span>You have no outstanding balance.</span><br>
-          </p>
-          <p class="py-2">
-            Logged in as: <span class="fw-bold">{{user.username}}</span>
-          </p> 
+          <h5 class="fw-bold text-center paypal-balance">
+            <span>You're all set! You have no outstanding balance.</span><br>
+          </h5>
           
           {% else %}
-          <p class="mt-2 fw-bold d-none d-md-block">Amount to pay:
-            <span class="servicesUnderline2">PHP {{ user.outstanding_balance|intcomma }}</span><br>
-          </p>
-          <p class="py-2">
-            Logged in as: <span class="fw-bold">{{user.username}}</span>
-          </p> 
+          <div class="has-balance p-5">
+            <p class="mt-2 fw-bold d-none d-md-block">Amount to pay:
+            PHP {{ user.outstanding_balance|intcomma }}<br>
+            </p>
+            <p class="py-2">
+              Logged in as: <span class="fw-bold">{{user.username}}</span>
+            </p> 
+            <form method="post">
+              {% csrf_token %}
+            <p class="mb-3 mt-3">Please confirm and enter your Username: <span class="text-danger">*</span></p>
+            <div class="mb-2" style="text-align: start">
+              <input style="padding-left: 10px; width: 90%; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username is case sensitive" maxlength="127" value=""></div>
+              <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>
+            <p class="mb-3 mt-2">Enter amount to pay in PHP:</p>
+            <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 90%; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
+              <p class="mb-3" id="priceLabelError" style="visibility: hidden; color:red; text-align: start;">Please enter proper amount to pay</p>
+            <div id="invoiceidDiv" style="text-align: start; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+              <p id="invoiceidError" style="visibility: hidden; color:red; text-align: start;">Please enter an Invoice ID</p>
+              <div style="text-align: center; width: 90%;" id="paypal-button-container"></div>
+            </form>
+          </div>
           {% endif %}
-          <form method="post">
-            {% csrf_token %}
-          <p class="mb-3 mt-3">Please confirm and enter your Username: <span class="text-danger">*</span></p>
-          <div class="mb-2" style="text-align: start">
-            <input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username is case sensitive" maxlength="127" value=""></div>
-            <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>
-          <p class="mb-3 mt-2">Enter amount to pay in PHP:</p>
-          <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 600px; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
-            <p class="mb-3" id="priceLabelError" style="visibility: hidden; color:red; text-align: start;">Please enter proper amount to pay</p>
-          <div id="invoiceidDiv" style="text-align: start; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
-            <p id="invoiceidError" style="visibility: hidden; color:red; text-align: start;">Please enter an Invoice ID</p>
-            <div style="text-align: center; width: 600px;" id="paypal-button-container"></div>
-          </form>
         </div>
     </section>
 

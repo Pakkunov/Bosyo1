@@ -14,20 +14,20 @@
   transition: background-size .25s ease-in;
 }
 
-
 button {
   background-color: #161616;
   border-style: hidden;
-  border-radius: 7px;
+  border-radius: 10px;
   width: 200px;
-  height: 50px;
+  height: 70px;
   text-align: center;
+  border: 2px solid #161616;
   color: white;
   margin: 20px;
 }
 
 button:hover {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.603);
   border: 2px solid;
   color: black;
   transition: all 0.2s;

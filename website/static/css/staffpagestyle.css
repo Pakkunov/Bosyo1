@@ -39,8 +39,8 @@ thead {
 }
 
 .btnPayment {
-  background-image: url(/static/images/gradient-green.png);
-  background-color: #008751a3;
+  /* background-image: url(/static/images/gradient-green.png); */
+  background-color: #04452b;
   background-size: cover;
   background-position: 0% 30%;
   border-radius: 10px;
