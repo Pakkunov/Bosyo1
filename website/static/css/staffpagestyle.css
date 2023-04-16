@@ -41,12 +41,21 @@
   }
   
   .btnPayment {
-    background-color: #161616;
+    background-color: #06432b;
     border-style: hidden;
     border-radius: 7px;
-    width: 200px;
-    height: 50px;
+    border: 2px solid;
+    width: 230px;
+    height: 80px;
     text-align: center;
+    margin-top: 20px;
+  }
+  
+  .btnPayment:hover {
+    background-color: #000;
+    border: 2px solid;
+    color: white;
+    transition: all 0.2s ease-in-out;
   }
   
   .servicesUnderline {
@@ -71,12 +80,6 @@
       transition: background-size .25s ease-in;
       }
   
-    .btnPayment:hover {
-      background-color: white;
-      border: 2px solid;
-      color: black;
-      transition: all 0.2s;
-    }
     
     .imgTruck {
       border-radius: 30px;
@@ -101,3 +104,86 @@
     background-repeat: no-repeat;
     background-size: cover; 
   }
+
+  .staff-container {
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    margin-top: 60px;
+  }
+
+  body {
+    /* background-image: url(/static/images/gradient-green.png); */
+    background-color: #d6d6d6b4;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+
+  .category-section {
+    /* background-color: #000;  */
+    height: 400px; 
+    width: 100%;
+    /* margin-top: 600px; */
+  }
+
+  .category-content {
+    color: white;
+    padding: 100px;
+  }
+
+  .category-button {
+    font-size: medium;
+  }
+  
+  .btnCategory {
+    width: 200px;
+    height: 150px;
+    background-color: #000;
+    border: 2px solid #000000;
+    border-radius: 20px;
+  }
+
+  .btnCategory:hover {
+    transition: .2s ease-in-out;
+    background-color: white;
+    border: 2px solid #000;
+    color: #000;
+  }
+
+  .button-col {
+    margin-top: 0px;
+
+  }
+
+.dashboard-section {
+  /* background-image: url(/static/images/gradient_green.jpg); */
+  background-image: url(/static/images/bg-blur-100.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: 0% 60%;
+  width: 100%;
+  height: 230px;
+}
+
+.dashboard-content {
+  margin-top: 40px;
+  color: white;
+  text-shadow: 2px 2px 3px #656565;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* 
+.recent-act {
+  color: white;
+  justify-content: center;
+  margin-top: 40px;
+  background-color: #dcdcdc36;
+  border-radius: 30px;
+  height: 140px;
+  padding: 20px;
+} */
