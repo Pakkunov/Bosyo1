@@ -14,6 +14,46 @@
 {% load static %}
 <link rel="stylesheet" href=" {% static '/css/profile.css' %} ">
 
+{% load static %}
+{% comment %} <link rel="stylesheet" href="{% static '/css/dashboardstyle.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static '/css/staffpagestyle.css' %}">
+
+<meta name="description" content="List of Trucks">
+<meta name="keywords" content="Truck List">
+  
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Inter;
+    }
+  
+  
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+  
+  
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font"
+  />
+  <!--This is the head section-->
+  <!-- <style> ... </style> -->
+  </head>
+  
+  <style>
+    .alert {
+    width: 58%;
+  }
+  
+  
+  </style>
+
+
 
 <body style="
 --bs-primary: #008751;
@@ -49,95 +89,168 @@
 </div>
 {% endif %}
 
-<section style="margin-left: 140px;">
-  <div class="container pt-4">
-    <div>
-      <h1 class="my-4 fw-bold">Profile Page</h1>
-      <h6 class="col-lg-9">
-          Welcome to your Profile! On this page, users can view their personal information, including their name, address, and contact details.
-          You can pay bills by clicking on the payments button. 
-          <br><br>This page also displays the user's transactions, providing them with details about their past payments. 
-          If you want to change something on your account details, please <a style="text-decoration: none; color: green;" href="/#Contact-Map" target="_blank">contact us.</a>
-          </span>
-      </h6>
-      <p class="pt-4">
-        <span class="fw-bold">Your outstanding balance is: 
-          {% if user.outstanding_balance is none %}
-          <span class="servicesUnderline">
-      {{user.outstanding_balance}}.</span>
-      {% else %}
-          <span class="servicesUnderline">
-      ₱ {{user.outstanding_balance}}.</span>
-      {% endif%}
-      </p>
-    </div>
-    <div class="row">
-        <div class="col-md-6 py-5 my-5" style="border-radius: 20px; border: 2px solid; height: 440px;">
-          <div class="box fw-bold" style="padding-left: 130px;">
-            <p class="px-3 text-white"style="background: gray; width: 180px; border-radius: 5px;">
-              Your Personal Info
-            </p>
-          </div>
-          <h1 class="fs-1 fw-bold text-center"><span class="servicesUnderline">{{user.username}}</span></h1>
-          <div class="col py-3" style="padding-left: 70px;">
-            {% load humanize %}
-            <p>Monthly Bill: {{user.payrate|intcomma}}</p>
-            <p>E-mail Address: {{user.email}}</p>
-            <p>Mobile Phone: {{user.MobilePhone}}</p>
-            <p>Landline: {{user.Landline}}</p>
-            <p>Address: {{user.address}}</p>
-            <p>Bill Breakdown: {{user.houses}} House * {{user.rate}} per House = {{user.payrate}}</p>
-          </div>
-        </div>
-        <div class="col-md-5 text-center mx-3 my-5" style="">
-        {% comment %} Recent Transactions {% endcomment %}
-          <div 
-          class="text-light" 
-          style="border-radius: 20px; background-color: rgb(20, 20, 20); border: none;">
-            <div class="mx-3 py-3 mb-5">
-              <h6 class="fs-6 fw-bold text-start">Recent transactions</h6>
-                <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                        <tr class="text-light" style="border: none;">
-                          <th></th>
-                          <th>Date</th>
-                          {% comment %} <th>User</th> {% endcomment %}
-                          <th>Amount</th>
-                          <th>Transaction ID</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {% for payment in payments %}
-
-                          {% if forloop.counter < 6  %}  
-
-                          <tr class="text-light">
-                              <td><i class="bi bi-currency-exchange"></i></td>
-                              <td>{{payment.Date_paid}}</td>
-                              {% comment %} <td>{{payment.User_who_Paid}}</td> {% endcomment %}
-                              {% load humanize %}
-                              <td>₱ {{payment.amount|intcomma}}</td>
-                              <td>{{payment.transaction_id}}</td>
-                            </tr>
-
-                            {% endif %}
-                        {% endfor %}
-                      </tbody>
-                  </table>
-              </div>
-            </div>
-          </div>
+<section class="dashboard-section">
+  <div class="container dashboard-container">
+    {% comment %} Row Dashboard {% endcomment %}
+      <div class="row">
+        <div class="col-10 dashboard-content">
+          <h1 class="fw-bold">
+            My Profile Page
+          </h1>               
+          <h6 style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
+            You can monitor your 
+            account's history and ensure that all transactions were authorized and accurate.
+          </h6>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
-        
+<section>
+  <div class="container position-relative">
+    {% comment %} Buttons {% endcomment %}
+    <div class="row position-absolute" style="top: -4rem;">
+      <div class="d-flex justify-content-between col-4">
+        <a href="/manualpayment">
+          <button class="btnPayment btn-primary me-3" type="button">
+            <i class='bx bxs-bank' style="font-size: 30px;"></i><br> Manual Payment
+          </button>
+        </a>
+        <form method="POST" action="{% url 'increase_balance' %}">
+          {% csrf_token %}
+          <button type="submit" class="btnPayment btn-primary ms-2">
+            <i class='bx bx-plus-medical' style="font-size: 30px;"></i><br> Increase Balance
+          </button>
+        </form>
+      </div>      
+    </div>
+    {% comment %} 
+    <div class="img-trucklist position-relative">
+      <img
+      src="\static\images\dashboard-1.png"
+      class="py-1 d-none d-lg-block mx-5 position-absolute"
+      style="width: 300px; right: 0; top: -220px">
+    </div> 
+    {% endcomment %}
 
+    {% comment %} Dashboard Content (Names) {% endcomment %}
+    <div class="row pt-5">
+      <div class="col-md-6 p-0 m-0">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                      <tr class="text-dark" style="vertical-align: top;">
+                        <th></th>
+                        <th>Username</th>
+                        <!-- <th>E-mail</th> -->
+                        <!-- <th>Address</th> -->
+                        <!-- <th>Mobile phone</th> -->
+                        <!-- <th>Landline</th> -->
+                        <!-- <th>No. of Houses</th> -->
+                        <!-- <th>Payrate</th> -->
+                        <!-- <th>Total Rate</th> -->
+                        <th>Outstanding Bal.</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for user in accounts %}  
+                      <tr class="useracc">
+                          <td class="text-truncate text-dark" style="max-width: 100px;"><i class="bi bi-file-earmark-person-fill"></i></td>
+                          <td class="text-truncate text-dark fw-b" style="max-width: 100px;">{{user.username}}</td>
+                          <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.email}}</td> -->
+                          <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.address}}</td> -->
+                          <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.MobilePhone}}</td> -->
+                          <!-- <td class="text-truncate" style="max-width: 100px;">{{user.Landline}}</td> -->
+                          <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.houses}}</td> -->
+                          <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.payrate}}</td> -->
+                          <!-- <td class="text-truncate text-dark" style="max-width: 100px;">{{user.rate}}</td> -->
+                          {% load humanize %}
+                      {% if user.outstanding_balance is none %}
+                          <td class="text-truncate text-dark" style="max-width: 100px;">₱ 0</td>
+                      {% else %}
+                          <td class="text-truncate text-dark" style="max-width: 100px;">₱ {{user.outstanding_balance|intcomma}}</td>
+                      {% endif %}
+                    </tr>
+                      {% endfor %} 
+                  </tbody>
+                </table>
+              </div>
+          </div>
+      </div>
+      {% comment %} Recent Transactions {% endcomment %}
+      <div class="col-sm-12 col-md-11 col-lg-10 col-xl-6" style="margin-top: 35px;">
+        <div class="text-light" style="border-radius: 10px; background-color: rgb(20, 20, 20); border: none;">
+          <div class="mx-3 py-3 mb-5">
+            <h6 class="fw-bold">Recent transactions</h6>
+              <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                      <tr class="text-light" style="border: none;">
+                        <th></th>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Amount</th>
+                        <th>Transaction ID</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for payment in payments %}
+                        {% if forloop.counter < 11  %}  
+                          <tr class="text-light">
+                            <td><i class="bi bi-currency-exchange"></i></td>
+                            <td>{{payment.Date_paid}}</td>
+                            <td>{{payment.User_who_Paid}}</td>
+                            {% load humanize %}
+                            <td>₱ {{payment.amount|intcomma}}</td>
+                            <td>{{payment.transaction_id}}</td>
+                          </tr>
+                          {% endif %}
+                      {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
 
+<section class="category-section w-100 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="category-heading">
+        <h1 class="fw-bold">
+          Categories
+        </h1>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <a href="/qrlogin">
+          <button class="btnCategory btn-primary col-cat1 fw-bold" type="button">
+            Employee Attendance
+          </button>
+        </a>
+      </div>
+      <div class="col">
+        <a href="/TruckMaintenance">
+          <button class="btnCategory btn-primary col-cat2 fw-bold" type="button">
+            Truck Maintenance
+          </button>
+        </a>
+      </div>
+      <div class="col">
+        <a href="/qr-code">
+          <button class="btnCategory btn-primary col-cat3 fw-bold" type="button">
+            QR Code Generator
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 </body> 
