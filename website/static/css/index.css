@@ -1757,7 +1757,7 @@
   .home-text17 {
     width: 100%;
     font-size: 40px;
-    max-width: 400px;
+    max-width: 500px;
     font-style: normal;
     font-weight: 600;
     line-height: 56px;
@@ -3421,7 +3421,6 @@
     }
     .home-text17 {
       font-size: 32px;
-      line-height: 44px;
     }
     .home-text18 {
       font-size: 16px;

@@ -130,7 +130,7 @@
       <div class="col card-col2 my-5 mx-2 text-white">
         <div class="credit-card2">
           <h6 class="text-white" style="margin-left: 20px;">
-            Next Billing:
+            Monthly Bill:
           </h6>
           {% if user.payrate is none %}
           <div class="credit-card__number">{{user.payrate}}</div>
@@ -175,7 +175,6 @@
                         <td>₱ {{payment.amount|intcomma}}</td>
                         <td>{{payment.transaction_id}}</td>
                       </tr>
-
                       {% endif %}
                   {% endfor %}
                 </tbody>
@@ -184,6 +183,10 @@
       </div>
     </div>
   </div>
+</section>
+
+<section>
+  
 </section>
 
 </body> 
