@@ -91,8 +91,15 @@
   <div class="container">
     {% comment %} Buttons {% endcomment %}
     <div class="row" style="top: 1rem;">
-      <div class="col text-center my-4 text-white" 
-      style="background-color: #06432b; border-radius: 10px; border: 2px solid white; padding: 20px;"
+      <div class="col text-center my-4 text-white col-fuel" 
+      style="
+      background-image: url(/static/images/gradient-green.png);
+      background-color: #008751a3;
+      background-size: cover;
+      background-position: 0% 50%;
+      border-radius: 10px; 
+      border: 2px solid white; 
+      padding: 20px;"
       >
         <h2 class="fw-bold">
           {% comment %} backend count total L {% endcomment %}
@@ -104,7 +111,14 @@
         </p>
       </div>
       <div class="col text-center ms-4 my-4 text-white" 
-      style="width: 1000px; background-color: #06432b; border-radius: 10px; border: 2px solid white; padding: 20px;">
+      style="
+      background-image: url(/static/images/gradient-green.png);
+      background-color: #008751a3;
+      background-size: cover;
+      background-position: 0% 50%;
+      border-radius: 10px; 
+      border: 2px solid white; 
+      padding: 20px;">
         <h2 class="fw-bold">
           {% comment %} backend count total KM {% endcomment %}
           <i class="bi bi-speedometer"></i> {{totalkm.distance_travelled__sum|floatformat:0}} km
