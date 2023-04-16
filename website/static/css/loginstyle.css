@@ -28,8 +28,6 @@ a:hover {
 
 /* universal tag*/
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
 }
 
@@ -137,7 +135,6 @@ img {
 
 body {
   background-image: url(/static/images/bg-login1.png);
-  background-position: 0% 40%;
   background-size: cover;
   background-attachment: fixed;
 }

@@ -41,17 +41,26 @@
             </a>
         </li>
         <li>
+            <a href="{% url 'home'%}">
+                <i class='bx bxs-home-alt-2'></i>
+                <span class="links_name">Home Page</span>
+            </a>
+        </li>
+        {% comment %}         
+        <li>
             <a href="/profile">
                 <i class='bx bxs-user-account' ></i>
                 <span class="links_name">Dashboard</span>
             </a>
         </li>
+        
         <li>
             <a href="/payment">
                 <i class="bi bi-cash-stack"></i>
                 <span class="links_name">Payment</span>
             </a>
         </li>
+        {% endcomment %}
         <li style="margin-top: 150px;">
             <a href="/admin">
                 <i class='bx bx-globe'></i>
@@ -68,12 +77,6 @@
             <a href="{% url 'change_password'%}">
                 <i class='bx bxs-lock-alt' id="log_out"></i>
                 <span class="links_name">Change password</span>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'home'%}">
-                <i class='bx bxs-home-alt-2'></i>
-                <span class="links_name">Home Page</span>
             </a>
         </li>
         <li>
