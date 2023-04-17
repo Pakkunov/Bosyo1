@@ -30,6 +30,7 @@ body {
 .col-2nd-pp {
   border-radius: 10px;
   background: rgb(255, 255, 255);
+  box-shadow: 2px 2px 5px rgb(128, 127, 127);
 }
 
 .paypal-container {
@@ -47,9 +48,4 @@ body {
 
 .td-payment {
   border-bottom: none;
-}
-
-.td-total {
-  border-bottom: none;
-  border-top: 1px;
 }

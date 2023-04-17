@@ -132,11 +132,11 @@
           <h6 class="text-white" style="margin-left: 20px;">
             Monthly Bill:
           </h6>
-          {% if user.payrate is none %}
-          <div class="credit-card__number">{{user.payrate}}</div>
+          {% if user.rate is none %}
+          <div class="credit-card__number">{{user.rate}}</div>
           {% else %}
           {% load humanize %}
-          <div class="credit-card__number">₱ {{user.payrate|intcomma}}</div>
+          <div class="credit-card__number">₱ {{user.rate|intcomma}}</div>
           {% endif%}
           <div class="credit-card__holder">Bosyo Garbage Collector</div>
         </div>
