@@ -70,7 +70,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'BosyoWebsite.custom_storage.CustomStaticFilesStorage'
+
+STATICFILES_MAX_POST_PROCESS_RETRIES = 3
+
+
 
 ROOT_URLCONF = 'BosyoWebsite.urls'
 AUTH_USER_MODEL = 'website.Account'
@@ -167,6 +172,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'website/static'
 ]
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
 
 MEDIA_URL = '/media/'
 

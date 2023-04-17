@@ -1,0 +1,18 @@
+:focus {outline:none;}
+
+  .btn-dark:hover {
+    background-color: white;
+    border: 1px solid;
+    color: black;
+    transition: all 0.2s;
+  }
+
+
+  .login-login {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Secular One', sans-serif; 
+  }
+
+  li {
+    font-family: 'Open Sans', sans-serif;
+  }

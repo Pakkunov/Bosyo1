@@ -1,0 +1,148 @@
+
+/*   
+  #truckmaint {
+    background: url("/static/images/Vector-Truck-PNG.96aee6c444a6.png-1681756394");
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    opacity: .25;
+  } */
+
+#cardimg0 {
+  position: relative;
+}
+
+#cardimg0::before {
+  content: "";
+  background-image: url("/static/images/Vector-Checklist-PNG.3b5f5e2b9027.png-1681756394");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.25;
+}
+
+#cardimg0 {
+  position: relative;
+}
+
+#cardimg0::before {
+  content: "";
+  background-image: url("/static/images/Vector-Truck-PNG.96aee6c444a6.png-1681756394");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.25;
+}
+
+#cardimg1 {
+  position: relative;
+}
+
+#cardimg1::before {
+  content: "";
+  background-image: url("/static/images/Vector-Mainte-PNG.867c9d982a20.png-1681756394");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  bottom: 60px;
+  left: 60px;
+  opacity: 0.25;
+}
+
+#cardimg2 {
+  position: relative;
+}
+
+#cardimg2::before {
+  content: "";
+  background-image: url("/static/images/Vector-Graph-PNG.f442b0d175d1.png-1681756394");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  opacity: 0.25;
+}
+
+.card_payment {
+  background: rgb(18, 18, 18);
+}
+
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 30%;
+  background-position: 70% 100%;
+  transition: background-size .25s ease-in;
+}
+
+
+input {
+  contain: content;
+  border-radius: 10px;
+  border: 2px solid;
+}
+
+#truckInput {
+  padding: 40px;
+}
+
+.displayTruck {
+  border-radius: 30px;
+  width: 600px;
+  height: 760px;
+  margin-top: 40px;
+}
+
+td {
+  text-align: left;
+  padding: 10px;
+  vertical-align: left;
+  text-align: center;
+  height: 50px;
+  line-height: 45px;
+  border-bottom: 1px dashed #cccccc;
+}
+
+.btnPayment {
+  background-color: #161616;
+  border-style: hidden;
+  border-radius: 7px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+}
+
+.btnPayment:hover {
+  background-color: white;
+  border: 2px solid;
+  color: black;
+  transition: all 0.2s;
+}
+
+input {
+  width: 100%;
+}
+
+.col-vehicle1 {
+  background-image: url("/static/images/gradient-green.a4614cb85b98.png-1681756394");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  color: white;
+}

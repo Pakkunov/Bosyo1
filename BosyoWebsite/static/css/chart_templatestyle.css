@@ -1,0 +1,24 @@
+.servicesUnderline {
+    background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+    background-position: 70% 100%;
+    transition: background-size .25s ease-in;
+    }
+
+    .servicesUnderline2 {
+        background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+        background-repeat: no-repeat;
+        background-size: 100% 20%;
+        background-position: 20% 90%;
+        transition: background-size .25s ease-in;
+    }
+
+    canvas {
+        margin: 150px;
+    }
+
+    section {
+        margin-left: 140px;
+    }
+  

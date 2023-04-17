@@ -1,0 +1,140 @@
+:root {
+  --primary-color: #19968d;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(200, 200, 200);
+}
+a:hover {
+  text-decoration: none;
+}
+.font-weight-600 {
+  font-weight: 600;
+}
+.bg-primary-color {
+  background-color: rgb(200, 200, 200);
+}
+.text-primary-color {
+  color: var(--primary-color);
+}
+
+#service1 i {
+  font-size: 40px;
+}
+
+#service2 i {
+  font-size: 40px;
+}
+
+/* universal tag*/
+* {
+  box-sizing: border-box;
+}
+
+
+/* removed 6/23/22
+    .row {
+      background-color: white;
+  
+      box-shadow: 12px 12px 12px rgb(197, 197, 197);
+    }
+    */
+
+/* removed 6/24/22
+    img {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }*/
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.btnlogin {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btnlogin:hover {
+  background-color: white;
+  border: 1px solid;
+  color: black;
+  transition: all 0.2s;
+}
+
+.link-bosyo {
+  color: green;
+  text-decoration: none;
+}
+
+.link-bosyo:hover {
+  color: rgb(5, 70, 5);
+}
+
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 100%;
+  transition: background-size 0.25s ease-in;
+  cursor: default;
+}
+
+.servicesUnderline:hover {
+  background-size: 100% 100%;
+  transition: 0.25s;
+}
+
+.colIMG {
+  backdrop-filter: blur(5px);
+  background-image: url("/static/images/1.3d9942320f65.png-1681756431");
+  background-size: cover;
+  /* background-position: center; */
+  background-position: 70% 40%;
+  background-repeat: no-repeat;
+  text-shadow: 2px 2px 5px rgba(18, 18, 18, 0.697);
+  padding: 60px;
+  height: 650px;
+}
+/* 
+.img-bosyo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.colIMG-content {
+  margin-top: 240px;
+}
+
+.colIMG-content1 {
+  margin-top: 70px;
+}
+
+.login-container {
+  background-color: white;
+  margin-top: 90px;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.23);
+}
+
+.footer {
+  margin-top: 120px;
+}
+
+body {
+  background-image: url("/static/images/bg-login1.091d28beacce.png-1681756431");
+  background-size: cover;
+  background-attachment: fixed;
+}

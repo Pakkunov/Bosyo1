@@ -1,0 +1,198 @@
+/* body { */
+/* background-color: #d68484; */
+/* background-image: url("/static/images/dashboard_bg.2a5dcca1d903.jpg-1681756431"); */
+/* /* background-repeat: no-repeat; */
+/* background-size: cover; */
+/* } */
+
+@media (max-width: 576px) {
+  .col-md-5.my-3 {
+    display: none;
+  }
+}
+
+.card_user_list {
+  background-color: rgb(18, 18, 18);
+  width: 1300px;
+  color: aliceblue;
+  border-radius: 30px;
+  padding: 30px;
+}
+
+thead {
+  border-bottom: hidden;
+}
+
+td {
+  text-align: left;
+  padding: 10px;
+  vertical-align: left;
+  text-align: center;
+  height: 50px;
+  line-height: 45px;
+  border-bottom: 1px dashed #cccccc;
+}
+
+
+thead {
+  text-align: center;
+}
+
+.btnPayment {
+  /* background-image: url("/static/images/gradient-green.a4614cb85b98.png-1681756431"); */
+  background-color: #04452b;
+  background-size: cover;
+  background-position: 0% 30%;
+  border-radius: 10px;
+  border-style: hidden;
+  border-radius: 7px;
+  border: 2px solid;
+  width: 230px;
+  height: 80px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btnPayment:hover {
+  background-color: #000;
+  border: 2px solid;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 100%;
+  transition: background-size .25s ease-in;
+  cursor: pointer;
+}
+
+#table1 {
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+
+/*   
+    .category {
+    background-image: url("/static/images/ourservices-1.671cb145c0b2.png-1681756431");
+    background-repeat: no-repeat;
+    background-size: cover; 
+  } */
+
+.staff-container {
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  margin-top: 60px;
+}
+
+body {
+  /* background-image: url("/static/images/gradient-green.a4614cb85b98.png-1681756431"); */
+  background-color: #d6d6d6b4;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.category-section {
+  /* background-color: #000;  */
+  height: 300px;
+  /* margin-top: 600px; */
+}
+
+.category-button {
+  font-size: medium;
+}
+
+.btnCategory {
+  width: 400px;
+  height: 150px;
+  background-color: #008751a3;
+  border: none;
+  text-shadow: 2px 2px 5px #909090;
+}
+
+.btnCategory:hover {
+  transition: .2s ease-in-out;
+  background-color: #046840d4;
+  border: none;
+  color: #fff;
+}
+
+.button-col {
+  margin-top: 0px;
+
+}
+
+.dashboard-section {
+  /* background-image: url("/static/images/gradient_green.28990ce73f4c.jpg-1681756431"); */
+  background-image: url("/static/images/bg-blur-100.77aed64e37ed.png-1681756431");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 60%;
+  width: 100%;
+}
+
+.dashboard-content {
+  margin-top: 80px;
+  padding-bottom: 4rem;
+  color: white;
+  text-shadow: 2px 2px 3px #656565;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* 
+.recent-act {
+  color: white;
+  justify-content: center;
+  margin-top: 40px;
+  background-color: #dcdcdc36;
+  border-radius: 30px;
+  height: 140px;
+  padding: 20px;
+} */
+
+.col-cat1 {
+  background-image: url("/static/images/3.3bba3097393a.png-1681756431");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 80%;
+  text-align: left;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  box-shadow: 2px 2px 5px #999999;
+}
+
+.col-cat2 {
+  background-image: url("/static/images/4.13d917d7b1c8.png-1681756431");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 70%;
+  text-align: left;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  box-shadow: 2px 2px 5px #999999;
+}
+
+.col-cat3 {
+  background-image: url("/static/images/5.09a509a47b99.png-1681756431");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 80%;
+  text-align: left;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  box-shadow: 2px 2px 5px #999999;
+}
+
+.staff-footer {
+  background-color: #000;
+  height: 100px;
+  margin-top: 100px;
+}

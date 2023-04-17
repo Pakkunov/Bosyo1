@@ -93,14 +93,14 @@
           </td>
         </tr>
         <tr>
-          <td class="td-payment fw-bold fs-2 mt-5 text-start">
+          <td class="td-total fw-bold fs-4 mt-5 text-start">
             Total
           </td>
-          <td class="td-payment">
+          <td class="td-total">
             {% load humanize %}
-            <h2 class="fw-bold">
+            <h4 class="fw-bold">
               ₱ {{user.outstanding_balance|intcomma}}
-            </h2> 
+            </h4> 
           </td>
         </tr>
       </table>

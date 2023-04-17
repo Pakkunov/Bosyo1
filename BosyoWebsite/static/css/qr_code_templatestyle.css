@@ -1,0 +1,61 @@
+.servicesUnderline {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: 70% 100%;
+  transition: background-size .25s ease-in;
+}
+
+.servicesUnderline2 {
+  background-image: linear-gradient(120deg, #84fab0, #4bb2e694);
+  background-repeat: no-repeat;
+  background-size: 100% 20%;
+  background-position: 20% 90%;
+  transition: background-size .25s ease-in;
+}
+
+button {
+  background-color: #161616;
+  border-style: hidden;
+  border-radius: 10px;
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  border: 2px solid #161616;
+  color: white;
+  margin: 20px;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.603);
+  border: 2px solid;
+  color: black;
+  transition: all 0.2s;
+}
+
+.qrlogs {
+  margin-left: 40px;
+}
+
+
+thead {
+  border-bottom: hidden;
+}
+
+td {
+  text-align: center;
+  padding: 20px;
+  vertical-align: left;
+  text-align: center;
+  height: 50px;
+  line-height: 45px;
+  border-bottom: 1px dashed #282828;
+}
+
+#qr-reader {
+  background-image: url(/static/images/gradient-green.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: 0% 60%;
+  border: 2px solid rgb(0, 0, 0);
+}

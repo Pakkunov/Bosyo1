@@ -1,0 +1,39 @@
+*{
+   margin: 0;
+   padding: 0;
+
+}
+
+#bgImage {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-image:
+   linear-gradient(rgba(67, 151, 220, 0.139), rgba(115, 188, 120, 0.459)),
+   url("/static/images/Cover1.589a44327466.png-1681756394");
+   background-size: cover;
+   z-index: -1;
+   opacity: 0.75;
+ }
+ 
+ #body {
+   margin: 0;
+   font-family: var(--bs-body-font-family);
+   font-size: var(--bs-body-font-size);
+   font-weight: var(--bs-body-font-weight);
+   line-height: var(--bs-body-line-height);
+   color: var(--bs-body-color);
+   text-align: var(--bs-body-text-align);
+   background-color: var(--bs-body-bg);
+   -webkit-text-size-adjust: 100%;
+   -webkit-tap-highlight-color: transparent;
+ }
+ 
+ #Contact-Us {
+    z-index: 6;
+ }
+ 
+
+
