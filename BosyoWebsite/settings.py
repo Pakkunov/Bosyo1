@@ -35,6 +35,7 @@ CSRF_TRUSTED_ORIGINS = ['https://bosyoappliku.applikuapp.com', 'https://bosyogar
 
 INSTALLED_APPS = [
     
+    'BosyoWebsite',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,6 @@ INSTALLED_APPS = [
     'website',
     'whitenoise.runserver_nostatic',
     'django.contrib.humanize',
-    'BosyoWebsite',
     
 
 
