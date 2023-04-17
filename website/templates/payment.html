@@ -116,22 +116,22 @@
           </td>
           <td class="td-payment">
             {% load humanize %}
-            <h2 class="fw-bold">
+            <h4 class="fw-bold">
               ₱ {{user.rate|intcomma}}
-            </h2> 
+            </h4> 
           </td>
         </tr>
         <div style="height: 260px;">
         </div>
         <tr>
-          <td class="td-total fw-bold fs-4 mt-5 text-start">
+          <td class="td-total fw-bold fs-2 mt-5 text-start">
             Total
           </td>
           <td class="td-total">
             {% load humanize %}
-            <h4 class="fw-bold">
+            <h2 class="fw-bold">
               ₱ {{user.outstanding_balance|intcomma}}
-            </h4> 
+            </h2> 
           </td>
         </tr>
       </table>
@@ -143,12 +143,16 @@
           {% csrf_token %}
           {% load humanize %}
             {% if user.outstanding_balance is None %}
+          {% comment %} 
           <h4 class="fw-bold text-start mx-4 mt-5 paypal-balance">
             <span style="">You're all set!</span>
-          </h4>
-          <h4 class="fw-bold text-start mx-4 ">
-            You have no outstanding balance.
-          </h4>
+          </h4> 
+          {% endcomment %}
+          <div class="d-flex justify-content-center">
+            <img src="\static\images\paypal-logo.png" 
+            class="py-5 mt-5 d-none d-lg-block mx-5" style="width: 174px;">
+          </div>
+            <h4 class="fw-bold text-center mx-4 mt-5">You have no outstanding balance.</h4>
           {% else %}
           <div class="has-balance p-5">
             <p class="mt-2 fw-bold d-none d-md-block">Amount to pay:
