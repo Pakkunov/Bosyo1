@@ -93,3 +93,9 @@ button:hover {
   background-size: cover;
   background-position: 0% 30%;
 }
+
+.helper-list {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: none;
+} 

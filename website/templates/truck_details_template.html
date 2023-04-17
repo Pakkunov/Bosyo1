@@ -16,6 +16,8 @@
   {% load static %}
   <link rel="stylesheet" href="{% static '/css/truck_details_templatestyle.css' %}">
   <link rel="stylesheet" href="{% static '/css/staffpagestyle.css' %}">
+  <link rel="stylesheet" href=" {% static '/css/profile.css' %} ">
+  <link rel="stylesheet" href=" {% static '/css/about.css' %} ">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -59,7 +61,9 @@
 --bs-secondary: #1f1f1f;
 --bs-secondary-rgb: 31, 31, 31;
 --bs-success: #31f99d;
---bs-success-rgb: 49, 249, 157;">
+--bs-success-rgb: 49, 249, 157;
+"
+style="background-color: #e7e7e7;">
 
 
 {% if messages %}
@@ -103,33 +107,56 @@
   </div>
 </section>
 
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col card-col1 my-5 mx-2 text-white">
+        <div class="credit-card1">
+          <h6 style="margin-left: 20px;">
+            Plate Number:
+          </h6>
+          <h1 class="fw-bold text-center my-5" style="font-family: 'Oswald', sans-serif;">
+            {{truck.Plate_Num}}
+          </h1>
+        </div>
+      </div>
+      <div class="col card-col2 my-5 mx-2 text-white">
+        <div class="credit-card2">
+          <h6 class="text-white" style="margin-left: 20px;">
+            Truck Driver Name:
+          </h6>
+          <h2 class="fw-bold text-center my-5">
+            {{truck.Driver_Name}}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
     <div class="container">
       <div class="row">
-          <div class="col-md-6 col-xl-4 py-5 mx-5 my-5 h-25" style="border-radius: 10px; border: 2px solid; height: 440px; background-color: #f0f0f0;">
-            <div class="box fw-bold" style="padding-left: 130px; padding: 0px; display: flex; align-items: center; justify-content: center;">
-            </div>
-            <h1 class="fw-bold text-center" style="font-family: 'Oswald', sans-serif;">
-                {{truck.Plate_Num}}
-            </h1>
-            <h6 class="text-center fw-bold" style="color: darkgreen;">
-                <br>Truck Driver: {{truck.Driver_Name}}
-            </h6>
-          </div>
-          <div class="col-md-7 text-center mx-1 my-5" style="">
+          <div class="col text-center mx-1 my-5" style="">
           {% comment %} Helper List {% endcomment %}
           <div 
-            class="text-light" 
-            style="border-radius: 10px; background-color: rgb(20, 20, 20); border: none;">
+            class="text-dark helper-list" 
+            style="">
               <div class="mx-3 py-3 mb-5">
-                <h6 class="fs-4 fw-bold text-start">Helper List:</span></h6>
+                <h6 class="fw-bold text-start">Helper List:</span></h6>
                   <div class="table-responsive">
                     <table class="table">
+                      <thead>
+                        <tr class="text-dark ms-5" style="border: none;">
+                          <th>Name</th>
+                        </tr>
+                      </thead>
                         <tbody>
                           {% comment %} backend Helper Names {% endcomment %}
                           {% for person in object.helper.all  %}
-                            <tr class="text-light">
-                                <td>{{person.name}}</td>
+                            <tr class="text-dark">
+                              <td>{{person.name}}</td>
                             </tr>
                           {% endfor %}
                         </tbody>
