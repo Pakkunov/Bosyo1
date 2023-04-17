@@ -211,7 +211,7 @@ def TruckMaintenance(request):
         form = TruckMaintenanceForm(request.POST, request.FILES)     
         if form.is_valid():
             form.save()     
-            return redirect('/staff')
+            return redirect('/TruckMaintenance')
 
 
 

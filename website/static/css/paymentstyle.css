@@ -35,3 +35,16 @@ body {
 .paypal-container {
   margin-bottom: 50px;
 }
+
+.col-1st-pp {
+  background-image: url(/static/images/gradient-green.png);
+  background-size: cover;
+  background-position: 0% 30%;
+  background-color: #008751;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(84, 81, 81);
+}
+
+.td-payment {
+  border-bottom: none;
+}

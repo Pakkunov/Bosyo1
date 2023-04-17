@@ -71,26 +71,51 @@
 <section>
 <div class="container mt-5">
   <div class="row">
-    <div class="credit-card1 text-white mx-5">
-      <h6 style="margin-left: 20px;">
-        Outstanding Balance:
-      </h6>
+    <div class="col-6 mx-3 col-1st-pp p-4 text-white">
+      <h4 class="" style="margin-left: 20px;">
+        Bosyo Garbage Collector
+      </h4>
       {% if user.outstanding_balance is none %}
-      <div class="credit-card__number">{{user.outstanding_balance}}</div>
+      {% comment %} <h6 class="text-warning" style="margin-left: 20px;">
+        You have no outstanding balance.
+      </h6> {% endcomment %}
+      <table class="text-start ms-2 mt-5 w-100">
+        <tr class="m-0 p-0">
+          <td class="td-payment credit-card__number text-start">
+            Garbage Hauling Service
+            <br><span class="text-warning fs-6 fw-normal">Rate × No. Households</span>
+          </td>
+          <td class="td-payment">
+            {% load humanize %}
+            <h2 class="fw-bold">
+              ₱ {{user.outstanding_balance|intcomma}}
+            </h2> 
+          </td>
+        </tr>
+        <tr>
+          <td class="td-payment fw-bold fs-2 mt-5 text-start">
+            Total
+          </td>
+          <td class="td-payment">
+            {% load humanize %}
+            <h2 class="fw-bold">
+              ₱ {{user.outstanding_balance|intcomma}}
+            </h2> 
+          </td>
+        </tr>
+      </table>
+      
       {% else %}
-      {% load humanize %}
-      <div class="credit-card__number">₱ {{user.outstanding_balance|intcomma}}</div>
       {% endif%}
-      <div class="credit-card__holder">Bosyo Garbage Collector</div>
     </div>
       <!-- 2nd Column -->
-      <div class="col-md-6 col-xs-6 col-2nd-pp">
+      <div class="col-5 mx-3 col-2nd-pp">
         <div id="smart-button-container">
           {% csrf_token %}
           {% load humanize %}
             {% if user.outstanding_balance is None %}
           <h5 class="fw-bold text-center paypal-balance">
-            <span>You're all set! You have no outstanding balance.</span><br>
+            <span style="color: darkgreen;">You're all set! You have no outstanding balance.</span><br>
           </h5>
           
           {% else %}
@@ -266,6 +291,11 @@
       </div>
   </div>
 </div>
+
+
+
+
+</section>
 
 </body>
 
