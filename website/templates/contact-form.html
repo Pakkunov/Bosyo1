@@ -117,12 +117,12 @@
 <!-- Bosyo Coverage Map -->
 <section class="position-relative py-4 py-xl-5" id="Contact-Map">
     <div class="d-none d-md-block position-absolute top-0 start-0 w-100"><iframe allowfullscreen="" frameborder="0" loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBES20bjKM0_lGG9GOA4BDPvjczYAfuzKo&amp;q=Bosyo+Garbage+Collector&amp;zoom=12" id="Contact-Us" width="100%" height="470px"></iframe></div>
-    <div class="position-relative px-2 px-xl-5 py-5">
+    <div class="position-relative px-2 px-xl-5 py-5" style="pointer-events: none;">
         <div class="container position-relative">
             <div class="row">
                 <div class="col-md-6 col-xl-5 col-xxl-4 offset-md-6 offset-xl-7 offset-xxl-8">
                     <div>
-                        <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg);">
+                        <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg); pointer-events: all;">
                             {% csrf_token %}
                             <h3 class="fw-bolder text-center mb-3 fs-3">Let's talk.</h3>
                             <p style="text-align: center; margin-bottom: 30px;">If you're interested in our services, please don't hesitate to contact us using the information provided below.</p>
@@ -250,7 +250,7 @@
   </div>
 
 
-    {% comment %} <section class="position-relative py-4 py-xl-5 mb-5 google-maps">
+   <section class="position-relative py-4 py-xl-5 mb-5 google-maps">
         <div class="container position-relative">
             <div class="row">
                 <div class="col"><iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCSequZoWaf8XWec9aURVtZWTk1IWJRkEw&amp;q=Bosyo+Garbage+Collector&amp;zoom=12" loading="lazy" width="100%" height="100%"></iframe></div>
@@ -259,7 +259,9 @@
                         <form class="p-3 p-xl-4" method="post">
                             <h3 class="fw-bolder text-center">Let's talk.</h3>
                             <p class="mb-5" style="text-align: center;">If you're interested in our services, please don't hesitate to contact us using the information provided below.</p>
-                            <p class="fw-light" style="text-align: center;">Phone Number: +639062208025<br>Email: bosyogarbagecollector@gmail.com<br><br></p>
+                              <div>
+                                <p class="fw-light mb-5" style="text-align: center;"><span class="fw-bold">Phone Number:</span> +639062208025<br><span class="fw-bold">Email:</span> bosyogarbagecollector@gmail.com</p>
+                              </div>
                             <p class="fw-bolder">Name *</p>
                             <div class="mb-3"><input class="border-dark form-control" type="text" name="name" placeholder="Enter your name here."></div>
                             <p class="fw-bolder">E-mail *</p>
@@ -271,7 +273,7 @@
                 </div>
             </div>
         </div>
-    </section> {% endcomment %}
+    </section> 
 
     {% include 'footer.html' %}
 </body>
