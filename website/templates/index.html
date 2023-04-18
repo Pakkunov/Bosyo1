@@ -6,7 +6,6 @@
 <link rel="stylesheet" href=" {% static '/css/index.css' %} ">
 <script src="{% static '/js/index.js' %}"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 <style data-tag="reset-style-sheet">
@@ -59,31 +58,30 @@
 {% include 'navbar.html' %}
 
 <div>
-    <div class="home-container">
-      <div class="home-header">
-        <div class="home-heading">
-        </div>
-        <div class="home-hero">
-          <div class="home-content">
-            <h1 class="home-title">
-              Helping keep your enironment clean since 2005.
-            </h1>
-            <span class="home-caption">
-                Bosyo Garbage Collector is a trusted junk & garbage hauling Service for Subdivisions. 
-                Serving City of Bacoor, Cavite and surrounding areas.
-            </span>
-            {% comment %} About Us and Help buttons {% endcomment %}
-            <div class="home-hero-buttons">
-              <div class="home-io-btn">
-                <i class='bx bxs-badge-check' style='font-size: 20px;'></i>
-                <span class="home-caption1"><a href="{% url 'about' %}">About Us</a></span>
-              </div>
-              <div class="home-android-btn">
-                <a href="{% url 'contact_form' %}"><i class='bx bxs-help-circle' style='font-size: 20px;'></i>
-                <span class="home-caption2">How to inquire?</span></a>
-              </div>
+  <div class="home-container">
+    <div class="home-header">
+      <div class="home-heading">
+      </div>
+      <div class="home-hero">
+        <div class="home-content">
+          <h1 class="home-title">
+            Helping keep your environment clean since 2005.
+          </h1>
+          <span class="home-caption">
+            Bosyo Garbage Collector is a trusted junk & garbage hauling Service for Subdivisions. 
+            Serving City of Bacoor, Cavite and surrounding areas.
+          </span>
+          <div class="home-hero-buttons">
+            <div class="home-io-btn">
+              <i class='bx bxs-badge-check' style='font-size: 20px;'></i>
+              <span class="home-caption1"><a href="{% url 'about' %}">About Us</a></span>
+            </div>
+            <div class="home-android-btn">
+              <a href="{% url 'contact_form' %}"><i class='bx bxs-help-circle' style='font-size: 20px;'></i>
+              <span class="home-caption2">How to inquire?</span></a>
             </div>
           </div>
+        </div>
           {% comment %} Images for the banner on home page {% endcomment %}
           {% comment %} 
           <div class="home-images">

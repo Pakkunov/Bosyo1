@@ -1186,9 +1186,6 @@ img {
   flex-direction: column;
 }
 
-.home-notification {
-  width: 100%;
-}
 
 .home-component {
   text-decoration: none;
@@ -1310,6 +1307,35 @@ img {
   font-family: Poppins;
   font-weight: 500;
 }
+
+@media screen and (max-width: 1178px) {
+  .home-hero {
+    padding: 0 100px; 
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+@media only screen and (max-width: 641px) {
+  .home-io-btn,
+  .home-android-btn {
+    display: none;
+  }
+}
+@media (max-width: 1176px) {
+  .home-content { 
+    margin: 0 auto;
+    height: 500px;
+  }
+}
+
+@media (max-width: 992px) {
+  .home-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 
 .home-images {
   gap: var(--dl-space-space-oneandhalfunits);
@@ -4503,6 +4529,13 @@ img {
     height: auto;
     text-align: center;
   }
+  .checklist1 {
+    padding: 30px;
+    max-width: 500px;
+    background-image: none;
+    height: auto;
+    text-align: center;
+  }
 }
 
 @media (max-width: 576px) {
@@ -4512,10 +4545,21 @@ img {
     text-align: center;
     background-image: none;
   }
+  .checklist1 {
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    background-image: none;
+  }
 }
 
 @media (max-width: 770px) {
   .checklist {
+    padding: 30px;
+    max-width: 600px;
+    text-align: start;
+  }
+  .checklist1 {
     padding: 30px;
     max-width: 600px;
     text-align: start;
