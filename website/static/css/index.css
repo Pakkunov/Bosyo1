@@ -1720,6 +1720,9 @@ img {
   .home-text07, .home-section1 {
     text-align: center;
   }
+  .home-section1 {
+    padding: 0;
+  }
   .home-content04, .home-text10 {
     text-align: start;
   }
@@ -1768,6 +1771,7 @@ img {
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
+  text-align: start;
 }
 
 .home-text09 {
@@ -1777,6 +1781,7 @@ img {
   font-family: Poppins;
   font-weight: 600;
   line-height: 56px;
+  justify-content: start;
 }
 
 .home-text10 {
