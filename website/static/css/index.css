@@ -327,13 +327,15 @@
   font-style: normal;
   font-family: Poppins;
   font-weight: 600;
-  line-height: 27px;
-  justify-content: center;
+  line-height: 27px;  
+  text-align: left;
+
 }
 
 .highlight-text1 {
   max-width: 535px;
   font-family: Poppins;
+  justify-content: justify;
   line-height: 24px;
 }
 
@@ -1711,7 +1713,18 @@ img {
   font-family: Poppins;
   font-weight: 600;
   line-height: 56px;
+  justify-content: center;
 }
+
+@media(max-width: 991px) {
+  .home-text07, .home-section1 {
+    text-align: center;
+  }
+  .home-content04, .home-text10 {
+    text-align: start;
+  }
+}
+
 
 .home-explore1 {
   cursor: pointer;
@@ -1792,6 +1805,8 @@ img {
 .home-navlink1 {
   display: contents;
 }
+
+
 
 .home-get-started {
   display: flex;
