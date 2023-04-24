@@ -110,14 +110,14 @@ body {
 .btnCategory {
   width: 400px;
   height: 150px;
-  background-color: #008751a3;
+  background-color: #153135;
   border: none;
-  text-shadow: 2px 2px 5px #909090;
+  border-radius: 10px;
 }
 
 .btnCategory:hover {
   transition: .2s ease-in-out;
-  background-color: #046840d4;
+  background-color: #2e7056d4;
   border: none;
   color: #fff;
 }
