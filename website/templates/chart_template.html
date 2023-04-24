@@ -19,9 +19,31 @@
     <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
     <script type="text/javascript" src="instascan.min.js"></script>
     {% load static %}
-    <link rel="stylesheet" href=" {% static '/css/chart_templatestyle.css' %} ">
-
+    {% comment %} <link rel="stylesheet" href=" {% static '/css/chart_templatestyle.css' %} "> {% endcomment %}
+    <link rel="stylesheet" href="{% static '/css/staffpagestyle.css' %}">
+    <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
 </head>
+
+<style data-tag="default-style-sheet">
+html {
+    font-family: Inter;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+</style>
+  <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+  data-tag="font"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+  data-tag="font"
+/>
 
 <body class="
 --bs-primary: #008751;
@@ -42,10 +64,24 @@
 </div>
 {% endif %}
 
+<section class="dashboard-section">
+    <div class="container dashboard-container">
+        {% comment %} Row Dashboard {% endcomment %}
+        <div class="row">
+            <div class="col-10 dashboard-content">
+                <h1 class="fw-bold fs-1">
+                    Analytics
+                </h1>        
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
 
-  <div class="container">
+
+  <div class="container mt-5">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" style="border-radius: 20px;">
         {% comment %} <h3>Attendance Chart</h3> {% endcomment %}
         {{ attendance_plot_div|safe }}
       </div>

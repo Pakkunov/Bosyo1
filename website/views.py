@@ -299,7 +299,7 @@ def charts(request):
         barmode='group', 
         yaxis=dict(title='Name Of Helpers', tickformat=".0f"), 
         title='Attendance Since the Past week', 
-        title_font=dict(family='Arial', size=20),
+        title_font=dict(family='Poppins'),
         plot_bgcolor='white',  
         paper_bgcolor='white' # backgroud color of the div
         )
@@ -326,6 +326,7 @@ def charts(request):
     truck_parts_chart.update_layout(
         title='Truck Parts and Maintenance Expenses', 
         xaxis_title='Total Expenditure', 
+        title_font=dict(family='Poppins'),
         yaxis_title='Truck Number', 
         yaxis=dict(dtick=1),
         plot_bgcolor='rgba(0,0,0,0)',
