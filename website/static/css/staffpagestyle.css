@@ -39,7 +39,7 @@ thead {
 }
 
 .btnPayment {
-  /* background-image: url(/static/images/gradient-green.png); */
+  background-image: url(/static/images/gradient-green.png);
   background-color: #04452b;
   background-size: cover;
   background-position: 0% 30%;
@@ -54,7 +54,8 @@ thead {
 }
 
 .btnPayment:hover {
-  background-color: #000;
+  background-image: none;
+  background-color: #1d1d1d;
   border: 2px solid;
   color: white;
   transition: all 0.2s ease-in-out;

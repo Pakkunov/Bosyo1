@@ -286,6 +286,12 @@ def charts(request):
     labels = []
     data = []
 
+    colors = [
+    "#007F5F", "#2B9348", "#55A630", "#80B918",
+    "#AACC00", "#BFD200", "#D4D700", "#DDDF00",
+    "#EEEF20", "#FFFF3F"
+]
+
     # filter queryset for the last 7 days
     last_week = datetime.now() - timedelta(days=7)
     queryset = attendanceCounter.objects.filter(created_at__gte=last_week).order_by('-helper_name')
@@ -301,7 +307,14 @@ def charts(request):
         title='Attendance Since the Past week', 
         title_font=dict(family='Poppins'),
         plot_bgcolor='white',  
-        paper_bgcolor='white' # backgroud color of the div
+        paper_bgcolor='white', # backgroud color of the div
+        xaxis=dict(
+            title='Total Days Attended',
+            showgrid=False,
+            showline=True,
+            linewidth=2,
+            linecolor='rgb(0, 0, 0)'
+            ),
         )
 
     if data:  # Check if data is not empty
@@ -326,20 +339,93 @@ def charts(request):
     truck_parts_chart.update_layout(
         title='Truck Parts and Maintenance Expenses', 
         xaxis_title='Total Expenditure', 
+        xaxis=dict(
+            title='Total Amount',
+            showgrid=False,
+            showline=True,
+            linewidth=2,
+            linecolor='rgb(0, 0, 0)'
+        ),
         title_font=dict(family='Poppins'),
         yaxis_title='Truck Number', 
-        yaxis=dict(dtick=1),
-        plot_bgcolor='rgba(0,0,0,0)',
+        # yaxis=dict(dtick=1),
+        plot_bgcolor='#fff',
+        paper_bgcolor='#fff',
         barmode='group',
-        bargap=0.1,
+        colorway=['#000'],
+        bargap=0.2,
         bargroupgap=0.1,
-        colorway=['#008751']
+        shapes=[
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0,
+                y0=0,
+                x1=0.2,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0.2,
+                y0=0,
+                x1=0.4,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0.4,
+                y0=0,
+                x1=1,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            )
+        ],
+        yaxis=dict(
+            title='Truck Number',
+            showgrid=False,
+            showline=True,
+            linewidth=2,
+            linecolor='rgb(0, 0, 0)',
+            zeroline=True,
+            zerolinewidth=2,
+            zerolinecolor='rgb(0, 0, 0)'
         )
+    )
 
-    attendance_plot_div = opy.plot(attendance_chart, auto_open=False, output_type='div')
+        
+        
+
+    attendance_plot_div = opy.plot(
+        attendance_chart, 
+        auto_open=False, 
+        output_type='div',
+        config={'displayModeBar': False},
+        )
     truck_parts_plot_div = opy.plot(truck_parts_chart, auto_open=False, output_type='div')
 
-    return render(request, 'chart_template.html', {'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div, 'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart, 'labels': labels, 'data': data, 'labels1': labels1, 'data1': data1})
+    truckCount = Truck.objects.all().count()
+
+        
+    return render(request, 'chart_template.html', {'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div, 'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart, 'labels': labels, 'data': data, 'labels1': labels1, 'data1': data1, 'truckCount': truckCount})
 
 
 def simpleCheckout(request):

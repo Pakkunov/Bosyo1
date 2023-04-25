@@ -21,7 +21,6 @@
     {% load static %}
     {% comment %} <link rel="stylesheet" href=" {% static '/css/chart_templatestyle.css' %} "> {% endcomment %}
     <link rel="stylesheet" href="{% static '/css/staffpagestyle.css' %}">
-    <link rel="stylesheet" href=" {% static '/css/dashboardstyle.css' %} ">
 </head>
 
 <style data-tag="default-style-sheet">
@@ -29,9 +28,11 @@ html {
     font-family: Inter;
 }
 
+.chart-border {
+    border-radius: 10px !important;
+    }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
 
 </style>
   <link
@@ -54,45 +55,109 @@ html {
 --bs-success-rgb: 49, 249, 157;">
 
 
-{% if messages %}
-<div class="alert alert-danger mt-4" role="alert" style="width: 80%;" id="wrapper">
-    <div class="messages">
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
-
 <section class="dashboard-section">
     <div class="container dashboard-container">
-        {% comment %} Row Dashboard {% endcomment %}
+      {% comment %} Row Dashboard {% endcomment %}
         <div class="row">
-            <div class="col-10 dashboard-content">
-                <h1 class="fw-bold fs-1">
-                    Analytics
-                </h1>        
+        <div class="col-10 dashboard-content" style="margin-left: 110px;">
+            <h1 class="fw-bold fs-1">
+              Analytics
+            </h1>     
+            <h6 style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
+                Welcome to charts! This page provides a visual 
+                representation of<br> important data and metrics to help you gain insights and make informed decisions.
+              </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+<section style="margin-left: 200px;">
+    <div class="container mt-5">
+        <div class="row">
+        <div class="col-md-9">
+            <div class="row mb-5">
+                <div class="col-md-10">
+                    {% comment %}<h3>Attendance Chart</h3>{% endcomment %}
+                    <div id="attendance-chart" class="chart-border">{{ attendance_plot_div|safe }}</div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-10">
+                {% comment %}<h3>Truck Parts Chart</h3>{% endcomment %}
+                {{ truck_parts_plot_div|safe }}
+                </div>
+            </div>
+        </div>
+        <div class="col" style="background-color: #000; width: 200px; height: 200px;">
+            <div class="row">
+                <h2 class="fw-bold">
+                    <i class='bx bxs-truck'></i> {{truckCount}}
+                </h2>
             </div>
         </div>
         </div>
     </div>
 </section>
+-->
+
+<div class="container px-5">
+    <div class="row">
+        <div class="col-md-9" style="">
+            <section>
+                <div class="container position-relative">
+                    {% comment %} Attendance Chart {% endcomment %}
+                    <div class="row pt-5">
+                        <div class="col mt-3">
+                            <div id="attendance-chart" class="chart-border">
+                                {{ attendance_plot_div|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <section>
+                <div class="container my-5">
+                    {% comment %} Recent Transactions {% endcomment %}
+                    <div class="col">
+                        {{ truck_parts_plot_div|safe }}
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-3">
+            <section class="category-section w-100 mt-5">
+                <div class="container p-3" style="border: 1px solid #738386; border-radius: 20px;">
+                    <div class="row">
+                        <div class="category-heading">
+                            <h1 class="fw-bold">
+                                Categories
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col mb-4">
+                            
+                        </div>
+                        <div class="col mb-4">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
 
 
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-12" style="border-radius: 20px;">
-        {% comment %} <h3>Attendance Chart</h3> {% endcomment %}
-        {{ attendance_plot_div|safe }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        {% comment %} <h3>Truck Parts Chart</h3> {% endcomment %}
-        {{ truck_parts_plot_div|safe }}
-      </div>
-    </div>
-  </div>
+
+
+
+
 <section>
     <div class="container">
         <div class="row">
