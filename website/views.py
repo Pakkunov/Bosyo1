@@ -286,11 +286,6 @@ def charts(request):
     labels = []
     data = []
 
-    colors = [
-    "#007F5F", "#2B9348", "#55A630", "#80B918",
-    "#AACC00", "#BFD200", "#D4D700", "#DDDF00",
-    "#EEEF20", "#FFFF3F"
-]
 
     # filter queryset for the last 7 days
     last_week = datetime.now() - timedelta(days=7)

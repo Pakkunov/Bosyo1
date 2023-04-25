@@ -86,7 +86,7 @@
                 This will help you create a QR code for your employees to log their attendance.
             </p> 
           </div>
-            <div class="col-lg-5 px-xl-5 colIMG-content1">
+            <div class="col-md-7 px-xl-5 colIMG-content1 text-center">
               <h1 style="font-weight: bold; margin-top: 50px;">QR Code Generator</h1>
               <h6 class="py-2 mb-5">
                 This creates a unique QR code for each employee, which can be scanned with a smartphone or 
@@ -105,14 +105,10 @@
   
               <form method="post">
                 {% csrf_token %}
-                <div class="col-md-4">
-                    <div class="col-md-6 text-center" style="border-radius: 20px;">
-                      {% comment %} <img src="\static\images\people.jpg" alt="" class="imgAttendance"> {% endcomment %}
-                      <label for="name" class="fw-bold">Name: </label>
-                        <input type="text" name="name" style="border-radius: 40px; width: 480px; padding: 5px; margin: 25px;">
-                        <br>
-                        <button type="submit" style="border-radius: 40px; width: 500px;">Generate QR Code</button>
-                    </div>
+                  <div class="col-md-12 text-center" style="border-radius: 20px;">
+                    <label for="name" class="fw-bold">Name: </label>
+                    <input type="text" class="text-center" name="name" style="border-radius: 40px; width: 100%; max-width: 480px; padding: 5px; margin: 25px auto; display: block;">
+                    <button type="submit" style="border-radius: 40px; width: 100%; max-width: 500px; display: block; margin: 0 auto;">Generate QR Code</button>
                   </div>
                 </form>
             </div>
