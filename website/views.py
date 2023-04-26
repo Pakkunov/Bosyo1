@@ -45,6 +45,7 @@ import plotly.express as px
 import plotly.graph_objs as go
 import plotly.offline as opy
 from .forms import ManualPaymentForm
+from django.db.models import Count
 
 
 
@@ -289,10 +290,14 @@ def charts(request):
 
     # filter queryset for the last 7 days
     last_week = datetime.now() - timedelta(days=7)
-    queryset = attendanceCounter.objects.filter(created_at__gte=last_week).order_by('-helper_name')
+    queryset = Attendance.objects.filter(attendance_time__gte=last_week).values('helper__name').annotate(counter=Count('id')).order_by('-counter')
+
+    labels = []
+    data = []
+
     for person in queryset:
-        labels.append(person.helper_name)
-        data.append(person.counter)
+        labels.append(person['helper__name'])
+        data.append(person['counter'])
 
     # create a bar chart for the attendance data
     attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, orientation='h')])
@@ -309,12 +314,12 @@ def charts(request):
             showline=True,
             linewidth=2,
             linecolor='rgb(0, 0, 0)'
-            ),
-        )
+        ),
+    )
 
     if data:  # Check if data is not empty
         attendance_chart.update_xaxes(tickvals=list(range(max(data)+1)), title='Number of Attendances')  # Update x-axis with tick values and title
-
+  
     labels1 = []
     data1 = []
 
