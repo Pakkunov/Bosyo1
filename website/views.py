@@ -216,12 +216,6 @@ def TruckMaintenance(request):
 
 
 
-
-
-
-
-        
-
     context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1, 'parts':parts}
     return render(request,'TruckMaintenance.html', context)
     # return render(request,'TruckMaintenance.html', context)
@@ -300,12 +294,13 @@ def charts(request):
         data.append(person['counter'])
 
     # create a bar chart for the attendance data
-    attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, orientation='h')])
+    attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, text=data, textposition='auto', orientation='h')])
     attendance_chart.update_layout(
         barmode='group', 
         yaxis=dict(title='Name Of Helpers', tickformat=".0f"), 
         title='Attendance Since the Past week', 
         title_font=dict(family='Poppins'),
+        colorway=['#000'],
         plot_bgcolor='white',  
         paper_bgcolor='white', # backgroud color of the div
         xaxis=dict(
@@ -335,12 +330,12 @@ def charts(request):
         data1.append(truck['sumTotal'])
 
     # create a bar chart for the truck parts data
-    truck_parts_chart = go.Figure(data=[go.Bar(x=data1, y=labels1, orientation='h')])
+    truck_parts_chart = go.Figure(data=[go.Bar(x=data1, text=data1, textposition='auto', y=labels1, orientation='h')])
     truck_parts_chart.update_layout(
         title='Truck Parts and Maintenance Expenses', 
         xaxis_title='Total Expenditure', 
         xaxis=dict(
-            title='Total Amount',
+            title='Total Amount in Peso',
             showgrid=False,
             showline=True,
             linewidth=2,
@@ -352,7 +347,7 @@ def charts(request):
         plot_bgcolor='#fff',
         paper_bgcolor='#fff',
         barmode='group',
-        colorway=['#000'],
+        colorway=['#00321e'],
         bargap=0.2,
         bargroupgap=0.1,
         shapes=[
