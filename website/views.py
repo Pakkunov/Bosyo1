@@ -309,51 +309,50 @@ def charts(request):
         bargap=0.2,
         bargroupgap=0.1,
         shapes=[
-            dict(
-                type='rect',
-                xref='paper',
-                yref='y',
-                x0=0,
-                y0=0,
-                x1=0.2,
-                y1=3,
-                opacity=0.5,
-                layer='below',
-                line=dict(
-                    width=0
-                )
-            ),
-            dict(
-                type='rect',
-                xref='paper',
-                yref='y',
-                x0=0.2,
-                y0=0,
-                x1=0.4,
-                y1=3,
-                opacity=0.5,
-                layer='below',
-                line=dict(
-                    width=0
-                )
-            ),
-            dict(
-                type='rect',
-                xref='paper',
-                yref='y',
-                x0=0.4,
-                y0=0,
-                x1=1,
-                y1=3,
-                opacity=0.5,
-                layer='below',
-                line=dict(
-                    width=0
-                )
+        dict(
+            type='rect',
+            xref='paper',
+            yref='y',
+            x0=0,
+            y0=0,
+            x1=0.2,
+            y1=3,
+            opacity=0.5,
+            layer='below',
+            line=dict(
+                width=0
             )
-        ],
+        ),
+        dict(
+            type='rect',
+            xref='paper',
+            yref='y',
+            x0=0.4,  # modified value
+            y0=0,
+            x1=0.6,  # modified value
+            y1=3,
+            opacity=0.5,
+            layer='below',
+            line=dict(
+                width=0
+            )
+        ),
+        dict(
+            type='rect',
+            xref='paper',
+            yref='y',
+            x0=0.8,  # modified value
+            y0=0,
+            x1=1,
+            y1=3,
+            opacity=0.5,
+            layer='below',
+            line=dict(
+                width=0
+            )
+        )
+    ],
         yaxis=dict(
-            title='Truck Number',
             showgrid=False,
             showline=True,
             linewidth=2,
@@ -406,49 +405,49 @@ def charts(request):
         bargap=0.2,
         bargroupgap=0.1,
         shapes=[
-            dict(
-                type='rect',
-                xref='paper',
-                yref='y',
-                x0=0,
-                y0=0,
-                x1=0.2,
-                y1=3,
-                opacity=0.5,
-                layer='below',
-                line=dict(
-                    width=0
-                )
-            ),
-            dict(
-                type='rect',
-                xref='paper',
-                yref='y',
-                x0=0.2,
-                y0=0,
-                x1=0.4,
-                y1=3,
-                opacity=0.5,
-                layer='below',
-                line=dict(
-                    width=0
-                )
-            ),
-            dict(
-                type='rect',
-                xref='paper',
-                yref='y',
-                x0=0.4,
-                y0=0,
-                x1=1,
-                y1=3,
-                opacity=0.5,
-                layer='below',
-                line=dict(
-                    width=0
-                )
+        dict(
+            type='rect',
+            xref='paper',
+            yref='y',
+            x0=0,
+            y0=0,
+            x1=0.2,
+            y1=3,
+            opacity=0.5,
+            layer='below',
+            line=dict(
+                width=0
             )
-        ],
+        ),
+        dict(
+            type='rect',
+            xref='paper',
+            yref='y',
+            x0=0.4,  # modified value
+            y0=0,
+            x1=0.6,  # modified value
+            y1=3,
+            opacity=0.5,
+            layer='below',
+            line=dict(
+                width=0
+            )
+        ),
+        dict(
+            type='rect',
+            xref='paper',
+            yref='y',
+            x0=0.8,  # modified value
+            y0=0,
+            x1=1,
+            y1=3,
+            opacity=0.5,
+            layer='below',
+            line=dict(
+                width=0
+            )
+        )
+    ],
         yaxis=dict(
             title='Truck Number',
             showgrid=False,

@@ -103,25 +103,19 @@
     </div>
 </section>
 
-<div class="container p-0">
-  <div class="row p-0">
-    {% comment %} Charts {% endcomment %}
-    <div class="col p-0 py-5 mx-4">
-      <div class="chart-border">
-        <div id="attendance-chart">
-          {{ attendance_plot_div|safe }}
-        </div>
+<div class="container">
+  <div class="d-flex py-5">
+    <div class="col me-3">
+      <div id="attendance-chart">
+        {{ attendance_plot_div|safe }}
       </div>
     </div>
-    <div class="col p-0 py-5">
-      <div class="chart-border">
-        <div class="">
-          {{ truck_parts_plot_div|safe }}
-        </div>
-      </div>
+    <div class="col ms-3">
+      {{ truck_parts_plot_div|safe }}
     </div>
   </div>
 </div>
+
 
 
 
