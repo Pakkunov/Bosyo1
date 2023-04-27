@@ -291,24 +291,28 @@ def charts(request):
     for person in queryset:
         labels.append(person['helper__name'])
         data.append(person['counter'])
+
     # create a bar chart for the attendance data
-    attendance_chart = go.Figure(data=[go.Bar(x=labels, y=data, text=data, textposition='auto')])
+    attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, orientation='h')])
     attendance_chart.update_layout(
+        barmode='group', 
+        yaxis=dict(title='Name Of Helpers', tickformat=".0f"), 
         title='Attendance Since the Past week', 
-        xaxis_title='Name Of Helpers',
-        yaxis_title='Total Days Attended',
-        xaxis_tickangle=-45,
         title_font=dict(family='Poppins'),
-        font=dict(
-            color="black"
-        ),
         plot_bgcolor='#e6f3ee',
         paper_bgcolor='#e6f3ee',
-        barmode='group',
         colorway=['#004429'],
         bargap=0.2,
         bargroupgap=0.1,
-        shapes=[
+        xaxis=dict(
+            title='Total Days Attended',
+            showgrid=False,
+            showline=True,
+            linewidth=2,
+            linecolor='rgb(0, 0, 0)'
+        ),
+    )
+    shapes=[
         dict(
             type='rect',
             xref='paper',
@@ -352,7 +356,7 @@ def charts(request):
             )
         )
     ],
-        yaxis=dict(
+    yaxis=dict(
             showgrid=False,
             showline=True,
             linewidth=2,
@@ -361,13 +365,12 @@ def charts(request):
             zerolinewidth=2,
             zerolinecolor='rgb(0, 0, 0)'
         )
-    )
 
     
 
     if data:  # Check if data is not empty
         attendance_chart.update_xaxes(tickvals=list(range(max(data)+1)), title='Number of Attendances')  # Update x-axis with tick values and title
-  
+
     labels1 = []
     data1 = []
 
