@@ -29,8 +29,9 @@ urlpatterns = [
     path('profile/', views.userProfile, name='userProfile'),
     path('', views.index, name='home'),  
     path('manualpayment/', views.manualpayment, name='manualpayment'),  
-    # path('TruckMaintenance/', views.TruckMaintenance, name='TruckMaintenance'),  
-    path('TruckMaintenance/', views.charts, name='TruckMaintenance'),  
+    # path('TruckMaintenance/', views.TruckMaintenance, name='TruckMaintenance'), 
+    # removed due to update 4/27 
+    path('analytics/', views.charts, name='TruckMaintenance'),  
     path('qrlogin/', views.qrcodelogin, name='qrlogin'),
     # path('charts/', views.charts, name='charts'),
     path('payment/', views.simpleCheckout, name="payment"),
