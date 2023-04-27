@@ -1,19 +1,24 @@
 :root {
   --primary-color: #19968d;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: rgb(200, 200, 200);
 }
+
 a:hover {
   text-decoration: none;
 }
+
 .font-weight-600 {
   font-weight: 600;
 }
+
 .bg-primary-color {
   background-color: rgb(200, 200, 200);
 }
+
 .text-primary-color {
   color: var(--primary-color);
 }
@@ -108,6 +113,7 @@ img {
   padding: 60px;
   height: 650px;
 }
+
 /* 
 .img-bosyo {
   display: flex;
@@ -124,8 +130,14 @@ img {
 }
 
 .login-container {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   margin-top: 90px;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.23);
+}
+
+.login-container1 {
+  background-color: rgba(255, 255, 255, 0.492);
+  margin-bottom: 90px;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.23);
 }
 
@@ -137,4 +149,15 @@ body {
   background-image: url(/static/images/bg-login1.png);
   background-size: cover;
   background-attachment: fixed;
+}
+
+input {
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: #ffffffec;
+}
+
+p {
+  color: black;
 }
