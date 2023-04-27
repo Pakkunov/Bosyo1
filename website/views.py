@@ -157,7 +157,7 @@ def index(request):
                 'content': content,
             })
 
-            send_mail('The contact form subject', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyogarbagecollector@protonmail.com'], html_message=html)
+            send_mail('The contact form subject', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyocollector@protonmail.com'], html_message=html)
 
             return redirect('home')
     else:
@@ -222,7 +222,29 @@ def TruckMaintenance(request):
         
 
 def contact_form(request):
-    return render(request, 'contact-form.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            content = form.cleaned_data["content"]
+
+            html = render_to_string('emails/contactform.html', {
+                'name': name,
+                'email': email,
+                'content': content,
+            })
+
+            send_mail('This message is from Bosyo Garbage Collector', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyocollector@protonmail.com'], html_message=html)
+
+            return redirect('home')
+    else:
+        form = ContactForm(request)
+
+    return render(request, 'contact-form.html', {
+        'form': form
+    })
 
 def about(request):
     return render(request, 'about.html')
