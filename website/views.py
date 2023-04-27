@@ -293,78 +293,89 @@ def charts(request):
         data.append(person['counter'])
 
     # create a bar chart for the attendance data
-    attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, orientation='h')])
+    attendance_chart = go.Figure(data=[go.Bar(x=data, text=data, y=labels, orientation='h')])
     attendance_chart.update_layout(
+        # images=[
+        #     dict(
+        #         source='/static/images/bg-blur-100.png',
+        #         xref="paper", yref="paper",
+        #         sizex=2, sizey=2,
+        #         opacity=1,
+        #         layer="below"
+        #     )
+        # ],
         barmode='group', 
-        yaxis=dict(title='Name Of Helpers', tickformat=".0f"), 
-        title='Attendance Since the Past week', 
-        title_font=dict(family='Poppins'),
-        plot_bgcolor='#e6f3ee',
-        paper_bgcolor='#e6f3ee',
-        colorway=['#004429'],
-        bargap=0.2,
-        bargroupgap=0.1,
-        xaxis=dict(
-            title='Total Days Attended',
-            showgrid=False,
-            showline=True,
-            linewidth=2,
-            linecolor='rgb(0, 0, 0)'
-        ),
-    )
-    shapes=[
-        dict(
-            type='rect',
-            xref='paper',
-            yref='y',
-            x0=0,
-            y0=0,
-            x1=0.2,
-            y1=3,
-            opacity=0.5,
-            layer='below',
-            line=dict(
-                width=0
-            )
-        ),
-        dict(
-            type='rect',
-            xref='paper',
-            yref='y',
-            x0=0.4,  # modified value
-            y0=0,
-            x1=0.6,  # modified value
-            y1=3,
-            opacity=0.5,
-            layer='below',
-            line=dict(
-                width=0
-            )
-        ),
-        dict(
-            type='rect',
-            xref='paper',
-            yref='y',
-            x0=0.8,  # modified value
-            y0=0,
-            x1=1,
-            y1=3,
-            opacity=0.5,
-            layer='below',
-            line=dict(
-                width=0
-            )
-        )
-    ],
-    yaxis=dict(
-            showgrid=False,
+        yaxis=dict(
+            title='Name Of Helpers', 
+            tickformat=".0f",
+            showgrid=True,
             showline=True,
             linewidth=2,
             linecolor='rgb(0, 0, 0)',
             zeroline=True,
             zerolinewidth=2,
             zerolinecolor='rgb(0, 0, 0)'
-        )
+        ), 
+        title='Attendance Since the Past week', 
+        title_font=dict(family='Poppins'),
+        plot_bgcolor='#e6f3ee',
+        paper_bgcolor='#e6f3ee',
+        # colorway=['#79de75'],
+        colorway=['#437c41'],
+        bargap=0.2,
+        bargroupgap=0.1,
+        xaxis=dict(
+            title='Total Days Attended',
+            showgrid=True,
+            showline=True,
+            linewidth=2,
+            linecolor='rgb(0, 0, 0)'
+        ),
+        shapes=[
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0,
+                y0=0,
+                x1=0.2,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0.4,  # modified value
+                y0=0,
+                x1=0.6,  # modified value
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0.8,  # modified value
+                y0=0,
+                x1=1,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            )
+        ],
+    )
 
     
 
@@ -384,86 +395,39 @@ def charts(request):
     for truck in queryset1:
         labels1.append(truck['Truck_Used_On'])
         data1.append(truck['sumTotal'])
+        
 
     # create a bar chart for the truck parts data
     truck_parts_chart = go.Figure(data=[go.Bar(x=data1, text=data1, texttemplate='%{x:,.0f}', textposition='auto', y=labels1, orientation='h')])
     truck_parts_chart.update_layout(
         title='Truck Parts and Maintenance Expenses', 
         xaxis_title='Total Expenditure', 
-        xaxis=dict(
-            title='Total Amount in Peso',
-            showgrid=False,
-            showline=True,
-            tickformat=',',
-            linewidth=2,
-            linecolor='rgb(0, 0, 0)'
-        ),
-        title_font=dict(family='Poppins'),
         yaxis_title='Truck Number', 
-        # yaxis=dict(dtick=1),
+        xaxis=dict(
+        showgrid=True,
+        showline=True,
+        linewidth=2,
+        linecolor='rgb(0, 0, 0)'
+        ),
+        yaxis=dict(
+        dtick=1,
+        showgrid=True,
+        showline=True,
+        linewidth=2,
+        linecolor='rgb(0, 0, 0)',
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor='rgb(0, 0, 0)'
+        ),
+        barmode='group',
+        bargap=0.1,
+        bargroupgap=0.1,
         plot_bgcolor='#e6f3ee',
         paper_bgcolor='#e6f3ee',
-        barmode='group',
-        colorway=['#004429'],
-        bargap=0.2,
-        bargroupgap=0.1,
-        shapes=[
-        dict(
-            type='rect',
-            xref='paper',
-            yref='y',
-            x0=0,
-            y0=0,
-            x1=0.2,
-            y1=3,
-            opacity=0.5,
-            layer='below',
-            line=dict(
-                width=0
-            )
-        ),
-        dict(
-            type='rect',
-            xref='paper',
-            yref='y',
-            x0=0.4,  # modified value
-            y0=0,
-            x1=0.6,  # modified value
-            y1=3,
-            opacity=0.5,
-            layer='below',
-            line=dict(
-                width=0
-            )
-        ),
-        dict(
-            type='rect',
-            xref='paper',
-            yref='y',
-            x0=0.8,  # modified value
-            y0=0,
-            x1=1,
-            y1=3,
-            opacity=0.5,
-            layer='below',
-            line=dict(
-                width=0
-            )
+        colorway=['#437c41'],
         )
-    ],
-        yaxis=dict(
-            title='Truck Number',
-            showgrid=False,
-            showline=True,
-            linewidth=2,
-            linecolor='rgb(0, 0, 0)',
-            zeroline=True,
-            zerolinewidth=2,
-            zerolinecolor='rgb(0, 0, 0)'
-        )
-    )
 
-        
+    
         
 
     attendance_plot_div = opy.plot(
