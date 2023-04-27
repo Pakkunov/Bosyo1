@@ -212,12 +212,12 @@ def TruckMaintenance(request):
         form = TruckMaintenanceForm(request.POST, request.FILES)     
         if form.is_valid():
             form.save()     
-            return redirect('/TruckMaintenance')
+            return redirect('/charts')
 
 
 
     context = {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1, 'parts':parts}
-    return render(request,'TruckMaintenance.html', context)
+    return render(request,'chart_template.html', context)
     # return render(request,'TruckMaintenance.html', context)
         
 
@@ -281,7 +281,6 @@ def charts(request):
     labels = []
     data = []
 
-
     # filter queryset for the last 7 days
     last_week = datetime.now() - timedelta(days=7)
     queryset = Attendance.objects.filter(attendance_time__gte=last_week).values('helper__name').annotate(counter=Count('id')).order_by('-counter')
@@ -292,25 +291,80 @@ def charts(request):
     for person in queryset:
         labels.append(person['helper__name'])
         data.append(person['counter'])
-
     # create a bar chart for the attendance data
-    attendance_chart = go.Figure(data=[go.Bar(x=data, y=labels, text=data, textposition='auto', orientation='h')])
+    attendance_chart = go.Figure(data=[go.Bar(x=labels, y=data, text=data, textposition='auto')])
     attendance_chart.update_layout(
-        barmode='group', 
-        yaxis=dict(title='Name Of Helpers', tickformat=".0f"), 
         title='Attendance Since the Past week', 
+        xaxis_title='Name Of Helpers',
+        yaxis_title='Total Days Attended',
+        xaxis_tickangle=-45,
         title_font=dict(family='Poppins'),
-        colorway=['#000'],
-        plot_bgcolor='white',  
-        paper_bgcolor='white', # backgroud color of the div
-        xaxis=dict(
-            title='Total Days Attended',
+        font=dict(
+            color="black"
+        ),
+        plot_bgcolor='#e6f3ee',
+        paper_bgcolor='#e6f3ee',
+        barmode='group',
+        colorway=['#004429'],
+        bargap=0.2,
+        bargroupgap=0.1,
+        shapes=[
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0,
+                y0=0,
+                x1=0.2,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0.2,
+                y0=0,
+                x1=0.4,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            ),
+            dict(
+                type='rect',
+                xref='paper',
+                yref='y',
+                x0=0.4,
+                y0=0,
+                x1=1,
+                y1=3,
+                opacity=0.5,
+                layer='below',
+                line=dict(
+                    width=0
+                )
+            )
+        ],
+        yaxis=dict(
+            title='Truck Number',
             showgrid=False,
             showline=True,
             linewidth=2,
-            linecolor='rgb(0, 0, 0)'
-        ),
+            linecolor='rgb(0, 0, 0)',
+            zeroline=True,
+            zerolinewidth=2,
+            zerolinecolor='rgb(0, 0, 0)'
+        )
     )
+
+    
 
     if data:  # Check if data is not empty
         attendance_chart.update_xaxes(tickvals=list(range(max(data)+1)), title='Number of Attendances')  # Update x-axis with tick values and title
@@ -330,7 +384,7 @@ def charts(request):
         data1.append(truck['sumTotal'])
 
     # create a bar chart for the truck parts data
-    truck_parts_chart = go.Figure(data=[go.Bar(x=data1, text=data1, textposition='auto', y=labels1, orientation='h')])
+    truck_parts_chart = go.Figure(data=[go.Bar(x=data1, text=data1, texttemplate='%{x:,.0f}', textposition='auto', y=labels1, orientation='h')])
     truck_parts_chart.update_layout(
         title='Truck Parts and Maintenance Expenses', 
         xaxis_title='Total Expenditure', 
@@ -338,16 +392,17 @@ def charts(request):
             title='Total Amount in Peso',
             showgrid=False,
             showline=True,
+            tickformat=',',
             linewidth=2,
             linecolor='rgb(0, 0, 0)'
         ),
         title_font=dict(family='Poppins'),
         yaxis_title='Truck Number', 
         # yaxis=dict(dtick=1),
-        plot_bgcolor='#fff',
-        paper_bgcolor='#fff',
+        plot_bgcolor='#e6f3ee',
+        paper_bgcolor='#e6f3ee',
         barmode='group',
-        colorway=['#00321e'],
+        colorway=['#004429'],
         bargap=0.2,
         bargroupgap=0.1,
         shapes=[
@@ -413,14 +468,33 @@ def charts(request):
         attendance_chart, 
         auto_open=False, 
         output_type='div',
-        config={'displayModeBar': False},
         )
     truck_parts_plot_div = opy.plot(truck_parts_chart, auto_open=False, output_type='div')
 
     truckCount = Truck.objects.all().count()
 
+    #trucks
+    queryset1=Truck_Part.objects.values('Truck_Used_On','Receipt').annotate(sumTotal=Sum('Total')).order_by('Truck_Used_On')
         
-    return render(request, 'chart_template.html', {'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div, 'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart, 'labels': labels, 'data': data, 'labels1': labels1, 'data1': data1, 'truckCount': truckCount})
+        
+        
+    totalExpenses = Truck_Part.objects.aggregate(Sum('Total'))
+    truckCount = Truck.objects.all().count()
+    helperCount= Helper.objects.all().count()
+    parts=Truck_Part.objects.all()
+    form = TruckMaintenanceForm()
+    if not request.user.is_staff:
+        messages.error(request, 'You are not allowed to view this page.')
+        return redirect('userProfile')
+
+    if request.method == 'POST':
+        form = TruckMaintenanceForm(request.POST, request.FILES)     
+        if form.is_valid():
+            form.save()     
+            return redirect('/charts')
+
+
+    return render(request, 'TruckMaintenance.html', {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1, 'parts':parts, 'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div, 'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart, 'labels': labels, 'data': data, 'labels1': labels1, 'data1': data1, 'truckCount': truckCount})
 
 
 def simpleCheckout(request):
@@ -509,7 +583,7 @@ def change_password(request):
 #import receipt
 def view_receipt(request, expense_id):
     expense = Truck_Part.objects.get(id=expense_id)
-    return render(request, 'TruckMaintenance.html', {'expense': expense})
+    return render(request, 'chart_template.html', {'expense': expense})
 
 
 class CustomPasswordResetView(PasswordResetView):

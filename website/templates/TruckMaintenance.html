@@ -20,6 +20,10 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
+  #attendance-chart {
+    border-radius: 20px;
+    border: 1px solid #ddd;
+  }
 
 </style>
 <link
@@ -40,7 +44,6 @@
   .alert {
   width: 58%;
 }
-
 
 </style>
 
@@ -68,12 +71,13 @@
   </div>
 </section>
 
-<section style="padding-bottom: 35px;">
+
+<section style="">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center d-flex">
       {% comment %} Contents {% endcomment %}
         <div class="col-7 col-sm-5 col-md-11 col-lg-10 col-xxl-10">
-          <div class="row mt-4" style="margin-left: 150px;">
+          <div class="row mt-4" style="">
           <div class="col text-center mx-3 my-1 col-vehicle1" style="border-radius: 20px; border: 2px solid white; padding: 20px;">
             <h2 class="fw-bold">
               <i class='bx bxs-truck'></i> {{truckCount}}
@@ -104,8 +108,58 @@
     </div>
 </section>
 
+<div class="container p-0">
+  <div class="row p-0">
+    {% comment %} Charts {% endcomment %}
+    <div class="col p-0 py-5 mx-4">
+      <div class="chart-border">
+        <div id="attendance-chart">
+          {{ attendance_plot_div|safe }}
+        </div>
+      </div>
+    </div>
+    <div class="col p-0 py-5">
+      <div class="chart-border">
+        <div class="">
+          {{ truck_parts_plot_div|safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="">
+        <section>
+            <div class="container position-relative">
+                {% comment %} Attendance Chart {% endcomment %}
+                <div class="row pt-5">
+                    <div class="col mt-3">
+                      <div class="chart-container" style="border-radius: 10px;">
+                        <div id="attendance-chart" class="chart-border">
+                            {{ attendance_plot_div|safe }}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section>
+            <div class="container my-5">
+                {% comment %} Recent Transactions {% endcomment %}
+                <div class="col">
+                    {{ truck_parts_plot_div|safe }}
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+-->
 
 <section style="margin-bottom: 50px;">
   <div class="container">
