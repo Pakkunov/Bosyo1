@@ -212,7 +212,7 @@ def TruckMaintenance(request):
         form = TruckMaintenanceForm(request.POST, request.FILES)     
         if form.is_valid():
             form.save()     
-            return redirect('/charts')
+            return redirect('/analytics')
 
 
 
@@ -490,7 +490,7 @@ def charts(request):
         form = TruckMaintenanceForm(request.POST, request.FILES)     
         if form.is_valid():
             form.save()     
-            return redirect('/charts')
+            return redirect('/analytics')
 
 
     return render(request, 'TruckMaintenance.html', {'form': form, 'truckCount':truckCount, 'totalExpenses':totalExpenses,'helperCount':helperCount, 'queryset1':queryset1, 'parts':parts, 'attendance_plot_div': attendance_plot_div, 'truck_parts_plot_div': truck_parts_plot_div, 'attendance_chart': attendance_chart, 'truck_parts_chart': truck_parts_chart, 'labels': labels, 'data': data, 'labels1': labels1, 'data1': data1, 'truckCount': truckCount})
@@ -590,5 +590,14 @@ class CustomPasswordResetView(PasswordResetView):
     email_template_name = 'registration/password_reset_email.html'
     success_url = reverse_lazy('password_reset_done')
     template_name = 'registration/password_reset_form.html'
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+@receiver(post_save, sender=Truck_Part)
+def update_truck_maintenance_count(sender, instance, **kwargs):
+    truck = instance.Truck_Used_On
+    truck.TruckMaintenanceCount = truck.truck_part_set.count()
+    truck.save()
 
 
