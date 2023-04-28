@@ -134,7 +134,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0% 60%;
-  width: 100%;
 }
 
 .dashboard-content {
@@ -142,6 +141,18 @@ body {
   padding-bottom: 4rem;
   color: white;
   text-shadow: 2px 2px 3px #656565;
+}
+
+@media (max-width: 700px) {
+  .dashboard-content {
+    padding-left: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-content {
+    padding-left: 100px;
+  }
 }
 
 body {

@@ -39,6 +39,11 @@
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .colIMG {
+    height: 25%;
+  }
+}
 
 </style>
 
@@ -46,82 +51,57 @@
 {% comment %} This page is the Log in Page {% endcomment %}
 {% comment %} ----------------------------------------------------------- {% endcomment %}
 
-  <!-- New login form-->
-  <section class="Form mt-5">
-    <div class="container login-container">
-      <!-- responsive form -->
-      <div class="row no-gutters">
-        <div class="col-md-5 colIMG text-white">
-          {% comment %} <div style="">
-             <div class="img-bosyo">
-              <img src="\static\images\bosyo-logo-light.png" style="width: 100px; height: 150px;" alt="">
-            </div> 
-          </div> {% endcomment %}
-           <h2 class="fw-bold" style="text-align: center; margin-top: 400px; margin-bottom: 20px;">
-            Welcome back!
-           </h2>
-          <p style="text-align: center;">
-            With our easy-to-use online platform, you can manage 
-            your waste collection schedule, pay bills, and communicate with our team from the comfort of your own home or office. 
-          </p> 
-        </div>
-        <div class="col-lg-6 pt-5 ms-5 colIMG-content1 text-center">
-          <h1 class="fw-bold">Login</h1>
-          <h6 class="py-2">Sign in to your account.</h6>
-          <!-- #message -->
-          {% if messages %}
-          <div class="alert alert-danger" role="alert">
-              <div class="messages">
-                  {% for message in messages %}
-                  {{ message }}
-                  {% endfor %}
-              </div>
+<section class="Form mt-5">
+  <div class="container login-container">
+    <div class="row no-gutters">
+      <div class="col-md-5 colIMG text-white">
+        <h2 class="fw-bold d-none d-md-block" style="text-align: center; margin-top: 400px; margin-bottom: 20px;">
+          Welcome back!
+        </h2>
+        <p class="d-none d-md-block" style="text-align: center;">
+          You can manage your waste collection schedule, pay bills, and communicate
+          with our team from the comfort of your own home or office.
+        </p>
+      </div>
+      <div class="col-md-6 pt-5 ms-md-5 colIMG-content1 text-center p-4">
+        <h1 class="fw-bold">Login</h1>
+        <h6 class="py-2">Sign in to your account.</h6>
+        {% if messages %}
+        <div class="alert alert-danger" role="alert">
+          <div class="messages">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
           </div>
-          {% endif %}
-
-          <form method="post" action="">
-            {% csrf_token %}
-            <div class="form-row d-flex justify-content-center">
-              <div class="col-lg-8">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your Email Address"
-                  class="form-control my-3 p-2"
-                  style="border-radius: 90px; padding-left: 20px;"
-                />
-              </div>
-            </div>
-            <div class="form-row d-flex justify-content-center">
-              <div class="col-lg-8">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Enter your Password"
-                  class="form-control my-3 p-2"
-                  style="border-radius: 90px; padding-left: 20px;"
-                />
-              </div>
-            </div>
-            <div class="form-row d-flex justify-content-center">
-              <div class="col-lg-8">
-                <button type="submit" class="btnlogin mt-3 mb-5">Login</button>
-              </div>
-            </div>
-            <p>
-              Don't have an account yet?
-              <a href="{% url 'contact_form' %}#Contact-Map" class="link-bosyo">Contact us to register.</a>
-            </p>
-            <p class="">
-              Want to reset your password?
-              <a href="/password_reset" class="link-bosyo">Click here to reset.</a>
-            </p>
-          </form>
         </div>
+        {% endif %}
+
+        <form method="post" action="">
+          {% csrf_token %}
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Enter your Email Address"
+              class="form-control rounded-pill my-4" required>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" id="password" placeholder="Enter your Password"
+              class="form-control rounded-pill mb-4" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btnlogin rounded-pill mt-3 mb-5">Login</button>
+          </div>
+          <p>
+            Don't have an account yet?
+            <a href="{% url 'contact_form' %}#Contact-Map" class="link-bosyo">Contact us to register.</a>
+          </p>
+          <p class="">
+            Want to reset your password?
+            <a href="/password_reset" class="link-bosyo">Click here to reset.</a>
+          </p>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="footer">
     {% include 'footer.html' %}

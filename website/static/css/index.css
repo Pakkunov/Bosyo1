@@ -1671,6 +1671,12 @@ img {
   background-repeat: no-repeat;
   background-position: center;
 }
+@media (max-width: 425px) {
+  .home-image {
+    display: none;
+  }
+}
+
 
 .home-image-highlight {
   top: 0px;
@@ -1727,6 +1733,13 @@ img {
     text-align: start;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .about-section1 {
+    padding: 50px 25px;
+  }
+}
+
 
 
 .home-explore1 {

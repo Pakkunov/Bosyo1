@@ -68,17 +68,14 @@
 </section>
 
 
-<section>
+<section style="margin-left: 70px;">
 <div class="container container-payment mt-5">
   <div class="row">
-    <div class="col-6 mx-3 col-1st-pp p-4 text-white">
+    <div class="col d-none d-md-block mx-3 col-1st-pp p-4 text-white mb-5">
       <h4 class="" style="margin-left: 20px;">
         Bosyo Garbage Collector
       </h4>
       {% if user.outstanding_balance is none %}
-      {% comment %} <h6 class="text-warning" style="margin-left: 20px;">
-        You have no outstanding balance.
-      </h6> {% endcomment %}
       <table class="text-start ms-2 mt-5 w-100">
         <tr class="m-0 p-0">
           <td class="td-payment credit-card__number text-start">
@@ -138,16 +135,11 @@
       {% endif%}
     </div>
       <!-- 2nd Column -->
-      <div class="col-5 mx-3 col-2nd-pp">
+      <div class="col mx-3 col-2nd-pp mb-5">
         <div id="smart-button-container">
           {% csrf_token %}
           {% load humanize %}
             {% if user.outstanding_balance is None %}
-          {% comment %} 
-          <h4 class="fw-bold text-start mx-4 mt-5 paypal-balance">
-            <span style="">You're all set!</span>
-          </h4> 
-          {% endcomment %}
           <div class="d-flex justify-content-center">
             <img src="\static\images\paypal-logo.png" 
             class="py-5 mt-5 d-none d-lg-block mx-5" style="width: 174px;">
@@ -155,24 +147,29 @@
             <h4 class="fw-bold text-center mx-4 mt-5">You have no outstanding balance.</h4>
           {% else %}
           <div class="has-balance p-5">
-            <p class="mt-2 fw-bold d-none d-md-block">Amount to pay:
+            <p class="mt-2 fw-bold d-block d-md-none text-center">Amount to pay:
             PHP {{ user.outstanding_balance|intcomma }}<br>
             </p>
-            <p class="py-2">
+            <p class="py-2 d-none d-md-block">
+              Logged in as: <span class="fw-bold">{{user.username}}</span>
+            </p> 
+            <p class="py-2 d-block d-md-none text-center">
               Logged in as: <span class="fw-bold">{{user.username}}</span>
             </p> 
             <form method="post">
               {% csrf_token %}
             <p class="mb-3 mt-3">Please confirm and enter your Username: <span class="text-danger">*</span></p>
-            <div class="mb-2" style="text-align: start">
+            <div class="mb-2 d-flex justify-content-center" style="text-align: start">
               <input style="padding-left: 10px; width: 90%; border-radius: 20px; color: black;" type="text" name="HOA" id="description" placeholder="Username is case sensitive" maxlength="127" value=""></div>
               <p id="descriptionError" style="visibility: hidden; color:red; text-align: start;">Please enter your name/HOA</p>
             <p class="mb-3 mt-2">Enter amount to pay in PHP:</p>
-            <div class="mb-2" style="text-align: start"><input style="padding-left: 10px; width: 90%; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
+            <div class="mb-2 d-flex justify-content-center" style="text-align: start">
+              <input style="padding-left: 10px; width: 90%; border-radius: 20px; color: black;" name="Amount" placeholder="Amount in Peso" type="number" id="amount" value=""></div>
               <p class="mb-3" id="priceLabelError" style="visibility: hidden; color:red; text-align: start;">Please enter proper amount to pay</p>
-            <div id="invoiceidDiv" style="text-align: start; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+            <div id="invoiceidDiv" style="text-align: start; display: none;"><label for="invoiceid"> </label>
+              <input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
               <p id="invoiceidError" style="visibility: hidden; color:red; text-align: start;">Please enter an Invoice ID</p>
-              <div style="text-align: center; width: 90%;" id="paypal-button-container"></div>
+              <div style="width: 100%;" class="d-flex justify-content-center" id="paypal-button-container"></div>
             </form>
           </div>
           {% endif %}
