@@ -147,11 +147,23 @@ body {
   .dashboard-content {
     padding-left: 100px;
   }
+  .transaction-history {
+    margin-left: 80px;
+  }
+  .h6-transactions {
+    margin-left: 50px;
+  }
 }
 
 @media (min-width: 768px) {
   .dashboard-content {
     padding-left: 100px;
+  }
+  .h6-transactions {
+    margin-left: 50px;
+  }
+  .transaction-history {
+    margin-left: 80px;
   }
 }
 

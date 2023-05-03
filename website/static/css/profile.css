@@ -73,23 +73,35 @@ td {
   background-color: #008751a3;
   background-size: cover;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   background-position: 0% 50%;
   padding: 20px;
   width: 500px;
   height: 220px;
-  margin-left: 90px;
 }
+
 .credit-card2 {
   background-image: url(/static/images/gradient-green.png);
   background-color: #008751a3;
   background-size: cover;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   background-position: 0% 50%;
   padding: 20px;
   width: 500px;
   height: 220px;
+}
+
+@media (max-width: 700px) {
+  .dashboard-content {
+    padding-left: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-content {
+    padding-left: 100px;
+  }
 }
 
 .credit-card__number {
@@ -103,4 +115,27 @@ td {
   font-size: 18px;
   margin-top: 20px;
   margin-left: 20px;
+}
+
+.modal-body {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.close {
+  color: #000;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.theme-color {
+  color: #0e4d42;
+}
+
+.trow-click {
+  cursor: pointer;
+  line-height: 1.5em;
 }

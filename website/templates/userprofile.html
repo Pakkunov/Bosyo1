@@ -110,10 +110,11 @@
   </div>
 </section>
 
-<section>
+<section class="my-5">
   <div class="container">
     <div class="row">
-      <div class="col card-col1 my-5 mx-2 text-white">
+      {% comment %} LG Screens {% endcomment %}
+      <div class="col-md-6 mx-auto text-white d-none d-lg-block ">
         <div class="credit-card1">
           <h6 style="margin-left: 20px;">
             Outstanding Balance:
@@ -127,7 +128,28 @@
           <div class="credit-card__holder">Bosyo Garbage Collector</div>
         </div>
       </div>
-      <div class="col card-col2 my-5 mx-2 text-white">
+    </div>
+  </div>
+</section>
+
+{% comment %} <section class="d-none d-lg-block" style="margin-left: 40px;">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="col-md-6 my-5 text-white">
+        <div class="credit-card1">
+          <h6 style="margin-left: 20px;">
+            Outstanding Balance:
+          </h6>
+          {% if user.outstanding_balance is none %}
+          <div class="credit-card__number">{{user.outstanding_balance}}</div>
+          {% else %}
+          {% load humanize %}
+          <div class="credit-card__number">₱ {{user.outstanding_balance|intcomma}}</div>
+          {% endif%}
+          <div class="credit-card__holder">Bosyo Garbage Collector</div>
+        </div>
+      </div>
+      <div class="col-md-5 my-5 text-white">
         <div class="credit-card2">
           <h6 class="text-white" style="margin-left: 20px;">
             Monthly Bill:
@@ -143,48 +165,78 @@
       </div>
     </div>
   </div>
-</section>
+</section> {% endcomment %}
 
-<section>
-  <div class="container text-dark">
-    {% comment %} Recent Transactions {% endcomment %}
-    <div class="text-dark" style="border-radius: 20px; background-color: #fff; border: none;">
+
+{% comment %} Payment History {% endcomment %}
+<section class="transaction-history mb-5">
+  <div class="container">
+  <h6 class="h6-transactions fw-bold ms-4 mb-3">
+    Transactions
+  </h6>
+    <div class="col-md-12 mx-auto" style="border-radius: 20px; background-color: #2f6f4f; border: none;">
       <div class="mx-3 py-3 mb-5">
-        <h6 class="fw-bold text-start mb-5 mt-2">Payment History</h6>
-          <div class="table-responsive">
-            <table class="table">
-                <thead>
-                  <tr class="text-dark" style="border: none;">
-                    <th></th>
-                    <th>Date</th>
-                    {% comment %} <th>User</th> {% endcomment %}
-                    <th>Amount</th>
-                    <th>Transaction ID</th>
+        <h6 class="fw-bold text-start mb-5 mt-2 text-white">Payment History</h6>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr class="text-white" style="border: none;">
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for payment in payments %}
+                {% if forloop.counter < 6 %}
+                  <tr class="text-white" data-bs-toggle="modal" data-bs-target="#transactionModal{{ payment.transaction_id }}">
+                    <td class="trow-click">
+                      {{ payment.Date_paid }}</td>
+                    {% load humanize %}
+                    <td class="trow-click">₱ {{ payment.amount|intcomma }}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {% for payment in payments %}
-
-                    {% if forloop.counter < 6  %}  
-
-                    <tr class="text-dark">
-                        <td><i class="bi bi-currency-exchange"></i></td>
-                        <td>{{payment.Date_paid}}</td>
-                        {% comment %} <td>{{payment.User_who_Paid}}</td> {% endcomment %}
-                        {% load humanize %}
-                        <td>₱ {{payment.amount|intcomma}}</td>
-                        <td>{{payment.transaction_id}}</td>
-                      </tr>
-                      {% endif %}
-                  {% endfor %}
-                </tbody>
-            </table>
+                  <!-- Transaction Modal -->
+                  <div class="modal fade" id="transactionModal{{ payment.transaction_id }}" tabindex="-1" aria-labelledby="transactionModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content p-4">
+                        <div class="modal-header">
+                          <h6>
+                            Transaction ID: {{ payment.transaction_id }}
+                          </h6>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="text-center">
+                            <img src="\static\images\BosyoLogoClear.png" class="mt-5 mb-4" style="width: 174px"></picture>
+                          </div>
+                          <h4 class="text-center theme-color mb-5">We appreciate your business -  thank you for choosing us.</h4>
+                          <div class="d-flex justify-content-between">
+                            <span class="font-weight-bold text-primary my-2">Garbage Hauling Service</span>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <small>Rate × No. Households</small>
+                            <small>₱ {{ user.rate|intcomma }}</small>
+                          </div>
+                          <div class="d-flex justify-content-between mt-5 pt-5">
+                            <h4>
+                              <span class="font-weight-bold">Amount Paid</span>
+                            </h4>
+                            <h4>
+                              <span class="font-weight-bold text-primary">₱ {{ payment.amount|intcomma }}</span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 
 </body> 
 
