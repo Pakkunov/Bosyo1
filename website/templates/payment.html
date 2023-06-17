@@ -37,6 +37,8 @@
 />
 <!--This is the head section-->
 <!-- <style> ... </style> -->
+<script src="https://www.paypal.com/sdk/js?client-id=AYUBK_5IUlIHcyY2I-3enRogGyAS1TjCEM-LXzv_14uu3DR8MQjszlryfC6Wv4Y5k9V1s9zGW6bxWVBi&enable-funding=venmo&currency=PHP" data-sdk-integration-source="button-factory"></script>
+
 </head>
 
 <style>
@@ -54,13 +56,21 @@
     {% comment %} Row Dashboard {% endcomment %}
       <div class="row">
         <div class="col-10 dashboard-content">
-          <h1 class="fw-bold">
+          <h1 class="fw-bold d-none d-lg-block">
             Payment
-          </h1>               
-          <h6 style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
+          </h1>
+          <h6 class="d-block d-lg-none text-center mb-4" style="margin-left: 90px;">
+            Payment
+          </h6>               
+          <h6 class="d-none d-lg-block" style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
             <p>Please note that the Username is <span class="fw-bold">Case Sensitive.</span></p>
             <p>If there is an issue with your payment, click here to <a style="text-decoration: none;" class="text-warning" href="{% url 'contact_form' %}#Contact-Map" target="_blank">contact us.</a></p>
           </h6>
+          <h4 class="d-block d-lg-none" style="text-shadow: 2px 2px 3px #656565; margin-top: 40px; margin-left: 90px;">
+            <p class="text-center">Outstanding Balance</p>
+            {% load humanize %}
+            <h1 class="fw-bold text-center d-block d-lg-none" style="font-size: 2.5em; margin-left: 90px;">₱ {{user.outstanding_balance}}</h1>
+          </h4>
         </div>
       </div>
     </div>
@@ -135,16 +145,16 @@
       {% endif%}
     </div>
       <!-- 2nd Column -->
-      <div class="col mx-3 col-2nd-pp mb-5">
+      <div class="col mx-3 col-2nd-pp mb-5 ms-4">
         <div id="smart-button-container">
           {% csrf_token %}
           {% load humanize %}
-            {% if user.outstanding_balance is None %}
+            {% if user.outstanding_balance == 0 %}
           <div class="d-flex justify-content-center">
             <img src="\static\images\paypal-logo.png" 
-            class="py-5 mt-5 d-none d-lg-block mx-5" style="width: 174px;">
+            class="py-5 mt-5 mx-5" style="width: 174px;">
           </div>
-            <h4 class="fw-bold text-center mx-4 mt-5">You have no outstanding balance.</h4>
+            <h4 class="fw-bold text-center mx-4 my-5">You have no outstanding balance.</h4>
           {% else %}
           <div class="has-balance p-5">
             <p class="mt-2 fw-bold d-block d-md-none text-center">Amount to pay:
@@ -176,7 +186,6 @@
         </div>
     </section>
 
-        <script src="https://www.paypal.com/sdk/js?client-id=AYUBK_5IUlIHcyY2I-3enRogGyAS1TjCEM-LXzv_14uu3DR8MQjszlryfC6Wv4Y5k9V1s9zGW6bxWVBi&enable-funding=venmo&currency=PHP" data-sdk-integration-source="button-factory"></script>
         <script>
 
             function getCookie(name) {

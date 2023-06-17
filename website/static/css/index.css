@@ -4177,9 +4177,6 @@ img {
     font-size: 16px;
   }
 
-  .home-get-started1 {
-    display: none;
-  }
 }
 
 @media(max-width: 479px) {

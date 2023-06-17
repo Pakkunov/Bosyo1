@@ -29,7 +29,6 @@ td {
   text-align: center;
   height: 50px;
   line-height: 45px;
-  border-bottom: 1px dashed #cccccc;
 }
 
 .profile-section {
@@ -67,6 +66,7 @@ td {
   padding-bottom: 4rem;
   color: black;
 }
+
 
 .credit-card1 {
   background-image: url(/static/images/gradient-green.png);
@@ -138,4 +138,15 @@ td {
 .trow-click {
   cursor: pointer;
   line-height: 1.5em;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #1f5337;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+  transition: all .25s ease-out;
+  color: white;
+}
+
+.home-get-started1 {
+  margin-top: 120px;
 }

@@ -50,6 +50,9 @@
   .alert {
   width: 58%;
 }
+  body {
+  font-family: "Poppins", sans-serif;
+}
 
 
 </style>
@@ -95,21 +98,30 @@
     {% comment %} Row Dashboard {% endcomment %}
       <div class="row">
         <div class="col dashboard-content">
-          <h1 class="fw-bold">
-            Welcome, {{user.username}}!
-          </h1>               
-          <h6 style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
+          <h1 class="fw-bold d-none d-lg-block">
+            Welcome back, <span style="text-transform: capitalize;">{{user.username}}</span>!
+          </h1>
+          <h6 class="d-block d-lg-none text-center">
+            Welcome back, <span style="text-transform: capitalize; font-weight: bold;">{{user.username}}</span>!
+          </h6>
+          <h6 class="d-none d-lg-block" style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
             This page displays your transactions, providing you details about past payments. 
             If you want to change something on your account details, please <a style="text-decoration: none; color: yellow;" href="{% url 'contact_form' %}#Contact-Map" target="_blank">
               contact us</a> and we'll get it settled.
           </span>
           </h6>
+          <h4 class="d-block d-lg-none" style="text-shadow: 2px 2px 3px #656565; margin-top: 40px;">
+            <p class="text-center">Outstanding Balance</p>
+            {% load humanize %}
+            <h1 class="fw-bold text-center d-block d-lg-none" style="font-size: 2.5em;">₱ {{user.outstanding_balance}}</h1>
+          </h4>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!--
 <section class="my-5">
   <div class="container">
     <div class="row">
@@ -130,12 +142,13 @@
       </div>
     </div>
   </div>
-</section>
+</section> 
+-->
 
-{% comment %} <section class="d-none d-lg-block" style="margin-left: 40px;">
+<section class="d-none d-lg-block" style="margin-left: 60px;">
   <div class="container">
     <div class="d-flex justify-content-center">
-      <div class="col-md-6 my-5 text-white">
+      <div class="col-md-6 my-5 ms-5 text-white">
         <div class="credit-card1">
           <h6 style="margin-left: 20px;">
             Outstanding Balance:
@@ -165,22 +178,29 @@
       </div>
     </div>
   </div>
-</section> {% endcomment %}
+</section>
+
+<section class="d-block d-lg-none" style="margin-left: 90px; margin-top: 50px;">
+  <h4 class="text-center">
+    Monthly Bill:
+  </h4>
+  <h1 class="fw-bold text-center mt-3">
+    {% load humanize %}
+    ₱ {{user.rate|intcomma}}
+  </h1>
+</section>
 
 
 {% comment %} Payment History {% endcomment %}
-<section class="transaction-history mb-5">
+<section class="transaction-history my-5">
   <div class="container">
-  <h6 class="h6-transactions fw-bold ms-4 mb-3">
-    Transactions
-  </h6>
-    <div class="col-md-12 mx-auto" style="border-radius: 20px; background-color: #2f6f4f; border: none;">
+    <div class="col-md-12 mx-auto" style="border-radius: 15px; background-color: #e2e2e2; border: none; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
       <div class="mx-3 py-3 mb-5">
-        <h6 class="fw-bold text-start mb-5 mt-2 text-white">Payment History</h6>
+        <h6 class="fw-bold text-start mb-5 mt-2 text-black">Payment History</h6>
         <div class="table-responsive">
           <table class="table">
             <thead>
-              <tr class="text-white" style="border: none;">
+              <tr class="text-black" style="border: none;">
                 <th>Date</th>
                 <th>Amount</th>
               </tr>
@@ -188,7 +208,7 @@
             <tbody>
               {% for payment in payments %}
                 {% if forloop.counter < 6 %}
-                  <tr class="text-white" data-bs-toggle="modal" data-bs-target="#transactionModal{{ payment.transaction_id }}">
+                  <tr class="text-black" data-bs-toggle="modal" data-bs-target="#transactionModal{{ payment.transaction_id }}">
                     <td class="trow-click">
                       {{ payment.Date_paid }}</td>
                     {% load humanize %}
@@ -237,6 +257,31 @@
     </div>
   </div>
 </section>
+
+
+
+  {% comment %} <!-- Get Started with Bosyo -->
+  <section>
+    <div class="home-get-started1 py-5">
+      <div class="home-content09">
+        <div class="home-heading14">
+          <h2 class="home-text77">Your review matters to us!</h2>
+          <span class="home-text78">
+            We greatly value your feedback and would love to hear about your experience with our application. 
+            Your insights and opinions are invaluable to us as we strive to enhance our services and provide you with the best possible user experience. 
+          </span>
+        </div>
+        <div class="home-hero-buttons1">
+          <div class="home-io-btn1">
+            <span class="home-caption6"><i class='bx bxl-facebook-circle' ></i> Facebook</span>
+          </div>
+          <div class="home-android-btn1">
+            <span class="home-caption7"><i class='bx bxs-map-pin'></i> Google Maps</span>
+          </div> 
+        </div> 
+      </div>
+    </div>
+  </section> {% endcomment %}
 
 </body> 
 
