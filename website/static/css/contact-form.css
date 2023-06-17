@@ -1,9 +1,14 @@
 .contact-process {
     background-color: #00321e;
     width: 100%;
-    height: 1800px;
+    height: 100%;
     color: white;
   }  
+  @media (max-width: 767px) {
+    .contact-process {
+      height: 350vh;
+    }
+  }
 
 .about-text07 {
     font-size: 40px;
@@ -34,6 +39,33 @@
   }
   @media (max-width: 767px) {
     .contact1 {
+      padding: 30px;
+      max-width: 500px;
+      height: 580px;
+      background-color: #00dc84;
+      background-position: 0% 0%;
+    }
+  }
+  .contact-sm {
+    background-image: none;
+    border-radius: 35px;
+    background-color: #00dc84;
+    padding: 60px;
+    padding-left: 120px;
+    max-width: 1300px;
+    height: 670px;
+    margin: 0 auto;
+    text-align: justify;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-repeat: no-repeat;
+    background-position: 100% 90%;
+    background-size: 45%; 
+    text-shadow: #179563 1px 1px;
+    font-size: large;
+  }
+  @media (max-width: 767px) {
+    .contact-sm {
       padding: 30px;
       max-width: 500px;
       height: 580px;
