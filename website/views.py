@@ -157,7 +157,7 @@ def index(request):
                 'content': content,
             })
 
-            send_mail('The contact form subject', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyocollector@protonmail.com'], html_message=html)
+            send_mail('The contact form subject', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyogarbagecollect@protonmail.com'], html_message=html)
 
             return redirect('home')
     else:
@@ -236,7 +236,7 @@ def contact_form(request):
                 'content': content,
             })
 
-            send_mail('This message is from Bosyo Garbage Collector', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyocollector@protonmail.com'], html_message=html)
+            send_mail('This message is from Bosyo Garbage Collector', 'This is the message', 'noreply@bosyogarbagecollector.com', ['bosyogarbagecollect@protonmail.com'], html_message=html)
 
             return redirect('home')
     else:
