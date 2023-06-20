@@ -1,8 +1,0 @@
-a {
-    text-decoration: none;
-    color: #C4C4C4;
-    transition: 0.3s;
-}
-a:hover {
-    color: rgba(196, 196, 196, 0.5);
-}
